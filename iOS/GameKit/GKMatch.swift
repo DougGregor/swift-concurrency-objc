@@ -27,8 +27,12 @@ class GKMatch : NSObject {
   func voiceChat(withName name: String) -> GKVoiceChat?
   @available(iOS 8.0, *)
   func chooseBestHostingPlayer(completionHandler: @escaping (GKPlayer?) -> Void)
+  @available(iOS 8.0, *)
+  func chooseBestHostingPlayer() async -> GKPlayer?
   @available(iOS 6.0, *)
   func rematch(completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  @available(iOS 6.0, *)
+  func rematch() async throws -> GKMatch?
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
@@ -51,6 +55,8 @@ protocol GKMatchDelegate : NSObjectProtocol {
 extension GKMatch {
   @available(iOS, introduced: 6.0, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use chooseBestHostingPlayerWithCompletionHandler:")
   func chooseBestHostPlayer(completionHandler: @escaping (String?) -> Void)
+  @available(iOS, introduced: 6.0, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use chooseBestHostingPlayerWithCompletionHandler:")
+  func chooseBestHostPlayer() async -> String?
   @available(iOS, introduced: 4.1, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use sendData:toPlayers:dataMode:error:")
   func send(_ data: Data, toPlayers playerIDs: [String], with mode: GKMatch.SendDataMode) throws
   @available(iOS, introduced: 4.1, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use players instead.")

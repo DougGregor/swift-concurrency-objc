@@ -2,12 +2,16 @@
 @available(tvOS 4.1, *)
 class GKAchievement : NSObject, NSCoding, NSSecureCoding {
   class func loadAchievements(completionHandler: (([GKAchievement]?, Error?) -> Void)? = nil)
+  class func loadAchievements() async throws -> [GKAchievement]?
   class func resetAchievements(completionHandler: ((Error?) -> Void)? = nil)
+  class func resetAchievements() async throws
   init(identifier: String)
   @available(tvOS 8.0, *)
   init(identifier: String, player: GKPlayer)
   @available(tvOS 6.0, *)
   class func report(_ achievements: [GKAchievement], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 6.0, *)
+  class func report(_ achievements: [GKAchievement]) async throws
   var identifier: String
   var percentComplete: Double
   var isCompleted: Bool { get }

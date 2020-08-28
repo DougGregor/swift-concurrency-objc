@@ -11,7 +11,9 @@ class INStartWorkoutIntent : INIntent {
 @available(tvOS 10.0, *)
 protocol INStartWorkoutIntentHandling : NSObjectProtocol {
   func handle(intent: INStartWorkoutIntent, completion: @escaping (INStartWorkoutIntentResponse) -> Void)
+  func handle(intent: INStartWorkoutIntent) async -> INStartWorkoutIntentResponse
   optional func confirm(intent: INStartWorkoutIntent, completion: @escaping (INStartWorkoutIntentResponse) -> Void)
+  optional func confirm(intent: INStartWorkoutIntent) async -> INStartWorkoutIntentResponse
   optional func resolveWorkoutName(for intent: INStartWorkoutIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
   optional func resolveGoalValue(for intent: INStartWorkoutIntent, with completion: @escaping (INDoubleResolutionResult) -> Void)
   optional func resolveWorkoutGoalUnitType(for intent: INStartWorkoutIntent, with completion: @escaping (INWorkoutGoalUnitTypeResolutionResult) -> Void)

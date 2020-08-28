@@ -19,6 +19,7 @@ enum UNNotificationContentExtensionResponseOption : UInt {
 protocol UNNotificationContentExtension : NSObjectProtocol {
   func didReceive(_ notification: UNNotification)
   optional func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void)
+  optional func didReceive(_ response: UNNotificationResponse) async -> UNNotificationContentExtensionResponseOption
   optional var mediaPlayPauseButtonType: UNNotificationContentExtensionMediaPlayPauseButtonType { get }
   optional var mediaPlayPauseButtonFrame: CGRect { get }
   @NSCopying optional var mediaPlayPauseButtonTintColor: UIColor { get }

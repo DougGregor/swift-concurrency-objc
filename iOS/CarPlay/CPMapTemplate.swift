@@ -57,6 +57,7 @@ class CPMapTemplate : CPTemplate, CPBarButtonProviding {
   var currentNavigationAlert: CPNavigationAlert? { get }
   func present(navigationAlert: CPNavigationAlert, animated: Bool)
   func dismissNavigationAlert(animated: Bool, completion: @escaping (Bool) -> Void)
+  func dismissNavigationAlert(animated: Bool) async -> Bool
 }
 @available(iOS 12.0, *)
 protocol CPMapTemplateDelegate : NSObjectProtocol {

@@ -12,4 +12,5 @@ extension AVAudioSession {
 @available(iOS 13.0, *)
 extension AVAudioSession {
   func prepareRouteSelectionForPlayback(completionHandler: @escaping (Bool, AVAudioSession.RouteSelection) -> Void)
+  func prepareRouteSelectionForPlayback() async -> (Bool, AVAudioSession.RouteSelection)
 }

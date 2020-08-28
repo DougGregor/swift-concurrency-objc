@@ -7,6 +7,8 @@ class INCancelWorkoutIntent : INIntent {
 @available(watchOS 3.2, *)
 protocol INCancelWorkoutIntentHandling : NSObjectProtocol {
   func handle(intent: INCancelWorkoutIntent, completion: @escaping (INCancelWorkoutIntentResponse) -> Void)
+  func handle(intent: INCancelWorkoutIntent) async -> INCancelWorkoutIntentResponse
   optional func confirm(intent: INCancelWorkoutIntent, completion: @escaping (INCancelWorkoutIntentResponse) -> Void)
+  optional func confirm(intent: INCancelWorkoutIntent) async -> INCancelWorkoutIntentResponse
   optional func resolveWorkoutName(for intent: INCancelWorkoutIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
 }

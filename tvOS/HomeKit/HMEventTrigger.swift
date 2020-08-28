@@ -23,16 +23,29 @@ class HMEventTrigger : HMTrigger {
   @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
   func addEvent(_ event: HMEvent, completionHandler completion: @escaping (Error?) -> Void)
   @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
+  func addEvent(_ event: HMEvent) async throws
+  @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
   func removeEvent(_ event: HMEvent, completionHandler completion: @escaping (Error?) -> Void)
+  @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
+  func removeEvent(_ event: HMEvent) async throws
   @available(tvOS 11.0, *)
   func updateEvents(_ events: [HMEvent], completionHandler completion: @escaping (Error?) -> Void)
   @available(tvOS 11.0, *)
+  func updateEvents(_ events: [HMEvent]) async throws
+  @available(tvOS 11.0, *)
   func updateEndEvents(_ endEvents: [HMEvent], completionHandler completion: @escaping (Error?) -> Void)
+  @available(tvOS 11.0, *)
+  func updateEndEvents(_ endEvents: [HMEvent]) async throws
   func updatePredicate(_ predicate: NSPredicate?, completionHandler completion: @escaping (Error?) -> Void)
+  func updatePredicate(_ predicate: NSPredicate?) async throws
   @available(tvOS 11.0, *)
   func updateRecurrences(_ recurrences: [DateComponents]?, completionHandler completion: @escaping (Error?) -> Void)
   @available(tvOS 11.0, *)
+  func updateRecurrences(_ recurrences: [DateComponents]?) async throws
+  @available(tvOS 11.0, *)
   func updateExecuteOnce(_ executeOnce: Bool, completionHandler completion: @escaping (Error?) -> Void)
+  @available(tvOS 11.0, *)
+  func updateExecuteOnce(_ executeOnce: Bool) async throws
 }
 extension HMEventTrigger {
   @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "Use predicateForEvaluatingTriggerOccurringBeforeSignificantEvent: instead")

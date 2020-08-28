@@ -13,7 +13,9 @@ class INSetProfileInCarIntent : INIntent {
 @available(tvOS 10.0, *)
 protocol INSetProfileInCarIntentHandling : NSObjectProtocol {
   func handle(intent: INSetProfileInCarIntent, completion: @escaping (INSetProfileInCarIntentResponse) -> Void)
+  func handle(intent: INSetProfileInCarIntent) async -> INSetProfileInCarIntentResponse
   optional func confirm(intent: INSetProfileInCarIntent, completion: @escaping (INSetProfileInCarIntentResponse) -> Void)
+  optional func confirm(intent: INSetProfileInCarIntent) async -> INSetProfileInCarIntentResponse
   optional func resolveProfileNumber(for intent: INSetProfileInCarIntent, with completion: @escaping (INIntegerResolutionResult) -> Void)
   @available(tvOS 10.2, *)
   optional func resolveProfileName(for intent: INSetProfileInCarIntent, with completion: @escaping (INStringResolutionResult) -> Void)

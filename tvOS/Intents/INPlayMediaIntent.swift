@@ -29,7 +29,9 @@ extension INPlayMediaIntent {
 @available(tvOS 14.0, *)
 protocol INPlayMediaIntentHandling : NSObjectProtocol {
   func handle(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  func handle(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   optional func confirm(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  optional func confirm(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   @available(tvOS 13.0, *)
   optional func resolveMediaItems(for intent: INPlayMediaIntent, with completion: @escaping ([INPlayMediaMediaItemResolutionResult]) -> Void)
   @available(tvOS 13.0, *)

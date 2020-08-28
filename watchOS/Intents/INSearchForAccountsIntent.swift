@@ -10,7 +10,9 @@ class INSearchForAccountsIntent : INIntent {
 @available(watchOS 4.0, *)
 protocol INSearchForAccountsIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForAccountsIntent, completion: @escaping (INSearchForAccountsIntentResponse) -> Void)
+  func handle(intent: INSearchForAccountsIntent) async -> INSearchForAccountsIntentResponse
   optional func confirm(intent: INSearchForAccountsIntent, completion: @escaping (INSearchForAccountsIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForAccountsIntent) async -> INSearchForAccountsIntentResponse
   optional func resolveAccountNickname(for intent: INSearchForAccountsIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
   optional func resolveAccountType(for intent: INSearchForAccountsIntent, with completion: @escaping (INAccountTypeResolutionResult) -> Void)
   optional func resolveOrganizationName(for intent: INSearchForAccountsIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)

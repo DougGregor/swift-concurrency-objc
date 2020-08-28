@@ -24,6 +24,7 @@ class ASAuthorizationProviderExtensionAuthorizationRequest : NSObject {
   func complete(httpResponse: HTTPURLResponse, httpBody: Data?)
   func complete(error: Error)
   func presentAuthorizationViewController(completion: @escaping (Bool, Error?) -> Void)
+  func presentAuthorizationViewController() async throws -> Bool
   var url: URL { get }
   var requestedOperation: ASAuthorizationProviderAuthorizationOperation { get }
   var httpHeaders: [String : String] { get }

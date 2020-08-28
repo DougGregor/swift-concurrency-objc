@@ -12,4 +12,5 @@ enum EPDeveloperToolStatus : Int {
 class EPDeveloperTool : NSObject {
   var authorizationStatus: EPDeveloperToolStatus { get }
   func requestAccess(completionHandler handler: @escaping (Bool) -> Void)
+  func requestAccess() async -> Bool
 }

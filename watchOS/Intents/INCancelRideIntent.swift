@@ -7,5 +7,7 @@ class INCancelRideIntent : INIntent {
 @available(watchOS 4.0, *)
 protocol INCancelRideIntentHandling : NSObjectProtocol {
   func handle(cancelRide intent: INCancelRideIntent, completion: @escaping (INCancelRideIntentResponse) -> Void)
+  func handle(cancelRide intent: INCancelRideIntent) async -> INCancelRideIntentResponse
   optional func confirm(cancelRide intent: INCancelRideIntent, completion: @escaping (INCancelRideIntentResponse) -> Void)
+  optional func confirm(cancelRide intent: INCancelRideIntent) async -> INCancelRideIntentResponse
 }

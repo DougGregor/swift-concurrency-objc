@@ -27,7 +27,9 @@ class INSearchForMessagesIntent : INIntent {
 @available(iOS 10.0, *)
 protocol INSearchForMessagesIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForMessagesIntent, completion: @escaping (INSearchForMessagesIntentResponse) -> Void)
+  func handle(intent: INSearchForMessagesIntent) async -> INSearchForMessagesIntentResponse
   optional func confirm(intent: INSearchForMessagesIntent, completion: @escaping (INSearchForMessagesIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForMessagesIntent) async -> INSearchForMessagesIntentResponse
   optional func resolveRecipients(for intent: INSearchForMessagesIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
   optional func resolveSenders(for intent: INSearchForMessagesIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
   optional func resolveAttributes(for intent: INSearchForMessagesIntent, with completion: @escaping (INMessageAttributeOptionsResolutionResult) -> Void)

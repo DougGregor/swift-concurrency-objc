@@ -10,6 +10,7 @@ enum GKChallengeState : Int {
 @available(tvOS 6.0, *)
 class GKChallenge : NSObject, NSCoding, NSSecureCoding {
   class func loadReceivedChallenges(completionHandler: (([GKChallenge]?, Error?) -> Void)? = nil)
+  class func loadReceivedChallenges() async throws -> [GKChallenge]?
   func decline()
   @available(tvOS 8.0, *)
   @NSCopying var issuingPlayer: GKPlayer? { get }
@@ -33,14 +34,22 @@ class GKAchievementChallenge : GKChallenge {
 extension GKScore {
   @available(tvOS, introduced: 6.0, deprecated: 14.0, message: "pass GKLeaderboardScore to reportLeaderboardScores:withEligibleChallenges:withCompletionHandler instead")
   class func report(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS, introduced: 6.0, deprecated: 14.0, message: "pass GKLeaderboardScore to reportLeaderboardScores:withEligibleChallenges:withCompletionHandler instead")
+  class func report(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge]) async throws
   @available(tvOS 14.0, *)
   class func report(_ scores: [GKLeaderboardScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 14.0, *)
+  class func report(_ scores: [GKLeaderboardScore], withEligibleChallenges challenges: [GKChallenge]) async throws
 }
 extension GKAchievement {
   @available(tvOS 8.0, *)
   func selectChallengeablePlayers(_ players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  @available(tvOS 8.0, *)
+  func selectChallengeablePlayers(_ players: [GKPlayer]) async throws -> [GKPlayer]?
   @available(tvOS 7.0, *)
   class func report(_ achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 7.0, *)
+  class func report(_ achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge]) async throws
 }
 extension GKScore {
 }

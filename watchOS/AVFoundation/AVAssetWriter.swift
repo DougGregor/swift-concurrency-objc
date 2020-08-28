@@ -37,6 +37,8 @@ class AVAssetWriter : NSObject {
   func finishWriting() -> Bool
   @available(watchOS 2.0, *)
   func finishWriting(completionHandler handler: @escaping () -> Void)
+  @available(watchOS 2.0, *)
+  func finishWriting() async
 }
 extension AVAssetWriter {
   var movieFragmentInterval: CMTime

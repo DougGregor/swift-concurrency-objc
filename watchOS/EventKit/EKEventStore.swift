@@ -12,6 +12,8 @@ class EKEventStore : NSObject {
   class func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus
   @available(watchOS 2.0, *)
   func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler)
+  @available(watchOS 2.0, *)
+  func requestAccess(to entityType: EKEntityType) async throws -> Bool
   var eventStoreIdentifier: String { get }
   @available(watchOS 5.0, *)
   var delegateSources: [EKSource] { get }

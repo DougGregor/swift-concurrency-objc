@@ -17,5 +17,7 @@ class HMService : NSObject {
   @available(watchOS 3.0, *)
   var linkedServices: [HMService]? { get }
   func updateName(_ name: String, completionHandler completion: @escaping (Error?) -> Void)
+  func updateName(_ name: String) async throws
   func updateAssociatedServiceType(_ serviceType: String?, completionHandler completion: @escaping (Error?) -> Void)
+  func updateAssociatedServiceType(_ serviceType: String?) async throws
 }

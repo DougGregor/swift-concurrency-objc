@@ -36,7 +36,9 @@ extension INSetClimateSettingsInCarIntent {
 @available(iOS 10.0, *)
 protocol INSetClimateSettingsInCarIntentHandling : NSObjectProtocol {
   func handle(intent: INSetClimateSettingsInCarIntent, completion: @escaping (INSetClimateSettingsInCarIntentResponse) -> Void)
+  func handle(intent: INSetClimateSettingsInCarIntent) async -> INSetClimateSettingsInCarIntentResponse
   optional func confirm(intent: INSetClimateSettingsInCarIntent, completion: @escaping (INSetClimateSettingsInCarIntentResponse) -> Void)
+  optional func confirm(intent: INSetClimateSettingsInCarIntent) async -> INSetClimateSettingsInCarIntentResponse
   optional func resolveEnableFan(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
   optional func resolveEnableAirConditioner(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
   optional func resolveEnableClimateControl(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)

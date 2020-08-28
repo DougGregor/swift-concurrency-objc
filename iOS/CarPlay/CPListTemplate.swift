@@ -25,4 +25,5 @@ class CPListTemplate : CPTemplate, CPBarButtonProviding {
 @available(iOS 12.0, *)
 protocol CPListTemplateDelegate : NSObjectProtocol {
   func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem, completionHandler: @escaping () -> Void)
+  func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem) async
 }

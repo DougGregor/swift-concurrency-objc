@@ -58,11 +58,19 @@ class UIPasteboard : NSObject {
   @available(tvOS 14.0, *)
   func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, completionHandler: @escaping (Set<UIPasteboard.DetectionPattern>?, Error?) -> Void)
   @available(tvOS 14.0, *)
+  func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>) async throws -> Set<UIPasteboard.DetectionPattern>?
+  @available(tvOS 14.0, *)
   func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?, completionHandler: @escaping ([Set<UIPasteboard.DetectionPattern>]?, Error?) -> Void)
+  @available(tvOS 14.0, *)
+  func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?) async throws -> [Set<UIPasteboard.DetectionPattern>]?
   @available(tvOS 14.0, *)
   func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, completionHandler: @escaping ([UIPasteboard.DetectionPattern : Any]?, Error?) -> Void)
   @available(tvOS 14.0, *)
+  func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>) async throws -> [UIPasteboard.DetectionPattern : Any]?
+  @available(tvOS 14.0, *)
   func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?, completionHandler: @escaping ([[UIPasteboard.DetectionPattern : Any]]?, Error?) -> Void)
+  @available(tvOS 14.0, *)
+  func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?) async throws -> [[UIPasteboard.DetectionPattern : Any]]?
 }
 extension UIPasteboard {
   @available(tvOS 10.0, *)

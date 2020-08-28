@@ -63,17 +63,25 @@ class GKMatchmaker : NSObject {
   class func shared() -> GKMatchmaker
   @available(tvOS 6.0, *)
   func match(for invite: GKInvite, completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  @available(tvOS 6.0, *)
+  func match(for invite: GKInvite) async throws -> GKMatch?
   func findMatch(for request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  func findMatch(for request: GKMatchRequest) async throws -> GKMatch?
   @available(tvOS 8.0, *)
   func findPlayers(forHostedRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  @available(tvOS 8.0, *)
+  func findPlayers(forHostedRequest request: GKMatchRequest) async throws -> [GKPlayer]?
   func addPlayers(to match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((Error?) -> Void)? = nil)
+  func addPlayers(to match: GKMatch, matchRequest: GKMatchRequest) async throws
   func cancel()
   @available(tvOS 8.0, *)
   func cancelPendingInvite(to player: GKPlayer)
   @available(tvOS 6.0, *)
   func finishMatchmaking(for match: GKMatch)
   func queryPlayerGroupActivity(_ playerGroup: Int, withCompletionHandler completionHandler: ((Int, Error?) -> Void)? = nil)
+  func queryPlayerGroupActivity(_ playerGroup: Int) async throws -> Int
   func queryActivity(completionHandler: ((Int, Error?) -> Void)? = nil)
+  func queryActivity() async throws -> Int
   @available(tvOS 8.0, *)
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(tvOS 6.0, *)

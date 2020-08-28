@@ -24,6 +24,8 @@ class NEAppProxyFlow : NSObject {
   @available(iOS 9.0, *)
   func open(withLocalEndpoint localEndpoint: NWHostEndpoint?, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
+  func open(withLocalEndpoint localEndpoint: NWHostEndpoint?) async throws
+  @available(iOS 9.0, *)
   func closeReadWithError(_ error: Error?)
   @available(iOS 9.0, *)
   func closeWriteWithError(_ error: Error?)
@@ -62,6 +64,8 @@ class NEProvider : NSObject {
   @available(iOS 9.0, *)
   func sleep(completionHandler: @escaping () -> Void)
   @available(iOS 9.0, *)
+  func sleep() async
+  @available(iOS 9.0, *)
   func wake()
   @available(iOS 9.0, *)
   func createTCPConnection(to remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: Any?) -> NWTCPConnection
@@ -69,6 +73,8 @@ class NEProvider : NSObject {
   func createUDPSession(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   @available(iOS, introduced: 10.0, deprecated: 12.0)
   func displayMessage(_ message: String, completionHandler: @escaping (Bool) -> Void)
+  @available(iOS, introduced: 10.0, deprecated: 12.0)
+  func displayMessage(_ message: String) async -> Bool
   class func startSystemExtensionMode()
   @available(iOS 9.0, *)
   var defaultPath: NWPath? { get }
@@ -97,7 +103,11 @@ class NETunnelProvider : NEProvider {
   @available(iOS 9.0, *)
   func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)? = nil)
   @available(iOS 9.0, *)
+  func handleAppMessage(_ messageData: Data) async -> Data?
+  @available(iOS 9.0, *)
   func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((Error?) -> Void)? = nil)
+  @available(iOS 9.0, *)
+  func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?) async throws
   @available(iOS 9.0, *)
   var protocolConfiguration: NEVPNProtocol { get }
   @available(iOS 9.0, *)
@@ -112,7 +122,11 @@ class NEAppProxyProvider : NETunnelProvider {
   @available(iOS 9.0, *)
   func startProxy(options: [String : Any]? = nil, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
+  func startProxy(options: [String : Any]? = nil) async throws
+  @available(iOS 9.0, *)
   func stopProxy(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(iOS 9.0, *)
+  func stopProxy(with reason: NEProviderStopReason) async
   @available(iOS 9.0, *)
   func cancelProxyWithError(_ error: Error?)
   @available(iOS 9.0, *)
@@ -153,9 +167,15 @@ class NEVPNManager : NSObject {
   @available(iOS 8.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 8.0, *)
+  func loadFromPreferences() async throws
+  @available(iOS 8.0, *)
   func removeFromPreferences(completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
+  func removeFromPreferences() async throws
+  @available(iOS 8.0, *)
   func saveToPreferences(completionHandler: ((Error?) -> Void)? = nil)
+  @available(iOS 8.0, *)
+  func saveToPreferences() async throws
   @available(iOS 8.0, *)
   var onDemandRules: [NEOnDemandRule]?
   @available(iOS 8.0, *)
@@ -175,6 +195,8 @@ class NEVPNManager : NSObject {
 class NETunnelProviderManager : NEVPNManager {
   @available(iOS 9.0, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NETunnelProviderManager]?, Error?) -> Void)
+  @available(iOS 9.0, *)
+  class func loadAllFromPreferences() async throws -> [NETunnelProviderManager]?
   class func forPerAppVPN() -> Self
   @available(iOS 9.0, *)
   func copyAppRules() -> [NEAppRule]?
@@ -196,7 +218,11 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
   @available(iOS 9.0, *)
   func readData(completionHandler: @escaping (Data?, Error?) -> Void)
   @available(iOS 9.0, *)
+  func readData() async throws -> Data?
+  @available(iOS 9.0, *)
   func write(_ data: Data, withCompletionHandler completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 9.0, *)
+  func write(_ data: Data) async throws
   @available(iOS 9.0, *)
   var remoteEndpoint: NWEndpoint { get }
 }
@@ -205,7 +231,11 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
   @available(iOS 9.0, *)
   func readDatagrams(completionHandler: @escaping ([Data]?, [NWEndpoint]?, Error?) -> Void)
   @available(iOS 9.0, *)
+  func readDatagrams() async throws -> ([Data]?, [NWEndpoint]?)
+  @available(iOS 9.0, *)
   func writeDatagrams(_ datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint], completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 9.0, *)
+  func writeDatagrams(_ datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint]) async throws
   @available(iOS 9.0, *)
   var localEndpoint: NWEndpoint? { get }
 }
@@ -238,9 +268,15 @@ class NEDNSProxyManager : NSObject {
   @available(iOS 11.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 11.0, *)
+  func loadFromPreferences() async throws
+  @available(iOS 11.0, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 11.0, *)
+  func removeFromPreferences() async throws
+  @available(iOS 11.0, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 11.0, *)
+  func saveToPreferences() async throws
   @available(iOS 11.0, *)
   var localizedDescription: String?
   @available(iOS 11.0, *)
@@ -253,7 +289,11 @@ class NEDNSProxyProvider : NEProvider {
   @available(iOS 11.0, *)
   func startProxy(options: [String : Any]? = nil, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 11.0, *)
+  func startProxy(options: [String : Any]? = nil) async throws
+  @available(iOS 11.0, *)
   func stopProxy(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(iOS 11.0, *)
+  func stopProxy(with reason: NEProviderStopReason) async
   @available(iOS 11.0, *)
   func cancelProxyWithError(_ error: Error?)
   @available(iOS 11.0, *)
@@ -383,9 +423,15 @@ class NEDNSSettingsManager : NSObject {
   @available(iOS 14.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 14.0, *)
+  func loadFromPreferences() async throws
+  @available(iOS 14.0, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 14.0, *)
+  func removeFromPreferences() async throws
+  @available(iOS 14.0, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 14.0, *)
+  func saveToPreferences() async throws
   @available(iOS 14.0, *)
   var localizedDescription: String?
   @available(iOS 14.0, *)
@@ -477,7 +523,11 @@ class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
   func startFilter(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
+  func startFilter() async throws
+  @available(iOS 9.0, *)
   func stopFilter(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(iOS 9.0, *)
+  func stopFilter(with reason: NEProviderStopReason) async
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
   @available(iOS 11.0, *)
@@ -570,7 +620,11 @@ class NEFilterControlProvider : NEFilterProvider {
   @available(iOS 9.0, *)
   func handleRemediation(for flow: NEFilterFlow, completionHandler: @escaping (NEFilterControlVerdict) -> Void)
   @available(iOS 9.0, *)
+  func handleRemediation(for flow: NEFilterFlow) async -> NEFilterControlVerdict
+  @available(iOS 9.0, *)
   func handleNewFlow(_ flow: NEFilterFlow, completionHandler: @escaping (NEFilterControlVerdict) -> Void)
+  @available(iOS 9.0, *)
+  func handleNewFlow(_ flow: NEFilterFlow) async -> NEFilterControlVerdict
   @available(iOS 9.0, *)
   func notifyRulesChanged()
 }
@@ -596,6 +650,7 @@ class NEFilterDataProvider : NEFilterProvider {
   @available(iOS 9.0, *)
   func handleRulesChanged()
   func apply(_ settings: NEFilterSettings?, completionHandler: @escaping (Error?) -> Void)
+  func apply(_ settings: NEFilterSettings?) async throws
   func resumeFlow(_ flow: NEFilterFlow, with verdict: NEFilterVerdict)
   func update(_ flow: NEFilterSocketFlow, using verdict: NEFilterDataVerdict, for direction: NETrafficDirection)
 }
@@ -653,9 +708,15 @@ class NEFilterManager : NSObject {
   @available(iOS 8.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 8.0, *)
+  func loadFromPreferences() async throws
+  @available(iOS 8.0, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 8.0, *)
+  func removeFromPreferences() async throws
+  @available(iOS 8.0, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 8.0, *)
+  func saveToPreferences() async throws
   @available(iOS 8.0, *)
   var localizedDescription: String?
   @available(iOS 9.0, *)
@@ -730,6 +791,8 @@ class NEHotspotNetwork : NSObject {
   var bssid: String { get }
   @available(iOS 14.0, *)
   class func fetchCurrent(completionHandler: @escaping (NEHotspotNetwork?) -> Void)
+  @available(iOS 14.0, *)
+  class func fetchCurrent() async -> NEHotspotNetwork?
 }
 @available(iOS 9.0, *)
 enum NEHotspotHelperCommandType : Int {
@@ -942,11 +1005,15 @@ class NEHotspotConfigurationManager : NSObject {
   @available(iOS 11.0, *)
   func apply(_ configuration: NEHotspotConfiguration, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 11.0, *)
+  func apply(_ configuration: NEHotspotConfiguration) async throws
+  @available(iOS 11.0, *)
   func removeConfiguration(forSSID SSID: String)
   @available(iOS 11.0, *)
   func removeConfiguration(forHS20DomainName domainName: String)
   @available(iOS 11.0, *)
   func getConfiguredSSIDs(completionHandler: @escaping ([String]) -> Void)
+  @available(iOS 11.0, *)
+  func getConfiguredSSIDs() async -> [String]
 }
 @available(iOS 9.0, *)
 class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
@@ -1087,9 +1154,13 @@ class NEPacketTunnelFlow : NSObject {
   @available(iOS 9.0, *)
   func readPackets(completionHandler: @escaping ([Data], [NSNumber]) -> Void)
   @available(iOS 9.0, *)
+  func readPackets() async -> ([Data], [NSNumber])
+  @available(iOS 9.0, *)
   func writePackets(_ packets: [Data], withProtocols protocols: [NSNumber]) -> Bool
   @available(iOS 10.0, *)
   func readPacketObjects(completionHandler: @escaping ([NEPacket]) -> Void)
+  @available(iOS 10.0, *)
+  func readPacketObjects() async -> [NEPacket]
   @available(iOS 10.0, *)
   func writePacketObjects(_ packets: [NEPacket]) -> Bool
 }
@@ -1120,7 +1191,11 @@ class NEPacketTunnelProvider : NETunnelProvider {
   @available(iOS 9.0, *)
   func startTunnel(options: [String : NSObject]? = nil, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
+  func startTunnel(options: [String : NSObject]? = nil) async throws
+  @available(iOS 9.0, *)
   func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(iOS 9.0, *)
+  func stopTunnel(with reason: NEProviderStopReason) async
   @available(iOS 9.0, *)
   func cancelTunnelWithError(_ error: Error?)
   @available(iOS 9.0, *)
@@ -1132,6 +1207,7 @@ class NEPacketTunnelProvider : NETunnelProvider {
 }
 class NETransparentProxyManager : NEVPNManager {
   class func loadAllFromPreferences(completionHandler: @escaping ([NETransparentProxyManager]?, Error?) -> Void)
+  class func loadAllFromPreferences() async throws -> [NETransparentProxyManager]?
 }
 class NETransparentProxyNetworkSettings : NETunnelNetworkSettings {
   var includedNetworkRules: [NENetworkRule]?
@@ -1347,11 +1423,19 @@ class NEAppPushManager : NSObject {
   @available(iOS 14.0, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NEAppPushManager]?, Error?) -> Void)
   @available(iOS 14.0, *)
+  class func loadAllFromPreferences() async throws -> [NEAppPushManager]?
+  @available(iOS 14.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 14.0, *)
+  func loadFromPreferences() async throws
   @available(iOS 14.0, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 14.0, *)
+  func removeFromPreferences() async throws
+  @available(iOS 14.0, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 14.0, *)
+  func saveToPreferences() async throws
   @available(iOS 14.0, *)
   var localizedDescription: String?
   @available(iOS 14.0, *)
@@ -1371,7 +1455,11 @@ class NEAppPushProvider : NEProvider {
   @available(iOS 14.0, *)
   func start(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 14.0, *)
+  func start() async throws
+  @available(iOS 14.0, *)
   func stop(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(iOS 14.0, *)
+  func stop(with reason: NEProviderStopReason) async
   @available(iOS 14.0, *)
   func reportIncomingCall(userInfo: [AnyHashable : Any] = [:])
   @available(iOS 14.0, *)
@@ -1458,9 +1546,15 @@ class NWTCPConnection : NSObject {
   @available(iOS 9.0, *)
   func readLength(_ length: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(iOS 9.0, *)
+  func readLength(_ length: Int) async throws -> Data?
+  @available(iOS 9.0, *)
   func readMinimumLength(_ minimum: Int, maximumLength maximum: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(iOS 9.0, *)
+  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int) async throws -> Data?
+  @available(iOS 9.0, *)
   func write(_ data: Data, completionHandler completion: @escaping (Error?) -> Void)
+  @available(iOS 9.0, *)
+  func write(_ data: Data) async throws
   @available(iOS 9.0, *)
   func writeClose()
 }
@@ -1471,9 +1565,13 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   optional func provideIdentity(for connection: NWTCPConnection, completionHandler completion: @escaping (SecIdentity, [Any]) -> Void)
   @available(iOS 9.0, *)
+  optional func provideIdentity(for connection: NWTCPConnection) async -> (SecIdentity, [Any])
+  @available(iOS 9.0, *)
   optional func shouldEvaluateTrust(for connection: NWTCPConnection) -> Bool
   @available(iOS 9.0, *)
   optional func evaluateTrust(for connection: NWTCPConnection, peerCertificateChain: [Any], completionHandler completion: @escaping (SecTrust) -> Void)
+  @available(iOS 9.0, *)
+  optional func evaluateTrust(for connection: NWTCPConnection, peerCertificateChain: [Any]) async -> SecTrust
 }
 @available(iOS 9.0, *)
 enum NWUDPSessionState : Int {
@@ -1511,7 +1609,11 @@ class NWUDPSession : NSObject {
   @available(iOS 9.0, *)
   func writeMultipleDatagrams(_ datagramArray: [Data], completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
+  func writeMultipleDatagrams(_ datagramArray: [Data]) async throws
+  @available(iOS 9.0, *)
   func writeDatagram(_ datagram: Data, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 9.0, *)
+  func writeDatagram(_ datagram: Data) async throws
   @available(iOS 9.0, *)
   func cancel()
 }

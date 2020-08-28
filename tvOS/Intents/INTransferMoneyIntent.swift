@@ -11,7 +11,9 @@ class INTransferMoneyIntent : INIntent {
 @available(tvOS 11.0, *)
 protocol INTransferMoneyIntentHandling : NSObjectProtocol {
   func handle(intent: INTransferMoneyIntent, completion: @escaping (INTransferMoneyIntentResponse) -> Void)
+  func handle(intent: INTransferMoneyIntent) async -> INTransferMoneyIntentResponse
   optional func confirm(intent: INTransferMoneyIntent, completion: @escaping (INTransferMoneyIntentResponse) -> Void)
+  optional func confirm(intent: INTransferMoneyIntent) async -> INTransferMoneyIntentResponse
   optional func resolveFromAccount(for intent: INTransferMoneyIntent, with completion: @escaping (INPaymentAccountResolutionResult) -> Void)
   optional func resolveToAccount(for intent: INTransferMoneyIntent, with completion: @escaping (INPaymentAccountResolutionResult) -> Void)
   optional func resolveTransactionAmount(for intent: INTransferMoneyIntent, with completion: @escaping (INPaymentAmountResolutionResult) -> Void)

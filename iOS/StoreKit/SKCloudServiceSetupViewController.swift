@@ -20,6 +20,8 @@ class SKCloudServiceSetupViewController : UIViewController {
   weak var delegate: @sil_weak SKCloudServiceSetupViewControllerDelegate?
   @available(iOS 10.1, *)
   func load(options: [SKCloudServiceSetupOptionsKey : Any] = [:], completionHandler: ((Bool, Error?) -> Void)? = nil)
+  @available(iOS 10.1, *)
+  func load(options: [SKCloudServiceSetupOptionsKey : Any] = [:]) async throws -> Bool
 }
 protocol SKCloudServiceSetupViewControllerDelegate : NSObjectProtocol {
   @available(iOS 10.1, *)

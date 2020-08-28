@@ -6,4 +6,5 @@ class HMRoom : NSObject {
   @available(tvOS 9.0, *)
   var uniqueIdentifier: UUID { get }
   func updateName(_ name: String, completionHandler completion: @escaping (Error?) -> Void)
+  func updateName(_ name: String) async throws
 }

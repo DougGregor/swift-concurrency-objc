@@ -46,5 +46,7 @@ extension URLCache {
   @available(watchOS 2.0, *)
   func getCachedResponse(for dataTask: URLSessionDataTask, completionHandler: @escaping (CachedURLResponse?) -> Void)
   @available(watchOS 2.0, *)
+  func getCachedResponse(for dataTask: URLSessionDataTask) async -> CachedURLResponse?
+  @available(watchOS 2.0, *)
   func removeCachedResponse(for dataTask: URLSessionDataTask)
 }

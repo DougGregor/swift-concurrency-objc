@@ -11,7 +11,9 @@ class INSearchForBillsIntent : INIntent {
 @available(iOS 10.3, *)
 protocol INSearchForBillsIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForBillsIntent, completion: @escaping (INSearchForBillsIntentResponse) -> Void)
+  func handle(intent: INSearchForBillsIntent) async -> INSearchForBillsIntentResponse
   optional func confirm(intent: INSearchForBillsIntent, completion: @escaping (INSearchForBillsIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForBillsIntent) async -> INSearchForBillsIntentResponse
   optional func resolveBillPayee(for intent: INSearchForBillsIntent, with completion: @escaping (INBillPayeeResolutionResult) -> Void)
   optional func resolvePaymentDateRange(for intent: INSearchForBillsIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
   optional func resolveBillType(for intent: INSearchForBillsIntent, with completion: @escaping (INBillTypeResolutionResult) -> Void)

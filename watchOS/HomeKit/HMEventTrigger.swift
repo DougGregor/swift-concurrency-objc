@@ -23,16 +23,29 @@ class HMEventTrigger : HMTrigger {
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use updateEvents:completionHandler: instead")
   func addEvent(_ event: HMEvent, completionHandler completion: @escaping (Error?) -> Void)
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use updateEvents:completionHandler: instead")
+  func addEvent(_ event: HMEvent) async throws
+  @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use updateEvents:completionHandler: instead")
   func removeEvent(_ event: HMEvent, completionHandler completion: @escaping (Error?) -> Void)
+  @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use updateEvents:completionHandler: instead")
+  func removeEvent(_ event: HMEvent) async throws
   @available(watchOS 4.0, *)
   func updateEvents(_ events: [HMEvent], completionHandler completion: @escaping (Error?) -> Void)
   @available(watchOS 4.0, *)
+  func updateEvents(_ events: [HMEvent]) async throws
+  @available(watchOS 4.0, *)
   func updateEndEvents(_ endEvents: [HMEvent], completionHandler completion: @escaping (Error?) -> Void)
+  @available(watchOS 4.0, *)
+  func updateEndEvents(_ endEvents: [HMEvent]) async throws
   func updatePredicate(_ predicate: NSPredicate?, completionHandler completion: @escaping (Error?) -> Void)
+  func updatePredicate(_ predicate: NSPredicate?) async throws
   @available(watchOS 4.0, *)
   func updateRecurrences(_ recurrences: [DateComponents]?, completionHandler completion: @escaping (Error?) -> Void)
   @available(watchOS 4.0, *)
+  func updateRecurrences(_ recurrences: [DateComponents]?) async throws
+  @available(watchOS 4.0, *)
   func updateExecuteOnce(_ executeOnce: Bool, completionHandler completion: @escaping (Error?) -> Void)
+  @available(watchOS 4.0, *)
+  func updateExecuteOnce(_ executeOnce: Bool) async throws
 }
 extension HMEventTrigger {
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use predicateForEvaluatingTriggerOccurringBeforeSignificantEvent: instead")

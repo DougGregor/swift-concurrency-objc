@@ -3735,6 +3735,7 @@ class MPSAccelerationStructure : MPSKernel, NSSecureCoding, NSCopying {
   init?(coder aDecoder: NSCoder, group: MPSAccelerationStructureGroup)
   func rebuild()
   func rebuild(completionHandler: @escaping MPSAccelerationStructureCompletionHandler)
+  func rebuild() async -> MPSAccelerationStructure?
   func encodeRefit(commandBuffer: MTLCommandBuffer)
   func copy(with zone: NSZone? = nil, group: MPSAccelerationStructureGroup) -> Self
 }

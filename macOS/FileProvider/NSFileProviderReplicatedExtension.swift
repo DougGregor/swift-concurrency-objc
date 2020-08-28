@@ -46,7 +46,9 @@ protocol NSFileProviderReplicatedExtension : NSFileProviderEnumerating {
   func modifyItem(_ item: NSFileProviderItem, baseVersion version: NSFileProviderItemVersion, changedFields: NSFileProviderItemFields, contents newContents: URL?, options: NSFileProviderModifyItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress
   func deleteItem(identifier: NSFileProviderItemIdentifier, baseVersion version: NSFileProviderItemVersion, options: NSFileProviderDeleteItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (Error?) -> Void) -> Progress
   optional func importDidFinish(completionHandler: @escaping () -> Void)
+  optional func importDidFinish() async
   optional func materializedItemsDidChange(completionHandler: @escaping () -> Void)
+  optional func materializedItemsDidChange() async
 }
 @available(macOS 11.0, *)
 protocol NSFileProviderIncrementalContentFetching : NSObjectProtocol {

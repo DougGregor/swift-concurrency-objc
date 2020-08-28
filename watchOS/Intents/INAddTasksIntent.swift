@@ -13,7 +13,9 @@ class INAddTasksIntent : INIntent {
 @available(watchOS 4.0, *)
 protocol INAddTasksIntentHandling : NSObjectProtocol {
   func handle(intent: INAddTasksIntent, completion: @escaping (INAddTasksIntentResponse) -> Void)
+  func handle(intent: INAddTasksIntent) async -> INAddTasksIntentResponse
   optional func confirm(intent: INAddTasksIntent, completion: @escaping (INAddTasksIntentResponse) -> Void)
+  optional func confirm(intent: INAddTasksIntent) async -> INAddTasksIntentResponse
   @available(watchOS, introduced: 4.0, deprecated: 6.0, message: "resolveTargetTaskListForAddTasks:withCompletion: is deprecated. Use resolveTargetTaskListForAddTasks:completion: instead")
   optional func resolveTargetTaskList(for intent: INAddTasksIntent, with completion: @escaping (INTaskListResolutionResult) -> Void)
   @available(watchOS 6.0, *)

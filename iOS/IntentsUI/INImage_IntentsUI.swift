@@ -8,4 +8,6 @@ extension INImage {
   class func imageSize(for response: INIntentResponse) -> CGSize
   @available(iOS 11.0, *)
   func fetchUIImage(completion: @escaping (UIImage?) -> Void)
+  @available(iOS 11.0, *)
+  func fetchUIImage() async -> UIImage?
 }

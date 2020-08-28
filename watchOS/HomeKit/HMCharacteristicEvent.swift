@@ -6,6 +6,8 @@ class HMCharacteristicEvent<TriggerValueType> : HMEvent, NSCopying, NSMutableCop
   @NSCopying var triggerValue: TriggerValueType? { get }
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "No longer supported.")
   func updateTriggerValue(_ triggerValue: TriggerValueType?, completionHandler completion: @escaping (Error?) -> Void)
+  @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "No longer supported.")
+  func updateTriggerValue(_ triggerValue: TriggerValueType?) async throws
 }
 @available(watchOS 4.0, *)
 class HMMutableCharacteristicEvent<TriggerValueType> : HMCharacteristicEvent<NSCopying> where TriggerValueType : NSCopying {

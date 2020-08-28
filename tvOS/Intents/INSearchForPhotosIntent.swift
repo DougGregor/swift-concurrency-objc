@@ -15,7 +15,9 @@ class INSearchForPhotosIntent : INIntent {
 @available(tvOS 10.0, *)
 protocol INSearchForPhotosIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForPhotosIntent, completion: @escaping (INSearchForPhotosIntentResponse) -> Void)
+  func handle(intent: INSearchForPhotosIntent) async -> INSearchForPhotosIntentResponse
   optional func confirm(intent: INSearchForPhotosIntent, completion: @escaping (INSearchForPhotosIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForPhotosIntent) async -> INSearchForPhotosIntentResponse
   optional func resolveDateCreated(for intent: INSearchForPhotosIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
   optional func resolveLocationCreated(for intent: INSearchForPhotosIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void)
   optional func resolveAlbumName(for intent: INSearchForPhotosIntent, with completion: @escaping (INStringResolutionResult) -> Void)

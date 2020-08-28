@@ -4,6 +4,7 @@ let GKPlayerIDNoLongerAvailable: String
 @available(watchOS 3.0, *)
 class GKPlayer : GKBasePlayer {
   class func loadPlayers(forIdentifiers identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  class func loadPlayers(forIdentifiers identifiers: [String]) async throws -> [GKPlayer]?
   @available(watchOS 6.0, *)
   func scopedIDsArePersistent() -> Bool
   @available(watchOS 5.4, *)

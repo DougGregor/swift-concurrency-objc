@@ -7,7 +7,9 @@ extension MKDirections {
 class MKDirections : NSObject {
   init(request: MKDirections.Request)
   func calculate(completionHandler: @escaping MKDirections.DirectionsHandler)
+  func calculate() async throws -> MKDirections.Response?
   func calculateETA(completionHandler: @escaping MKDirections.ETAHandler)
+  func calculateETA() async throws -> MKDirections.ETAResponse?
   func cancel()
   var isCalculating: Bool { get }
 }

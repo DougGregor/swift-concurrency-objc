@@ -29,6 +29,8 @@ extension HTTPCookieStorage {
   func storeCookies(_ cookies: [HTTPCookie], for task: URLSessionTask)
   @available(watchOS 2.0, *)
   func getCookiesFor(_ task: URLSessionTask, completionHandler: @escaping ([HTTPCookie]?) -> Void)
+  @available(watchOS 2.0, *)
+  func getCookiesFor(_ task: URLSessionTask) async -> [HTTPCookie]?
 }
 extension NSNotification.Name {
   @available(watchOS 2.0, *)

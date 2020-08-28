@@ -11,7 +11,9 @@ class INSetRadioStationIntent : INIntent {
 @available(tvOS 10.0, *)
 protocol INSetRadioStationIntentHandling : NSObjectProtocol {
   func handle(intent: INSetRadioStationIntent, completion: @escaping (INSetRadioStationIntentResponse) -> Void)
+  func handle(intent: INSetRadioStationIntent) async -> INSetRadioStationIntentResponse
   optional func confirm(intent: INSetRadioStationIntent, completion: @escaping (INSetRadioStationIntentResponse) -> Void)
+  optional func confirm(intent: INSetRadioStationIntent) async -> INSetRadioStationIntentResponse
   optional func resolveRadioType(for intent: INSetRadioStationIntent, with completion: @escaping (INRadioTypeResolutionResult) -> Void)
   optional func resolveFrequency(for intent: INSetRadioStationIntent, with completion: @escaping (INDoubleResolutionResult) -> Void)
   optional func resolveStationName(for intent: INSetRadioStationIntent, with completion: @escaping (INStringResolutionResult) -> Void)

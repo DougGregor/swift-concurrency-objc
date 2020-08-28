@@ -64,6 +64,8 @@ extension AVCaptureDevice {
   var lensPosition: Float { get }
   @available(tvOS 8.0, *)
   func setFocusModeLocked(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
+  @available(tvOS 8.0, *)
+  func setFocusModeLocked(lensPosition: Float) async -> CMTime
 }
 extension AVCaptureDevice {
   func isExposureModeSupported(_ exposureMode: AVCaptureDevice.ExposureMode) -> Bool
@@ -80,6 +82,8 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   func setExposureModeCustom(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
   @available(tvOS 8.0, *)
+  func setExposureModeCustom(duration: CMTime, iso ISO: Float) async -> CMTime
+  @available(tvOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(tvOS 8.0, *)
   var exposureTargetBias: Float { get }
@@ -89,6 +93,8 @@ extension AVCaptureDevice {
   var maxExposureTargetBias: Float { get }
   @available(tvOS 8.0, *)
   func setExposureTargetBias(_ bias: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
+  @available(tvOS 8.0, *)
+  func setExposureTargetBias(_ bias: Float) async -> CMTime
 }
 extension AVCaptureDevice {
 }
@@ -106,6 +112,8 @@ extension AVCaptureDevice {
   var maxWhiteBalanceGain: Float { get }
   @available(tvOS 8.0, *)
   func setWhiteBalanceModeLocked(with whiteBalanceGains: AVCaptureDevice.WhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)? = nil)
+  @available(tvOS 8.0, *)
+  func setWhiteBalanceModeLocked(with whiteBalanceGains: AVCaptureDevice.WhiteBalanceGains) async -> CMTime
   @available(tvOS 8.0, *)
   func chromaticityValues(for whiteBalanceGains: AVCaptureDevice.WhiteBalanceGains) -> AVCaptureDevice.WhiteBalanceChromaticityValues
   @available(tvOS 8.0, *)
@@ -144,6 +152,8 @@ extension AVCaptureDevice {
   class func authorizationStatus(for mediaType: AVMediaType) -> AVAuthorizationStatus
   @available(tvOS 7.0, *)
   class func requestAccess(for mediaType: AVMediaType, completionHandler handler: @escaping (Bool) -> Void)
+  @available(tvOS 7.0, *)
+  class func requestAccess(for mediaType: AVMediaType) async -> Bool
 }
 extension AVCaptureDevice {
 }

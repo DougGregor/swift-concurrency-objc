@@ -117,6 +117,8 @@ class FileManager : NSObject {
   @NSCopying var ubiquityIdentityToken: (NSCoding & NSCopying & NSObjectProtocol)? { get }
   @available(iOS 11.0, *)
   func getFileProviderServicesForItem(at url: URL, completionHandler: @escaping ([NSFileProviderServiceName : NSFileProviderService]?, Error?) -> Void)
+  @available(iOS 11.0, *)
+  func getFileProviderServicesForItem(at url: URL) async throws -> [NSFileProviderServiceName : NSFileProviderService]?
   @available(iOS 7.0, *)
   func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL?
 }
@@ -212,6 +214,7 @@ extension FileManager {
 @available(iOS 11.0, *)
 class NSFileProviderService : NSObject {
   func getFileProviderConnection(completionHandler: @escaping (NSXPCConnection?, Error?) -> Void)
+  func getFileProviderConnection() async throws -> NSXPCConnection?
   var name: NSFileProviderServiceName { get }
 }
 extension FileAttributeKey {

@@ -13,5 +13,7 @@ class PKDisbursementAuthorizationController : NSObject {
   @available(iOS 12.2, *)
   func authorizeDisbursement(completion: @escaping (Bool, Error?) -> Void)
   @available(iOS 12.2, *)
+  func authorizeDisbursement() async throws -> Bool
+  @available(iOS 12.2, *)
   class func supportsDisbursements() -> Bool
 }

@@ -15,7 +15,9 @@ class INSetTaskAttributeIntent : INIntent {
 @available(watchOS 4.0, *)
 protocol INSetTaskAttributeIntentHandling : NSObjectProtocol {
   func handle(intent: INSetTaskAttributeIntent, completion: @escaping (INSetTaskAttributeIntentResponse) -> Void)
+  func handle(intent: INSetTaskAttributeIntent) async -> INSetTaskAttributeIntentResponse
   optional func confirm(intent: INSetTaskAttributeIntent, completion: @escaping (INSetTaskAttributeIntentResponse) -> Void)
+  optional func confirm(intent: INSetTaskAttributeIntent) async -> INSetTaskAttributeIntentResponse
   optional func resolveTargetTask(for intent: INSetTaskAttributeIntent, with completion: @escaping (INTaskResolutionResult) -> Void)
   @available(watchOS 6.0, *)
   optional func resolveTaskTitle(for intent: INSetTaskAttributeIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)

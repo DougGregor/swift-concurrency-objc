@@ -13,6 +13,7 @@ extension AVSampleBufferAudioRenderer {
 }
 extension AVSampleBufferAudioRenderer {
   func flush(fromSourceTime time: CMTime, completionHandler: @escaping (Bool) -> Void)
+  func flush(fromSourceTime time: CMTime) async -> Bool
 }
 extension NSNotification.Name {
   @available(macOS 10.13, *)

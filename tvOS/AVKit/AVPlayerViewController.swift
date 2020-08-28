@@ -100,4 +100,6 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
 protocol AVPlayerViewControllerAnimationCoordinator : NSObjectProtocol {
   @available(tvOS 11.0, *)
   func addCoordinatedAnimations(_ animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  @available(tvOS 11.0, *)
+  func addCoordinatedAnimations(_ animations: (() -> Void)?) async -> Bool
 }

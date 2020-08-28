@@ -21,7 +21,9 @@ class INSearchForNotebookItemsIntent : INIntent {
 @available(tvOS 11.0, *)
 protocol INSearchForNotebookItemsIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForNotebookItemsIntent, completion: @escaping (INSearchForNotebookItemsIntentResponse) -> Void)
+  func handle(intent: INSearchForNotebookItemsIntent) async -> INSearchForNotebookItemsIntentResponse
   optional func confirm(intent: INSearchForNotebookItemsIntent, completion: @escaping (INSearchForNotebookItemsIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForNotebookItemsIntent) async -> INSearchForNotebookItemsIntentResponse
   optional func resolveTitle(for intent: INSearchForNotebookItemsIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
   optional func resolveContent(for intent: INSearchForNotebookItemsIntent, with completion: @escaping (INStringResolutionResult) -> Void)
   optional func resolveItemType(for intent: INSearchForNotebookItemsIntent, with completion: @escaping (INNotebookItemTypeResolutionResult) -> Void)

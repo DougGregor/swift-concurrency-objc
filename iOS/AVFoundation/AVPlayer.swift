@@ -74,12 +74,18 @@ extension AVPlayer {
   func seek(to date: Date)
   @available(iOS 5.0, *)
   func seek(to date: Date, completionHandler: @escaping (Bool) -> Void)
+  @available(iOS 5.0, *)
+  func seek(to date: Date) async -> Bool
   func seek(to time: CMTime)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(iOS 5.0, *)
   func seek(to time: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(iOS 5.0, *)
+  func seek(to time: CMTime) async -> Bool
+  @available(iOS 5.0, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: @escaping (Bool) -> Void)
+  @available(iOS 5.0, *)
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
 }
 extension AVPlayer {
   @available(iOS 10.0, *)
@@ -88,6 +94,8 @@ extension AVPlayer {
   func setRate(_ rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
   @available(iOS 6.0, *)
   func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
+  @available(iOS 6.0, *)
+  func preroll(atRate rate: Float) async -> Bool
   @available(iOS 6.0, *)
   func cancelPendingPrerolls()
   @available(iOS 6.0, *)

@@ -8,7 +8,9 @@ class INSetAudioSourceInCarIntent : INIntent {
 @available(tvOS 10.0, *)
 protocol INSetAudioSourceInCarIntentHandling : NSObjectProtocol {
   func handle(intent: INSetAudioSourceInCarIntent, completion: @escaping (INSetAudioSourceInCarIntentResponse) -> Void)
+  func handle(intent: INSetAudioSourceInCarIntent) async -> INSetAudioSourceInCarIntentResponse
   optional func confirm(intent: INSetAudioSourceInCarIntent, completion: @escaping (INSetAudioSourceInCarIntentResponse) -> Void)
+  optional func confirm(intent: INSetAudioSourceInCarIntent) async -> INSetAudioSourceInCarIntentResponse
   optional func resolveAudioSource(for intent: INSetAudioSourceInCarIntent, with completion: @escaping (INCarAudioSourceResolutionResult) -> Void)
   optional func resolveRelativeAudioSourceReference(for intent: INSetAudioSourceInCarIntent, with completion: @escaping (INRelativeReferenceResolutionResult) -> Void)
 }

@@ -9,7 +9,9 @@ class INSendPaymentIntent : INIntent {
 @available(tvOS 10.0, *)
 protocol INSendPaymentIntentHandling : NSObjectProtocol {
   func handle(intent: INSendPaymentIntent, completion: @escaping (INSendPaymentIntentResponse) -> Void)
+  func handle(intent: INSendPaymentIntent) async -> INSendPaymentIntentResponse
   optional func confirm(intent: INSendPaymentIntent, completion: @escaping (INSendPaymentIntentResponse) -> Void)
+  optional func confirm(intent: INSendPaymentIntent) async -> INSendPaymentIntentResponse
   @available(tvOS, introduced: 10.0, deprecated: 11.0, message: "resolvePayeeForSendPayment:withCompletion: is deprecated. Use resolvePayeeForSendPayment:completion: instead")
   optional func resolvePayee(for intent: INSendPaymentIntent, with completion: @escaping (INPersonResolutionResult) -> Void)
   @available(tvOS 11.0, *)

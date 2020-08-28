@@ -64,12 +64,18 @@ extension AVPlayer {
   func seek(to date: Date)
   @available(watchOS 1.0, *)
   func seek(to date: Date, completionHandler: @escaping (Bool) -> Void)
+  @available(watchOS 1.0, *)
+  func seek(to date: Date) async -> Bool
   func seek(to time: CMTime)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(watchOS 1.0, *)
   func seek(to time: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(watchOS 1.0, *)
+  func seek(to time: CMTime) async -> Bool
+  @available(watchOS 1.0, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: @escaping (Bool) -> Void)
+  @available(watchOS 1.0, *)
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
 }
 extension AVPlayer {
   @available(watchOS 3.0, *)
@@ -78,6 +84,8 @@ extension AVPlayer {
   func setRate(_ rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
   @available(watchOS 1.0, *)
   func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
+  @available(watchOS 1.0, *)
+  func preroll(atRate rate: Float) async -> Bool
   @available(watchOS 1.0, *)
   func cancelPendingPrerolls()
   @available(watchOS 1.0, *)

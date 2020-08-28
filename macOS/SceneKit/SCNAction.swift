@@ -6,9 +6,13 @@ protocol SCNActionable : NSObjectProtocol {
   @available(macOS 10.10, *)
   func runAction(_ action: SCNAction, completionHandler block: (() -> Void)? = nil)
   @available(macOS 10.10, *)
+  func runAction(_ action: SCNAction) async
+  @available(macOS 10.10, *)
   func runAction(_ action: SCNAction, forKey key: String?)
   @available(macOS 10.10, *)
   func runAction(_ action: SCNAction, forKey key: String?, completionHandler block: (() -> Void)? = nil)
+  @available(macOS 10.10, *)
+  func runAction(_ action: SCNAction, forKey key: String?) async
   @available(macOS 10.10, *)
   var hasActions: Bool { get }
   @available(macOS 10.10, *)

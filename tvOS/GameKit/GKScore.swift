@@ -18,6 +18,8 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   var shouldSetDefaultLeaderboard: Bool
   @available(tvOS 6.0, *)
   class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 6.0, *)
+  class func report(_ scores: [GKScore]) async throws
 }
 extension GKScore {
 }

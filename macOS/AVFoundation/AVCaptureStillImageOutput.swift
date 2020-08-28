@@ -9,6 +9,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
   @available(macOS 10.8, *)
   var isCapturingStillImage: Bool { get }
   func captureStillImageAsynchronously(from connection: AVCaptureConnection, completionHandler handler: @escaping (CMSampleBuffer?, Error?) -> Void)
+  func captureStillImageAsynchronously(from connection: AVCaptureConnection) async throws -> CMSampleBuffer?
   class func jpegStillImageNSDataRepresentation(_ jpegSampleBuffer: CMSampleBuffer) -> Data?
 }
 extension AVCaptureStillImageOutput {

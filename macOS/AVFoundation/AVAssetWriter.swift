@@ -35,6 +35,8 @@ class AVAssetWriter : NSObject {
   func cancelWriting()
   @available(macOS 10.9, *)
   func finishWriting(completionHandler handler: @escaping () -> Void)
+  @available(macOS 10.9, *)
+  func finishWriting() async
 }
 extension AVAssetWriter {
   var movieFragmentInterval: CMTime

@@ -27,12 +27,16 @@ class ENManager : NSObject {
   var exposureNotificationStatus: ENStatus { get }
   var invalidationHandler: (() -> Void)?
   func activate(completionHandler: @escaping ENErrorHandler)
+  func activate() async throws
   func invalidate()
   @available(iOS 13.7, *)
   func getUserTraveled(completionHandler: @escaping ENGetUserTraveledHandler)
+  @available(iOS 13.7, *)
+  func getUserTraveled() async throws -> Bool
   class var authorizationStatus: ENAuthorizationStatus { get }
   var exposureNotificationEnabled: Bool { get }
   func setExposureNotificationEnabled(_ enabled: Bool, completionHandler: @escaping ENErrorHandler)
+  func setExposureNotificationEnabled(_ enabled: Bool) async throws
   @available(iOS 13.7, *)
   func detectExposures(configuration: ENExposureConfiguration, completionHandler: @escaping ENDetectExposuresHandler) -> Progress
   func detectExposures(configuration: ENExposureConfiguration, diagnosisKeyURLs: [URL], completionHandler: @escaping ENDetectExposuresHandler) -> Progress
@@ -41,5 +45,7 @@ class ENManager : NSObject {
   @available(iOS 13.7, *)
   func getExposureWindows(summary: ENExposureDetectionSummary, completionHandler: @escaping ENGetExposureWindowsHandler) -> Progress
   func getDiagnosisKeys(completionHandler: @escaping ENGetDiagnosisKeysHandler)
+  func getDiagnosisKeys() async throws -> [ENTemporaryExposureKey]?
   func getTestDiagnosisKeys(completionHandler: @escaping ENGetDiagnosisKeysHandler)
+  func getTestDiagnosisKeys() async throws -> [ENTemporaryExposureKey]?
 }

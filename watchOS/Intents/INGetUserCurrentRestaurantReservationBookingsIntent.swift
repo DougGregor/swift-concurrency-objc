@@ -11,6 +11,9 @@ class INGetUserCurrentRestaurantReservationBookingsIntent : INIntent, NSCopying 
 @available(watchOS 3.0, *)
 protocol INGetUserCurrentRestaurantReservationBookingsIntentHandling : NSObjectProtocol {
   func handle(getUserCurrentRestaurantReservationBookings intent: INGetUserCurrentRestaurantReservationBookingsIntent, completion: @escaping (INGetUserCurrentRestaurantReservationBookingsIntentResponse) -> Void)
+  func handle(getUserCurrentRestaurantReservationBookings intent: INGetUserCurrentRestaurantReservationBookingsIntent) async -> INGetUserCurrentRestaurantReservationBookingsIntentResponse
   optional func confirm(getUserCurrentRestaurantReservationBookings intent: INGetUserCurrentRestaurantReservationBookingsIntent, completion: @escaping (INGetUserCurrentRestaurantReservationBookingsIntentResponse) -> Void)
+  optional func confirm(getUserCurrentRestaurantReservationBookings intent: INGetUserCurrentRestaurantReservationBookingsIntent) async -> INGetUserCurrentRestaurantReservationBookingsIntentResponse
   optional func resolveRestaurant(for intent: INGetUserCurrentRestaurantReservationBookingsIntent, completion: @escaping (INRestaurantResolutionResult) -> Void)
+  optional func resolveRestaurant(for intent: INGetUserCurrentRestaurantReservationBookingsIntent) async -> INRestaurantResolutionResult
 }

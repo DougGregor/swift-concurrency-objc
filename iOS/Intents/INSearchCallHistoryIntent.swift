@@ -24,7 +24,9 @@ extension INSearchCallHistoryIntent {
 @available(iOS 10.0, *)
 protocol INSearchCallHistoryIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchCallHistoryIntent, completion: @escaping (INSearchCallHistoryIntentResponse) -> Void)
+  func handle(intent: INSearchCallHistoryIntent) async -> INSearchCallHistoryIntentResponse
   optional func confirm(intent: INSearchCallHistoryIntent, completion: @escaping (INSearchCallHistoryIntentResponse) -> Void)
+  optional func confirm(intent: INSearchCallHistoryIntent) async -> INSearchCallHistoryIntentResponse
   @available(iOS, introduced: 10.0, deprecated: 11.0, message: "resolveCallTypeForSearchCallHistory:withCompletion: is deprecated. Use resolveCallTypesForSearchCallHistory:withCompletion: instead")
   optional func resolveCallType(for intent: INSearchCallHistoryIntent, with completion: @escaping (INCallRecordTypeResolutionResult) -> Void)
   optional func resolveDateCreated(for intent: INSearchCallHistoryIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)

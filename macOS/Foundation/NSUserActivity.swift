@@ -26,6 +26,7 @@ class NSUserActivity : NSObject {
   func resignCurrent()
   func invalidate()
   func getContinuationStreams(completionHandler: @escaping (InputStream?, OutputStream?, Error?) -> Void)
+  func getContinuationStreams() async throws -> (InputStream?, OutputStream?)
   @available(macOS 10.11, *)
   var isEligibleForHandoff: Bool
   @available(macOS 10.11, *)
@@ -37,7 +38,11 @@ class NSUserActivity : NSObject {
   @available(macOS 10.15, *)
   class func deleteSavedUserActivities(withPersistentIdentifiers persistentIdentifiers: [NSUserActivityPersistentIdentifier], completionHandler handler: @escaping () -> Void)
   @available(macOS 10.15, *)
+  class func deleteSavedUserActivities(withPersistentIdentifiers persistentIdentifiers: [NSUserActivityPersistentIdentifier]) async
+  @available(macOS 10.15, *)
   class func deleteAllSavedUserActivities(completionHandler handler: @escaping () -> Void)
+  @available(macOS 10.15, *)
+  class func deleteAllSavedUserActivities() async
 }
 let NSUserActivityTypeBrowsingWeb: String
 @available(macOS 10.10, *)

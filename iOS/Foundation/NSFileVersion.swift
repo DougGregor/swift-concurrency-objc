@@ -18,6 +18,8 @@ class NSFileVersion : NSObject {
   class func unresolvedConflictVersionsOfItem(at url: URL) -> [NSFileVersion]?
   @available(iOS 8.0, *)
   class func getNonlocalVersionsOfItem(at url: URL, completionHandler: @escaping ([NSFileVersion]?, Error?) -> Void)
+  @available(iOS 8.0, *)
+  class func getNonlocalVersionsOfItem(at url: URL) async throws -> [NSFileVersion]?
   class func version(itemAt url: URL, forPersistentIdentifier persistentIdentifier: Any) -> NSFileVersion?
   var url: URL { get }
   var localizedName: String? { get }

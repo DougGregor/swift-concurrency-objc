@@ -19,7 +19,9 @@ class INSendMessageIntent : INIntent {
 @available(iOS 10.0, *)
 protocol INSendMessageIntentHandling : NSObjectProtocol {
   func handle(intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Void)
+  func handle(intent: INSendMessageIntent) async -> INSendMessageIntentResponse
   optional func confirm(intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Void)
+  optional func confirm(intent: INSendMessageIntent) async -> INSendMessageIntentResponse
   @available(iOS, introduced: 10.0, deprecated: 11.0, message: "resolveRecipientsForSendMessage:withCompletion: is deprecated. Use resolveRecipientsForSendMessage:completion: instead")
   optional func resolveRecipients(for intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
   @available(iOS 11.0, *)

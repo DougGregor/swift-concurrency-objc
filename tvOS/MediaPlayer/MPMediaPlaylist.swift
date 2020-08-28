@@ -24,7 +24,11 @@ class MPMediaPlaylist : MPMediaItemCollection {
   @available(tvOS 9.3, *)
   func addItem(withProductID productID: String, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 9.3, *)
+  func addItem(withProductID productID: String) async throws
+  @available(tvOS 9.3, *)
   func add(_ mediaItems: [MPMediaItem], completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 9.3, *)
+  func add(_ mediaItems: [MPMediaItem]) async throws
 }
 let MPMediaPlaylistPropertyPersistentID: String
 @available(tvOS 9.0, *)

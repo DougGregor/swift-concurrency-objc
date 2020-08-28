@@ -55,4 +55,6 @@ extension NSURLConnection {
 extension NSURLConnection {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
   class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue, completionHandler handler: @escaping (URLResponse?, Data?, Error?) -> Void)
+  @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
+  class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue) async throws -> (URLResponse?, Data?)
 }

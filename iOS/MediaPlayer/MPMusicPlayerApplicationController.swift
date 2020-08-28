@@ -11,6 +11,7 @@ class MPMusicPlayerControllerMutableQueue : MPMusicPlayerControllerQueue {
 @available(iOS 10.3, *)
 class MPMusicPlayerApplicationController : MPMusicPlayerController {
   func perform(queueTransaction: @escaping (MPMusicPlayerControllerMutableQueue) -> Void, completionHandler: @escaping (MPMusicPlayerControllerQueue, Error?) -> Void)
+  func perform(queueTransaction: @escaping (MPMusicPlayerControllerMutableQueue) -> Void) async throws -> MPMusicPlayerControllerQueue
 }
 extension NSNotification.Name {
   @available(iOS 10.3, *)

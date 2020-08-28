@@ -15,8 +15,11 @@ class HMHomeManager : NSObject {
   var primaryHome: HMHome? { get }
   var homes: [HMHome] { get }
   func updatePrimaryHome(_ home: HMHome, completionHandler completion: @escaping (Error?) -> Void)
+  func updatePrimaryHome(_ home: HMHome) async throws
   func addHome(withName homeName: String, completionHandler completion: @escaping (HMHome?, Error?) -> Void)
+  func addHome(withName homeName: String) async throws -> HMHome?
   func removeHome(_ home: HMHome, completionHandler completion: @escaping (Error?) -> Void)
+  func removeHome(_ home: HMHome) async throws
 }
 @available(iOS 8.0, *)
 protocol HMHomeManagerDelegate : NSObjectProtocol {

@@ -21,7 +21,11 @@ class MPMediaLibrary : NSObject, NSSecureCoding {
   @available(watchOS 2.3, *)
   func addItem(withProductID productID: String, completionHandler: (([MPMediaEntity], Error?) -> Void)? = nil)
   @available(watchOS 2.3, *)
+  func addItem(withProductID productID: String) async throws -> [MPMediaEntity]
+  @available(watchOS 2.3, *)
   func getPlaylist(with uuid: UUID, creationMetadata: MPMediaPlaylistCreationMetadata?, completionHandler: @escaping (MPMediaPlaylist?, Error?) -> Void)
+  @available(watchOS 2.3, *)
+  func getPlaylist(with uuid: UUID, creationMetadata: MPMediaPlaylistCreationMetadata?) async throws -> MPMediaPlaylist?
 }
 extension NSNotification.Name {
   static let MPMediaLibraryDidChange: NSNotification.Name

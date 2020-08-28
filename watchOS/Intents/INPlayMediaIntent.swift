@@ -33,7 +33,9 @@ extension INPlayMediaIntent {
 @available(watchOS 5.0, *)
 protocol INPlayMediaIntentHandling : NSObjectProtocol {
   func handle(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  func handle(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   optional func confirm(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  optional func confirm(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   @available(watchOS 6.0, *)
   optional func resolveMediaItems(for intent: INPlayMediaIntent, with completion: @escaping ([INPlayMediaMediaItemResolutionResult]) -> Void)
   @available(watchOS 6.0, *)

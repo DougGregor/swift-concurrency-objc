@@ -53,6 +53,7 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var isTemporalAntialiasingEnabled: Bool { get set }
   func prepare(_ object: Any, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   func prepare(_ objects: [Any], completionHandler: ((Bool) -> Void)? = nil)
+  func prepare(_ objects: [Any]) async -> Bool
   var showsStatistics: Bool { get set }
   @available(tvOS 9.0, *)
   var debugOptions: SCNDebugOptions { get set }

@@ -24,6 +24,8 @@ class NEAppProxyFlow : NSObject {
   @available(macOS 10.11, *)
   func open(withLocalEndpoint localEndpoint: NWHostEndpoint?, completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func open(withLocalEndpoint localEndpoint: NWHostEndpoint?) async throws
+  @available(macOS 10.11, *)
   func closeReadWithError(_ error: Error?)
   @available(macOS 10.11, *)
   func closeWriteWithError(_ error: Error?)
@@ -63,6 +65,8 @@ class NEProvider : NSObject {
   @available(macOS 10.11, *)
   func sleep(completionHandler: @escaping () -> Void)
   @available(macOS 10.11, *)
+  func sleep() async
+  @available(macOS 10.11, *)
   func wake()
   @available(macOS 10.11, *)
   func createTCPConnection(to remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: Any?) -> NWTCPConnection
@@ -70,6 +74,8 @@ class NEProvider : NSObject {
   func createUDPSession(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   @available(macOS, introduced: 10.12, deprecated: 10.14)
   func displayMessage(_ message: String, completionHandler: @escaping (Bool) -> Void)
+  @available(macOS, introduced: 10.12, deprecated: 10.14)
+  func displayMessage(_ message: String) async -> Bool
   @available(macOS 10.15, *)
   class func startSystemExtensionMode()
   @available(macOS 10.11, *)
@@ -100,7 +106,11 @@ class NETunnelProvider : NEProvider {
   @available(macOS 10.11, *)
   func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)? = nil)
   @available(macOS 10.11, *)
+  func handleAppMessage(_ messageData: Data) async -> Data?
+  @available(macOS 10.11, *)
   func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((Error?) -> Void)? = nil)
+  @available(macOS 10.11, *)
+  func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?) async throws
   @available(macOS 10.11, *)
   var protocolConfiguration: NEVPNProtocol { get }
   @available(macOS 10.11, *)
@@ -115,7 +125,11 @@ class NEAppProxyProvider : NETunnelProvider {
   @available(macOS 10.11, *)
   func startProxy(options: [String : Any]? = nil, completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func startProxy(options: [String : Any]? = nil) async throws
+  @available(macOS 10.11, *)
   func stopProxy(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(macOS 10.11, *)
+  func stopProxy(with reason: NEProviderStopReason) async
   @available(macOS 10.11, *)
   func cancelProxyWithError(_ error: Error?)
   @available(macOS 10.11, *)
@@ -156,9 +170,15 @@ class NEVPNManager : NSObject {
   @available(macOS 10.11, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func loadFromPreferences() async throws
+  @available(macOS 10.11, *)
   func removeFromPreferences(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.11, *)
+  func removeFromPreferences() async throws
+  @available(macOS 10.11, *)
   func saveToPreferences(completionHandler: ((Error?) -> Void)? = nil)
+  @available(macOS 10.11, *)
+  func saveToPreferences() async throws
   @available(macOS 10.11, *)
   func setAuthorization(_ authorization: AuthorizationRef)
   @available(macOS 10.11, *)
@@ -180,6 +200,8 @@ class NEVPNManager : NSObject {
 class NETunnelProviderManager : NEVPNManager {
   @available(macOS 10.11, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NETunnelProviderManager]?, Error?) -> Void)
+  @available(macOS 10.11, *)
+  class func loadAllFromPreferences() async throws -> [NETunnelProviderManager]?
   @available(macOS 10.15.4, *)
   class func forPerAppVPN() -> Self
   @available(macOS 10.11, *)
@@ -209,7 +231,11 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
   @available(macOS 10.11, *)
   func readData(completionHandler: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.11, *)
+  func readData() async throws -> Data?
+  @available(macOS 10.11, *)
   func write(_ data: Data, withCompletionHandler completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 10.11, *)
+  func write(_ data: Data) async throws
   @available(macOS 10.11, *)
   var remoteEndpoint: NWEndpoint { get }
 }
@@ -218,7 +244,11 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
   @available(macOS 10.11, *)
   func readDatagrams(completionHandler: @escaping ([Data]?, [NWEndpoint]?, Error?) -> Void)
   @available(macOS 10.11, *)
+  func readDatagrams() async throws -> ([Data]?, [NWEndpoint]?)
+  @available(macOS 10.11, *)
   func writeDatagrams(_ datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint], completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 10.11, *)
+  func writeDatagrams(_ datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint]) async throws
   @available(macOS 10.11, *)
   var localEndpoint: NWEndpoint? { get }
 }
@@ -255,9 +285,15 @@ class NEDNSProxyManager : NSObject {
   @available(macOS 10.15, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func loadFromPreferences() async throws
+  @available(macOS 10.15, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func removeFromPreferences() async throws
+  @available(macOS 10.15, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 10.15, *)
+  func saveToPreferences() async throws
   @available(macOS 10.15, *)
   var localizedDescription: String?
   @available(macOS 10.15, *)
@@ -270,7 +306,11 @@ class NEDNSProxyProvider : NEProvider {
   @available(macOS 10.15, *)
   func startProxy(options: [String : Any]? = nil, completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func startProxy(options: [String : Any]? = nil) async throws
+  @available(macOS 10.15, *)
   func stopProxy(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(macOS 10.15, *)
+  func stopProxy(with reason: NEProviderStopReason) async
   @available(macOS 10.15, *)
   func cancelProxyWithError(_ error: Error?)
   @available(macOS 10.15, *)
@@ -401,9 +441,15 @@ class NEDNSSettingsManager : NSObject {
   @available(macOS 11.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 11.0, *)
+  func loadFromPreferences() async throws
+  @available(macOS 11.0, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 11.0, *)
+  func removeFromPreferences() async throws
+  @available(macOS 11.0, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 11.0, *)
+  func saveToPreferences() async throws
   @available(macOS 11.0, *)
   var localizedDescription: String?
   @available(macOS 11.0, *)
@@ -488,7 +534,11 @@ class NEFilterProvider : NEProvider {
   @available(macOS 10.15, *)
   func startFilter(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func startFilter() async throws
+  @available(macOS 10.15, *)
   func stopFilter(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(macOS 10.15, *)
+  func stopFilter(with reason: NEProviderStopReason) async
   @available(macOS 10.15, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
   @available(macOS 10.15, *)
@@ -581,6 +631,8 @@ class NEFilterDataProvider : NEFilterProvider {
   @available(macOS 10.15, *)
   func apply(_ settings: NEFilterSettings?, completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func apply(_ settings: NEFilterSettings?) async throws
+  @available(macOS 10.15, *)
   func resumeFlow(_ flow: NEFilterFlow, with verdict: NEFilterVerdict)
   @available(macOS 10.15.4, *)
   func update(_ flow: NEFilterSocketFlow, using verdict: NEFilterDataVerdict, for direction: NETrafficDirection)
@@ -629,9 +681,15 @@ class NEFilterManager : NSObject {
   @available(macOS 10.11, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func loadFromPreferences() async throws
+  @available(macOS 10.11, *)
   func removeFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func removeFromPreferences() async throws
+  @available(macOS 10.11, *)
   func saveToPreferences(completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 10.11, *)
+  func saveToPreferences() async throws
   @available(macOS 10.11, *)
   var localizedDescription: String?
   @available(macOS 10.11, *)
@@ -862,9 +920,13 @@ class NEPacketTunnelFlow : NSObject {
   @available(macOS 10.11, *)
   func readPackets(completionHandler: @escaping ([Data], [NSNumber]) -> Void)
   @available(macOS 10.11, *)
+  func readPackets() async -> ([Data], [NSNumber])
+  @available(macOS 10.11, *)
   func writePackets(_ packets: [Data], withProtocols protocols: [NSNumber]) -> Bool
   @available(macOS 10.12, *)
   func readPacketObjects(completionHandler: @escaping ([NEPacket]) -> Void)
+  @available(macOS 10.12, *)
+  func readPacketObjects() async -> [NEPacket]
   @available(macOS 10.12, *)
   func writePacketObjects(_ packets: [NEPacket]) -> Bool
 }
@@ -895,7 +957,11 @@ class NEPacketTunnelProvider : NETunnelProvider {
   @available(macOS 10.11, *)
   func startTunnel(options: [String : NSObject]? = nil, completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func startTunnel(options: [String : NSObject]? = nil) async throws
+  @available(macOS 10.11, *)
   func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
+  @available(macOS 10.11, *)
+  func stopTunnel(with reason: NEProviderStopReason) async
   @available(macOS 10.11, *)
   func cancelTunnelWithError(_ error: Error?)
   @available(macOS 10.11, *)
@@ -909,6 +975,8 @@ class NEPacketTunnelProvider : NETunnelProvider {
 class NETransparentProxyManager : NEVPNManager {
   @available(macOS 10.15, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NETransparentProxyManager]?, Error?) -> Void)
+  @available(macOS 10.15, *)
+  class func loadAllFromPreferences() async throws -> [NETransparentProxyManager]?
 }
 @available(macOS 10.15, *)
 class NETransparentProxyNetworkSettings : NETunnelNetworkSettings {
@@ -1182,9 +1250,15 @@ class NWTCPConnection : NSObject {
   @available(macOS 10.11, *)
   func readLength(_ length: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.11, *)
+  func readLength(_ length: Int) async throws -> Data?
+  @available(macOS 10.11, *)
   func readMinimumLength(_ minimum: Int, maximumLength maximum: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.11, *)
+  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int) async throws -> Data?
+  @available(macOS 10.11, *)
   func write(_ data: Data, completionHandler completion: @escaping (Error?) -> Void)
+  @available(macOS 10.11, *)
+  func write(_ data: Data) async throws
   @available(macOS 10.11, *)
   func writeClose()
 }
@@ -1195,9 +1269,13 @@ protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
   @available(macOS 10.11, *)
   optional func provideIdentity(for connection: NWTCPConnection, completionHandler completion: @escaping (SecIdentity, [Any]) -> Void)
   @available(macOS 10.11, *)
+  optional func provideIdentity(for connection: NWTCPConnection) async -> (SecIdentity, [Any])
+  @available(macOS 10.11, *)
   optional func shouldEvaluateTrust(for connection: NWTCPConnection) -> Bool
   @available(macOS 10.11, *)
   optional func evaluateTrust(for connection: NWTCPConnection, peerCertificateChain: [Any], completionHandler completion: @escaping (SecTrust) -> Void)
+  @available(macOS 10.11, *)
+  optional func evaluateTrust(for connection: NWTCPConnection, peerCertificateChain: [Any]) async -> SecTrust
 }
 @available(macOS 10.11, *)
 enum NWUDPSessionState : Int {
@@ -1235,7 +1313,11 @@ class NWUDPSession : NSObject {
   @available(macOS 10.11, *)
   func writeMultipleDatagrams(_ datagramArray: [Data], completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
+  func writeMultipleDatagrams(_ datagramArray: [Data]) async throws
+  @available(macOS 10.11, *)
   func writeDatagram(_ datagram: Data, completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 10.11, *)
+  func writeDatagram(_ datagram: Data) async throws
   @available(macOS 10.11, *)
   func cancel()
 }

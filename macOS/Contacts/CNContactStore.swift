@@ -18,6 +18,7 @@ enum CNAuthorizationStatus : Int {
 class CNContactStore : NSObject {
   class func authorizationStatus(for entityType: CNEntityType) -> CNAuthorizationStatus
   func requestAccess(for entityType: CNEntityType, completionHandler: @escaping (Bool, Error?) -> Void)
+  func requestAccess(for entityType: CNEntityType) async throws -> Bool
   func unifiedContacts(matching predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
   func unifiedContact(withIdentifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   @available(macOS 10.11, *)

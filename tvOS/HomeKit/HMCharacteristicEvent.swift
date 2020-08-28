@@ -6,6 +6,8 @@ class HMCharacteristicEvent<TriggerValueType> : HMEvent, NSCopying, NSMutableCop
   @NSCopying var triggerValue: TriggerValueType? { get }
   @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "No longer supported.")
   func updateTriggerValue(_ triggerValue: TriggerValueType?, completionHandler completion: @escaping (Error?) -> Void)
+  @available(tvOS, introduced: 9.0, deprecated: 11.0, message: "No longer supported.")
+  func updateTriggerValue(_ triggerValue: TriggerValueType?) async throws
 }
 @available(tvOS 11.0, *)
 class HMMutableCharacteristicEvent<TriggerValueType> : HMCharacteristicEvent<NSCopying> where TriggerValueType : NSCopying {

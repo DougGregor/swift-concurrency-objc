@@ -1,6 +1,7 @@
 
 extension NSExtensionContext {
   func loadBroadcastingApplicationInfo(completion handler: @escaping (String, String, UIImage?) -> Void)
+  func loadBroadcastingApplicationInfo() async -> (String, String, UIImage?)
   @available(tvOS, introduced: 10.0, deprecated: 11.0, message: "No longer supported")
   func completeRequest(withBroadcast broadcastURL: URL, broadcastConfiguration: RPBroadcastConfiguration, setupInfo: [String : NSCoding & NSObjectProtocol]?)
   @available(tvOS 11.0, *)

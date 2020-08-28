@@ -64,6 +64,8 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   func prepare(_ object: Any, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   @available(macOS 10.10, *)
   func prepare(_ objects: [Any], completionHandler: ((Bool) -> Void)? = nil)
+  @available(macOS 10.10, *)
+  func prepare(_ objects: [Any]) async -> Bool
   @available(macOS 10.9, *)
   var showsStatistics: Bool { get set }
   @available(macOS 10.11, *)

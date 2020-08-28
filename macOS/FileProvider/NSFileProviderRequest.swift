@@ -23,4 +23,6 @@ class NSFileProviderRequest : NSObject {
 extension NSFileProviderManager {
   @available(macOS 11.0, *)
   func lookupRequestingApplicationIdentifier(_ app: NSFileProviderRequest.ApplicationIdentifier, reason: NSFileProviderRequest.AttributionReason, completionHandler: @escaping (URL?, Error?) -> Void)
+  @available(macOS 11.0, *)
+  func lookupRequestingApplicationIdentifier(_ app: NSFileProviderRequest.ApplicationIdentifier, reason: NSFileProviderRequest.AttributionReason) async throws -> URL?
 }

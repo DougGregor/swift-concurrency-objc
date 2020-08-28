@@ -6,6 +6,9 @@ class HMZone : NSObject {
   @available(iOS 9.0, *)
   var uniqueIdentifier: UUID { get }
   func updateName(_ name: String, completionHandler completion: @escaping (Error?) -> Void)
+  func updateName(_ name: String) async throws
   func addRoom(_ room: HMRoom, completionHandler completion: @escaping (Error?) -> Void)
+  func addRoom(_ room: HMRoom) async throws
   func removeRoom(_ room: HMRoom, completionHandler completion: @escaping (Error?) -> Void)
+  func removeRoom(_ room: HMRoom) async throws
 }

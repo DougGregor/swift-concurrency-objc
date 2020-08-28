@@ -14,5 +14,6 @@ extension ATTrackingManager {
 class ATTrackingManager : NSObject {
   class var trackingAuthorizationStatus: ATTrackingManager.AuthorizationStatus { get }
   class func requestTrackingAuthorization(completionHandler completion: @escaping (ATTrackingManager.AuthorizationStatus) -> Void)
+  class func requestTrackingAuthorization() async -> ATTrackingManager.AuthorizationStatus
 }
 var AppTrackingTransparencyVersionNumber: Double

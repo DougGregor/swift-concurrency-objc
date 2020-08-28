@@ -6,6 +6,9 @@ class HMServiceGroup : NSObject {
   @available(watchOS 2.0, *)
   var uniqueIdentifier: UUID { get }
   func updateName(_ name: String, completionHandler completion: @escaping (Error?) -> Void)
+  func updateName(_ name: String) async throws
   func addService(_ service: HMService, completionHandler completion: @escaping (Error?) -> Void)
+  func addService(_ service: HMService) async throws
   func removeService(_ service: HMService, completionHandler completion: @escaping (Error?) -> Void)
+  func removeService(_ service: HMService) async throws
 }

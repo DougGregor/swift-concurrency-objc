@@ -16,7 +16,9 @@ extension INSetCarLockStatusIntent {
 @available(watchOS 3.2, *)
 protocol INSetCarLockStatusIntentHandling : NSObjectProtocol {
   func handle(intent: INSetCarLockStatusIntent, completion: @escaping (INSetCarLockStatusIntentResponse) -> Void)
+  func handle(intent: INSetCarLockStatusIntent) async -> INSetCarLockStatusIntentResponse
   optional func confirm(intent: INSetCarLockStatusIntent, completion: @escaping (INSetCarLockStatusIntentResponse) -> Void)
+  optional func confirm(intent: INSetCarLockStatusIntent) async -> INSetCarLockStatusIntentResponse
   optional func resolveLocked(for intent: INSetCarLockStatusIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
   optional func resolveCarName(for intent: INSetCarLockStatusIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
 }

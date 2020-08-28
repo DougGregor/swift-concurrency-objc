@@ -15,7 +15,9 @@ class INSetTaskAttributeIntent : INIntent {
 @available(iOS 11.0, *)
 protocol INSetTaskAttributeIntentHandling : NSObjectProtocol {
   func handle(intent: INSetTaskAttributeIntent, completion: @escaping (INSetTaskAttributeIntentResponse) -> Void)
+  func handle(intent: INSetTaskAttributeIntent) async -> INSetTaskAttributeIntentResponse
   optional func confirm(intent: INSetTaskAttributeIntent, completion: @escaping (INSetTaskAttributeIntentResponse) -> Void)
+  optional func confirm(intent: INSetTaskAttributeIntent) async -> INSetTaskAttributeIntentResponse
   optional func resolveTargetTask(for intent: INSetTaskAttributeIntent, with completion: @escaping (INTaskResolutionResult) -> Void)
   @available(iOS 13.0, *)
   optional func resolveTaskTitle(for intent: INSetTaskAttributeIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)

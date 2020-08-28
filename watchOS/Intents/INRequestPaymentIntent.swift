@@ -9,7 +9,9 @@ class INRequestPaymentIntent : INIntent {
 @available(watchOS 3.2, *)
 protocol INRequestPaymentIntentHandling : NSObjectProtocol {
   func handle(intent: INRequestPaymentIntent, completion: @escaping (INRequestPaymentIntentResponse) -> Void)
+  func handle(intent: INRequestPaymentIntent) async -> INRequestPaymentIntentResponse
   optional func confirm(intent: INRequestPaymentIntent, completion: @escaping (INRequestPaymentIntentResponse) -> Void)
+  optional func confirm(intent: INRequestPaymentIntent) async -> INRequestPaymentIntentResponse
   @available(watchOS, introduced: 3.2, deprecated: 4.0, message: "resolvePayerForRequestPayment:withCompletion: is deprecated. Use resolvePayerForRequestPayment:completion: instead")
   optional func resolvePayer(for intent: INRequestPaymentIntent, with completion: @escaping (INPersonResolutionResult) -> Void)
   @available(watchOS 4.0, *)

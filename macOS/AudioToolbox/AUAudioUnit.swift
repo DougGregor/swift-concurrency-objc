@@ -33,6 +33,7 @@ class AUAudioUnit : NSObject {
   init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) throws
   convenience init(componentDescription: AudioComponentDescription) throws
   class func instantiate(with componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: @escaping (AUAudioUnit?, Error?) -> Void)
+  class func instantiate(with componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = []) async throws -> AUAudioUnit?
   var componentDescription: AudioComponentDescription { get }
   var component: AudioComponent { get }
   var componentName: String? { get }

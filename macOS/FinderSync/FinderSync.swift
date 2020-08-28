@@ -8,8 +8,10 @@ class FIFinderSyncController : NSExtensionContext {
   func selectedItemURLs() -> [URL]?
   func lastUsedDateForItem(with itemURL: URL) -> Date?
   func setLastUsedDate(_ lastUsedDate: Date, forItemWith itemURL: URL, completion: @escaping (Error) -> Void)
+  func setLastUsedDate(_ lastUsedDate: Date, forItemWith itemURL: URL) async -> Error
   func tagDataForItem(with itemURL: URL) -> Data?
   func setTagData(_ tagData: Data?, forItemWith itemURL: URL, completion: @escaping (Error) -> Void)
+  func setTagData(_ tagData: Data?, forItemWith itemURL: URL) async -> Error
   @available(macOS 10.14, *)
   class var isExtensionEnabled: Bool { get }
   @available(macOS 10.14, *)
@@ -35,6 +37,7 @@ protocol FIFinderSyncProtocol {
   @available(macOS 10.8, *)
   optional func makeListenerEndpoint(forServiceName serviceName: NSFileProviderServiceName, itemURL: URL) throws -> NSXPCListenerEndpoint
   optional func values(forAttributes attributes: [URLResourceKey], forItemWith itemURL: URL, completion: @escaping ([URLResourceKey : Any], Error?) -> Void)
+  optional func values(forAttributes attributes: [URLResourceKey], forItemWith itemURL: URL) async throws -> [URLResourceKey : Any]
 }
 class FIFinderSync : NSObject, FIFinderSyncProtocol, NSExtensionRequestHandling {
 }

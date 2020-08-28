@@ -13,7 +13,9 @@ class INPayBillIntent : INIntent {
 @available(tvOS 10.3, *)
 protocol INPayBillIntentHandling : NSObjectProtocol {
   func handle(intent: INPayBillIntent, completion: @escaping (INPayBillIntentResponse) -> Void)
+  func handle(intent: INPayBillIntent) async -> INPayBillIntentResponse
   optional func confirm(intent: INPayBillIntent, completion: @escaping (INPayBillIntentResponse) -> Void)
+  optional func confirm(intent: INPayBillIntent) async -> INPayBillIntentResponse
   optional func resolveBillPayee(for intent: INPayBillIntent, with completion: @escaping (INBillPayeeResolutionResult) -> Void)
   optional func resolveFromAccount(for intent: INPayBillIntent, with completion: @escaping (INPaymentAccountResolutionResult) -> Void)
   optional func resolveTransactionAmount(for intent: INPayBillIntent, with completion: @escaping (INPaymentAmountResolutionResult) -> Void)

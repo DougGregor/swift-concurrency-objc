@@ -22,7 +22,9 @@ extension INRequestRideIntent {
 @available(watchOS 3.2, *)
 protocol INRequestRideIntentHandling : NSObjectProtocol {
   func handle(intent: INRequestRideIntent, completion: @escaping (INRequestRideIntentResponse) -> Void)
+  func handle(intent: INRequestRideIntent) async -> INRequestRideIntentResponse
   optional func confirm(intent: INRequestRideIntent, completion: @escaping (INRequestRideIntentResponse) -> Void)
+  optional func confirm(intent: INRequestRideIntent) async -> INRequestRideIntentResponse
   optional func resolvePickupLocation(for intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void)
   optional func resolveDropOffLocation(for intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void)
   optional func resolveRideOptionName(for intent: INRequestRideIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)

@@ -16,5 +16,7 @@ protocol PKPushRegistryDelegate : NSObjectProtocol {
   @available(watchOS 6.0, *)
   optional func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void)
   @available(watchOS 6.0, *)
+  optional func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType) async
+  @available(watchOS 6.0, *)
   optional func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType)
 }

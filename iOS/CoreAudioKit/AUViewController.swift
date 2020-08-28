@@ -12,6 +12,7 @@ class AUAudioUnitViewConfiguration : NSObject, NSSecureCoding {
 @available(iOS 9.0, *)
 extension AUAudioUnit {
   func requestViewController(completionHandler: @escaping (UIViewController?) -> Void)
+  func requestViewController() async -> UIViewController?
   @available(iOS 11.0, *)
   func supportedViewConfigurations(_ availableViewConfigurations: [AUAudioUnitViewConfiguration]) -> IndexSet
   @available(iOS 11.0, *)

@@ -24,7 +24,11 @@ class MPMediaPlaylist : MPMediaItemCollection {
   @available(watchOS 2.3, *)
   func addItem(withProductID productID: String, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 2.3, *)
+  func addItem(withProductID productID: String) async throws
+  @available(watchOS 2.3, *)
   func add(_ mediaItems: [MPMediaItem], completionHandler: ((Error?) -> Void)? = nil)
+  @available(watchOS 2.3, *)
+  func add(_ mediaItems: [MPMediaItem]) async throws
 }
 let MPMediaPlaylistPropertyPersistentID: String
 @available(watchOS 2.0, *)

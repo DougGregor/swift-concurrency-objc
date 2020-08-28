@@ -11,6 +11,8 @@ enum NCUpdateResult : UInt {
 protocol NCWidgetProviding : NSObjectProtocol {
   @available(iOS, introduced: 8.0, deprecated: 14.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")
   optional func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void)
+  @available(iOS, introduced: 8.0, deprecated: 14.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")
+  optional func widgetPerformUpdate() async -> NCUpdateResult
   @available(iOS, introduced: 10.0, deprecated: 14.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")
   optional func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize)
   @available(iOS, introduced: 8.0, deprecated: 10.0, message: "This method will not be called on widgets linked against iOS versions 10.0 and later.")
