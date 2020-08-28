@@ -1,0 +1,39 @@
+
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "For resource data, use the CFReadStream API. For file resource properties, use CFURLCopyResourcePropertiesForKeys.")
+func CFURLCreateDataAndPropertiesFromResource(_ alloc: CFAllocator!, _ url: CFURL!, _ resourceData: UnsafeMutablePointer<Unmanaged<CFData>?>!, _ properties: UnsafeMutablePointer<Unmanaged<CFDictionary>?>!, _ desiredProperties: CFArray!, _ errorCode: UnsafeMutablePointer<Int32>!) -> Bool
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "For resource data, use the CFWriteStream API. For file resource properties, use CFURLSetResourcePropertiesForKeys.")
+func CFURLWriteDataAndPropertiesToResource(_ url: CFURL!, _ dataToWrite: CFData!, _ propertiesToWrite: CFDictionary!, _ errorCode: UnsafeMutablePointer<Int32>!) -> Bool
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFURLGetFileSystemRepresentation and removefile(3) instead.")
+func CFURLDestroyResource(_ url: CFURL!, _ errorCode: UnsafeMutablePointer<Int32>!) -> Bool
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "For file resource properties, use CFURLCopyResourcePropertyForKey.")
+func CFURLCreatePropertyFromResource(_ alloc: CFAllocator!, _ url: CFURL!, _ property: CFString!, _ errorCode: UnsafeMutablePointer<Int32>!) -> CFTypeRef!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFError codes instead")
+enum CFURLError : CFIndex {
+  init?(rawValue: CFIndex)
+  var rawValue: CFIndex { get }
+  case unknownError
+  case unknownSchemeError
+  case resourceNotFoundError
+  case resourceAccessViolationError
+  case remoteHostUnavailableError
+  case improperArgumentsError
+  case unknownPropertyKeyError
+  case propertyKeyUnavailableError
+  case timeoutError
+}
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFURLResourceIsReachable instead.")
+let kCFURLFileExists: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use the CFURLEnumerator API instead.")
+let kCFURLFileDirectoryContents: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFURLCopyResourcePropertyForKey with kCFURLFileSizeKey instead.")
+let kCFURLFileLength: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFURLCopyResourcePropertyForKey with kCFURLContentModificationDateKey instead.")
+let kCFURLFileLastModificationTime: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFURLCopyResourcePropertyForKey with kCFURLFileSecurityKey and then the CFFileSecurity API instead.")
+let kCFURLFilePOSIXMode: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use CFURLCopyResourcePropertyForKey with kCFURLFileSecurityKey and then the CFFileSecurity API instead.")
+let kCFURLFileOwnerID: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use NSHTTPURLResponse methods instead.")
+let kCFURLHTTPStatusCode: CFString!
+@available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use NSHTTPURLResponse methods instead.")
+let kCFURLHTTPStatusLine: CFString!

@@ -1,0 +1,3 @@
+
+protocol GKChallengeListener : NSObjectProtocol {
+}

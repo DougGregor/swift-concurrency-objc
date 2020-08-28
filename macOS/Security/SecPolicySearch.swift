@@ -1,0 +1,3 @@
+
+class SecPolicySearch : _CFObject {
+}

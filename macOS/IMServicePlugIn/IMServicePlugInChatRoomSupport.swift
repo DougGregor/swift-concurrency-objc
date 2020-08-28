@@ -1,0 +1,31 @@
+
+protocol IMServicePlugInChatRoomSupport {
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func joinChatRoom(_ roomName: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func leaveChatRoom(_ roomName: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func inviteHandles(_ handles: [Any]!, toChatRoom roomName: String!, with message: IMServicePlugInMessage!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func send(_ message: IMServicePlugInMessage!, toChatRoom roomName: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func declineChatRoomInvitation(_ roomName: String!)
+}
+protocol IMServiceApplicationChatRoomSupport : IMServiceApplication {
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func plugInDidReceiveInvitation(_ invitation: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func plugInDidReceive(_ message: IMServicePlugInMessage!, forChatRoom roomName: String!, fromHandle handle: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func plugInDidReceiveNotice(_ notice: String!, forChatRoom roomName: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func plugInDidSend(_ message: IMServicePlugInMessage!, toChatRoom roomName: String!, error: Error!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func plugInDidJoinChatRoom(_ roomName: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func plugInDidLeaveChatRoom(_ roomName: String!, error: Error!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func handles(_ handles: [Any]!, didJoinChatRoom roomName: String!)
+  @available(macOS, introduced: 10.7, deprecated: 10.13)
+  func handles(_ handles: [Any]!, didLeaveChatRoom roomName: String!)
+}

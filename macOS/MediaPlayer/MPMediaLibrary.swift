@@ -1,0 +1,3 @@
+
+extension NSNotification.Name {
+}

@@ -1,0 +1,2 @@
+
+var ParavirtualizedGraphicsVersionNumber: Double

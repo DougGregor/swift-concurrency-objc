@@ -1,0 +1,31 @@
+
+var VT_SUPPORT_COLORSYNC_PIXEL_TRANSFER: Bool { get }
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_ScalingMode: CFString
+@available(macOS 10.8, *)
+let kVTScalingMode_Normal: CFString
+@available(macOS 10.8, *)
+let kVTScalingMode_CropSourceToCleanAperture: CFString
+@available(macOS 10.8, *)
+let kVTScalingMode_Letterbox: CFString
+@available(macOS 10.8, *)
+let kVTScalingMode_Trim: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DestinationCleanAperture: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DestinationPixelAspectRatio: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DownsamplingMode: CFString
+@available(macOS 10.8, *)
+let kVTDownsamplingMode_Decimate: CFString
+@available(macOS 10.8, *)
+let kVTDownsamplingMode_Average: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DestinationColorPrimaries: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DestinationTransferFunction: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DestinationICCProfile: CFString
+@available(macOS 10.8, *)
+let kVTPixelTransferPropertyKey_DestinationYCbCrMatrix: CFString
+let kVTPixelTransferPropertyKey_RealTime: CFString

@@ -1,0 +1,3 @@
+
+class OSLogPosition : NSObject {
+}

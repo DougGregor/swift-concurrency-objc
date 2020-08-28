@@ -1,0 +1,3 @@
+
+class AVDisplayCriteria : NSObject, NSCopying {
+}

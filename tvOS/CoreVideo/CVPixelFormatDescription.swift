@@ -1,0 +1,77 @@
+
+@available(tvOS 4.0, *)
+let kCVPixelFormatName: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatConstant: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatCodecType: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatFourCC: CFString
+@available(tvOS 4.3, *)
+let kCVPixelFormatContainsAlpha: CFString
+@available(tvOS 8.0, *)
+let kCVPixelFormatContainsYCbCr: CFString
+@available(tvOS 8.0, *)
+let kCVPixelFormatContainsRGB: CFString
+@available(tvOS 12.0, *)
+let kCVPixelFormatContainsGrayscale: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatComponentRange: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatComponentRange_VideoRange: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatComponentRange_FullRange: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatComponentRange_WideRange: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatPlanes: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatBlockWidth: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatBlockHeight: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatBitsPerBlock: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatBlockHorizontalAlignment: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatBlockVerticalAlignment: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatBlackBlock: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatHorizontalSubsampling: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatVerticalSubsampling: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatOpenGLFormat: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatOpenGLType: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatOpenGLInternalFormat: CFString
+@available(tvOS 4.0, *)
+let kCVPixelFormatCGBitmapInfo: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatQDCompatibility: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatCGBitmapContextCompatibility: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatCGImageCompatibility: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatOpenGLCompatibility: CFString
+@available(tvOS 9.0, *)
+let kCVPixelFormatOpenGLESCompatibility: CFString
+typealias CVFillExtendedPixelsCallBack = @convention(c) (CVPixelBuffer, UnsafeMutableRawPointer?) -> DarwinBoolean
+struct CVFillExtendedPixelsCallBackData {
+  var version: CFIndex
+  var fillCallBack: CVFillExtendedPixelsCallBack?
+  var refCon: UnsafeMutableRawPointer?
+  init()
+  init(version: CFIndex, fillCallBack: CVFillExtendedPixelsCallBack?, refCon: UnsafeMutableRawPointer?)
+}
+@available(tvOS 4.0, *)
+let kCVPixelFormatFillExtendedPixelsCallback: CFString
+@available(tvOS 4.0, *)
+func CVPixelFormatDescriptionCreateWithPixelFormatType(_ allocator: CFAllocator?, _ pixelFormat: OSType) -> CFDictionary?
+@available(tvOS 4.0, *)
+func CVPixelFormatDescriptionArrayCreateWithAllPixelFormatTypes(_ allocator: CFAllocator?) -> CFArray?
+@available(tvOS 4.0, *)
+func CVPixelFormatDescriptionRegisterDescriptionWithPixelFormatType(_ description: CFDictionary, _ pixelFormat: OSType)

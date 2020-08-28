@@ -1,0 +1,2 @@
+
+var INTEL_X509V2_CRL_R08_LENGTH: Int32 { get }

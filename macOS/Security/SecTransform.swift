@@ -1,0 +1,56 @@
+
+let kSecTransformErrorDomain: CFString
+let kSecTransformPreviousErrorKey: CFString
+let kSecTransformAbortOriginatorKey: CFString
+var kSecTransformErrorAttributeNotFound: CFIndex { get }
+var kSecTransformErrorInvalidOperation: CFIndex { get }
+var kSecTransformErrorNotInitializedCorrectly: CFIndex { get }
+var kSecTransformErrorMoreThanOneOutput: CFIndex { get }
+var kSecTransformErrorInvalidInputDictionary: CFIndex { get }
+var kSecTransformErrorInvalidAlgorithm: CFIndex { get }
+var kSecTransformErrorInvalidLength: CFIndex { get }
+var kSecTransformErrorInvalidType: CFIndex { get }
+var kSecTransformErrorInvalidInput: CFIndex { get }
+var kSecTransformErrorNameAlreadyRegistered: CFIndex { get }
+var kSecTransformErrorUnsupportedAttribute: CFIndex { get }
+var kSecTransformOperationNotSupportedOnGroup: CFIndex { get }
+var kSecTransformErrorMissingParameter: CFIndex { get }
+var kSecTransformErrorInvalidConnection: CFIndex { get }
+var kSecTransformTransformIsExecuting: CFIndex { get }
+var kSecTransformInvalidOverride: CFIndex { get }
+var kSecTransformTransformIsNotRegistered: CFIndex { get }
+var kSecTransformErrorAbortInProgress: CFIndex { get }
+var kSecTransformErrorAborted: CFIndex { get }
+var kSecTransformInvalidArgument: CFIndex { get }
+typealias SecTransform = CFTypeRef
+typealias SecGroupTransform = CFTypeRef
+func SecTransformGetTypeID() -> CFTypeID
+func SecGroupTransformGetTypeID() -> CFTypeID
+@available(macOS 10.7, *)
+let kSecTransformInputAttributeName: CFString
+@available(macOS 10.7, *)
+let kSecTransformOutputAttributeName: CFString
+@available(macOS 10.7, *)
+let kSecTransformDebugAttributeName: CFString
+@available(macOS 10.7, *)
+let kSecTransformTransformName: CFString
+@available(macOS 10.7, *)
+let kSecTransformAbortAttributeName: CFString
+@available(macOS 10.7, *)
+func SecTransformCreateFromExternalRepresentation(_ dictionary: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>?) -> SecTransform?
+@available(macOS 10.7, *)
+func SecTransformCopyExternalRepresentation(_ transformRef: SecTransform) -> CFDictionary
+func SecTransformCreateGroupTransform() -> SecGroupTransform
+@available(macOS 10.7, *)
+func SecTransformConnectTransforms(_ sourceTransformRef: SecTransform, _ sourceAttributeName: CFString, _ destinationTransformRef: SecTransform, _ destinationAttributeName: CFString, _ group: SecGroupTransform, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>?) -> SecGroupTransform?
+@available(macOS 10.7, *)
+func SecTransformSetAttribute(_ transformRef: SecTransform, _ key: CFString, _ value: CFTypeRef, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>?) -> Bool
+@available(macOS 10.7, *)
+func SecTransformGetAttribute(_ transformRef: SecTransform, _ key: CFString) -> CFTypeRef?
+@available(macOS 10.7, *)
+func SecTransformFindByName(_ transform: SecGroupTransform, _ name: CFString) -> SecTransform?
+@available(macOS 10.7, *)
+func SecTransformExecute(_ transformRef: SecTransform, _ errorRef: UnsafeMutablePointer<Unmanaged<CFError>?>?) -> CFTypeRef
+typealias SecMessageBlock = (CFTypeRef?, CFError?, Bool) -> Void
+@available(macOS 10.7, *)
+func SecTransformExecuteAsync(_ transformRef: SecTransform, _ deliveryQueue: DispatchQueue, _ deliveryBlock: @escaping SecMessageBlock)

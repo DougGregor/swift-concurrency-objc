@@ -1,0 +1,3 @@
+
+class PHEditingExtensionContext : NSExtensionContext {
+}

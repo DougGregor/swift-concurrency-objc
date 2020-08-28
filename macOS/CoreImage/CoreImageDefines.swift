@@ -1,0 +1,2 @@
+
+var COREIMAGE_SUPPORTS_IOSURFACE: Int32 { get }

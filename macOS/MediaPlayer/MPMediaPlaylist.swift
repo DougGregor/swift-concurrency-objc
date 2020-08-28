@@ -1,0 +1,8 @@
+
+let MPMediaPlaylistPropertyPersistentID: String
+let MPMediaPlaylistPropertyCloudGlobalID: String
+let MPMediaPlaylistPropertyName: String
+let MPMediaPlaylistPropertyPlaylistAttributes: String
+let MPMediaPlaylistPropertySeedItems: String
+let MPMediaPlaylistPropertyDescriptionText: String
+let MPMediaPlaylistPropertyAuthorDisplayName: String

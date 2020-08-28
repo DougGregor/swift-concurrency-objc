@@ -1,0 +1,31 @@
+
+var VT_SUPPORT_COLORSYNC_PIXEL_TRANSFER: Bool { get }
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_ScalingMode: CFString
+@available(tvOS 10.2, *)
+let kVTScalingMode_Normal: CFString
+@available(tvOS 10.2, *)
+let kVTScalingMode_CropSourceToCleanAperture: CFString
+@available(tvOS 10.2, *)
+let kVTScalingMode_Letterbox: CFString
+@available(tvOS 10.2, *)
+let kVTScalingMode_Trim: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DestinationCleanAperture: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DestinationPixelAspectRatio: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DownsamplingMode: CFString
+@available(tvOS 10.2, *)
+let kVTDownsamplingMode_Decimate: CFString
+@available(tvOS 10.2, *)
+let kVTDownsamplingMode_Average: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DestinationColorPrimaries: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DestinationTransferFunction: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DestinationICCProfile: CFString
+@available(tvOS 10.2, *)
+let kVTPixelTransferPropertyKey_DestinationYCbCrMatrix: CFString
+let kVTPixelTransferPropertyKey_RealTime: CFString
