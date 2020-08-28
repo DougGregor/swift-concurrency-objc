@@ -11,4 +11,5 @@ protocol INStartVideoCallIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INStartVideoCallIntent, completion: @escaping (INStartVideoCallIntentResponse) -> Void)
   optional func confirm(intent: INStartVideoCallIntent) async -> INStartVideoCallIntentResponse
   optional func resolveContacts(for intent: INStartVideoCallIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  optional func resolveContacts(for intent: INStartVideoCallIntent) async -> [INPersonResolutionResult]
 }

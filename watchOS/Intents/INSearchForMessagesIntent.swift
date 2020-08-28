@@ -31,11 +31,19 @@ protocol INSearchForMessagesIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSearchForMessagesIntent, completion: @escaping (INSearchForMessagesIntentResponse) -> Void)
   optional func confirm(intent: INSearchForMessagesIntent) async -> INSearchForMessagesIntentResponse
   optional func resolveRecipients(for intent: INSearchForMessagesIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  optional func resolveRecipients(for intent: INSearchForMessagesIntent) async -> [INPersonResolutionResult]
   optional func resolveSenders(for intent: INSearchForMessagesIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  optional func resolveSenders(for intent: INSearchForMessagesIntent) async -> [INPersonResolutionResult]
   optional func resolveAttributes(for intent: INSearchForMessagesIntent, with completion: @escaping (INMessageAttributeOptionsResolutionResult) -> Void)
+  optional func resolveAttributes(for intent: INSearchForMessagesIntent) async -> INMessageAttributeOptionsResolutionResult
   optional func resolveDateTimeRange(for intent: INSearchForMessagesIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolveDateTimeRange(for intent: INSearchForMessagesIntent) async -> INDateComponentsRangeResolutionResult
   @available(watchOS, introduced: 3.2, deprecated: 4.0, message: "resolveGroupNamesForSearchForMessages:withCompletion: is deprecated. Use resolveSpeakableGroupNamesForSearchForMessages:withCompletion: instead")
   optional func resolveGroupNames(for intent: INSearchForMessagesIntent, with completion: @escaping ([INStringResolutionResult]) -> Void)
+  @available(watchOS, introduced: 3.2, deprecated: 4.0, message: "resolveGroupNamesForSearchForMessages:withCompletion: is deprecated. Use resolveSpeakableGroupNamesForSearchForMessages:withCompletion: instead")
+  optional func resolveGroupNames(for intent: INSearchForMessagesIntent) async -> [INStringResolutionResult]
   @available(watchOS 4.0, *)
   optional func resolveSpeakableGroupNames(for intent: INSearchForMessagesIntent, with completion: @escaping ([INSpeakableStringResolutionResult]) -> Void)
+  @available(watchOS 4.0, *)
+  optional func resolveSpeakableGroupNames(for intent: INSearchForMessagesIntent) async -> [INSpeakableStringResolutionResult]
 }

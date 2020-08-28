@@ -10,4 +10,5 @@ class WKContentRuleListStore : NSObject {
   func removeContentRuleList(forIdentifier identifier: String!, completionHandler: ((Error?) -> Void)!)
   func removeContentRuleList(forIdentifier identifier: String!) async throws
   func getAvailableContentRuleListIdentifiers(_ completionHandler: (([String]?) -> Void)!)
+  func getAvailableContentRuleListIdentifiers() async -> [String]?
 }

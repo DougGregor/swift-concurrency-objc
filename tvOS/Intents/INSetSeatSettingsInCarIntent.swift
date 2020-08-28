@@ -19,11 +19,19 @@ protocol INSetSeatSettingsInCarIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSetSeatSettingsInCarIntent, completion: @escaping (INSetSeatSettingsInCarIntentResponse) -> Void)
   optional func confirm(intent: INSetSeatSettingsInCarIntent) async -> INSetSeatSettingsInCarIntentResponse
   optional func resolveEnableHeating(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableHeating(for intent: INSetSeatSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveEnableCooling(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableCooling(for intent: INSetSeatSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveEnableMassage(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableMassage(for intent: INSetSeatSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveSeat(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INCarSeatResolutionResult) -> Void)
+  optional func resolveSeat(for intent: INSetSeatSettingsInCarIntent) async -> INCarSeatResolutionResult
   optional func resolveLevel(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INIntegerResolutionResult) -> Void)
+  optional func resolveLevel(for intent: INSetSeatSettingsInCarIntent) async -> INIntegerResolutionResult
   optional func resolveRelativeLevelSetting(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INRelativeSettingResolutionResult) -> Void)
+  optional func resolveRelativeLevelSetting(for intent: INSetSeatSettingsInCarIntent) async -> INRelativeSettingResolutionResult
   @available(tvOS 12.0, *)
   optional func resolveCarName(for intent: INSetSeatSettingsInCarIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  @available(tvOS 12.0, *)
+  optional func resolveCarName(for intent: INSetSeatSettingsInCarIntent) async -> INSpeakableStringResolutionResult
 }

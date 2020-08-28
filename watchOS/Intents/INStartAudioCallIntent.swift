@@ -15,5 +15,8 @@ protocol INStartAudioCallIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INStartAudioCallIntent) async -> INStartAudioCallIntentResponse
   @available(watchOS 4.0, *)
   optional func resolveDestinationType(for intent: INStartAudioCallIntent, with completion: @escaping (INCallDestinationTypeResolutionResult) -> Void)
+  @available(watchOS 4.0, *)
+  optional func resolveDestinationType(for intent: INStartAudioCallIntent) async -> INCallDestinationTypeResolutionResult
   optional func resolveContacts(for intent: INStartAudioCallIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  optional func resolveContacts(for intent: INStartAudioCallIntent) async -> [INPersonResolutionResult]
 }

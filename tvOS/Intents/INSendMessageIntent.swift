@@ -24,13 +24,24 @@ protocol INSendMessageIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSendMessageIntent) async -> INSendMessageIntentResponse
   @available(tvOS, introduced: 10.0, deprecated: 11.0, message: "resolveRecipientsForSendMessage:withCompletion: is deprecated. Use resolveRecipientsForSendMessage:completion: instead")
   optional func resolveRecipients(for intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  @available(tvOS, introduced: 10.0, deprecated: 11.0, message: "resolveRecipientsForSendMessage:withCompletion: is deprecated. Use resolveRecipientsForSendMessage:completion: instead")
+  optional func resolveRecipients(for intent: INSendMessageIntent) async -> [INPersonResolutionResult]
   @available(tvOS 11.0, *)
   optional func resolveRecipients(for intent: INSendMessageIntent, with completion: @escaping ([INSendMessageRecipientResolutionResult]) -> Void)
+  @available(tvOS 11.0, *)
+  optional func resolveRecipients(for intent: INSendMessageIntent) async -> [INSendMessageRecipientResolutionResult]
   @available(tvOS, introduced: 10.0, deprecated: 11.0, message: "resolveGroupNameForSendMessage:withCompletion: is deprecated. Use resolveSpeakableGroupNameForSendMessage:withCompletion: instead")
   optional func resolveGroupName(for intent: INSendMessageIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  @available(tvOS, introduced: 10.0, deprecated: 11.0, message: "resolveGroupNameForSendMessage:withCompletion: is deprecated. Use resolveSpeakableGroupNameForSendMessage:withCompletion: instead")
+  optional func resolveGroupName(for intent: INSendMessageIntent) async -> INStringResolutionResult
   @available(tvOS 14.0, *)
   optional func resolveOutgoingMessageType(for intent: INSendMessageIntent, with completion: @escaping (INOutgoingMessageTypeResolutionResult) -> Void)
+  @available(tvOS 14.0, *)
+  optional func resolveOutgoingMessageType(for intent: INSendMessageIntent) async -> INOutgoingMessageTypeResolutionResult
   optional func resolveContent(for intent: INSendMessageIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  optional func resolveContent(for intent: INSendMessageIntent) async -> INStringResolutionResult
   @available(tvOS 11.0, *)
   optional func resolveSpeakableGroupName(for intent: INSendMessageIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  @available(tvOS 11.0, *)
+  optional func resolveSpeakableGroupName(for intent: INSendMessageIntent) async -> INSpeakableStringResolutionResult
 }

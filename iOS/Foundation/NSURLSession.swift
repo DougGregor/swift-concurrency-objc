@@ -124,6 +124,7 @@ class URLSessionUploadTask : URLSessionDataTask {
 @available(iOS 7.0, *)
 class URLSessionDownloadTask : URLSessionTask {
   func cancel(byProducingResumeData completionHandler: @escaping (Data?) -> Void)
+  func cancelByProducingResumeData() async -> Data?
 }
 @available(iOS 9.0, *)
 class URLSessionStreamTask : URLSessionTask {
@@ -303,6 +304,7 @@ protocol URLSessionTaskDelegate : URLSessionDelegate {
   optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, needNewBodyStream completionHandler: @escaping (InputStream?) -> Void)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask) async -> InputStream?
   optional func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64)
   @available(iOS 10.0, *)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics)

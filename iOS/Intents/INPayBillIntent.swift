@@ -17,10 +17,17 @@ protocol INPayBillIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INPayBillIntent, completion: @escaping (INPayBillIntentResponse) -> Void)
   optional func confirm(intent: INPayBillIntent) async -> INPayBillIntentResponse
   optional func resolveBillPayee(for intent: INPayBillIntent, with completion: @escaping (INBillPayeeResolutionResult) -> Void)
+  optional func resolveBillPayee(for intent: INPayBillIntent) async -> INBillPayeeResolutionResult
   optional func resolveFromAccount(for intent: INPayBillIntent, with completion: @escaping (INPaymentAccountResolutionResult) -> Void)
+  optional func resolveFromAccount(for intent: INPayBillIntent) async -> INPaymentAccountResolutionResult
   optional func resolveTransactionAmount(for intent: INPayBillIntent, with completion: @escaping (INPaymentAmountResolutionResult) -> Void)
+  optional func resolveTransactionAmount(for intent: INPayBillIntent) async -> INPaymentAmountResolutionResult
   optional func resolveTransactionScheduledDate(for intent: INPayBillIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolveTransactionScheduledDate(for intent: INPayBillIntent) async -> INDateComponentsRangeResolutionResult
   optional func resolveTransactionNote(for intent: INPayBillIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  optional func resolveTransactionNote(for intent: INPayBillIntent) async -> INStringResolutionResult
   optional func resolveBillType(for intent: INPayBillIntent, with completion: @escaping (INBillTypeResolutionResult) -> Void)
+  optional func resolveBillType(for intent: INPayBillIntent) async -> INBillTypeResolutionResult
   optional func resolveDueDate(for intent: INPayBillIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolveDueDate(for intent: INPayBillIntent) async -> INDateComponentsRangeResolutionResult
 }

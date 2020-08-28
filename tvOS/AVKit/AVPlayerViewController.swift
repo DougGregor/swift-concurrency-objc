@@ -69,7 +69,11 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 13.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, skipToNextChannel completion: @escaping (Bool) -> Void)
   @available(tvOS 13.0, *)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
+  @available(tvOS 13.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, skipToPreviousChannel completion: @escaping (Bool) -> Void)
+  @available(tvOS 13.0, *)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
   @available(tvOS 13.0, *)
   optional func nextChannelInterstitialViewController(for playerViewController: AVPlayerViewController) -> UIViewController
   @available(tvOS 13.0, *)
@@ -96,6 +100,8 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   optional func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(_ playerViewController: AVPlayerViewController) -> Bool
   @available(tvOS 9.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
+  @available(tvOS 9.0, *)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
 }
 protocol AVPlayerViewControllerAnimationCoordinator : NSObjectProtocol {
   @available(tvOS 11.0, *)

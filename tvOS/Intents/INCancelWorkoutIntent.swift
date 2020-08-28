@@ -11,4 +11,5 @@ protocol INCancelWorkoutIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INCancelWorkoutIntent, completion: @escaping (INCancelWorkoutIntentResponse) -> Void)
   optional func confirm(intent: INCancelWorkoutIntent) async -> INCancelWorkoutIntentResponse
   optional func resolveWorkoutName(for intent: INCancelWorkoutIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveWorkoutName(for intent: INCancelWorkoutIntent) async -> INSpeakableStringResolutionResult
 }

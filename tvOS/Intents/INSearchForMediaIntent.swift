@@ -12,4 +12,5 @@ protocol INSearchForMediaIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSearchForMediaIntent, completion: @escaping (INSearchForMediaIntentResponse) -> Void)
   optional func confirm(intent: INSearchForMediaIntent) async -> INSearchForMediaIntentResponse
   optional func resolveMediaItems(for intent: INSearchForMediaIntent, with completion: @escaping ([INSearchForMediaMediaItemResolutionResult]) -> Void)
+  optional func resolveMediaItems(for intent: INSearchForMediaIntent) async -> [INSearchForMediaMediaItemResolutionResult]
 }

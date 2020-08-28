@@ -13,5 +13,7 @@ protocol INAddMediaIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INAddMediaIntent, completion: @escaping (INAddMediaIntentResponse) -> Void)
   optional func confirm(intent: INAddMediaIntent) async -> INAddMediaIntentResponse
   optional func resolveMediaItems(for intent: INAddMediaIntent, with completion: @escaping ([INAddMediaMediaItemResolutionResult]) -> Void)
+  optional func resolveMediaItems(for intent: INAddMediaIntent) async -> [INAddMediaMediaItemResolutionResult]
   optional func resolveMediaDestination(for intent: INAddMediaIntent, with completion: @escaping (INAddMediaMediaDestinationResolutionResult) -> Void)
+  optional func resolveMediaDestination(for intent: INAddMediaIntent) async -> INAddMediaMediaDestinationResolutionResult
 }

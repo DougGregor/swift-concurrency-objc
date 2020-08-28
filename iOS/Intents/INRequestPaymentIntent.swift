@@ -14,11 +14,20 @@ protocol INRequestPaymentIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INRequestPaymentIntent) async -> INRequestPaymentIntentResponse
   @available(iOS, introduced: 10.0, deprecated: 11.0, message: "resolvePayerForRequestPayment:withCompletion: is deprecated. Use resolvePayerForRequestPayment:completion: instead")
   optional func resolvePayer(for intent: INRequestPaymentIntent, with completion: @escaping (INPersonResolutionResult) -> Void)
+  @available(iOS, introduced: 10.0, deprecated: 11.0, message: "resolvePayerForRequestPayment:withCompletion: is deprecated. Use resolvePayerForRequestPayment:completion: instead")
+  optional func resolvePayer(for intent: INRequestPaymentIntent) async -> INPersonResolutionResult
   @available(iOS 11.0, *)
   optional func resolvePayer(for intent: INRequestPaymentIntent, with completion: @escaping (INRequestPaymentPayerResolutionResult) -> Void)
+  @available(iOS 11.0, *)
+  optional func resolvePayer(for intent: INRequestPaymentIntent) async -> INRequestPaymentPayerResolutionResult
   @available(iOS, introduced: 10.0, deprecated: 11.0, message: "resolveCurrencyAmountForRequestPayment:withCompletion: is deprecated. Use resolveCurrencyAmountForRequestPayment:completion: instead")
   optional func resolveCurrencyAmount(for intent: INRequestPaymentIntent, with completion: @escaping (INCurrencyAmountResolutionResult) -> Void)
+  @available(iOS, introduced: 10.0, deprecated: 11.0, message: "resolveCurrencyAmountForRequestPayment:withCompletion: is deprecated. Use resolveCurrencyAmountForRequestPayment:completion: instead")
+  optional func resolveCurrencyAmount(for intent: INRequestPaymentIntent) async -> INCurrencyAmountResolutionResult
   @available(iOS 11.0, *)
   optional func resolveCurrencyAmount(for intent: INRequestPaymentIntent, with completion: @escaping (INRequestPaymentCurrencyAmountResolutionResult) -> Void)
+  @available(iOS 11.0, *)
+  optional func resolveCurrencyAmount(for intent: INRequestPaymentIntent) async -> INRequestPaymentCurrencyAmountResolutionResult
   optional func resolveNote(for intent: INRequestPaymentIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  optional func resolveNote(for intent: INRequestPaymentIntent) async -> INStringResolutionResult
 }

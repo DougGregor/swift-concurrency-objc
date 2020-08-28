@@ -14,12 +14,19 @@ class HKHealthStore : NSObject {
   @available(watchOS 2.0, *)
   func earliestPermittedSampleDate() -> Date
   func save(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func save(_ object: HKObject) async throws -> Bool
   func save(_ objects: [HKObject], withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func save(_ objects: [HKObject]) async throws -> Bool
   func delete(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func delete(_ object: HKObject) async throws -> Bool
   @available(watchOS 2.0, *)
   func delete(_ objects: [HKObject], withCompletion completion: @escaping (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
+  func delete(_ objects: [HKObject]) async throws -> Bool
+  @available(watchOS 2.0, *)
   func deleteObjects(of objectType: HKObjectType, predicate: NSPredicate, withCompletion completion: @escaping (Bool, Int, Error?) -> Void)
+  @available(watchOS 2.0, *)
+  func deleteObjects(of objectType: HKObjectType, predicate: NSPredicate) async throws -> (Bool, Int)
   func execute(_ query: HKQuery)
   func stop(_ query: HKQuery)
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "No longer supported")
@@ -55,7 +62,9 @@ extension HKHealthStore {
 }
 extension HKHealthStore {
   func enableBackgroundDelivery(for type: HKObjectType, frequency: HKUpdateFrequency, withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func enableBackgroundDelivery(for type: HKObjectType, frequency: HKUpdateFrequency) async throws -> Bool
   func disableBackgroundDelivery(for type: HKObjectType, withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func disableBackgroundDelivery(for type: HKObjectType) async throws -> Bool
   func disableAllBackgroundDelivery(completion: @escaping (Bool, Error?) -> Void)
   func disableAllBackgroundDelivery() async throws -> Bool
 }

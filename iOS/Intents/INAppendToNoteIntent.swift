@@ -12,5 +12,7 @@ protocol INAppendToNoteIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INAppendToNoteIntent, completion: @escaping (INAppendToNoteIntentResponse) -> Void)
   optional func confirm(intent: INAppendToNoteIntent) async -> INAppendToNoteIntentResponse
   optional func resolveTargetNote(for intent: INAppendToNoteIntent, with completion: @escaping (INNoteResolutionResult) -> Void)
+  optional func resolveTargetNote(for intent: INAppendToNoteIntent) async -> INNoteResolutionResult
   optional func resolveContent(for intent: INAppendToNoteIntent, with completion: @escaping (INNoteContentResolutionResult) -> Void)
+  optional func resolveContent(for intent: INAppendToNoteIntent) async -> INNoteContentResolutionResult
 }

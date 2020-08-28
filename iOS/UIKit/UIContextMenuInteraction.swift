@@ -32,6 +32,7 @@ protocol UIContextMenuInteractionAnimating : NSObjectProtocol {
   var previewViewController: UIViewController? { get }
   func addAnimations(_ animations: @escaping () -> Void)
   func addCompletion(_ completion: @escaping () -> Void)
+  func addCompletion() async
 }
 @available(iOS 13.0, *)
 protocol UIContextMenuInteractionCommitAnimating : UIContextMenuInteractionAnimating {

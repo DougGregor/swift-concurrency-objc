@@ -33,5 +33,7 @@ protocol UIViewImplicitlyAnimating : UIViewAnimating {
   optional func addAnimations(_ animation: @escaping () -> Void)
   @available(iOS 10.0, *)
   optional func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void)
+  @available(iOS 10.0, *)
+  optional func addCompletion() async -> UIViewAnimatingPosition
   optional func continueAnimation(withTimingParameters parameters: UITimingCurveProvider?, durationFactor: CGFloat)
 }

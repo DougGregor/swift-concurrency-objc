@@ -27,4 +27,5 @@ protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
   optional func pictureInPictureControllerWillStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController)
   optional func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController)
   optional func pictureInPictureController(_ pictureInPictureController: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
+  optional func pictureInPictureController(_ pictureInPictureController: AVPictureInPictureController) async -> Bool
 }

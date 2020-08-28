@@ -22,6 +22,9 @@ protocol INSaveProfileInCarIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSaveProfileInCarIntent, completion: @escaping (INSaveProfileInCarIntentResponse) -> Void)
   optional func confirm(intent: INSaveProfileInCarIntent) async -> INSaveProfileInCarIntentResponse
   optional func resolveProfileNumber(for intent: INSaveProfileInCarIntent, with completion: @escaping (INIntegerResolutionResult) -> Void)
+  optional func resolveProfileNumber(for intent: INSaveProfileInCarIntent) async -> INIntegerResolutionResult
   @available(iOS 10.2, *)
   optional func resolveProfileName(for intent: INSaveProfileInCarIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  @available(iOS 10.2, *)
+  optional func resolveProfileName(for intent: INSaveProfileInCarIntent) async -> INStringResolutionResult
 }

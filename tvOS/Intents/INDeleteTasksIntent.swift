@@ -13,5 +13,7 @@ protocol INDeleteTasksIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INDeleteTasksIntent, completion: @escaping (INDeleteTasksIntentResponse) -> Void)
   optional func confirm(intent: INDeleteTasksIntent) async -> INDeleteTasksIntentResponse
   optional func resolveTaskList(for intent: INDeleteTasksIntent, with completion: @escaping (INDeleteTasksTaskListResolutionResult) -> Void)
+  optional func resolveTaskList(for intent: INDeleteTasksIntent) async -> INDeleteTasksTaskListResolutionResult
   optional func resolveTasks(for intent: INDeleteTasksIntent, with completion: @escaping ([INDeleteTasksTaskResolutionResult]) -> Void)
+  optional func resolveTasks(for intent: INDeleteTasksIntent) async -> [INDeleteTasksTaskResolutionResult]
 }

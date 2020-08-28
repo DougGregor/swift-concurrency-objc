@@ -13,6 +13,9 @@ protocol INCreateNoteIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INCreateNoteIntent, completion: @escaping (INCreateNoteIntentResponse) -> Void)
   optional func confirm(intent: INCreateNoteIntent) async -> INCreateNoteIntentResponse
   optional func resolveTitle(for intent: INCreateNoteIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveTitle(for intent: INCreateNoteIntent) async -> INSpeakableStringResolutionResult
   optional func resolveContent(for intent: INCreateNoteIntent, with completion: @escaping (INNoteContentResolutionResult) -> Void)
+  optional func resolveContent(for intent: INCreateNoteIntent) async -> INNoteContentResolutionResult
   optional func resolveGroupName(for intent: INCreateNoteIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveGroupName(for intent: INCreateNoteIntent) async -> INSpeakableStringResolutionResult
 }

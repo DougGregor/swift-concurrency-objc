@@ -20,7 +20,12 @@ protocol INStartCallIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INStartCallIntent) async -> INStartCallIntentResponse
   @available(iOS 14.0, *)
   optional func resolveCallRecordToCallBack(for intent: INStartCallIntent, with completion: @escaping (INCallRecordResolutionResult) -> Void)
+  @available(iOS 14.0, *)
+  optional func resolveCallRecordToCallBack(for intent: INStartCallIntent) async -> INCallRecordResolutionResult
   optional func resolveDestinationType(for intent: INStartCallIntent, with completion: @escaping (INCallDestinationTypeResolutionResult) -> Void)
+  optional func resolveDestinationType(for intent: INStartCallIntent) async -> INCallDestinationTypeResolutionResult
   optional func resolveContacts(for intent: INStartCallIntent, with completion: @escaping ([INStartCallContactResolutionResult]) -> Void)
+  optional func resolveContacts(for intent: INStartCallIntent) async -> [INStartCallContactResolutionResult]
   optional func resolveCallCapability(for intent: INStartCallIntent, with completion: @escaping (INStartCallCallCapabilityResolutionResult) -> Void)
+  optional func resolveCallCapability(for intent: INStartCallIntent) async -> INStartCallCallCapabilityResolutionResult
 }

@@ -14,11 +14,13 @@ struct ASCredentialIdentityStoreError : _BridgedStoredNSError {
 class ASCredentialIdentityStore : NSObject {
   class var shared: ASCredentialIdentityStore { get }
   func getState(_ completion: @escaping (ASCredentialIdentityStoreState) -> Void)
+  func getState() async -> ASCredentialIdentityStoreState
   func saveCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity], completion: ((Bool, Error?) -> Void)? = nil)
   func saveCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
   func removeCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity], completion: ((Bool, Error?) -> Void)? = nil)
   func removeCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
   func removeAllCredentialIdentities(_ completion: ((Bool, Error?) -> Void)? = nil)
+  func removeAllCredentialIdentities() async throws -> Bool
   func replaceCredentialIdentities(with newCredentialIdentities: [ASPasswordCredentialIdentity], completion: ((Bool, Error?) -> Void)? = nil)
   func replaceCredentialIdentities(with newCredentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
 }

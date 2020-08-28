@@ -12,4 +12,5 @@ protocol INSetMessageAttributeIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSetMessageAttributeIntent, completion: @escaping (INSetMessageAttributeIntentResponse) -> Void)
   optional func confirm(intent: INSetMessageAttributeIntent) async -> INSetMessageAttributeIntentResponse
   optional func resolveAttribute(for intent: INSetMessageAttributeIntent, with completion: @escaping (INMessageAttributeResolutionResult) -> Void)
+  optional func resolveAttribute(for intent: INSetMessageAttributeIntent) async -> INMessageAttributeResolutionResult
 }

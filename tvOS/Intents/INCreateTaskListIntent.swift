@@ -13,6 +13,9 @@ protocol INCreateTaskListIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INCreateTaskListIntent, completion: @escaping (INCreateTaskListIntentResponse) -> Void)
   optional func confirm(intent: INCreateTaskListIntent) async -> INCreateTaskListIntentResponse
   optional func resolveTitle(for intent: INCreateTaskListIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveTitle(for intent: INCreateTaskListIntent) async -> INSpeakableStringResolutionResult
   optional func resolveTaskTitles(for intent: INCreateTaskListIntent, with completion: @escaping ([INSpeakableStringResolutionResult]) -> Void)
+  optional func resolveTaskTitles(for intent: INCreateTaskListIntent) async -> [INSpeakableStringResolutionResult]
   optional func resolveGroupName(for intent: INCreateTaskListIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveGroupName(for intent: INCreateTaskListIntent) async -> INSpeakableStringResolutionResult
 }

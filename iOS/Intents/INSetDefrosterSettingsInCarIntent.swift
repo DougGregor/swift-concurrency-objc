@@ -26,7 +26,11 @@ protocol INSetDefrosterSettingsInCarIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSetDefrosterSettingsInCarIntent, completion: @escaping (INSetDefrosterSettingsInCarIntentResponse) -> Void)
   optional func confirm(intent: INSetDefrosterSettingsInCarIntent) async -> INSetDefrosterSettingsInCarIntentResponse
   optional func resolveEnable(for intent: INSetDefrosterSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnable(for intent: INSetDefrosterSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveDefroster(for intent: INSetDefrosterSettingsInCarIntent, with completion: @escaping (INCarDefrosterResolutionResult) -> Void)
+  optional func resolveDefroster(for intent: INSetDefrosterSettingsInCarIntent) async -> INCarDefrosterResolutionResult
   @available(iOS 12.0, *)
   optional func resolveCarName(for intent: INSetDefrosterSettingsInCarIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  @available(iOS 12.0, *)
+  optional func resolveCarName(for intent: INSetDefrosterSettingsInCarIntent) async -> INSpeakableStringResolutionResult
 }

@@ -28,6 +28,8 @@ class GKLocalPlayer : GKPlayer {
   func loadDefaultLeaderboardIdentifier() async throws -> String?
   @available(watchOS 6.5, *)
   func fetchItems(forIdentityVerificationSignature completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
+  @available(watchOS 6.5, *)
+  func fetchItemsForIdentityVerificationSignature() async throws -> (URL?, Data?, Data?, UInt64)
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKTurnBasedEventListener {
 }

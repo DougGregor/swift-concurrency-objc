@@ -28,8 +28,12 @@ class ADClient : NSObject {
   func determineAppInstallationAttribution() async -> Bool
   @available(iOS, introduced: 8.0, deprecated: 9.0, message: "Use requestAttributionDetailsWithBlock instead.")
   func lookupAdConversionDetails(_ completionHandler: @escaping (Date?, Date?) -> Void)
+  @available(iOS, introduced: 8.0, deprecated: 9.0, message: "Use requestAttributionDetailsWithBlock instead.")
+  func lookupAdConversionDetails() async -> (Date?, Date?)
   @available(iOS 9.0, *)
   func requestAttributionDetails(_ completionHandler: @escaping ([String : NSObject]?, Error?) -> Void)
+  @available(iOS 9.0, *)
+  func requestAttributionDetailsWithBlock() async throws -> [String : NSObject]?
   @available(iOS, introduced: 8.0, deprecated: 13.0)
   func add(toSegments segmentIdentifiers: [String], replaceExisting: Bool)
 }

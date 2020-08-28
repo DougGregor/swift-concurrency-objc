@@ -12,5 +12,7 @@ protocol INActivateCarSignalIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INActivateCarSignalIntent, completion: @escaping (INActivateCarSignalIntentResponse) -> Void)
   optional func confirm(intent: INActivateCarSignalIntent) async -> INActivateCarSignalIntentResponse
   optional func resolveCarName(for intent: INActivateCarSignalIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveCarName(for intent: INActivateCarSignalIntent) async -> INSpeakableStringResolutionResult
   optional func resolveSignals(for intent: INActivateCarSignalIntent, with completion: @escaping (INCarSignalOptionsResolutionResult) -> Void)
+  optional func resolveSignals(for intent: INActivateCarSignalIntent) async -> INCarSignalOptionsResolutionResult
 }

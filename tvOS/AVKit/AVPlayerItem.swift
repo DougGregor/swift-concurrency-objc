@@ -24,6 +24,8 @@ extension AVPlayerItem {
   @available(tvOS 13.0, *)
   func requestPlaybackRestrictionsAuthorization(_ completion: @escaping (Bool, Error?) -> Void)
   @available(tvOS 13.0, *)
+  func requestPlaybackRestrictionsAuthorization() async throws -> Bool
+  @available(tvOS 13.0, *)
   func cancelPlaybackRestrictionsAuthorizationRequest()
 }
 extension AVPlayerItem {

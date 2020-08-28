@@ -4,6 +4,8 @@ protocol PKPaymentAuthorizationViewControllerDelegate : NSObjectProtocol {
   func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController)
   @available(iOS 11.0, *)
   optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void)
+  @available(iOS 11.0, *)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment) async -> PKPaymentAuthorizationResult
   @available(iOS 8.3, *)
   optional func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController)
   @available(iOS 14.0, *)
@@ -11,9 +13,15 @@ protocol PKPaymentAuthorizationViewControllerDelegate : NSObjectProtocol {
   @available(iOS 11.0, *)
   optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, handler completion: @escaping (PKPaymentRequestShippingMethodUpdate) -> Void)
   @available(iOS 11.0, *)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod) async -> PKPaymentRequestShippingMethodUpdate
+  @available(iOS 11.0, *)
   optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelectShippingContact contact: PKContact, handler completion: @escaping (PKPaymentRequestShippingContactUpdate) -> Void)
   @available(iOS 11.0, *)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelectShippingContact contact: PKContact) async -> PKPaymentRequestShippingContactUpdate
+  @available(iOS 11.0, *)
   optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect paymentMethod: PKPaymentMethod, handler completion: @escaping (PKPaymentRequestPaymentMethodUpdate) -> Void)
+  @available(iOS 11.0, *)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect paymentMethod: PKPaymentMethod) async -> PKPaymentRequestPaymentMethodUpdate
   @available(iOS, introduced: 8.0, deprecated: 11.0, message: "Use paymentAuthorizationViewController:didAuthorizePayment:handler: instead to provide more granular errors")
   optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void)
   @available(iOS, introduced: 8.0, deprecated: 11.0, message: "Use paymentAuthorizationViewController:didAuthorizePayment:handler: instead to provide more granular errors")

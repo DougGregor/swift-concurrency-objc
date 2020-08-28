@@ -15,6 +15,7 @@ protocol INGetCarPowerLevelStatusIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INGetCarPowerLevelStatusIntent, completion: @escaping (INGetCarPowerLevelStatusIntentResponse) -> Void)
   optional func confirm(intent: INGetCarPowerLevelStatusIntent) async -> INGetCarPowerLevelStatusIntentResponse
   optional func resolveCarName(for intent: INGetCarPowerLevelStatusIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveCarName(for intent: INGetCarPowerLevelStatusIntent) async -> INSpeakableStringResolutionResult
 }
 @available(iOS 14.0, *)
 protocol INGetCarPowerLevelStatusIntentResponseObserver : NSObjectProtocol {

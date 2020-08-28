@@ -15,8 +15,13 @@ protocol INSearchForBillsIntentHandling : NSObjectProtocol {
   optional func confirm(intent: INSearchForBillsIntent, completion: @escaping (INSearchForBillsIntentResponse) -> Void)
   optional func confirm(intent: INSearchForBillsIntent) async -> INSearchForBillsIntentResponse
   optional func resolveBillPayee(for intent: INSearchForBillsIntent, with completion: @escaping (INBillPayeeResolutionResult) -> Void)
+  optional func resolveBillPayee(for intent: INSearchForBillsIntent) async -> INBillPayeeResolutionResult
   optional func resolvePaymentDateRange(for intent: INSearchForBillsIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolvePaymentDateRange(for intent: INSearchForBillsIntent) async -> INDateComponentsRangeResolutionResult
   optional func resolveBillType(for intent: INSearchForBillsIntent, with completion: @escaping (INBillTypeResolutionResult) -> Void)
+  optional func resolveBillType(for intent: INSearchForBillsIntent) async -> INBillTypeResolutionResult
   optional func resolveStatus(for intent: INSearchForBillsIntent, with completion: @escaping (INPaymentStatusResolutionResult) -> Void)
+  optional func resolveStatus(for intent: INSearchForBillsIntent) async -> INPaymentStatusResolutionResult
   optional func resolveDueDateRange(for intent: INSearchForBillsIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolveDueDateRange(for intent: INSearchForBillsIntent) async -> INDateComponentsRangeResolutionResult
 }

@@ -4,6 +4,8 @@ protocol PKPaymentAuthorizationControllerDelegate : NSObjectProtocol {
   func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController)
   @available(watchOS 4.0, *)
   optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void)
+  @available(watchOS 4.0, *)
+  optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment) async -> PKPaymentAuthorizationResult
   @available(watchOS, introduced: 3.0, deprecated: 4.0, message: "Use paymentAuthorizationController:didAuthorizePayment:handler: instead to provide more granular errors")
   optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void)
   @available(watchOS, introduced: 3.0, deprecated: 4.0, message: "Use paymentAuthorizationController:didAuthorizePayment:handler: instead to provide more granular errors")
@@ -15,9 +17,15 @@ protocol PKPaymentAuthorizationControllerDelegate : NSObjectProtocol {
   @available(watchOS 4.0, *)
   optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, handler completion: @escaping (PKPaymentRequestShippingMethodUpdate) -> Void)
   @available(watchOS 4.0, *)
+  optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod) async -> PKPaymentRequestShippingMethodUpdate
+  @available(watchOS 4.0, *)
   optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingContact contact: PKContact, handler completion: @escaping (PKPaymentRequestShippingContactUpdate) -> Void)
   @available(watchOS 4.0, *)
+  optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingContact contact: PKContact) async -> PKPaymentRequestShippingContactUpdate
+  @available(watchOS 4.0, *)
   optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectPaymentMethod paymentMethod: PKPaymentMethod, handler completion: @escaping (PKPaymentRequestPaymentMethodUpdate) -> Void)
+  @available(watchOS 4.0, *)
+  optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectPaymentMethod paymentMethod: PKPaymentMethod) async -> PKPaymentRequestPaymentMethodUpdate
   @available(watchOS, introduced: 3.0, deprecated: 4.0, message: "Use paymentAuthorizationController:didSelectShippingMethod:handler: instead to provide more granular errors")
   optional func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, completion: @escaping (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void)
   @available(watchOS, introduced: 3.0, deprecated: 4.0, message: "Use paymentAuthorizationController:didSelectShippingMethod:handler: instead to provide more granular errors")
