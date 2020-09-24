@@ -9,7 +9,7 @@ class RPBroadcastActivityController : NSObject {
 @available(macOS 11.0, *)
 protocol RPBroadcastActivityControllerDelegate : NSObjectProtocol {
   @available(macOS 11.0, *)
-  func broadcastActivityController(_ broadcastActivityController: RPBroadcastActivityController, didFinishWith broadcastController: RPBroadcastController?, error: Error?)
+  @asyncHandler func broadcastActivityController(_ broadcastActivityController: RPBroadcastActivityController, didFinishWith broadcastController: RPBroadcastController?, error: Error?)
 }
 @available(macOS 11.0, *)
 class RPBroadcastController : NSObject {
@@ -25,7 +25,7 @@ class RPBroadcastController : NSObject {
 }
 @available(macOS 11.0, *)
 protocol RPBroadcastControllerDelegate : NSObjectProtocol {
-  optional func broadcastController(_ broadcastController: RPBroadcastController, didFinishWithError error: Error?)
-  optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateServiceInfo serviceInfo: [String : NSCoding & NSObjectProtocol])
-  optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateBroadcast broadcastURL: URL)
+  @asyncHandler optional func broadcastController(_ broadcastController: RPBroadcastController, didFinishWithError error: Error?)
+  @asyncHandler optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateServiceInfo serviceInfo: [String : NSCoding & NSObjectProtocol])
+  @asyncHandler optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateBroadcast broadcastURL: URL)
 }

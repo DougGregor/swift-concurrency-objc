@@ -22,5 +22,5 @@ protocol AVRoutePickerViewDelegate : NSObjectProtocol {
   @available(macOS 10.15, *)
   optional func routePickerViewWillBeginPresentingRoutes(_ routePickerView: AVRoutePickerView)
   @available(macOS 10.15, *)
-  optional func routePickerViewDidEndPresentingRoutes(_ routePickerView: AVRoutePickerView)
+  @asyncHandler optional func routePickerViewDidEndPresentingRoutes(_ routePickerView: AVRoutePickerView)
 }

@@ -154,10 +154,10 @@ protocol NSBrowserDelegate : NSObjectProtocol {
   optional func browser(_ sender: NSBrowser, selectRow row: Int, inColumn column: Int) -> Bool
   optional func browser(_ sender: NSBrowser, isColumnValid column: Int) -> Bool
   optional func browserWillScroll(_ sender: NSBrowser)
-  optional func browserDidScroll(_ sender: NSBrowser)
+  @asyncHandler optional func browserDidScroll(_ sender: NSBrowser)
   optional func browser(_ browser: NSBrowser, shouldSizeColumn columnIndex: Int, forUserResize: Bool, toWidth suggestedWidth: CGFloat) -> CGFloat
   optional func browser(_ browser: NSBrowser, sizeToFitWidthOfColumn columnIndex: Int) -> CGFloat
-  optional func browserColumnConfigurationDidChange(_ notification: Notification)
+  @asyncHandler optional func browserColumnConfigurationDidChange(_ notification: Notification)
   @available(macOS 10.5, *)
   optional func browser(_ browser: NSBrowser, shouldShowCellExpansionForRow row: Int, column: Int) -> Bool
   @available(macOS 10.5, *)
@@ -182,7 +182,7 @@ protocol NSBrowserDelegate : NSObjectProtocol {
   optional func browser(_ browser: NSBrowser, previewViewControllerForLeafItem item: Any) -> NSViewController?
   @available(macOS 10.6, *)
   optional func browser(_ browser: NSBrowser, headerViewControllerForItem item: Any?) -> NSViewController?
-  optional func browser(_ browser: NSBrowser, didChangeLastColumn oldLastColumn: Int, toColumn column: Int)
+  @asyncHandler optional func browser(_ browser: NSBrowser, didChangeLastColumn oldLastColumn: Int, toColumn column: Int)
   @available(macOS 10.6, *)
   optional func browser(_ browser: NSBrowser, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet, inColumn column: Int) -> IndexSet
 }

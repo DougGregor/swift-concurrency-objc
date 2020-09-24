@@ -9,5 +9,5 @@ extension GKLeaderboardViewController {
 }
 @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use GKGameCenterViewController instead")
 protocol GKLeaderboardViewControllerDelegate : NSObjectProtocol {
-  func leaderboardViewControllerDidFinish(_ viewController: GKLeaderboardViewController!)
+  @asyncHandler func leaderboardViewControllerDidFinish(_ viewController: GKLeaderboardViewController!)
 }

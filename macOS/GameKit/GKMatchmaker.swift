@@ -60,9 +60,9 @@ class GKInvite : NSObject {
 }
 protocol GKInviteEventListener {
   @available(macOS 10.10, *)
-  optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
+  @asyncHandler optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
   @available(macOS 10.10, *)
-  optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
+  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
 }
 @available(macOS 10.8, *)
 class GKMatchmaker : NSObject {

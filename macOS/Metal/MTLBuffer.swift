@@ -4,7 +4,7 @@ protocol MTLBuffer : MTLResource {
   var length: Int { get }
   func contents() -> UnsafeMutableRawPointer
   @available(macOS 10.11, *)
-  func __didModifyRange(_ range: NSRange)
+  @asyncHandler func __didModifyRange(_ range: NSRange)
   @available(macOS 10.13, *)
   func makeTexture(descriptor: MTLTextureDescriptor, offset: Int, bytesPerRow: Int) -> MTLTexture?
   @available(macOS 10.12, *)

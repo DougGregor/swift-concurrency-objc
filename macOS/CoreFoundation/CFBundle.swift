@@ -67,6 +67,12 @@ func CFBundleGetFunctionPointersForNames(_ bundle: CFBundle!, _ functionNames: C
 func CFBundleGetDataPointerForName(_ bundle: CFBundle!, _ symbolName: CFString!) -> UnsafeMutableRawPointer!
 func CFBundleGetDataPointersForNames(_ bundle: CFBundle!, _ symbolNames: CFArray!, _ stbl: UnsafeMutablePointer<UnsafeMutableRawPointer?>!)
 func CFBundleCopyAuxiliaryExecutableURL(_ bundle: CFBundle!, _ executableName: CFString!) -> CFURL!
+@available(macOS 11.0, *)
+func CFBundleIsExecutableLoadable(_ bundle: CFBundle!) -> Bool
+@available(macOS 11.0, *)
+func CFBundleIsExecutableLoadableForURL(_ url: CFURL!) -> Bool
+@available(macOS 11.0, *)
+func CFBundleIsArchitectureLoadable(_ arch: cpu_type_t) -> Bool
 func CFBundleGetPlugIn(_ bundle: CFBundle!) -> CFPlugIn!
 typealias CFBundleRefNum = Int32
 @available(macOS, introduced: 10.0, deprecated: 10.15, message: "The Carbon Resource Manager is deprecated. This should only be used to access Resource Manager-style resources in old bundles.")

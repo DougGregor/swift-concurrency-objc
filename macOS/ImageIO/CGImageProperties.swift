@@ -45,6 +45,8 @@ let kCGImagePropertyMakerAppleDictionary: CFString
 let kCGImagePropertyFileContentsDictionary: CFString
 @available(macOS 11.0, *)
 let kCGImagePropertyWebPDictionary: CFString
+@available(macOS 11.0, *)
+let kCGImagePropertyTGADictionary: CFString
 @available(macOS 10.4, *)
 let kCGImagePropertyFileSize: CFString
 @available(macOS 10.4, *)
@@ -1222,6 +1224,14 @@ let kCGImagePropertyOpenEXRAspectRatio: CFString
   case right
   case rightMirrored
   case left
+}
+@available(macOS 11.0, *)
+let kCGImagePropertyTGACompression: CFString
+@frozen enum CGImagePropertyTGACompression : UInt32 {
+  init?(rawValue: UInt32)
+  var rawValue: UInt32 { get }
+  case tgaCompressionNone
+  case tgaCompressionRLE
 }
 @available(macOS 10.11, *)
 let kCGImagePropertyPNGCompressionFilter: CFString

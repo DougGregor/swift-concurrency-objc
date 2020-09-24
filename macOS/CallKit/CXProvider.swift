@@ -11,8 +11,8 @@ enum CXCallEndedReason : Int {
 }
 @available(macOS 11.0, *)
 protocol CXProviderDelegate : NSObjectProtocol {
-  func providerDidReset(_ provider: CXProvider)
-  optional func providerDidBegin(_ provider: CXProvider)
+  @asyncHandler func providerDidReset(_ provider: CXProvider)
+  @asyncHandler optional func providerDidBegin(_ provider: CXProvider)
   optional func provider(_ provider: CXProvider, execute transaction: CXTransaction) -> Bool
   optional func provider(_ provider: CXProvider, perform action: CXStartCallAction)
   optional func provider(_ provider: CXProvider, perform action: CXAnswerCallAction)

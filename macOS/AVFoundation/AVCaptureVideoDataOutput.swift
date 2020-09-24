@@ -22,6 +22,6 @@ extension AVCaptureVideoDataOutput {
 }
 @available(macOS 10.7, *)
 protocol AVCaptureVideoDataOutputSampleBufferDelegate : NSObjectProtocol {
-  optional func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
-  optional func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
+  @asyncHandler optional func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
+  @asyncHandler optional func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
 }

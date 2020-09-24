@@ -56,10 +56,10 @@ extension AVPlayerView {
 @available(macOS 10.15, *)
 protocol AVPlayerViewPictureInPictureDelegate : NSObjectProtocol {
   optional func playerViewWillStartPicture(inPicture playerView: AVPlayerView)
-  optional func playerViewDidStartPicture(inPicture playerView: AVPlayerView)
+  @asyncHandler optional func playerViewDidStartPicture(inPicture playerView: AVPlayerView)
   optional func playerView(_ playerView: AVPlayerView, failedToStartPictureInPictureWithError error: Error)
   optional func playerViewWillStopPicture(inPicture playerView: AVPlayerView)
-  optional func playerViewDidStopPicture(inPicture playerView: AVPlayerView)
+  @asyncHandler optional func playerViewDidStopPicture(inPicture playerView: AVPlayerView)
   optional func playerView(_ playerView: AVPlayerView, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
   optional func playerView(_ playerView: AVPlayerView) async -> Bool
   optional func playerViewShouldAutomaticallyDismissAtPicture(inPictureStart playerView: AVPlayerView) -> Bool

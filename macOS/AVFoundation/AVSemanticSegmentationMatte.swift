@@ -13,6 +13,8 @@ extension AVSemanticSegmentationMatte.MatteType {
   static let hair: AVSemanticSegmentationMatte.MatteType
   @available(macOS 10.15, *)
   static let teeth: AVSemanticSegmentationMatte.MatteType
+  @available(macOS 11.0, *)
+  static let glasses: AVSemanticSegmentationMatte.MatteType
 }
 @available(macOS 10.15, *)
 class AVSemanticSegmentationMatte : NSObject {

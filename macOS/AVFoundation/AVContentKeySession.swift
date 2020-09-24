@@ -89,18 +89,18 @@ extension AVContentKeyRequest.RetryReason {
 }
 @available(macOS 10.12.4, *)
 protocol AVContentKeySessionDelegate : NSObjectProtocol {
-  func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVContentKeyRequest)
-  optional func contentKeySession(_ session: AVContentKeySession, didProvideRenewingContentKeyRequest keyRequest: AVContentKeyRequest)
-  optional func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVPersistableContentKeyRequest)
+  @asyncHandler func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVContentKeyRequest)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, didProvideRenewingContentKeyRequest keyRequest: AVContentKeyRequest)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVPersistableContentKeyRequest)
   @available(macOS 10.15, *)
-  optional func contentKeySession(_ session: AVContentKeySession, didUpdatePersistableContentKey persistableContentKey: Data, forContentKeyIdentifier keyIdentifier: Any)
-  optional func contentKeySession(_ session: AVContentKeySession, contentKeyRequest keyRequest: AVContentKeyRequest, didFailWithError err: Error)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, didUpdatePersistableContentKey persistableContentKey: Data, forContentKeyIdentifier keyIdentifier: Any)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, contentKeyRequest keyRequest: AVContentKeyRequest, didFailWithError err: Error)
   optional func contentKeySession(_ session: AVContentKeySession, shouldRetry keyRequest: AVContentKeyRequest, reason retryReason: AVContentKeyRequest.RetryReason) -> Bool
   @available(macOS 10.14, *)
   optional func contentKeySession(_ session: AVContentKeySession, contentKeyRequestDidSucceed keyRequest: AVContentKeyRequest)
-  optional func contentKeySessionContentProtectionSessionIdentifierDidChange(_ session: AVContentKeySession)
+  @asyncHandler optional func contentKeySessionContentProtectionSessionIdentifierDidChange(_ session: AVContentKeySession)
   @available(macOS 10.14, *)
-  optional func contentKeySessionDidGenerateExpiredSessionReport(_ session: AVContentKeySession)
+  @asyncHandler optional func contentKeySessionDidGenerateExpiredSessionReport(_ session: AVContentKeySession)
 }
 @available(macOS 10.12.4, *)
 class AVContentKeyRequest : NSObject {

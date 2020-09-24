@@ -1,7 +1,7 @@
 
 @available(macOS 10.13, *)
 protocol WKHTTPCookieStoreObserver : NSObjectProtocol {
-  optional func cookiesDidChange(in cookieStore: WKHTTPCookieStore)
+  @asyncHandler optional func cookiesDidChange(in cookieStore: WKHTTPCookieStore)
 }
 @available(macOS 10.13, *)
 class WKHTTPCookieStore : NSObject {

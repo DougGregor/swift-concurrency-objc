@@ -29,6 +29,8 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   class func monospacedDigitSystemFont(ofSize fontSize: CGFloat, weight: NSFont.Weight) -> NSFont
   @available(macOS 10.15, *)
   class func monospacedSystemFont(ofSize fontSize: CGFloat, weight: NSFont.Weight) -> NSFont
+  @available(macOS 10.15, *)
+  func withSize(_ fontSize: CGFloat) -> NSFont
   class var systemFontSize: CGFloat { get }
   class var smallSystemFontSize: CGFloat { get }
   class var labelFontSize: CGFloat { get }
@@ -100,7 +102,6 @@ extension NSFont {
   @NSCopying var screen: NSFont { get }
   func screenFont(with renderingMode: NSFontRenderingMode) -> NSFont
   var renderingMode: NSFontRenderingMode { get }
-  func withSize(_ fontSize: CGFloat) -> NSFont
 }
 extension NSFont {
   @available(macOS 11.0, *)

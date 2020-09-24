@@ -29,9 +29,9 @@ extension SCNPhysicsWorld.TestSearchMode {
 }
 @available(macOS 10.10, *)
 protocol SCNPhysicsContactDelegate : NSObjectProtocol {
-  optional func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
-  optional func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
-  optional func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
+  @asyncHandler optional func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
+  @asyncHandler optional func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
+  @asyncHandler optional func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
 }
 @available(macOS 10.10, *)
 class SCNPhysicsWorld : NSObject, NSSecureCoding {

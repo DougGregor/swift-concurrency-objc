@@ -3,7 +3,7 @@ protocol GKAgentDelegate : NSObjectProtocol {
   @available(macOS 10.11, *)
   optional func agentWillUpdate(_ agent: GKAgent)
   @available(macOS 10.11, *)
-  optional func agentDidUpdate(_ agent: GKAgent)
+  @asyncHandler optional func agentDidUpdate(_ agent: GKAgent)
 }
 @available(macOS 10.11, *)
 class GKAgent : GKComponent, NSSecureCoding {

@@ -35,5 +35,5 @@ extension GKGameCenterViewController {
 }
 protocol GKGameCenterControllerDelegate : NSObjectProtocol {
   @available(macOS 10.9, *)
-  func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)
+  @asyncHandler func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)
 }

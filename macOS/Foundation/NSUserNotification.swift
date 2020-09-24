@@ -65,9 +65,9 @@ class NSUserNotificationCenter : NSObject {
 }
 protocol NSUserNotificationCenterDelegate : NSObjectProtocol {
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "All NSUserNotifications API should be replaced with UserNotifications.frameworks API")
-  optional func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification)
+  @asyncHandler optional func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification)
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "All NSUserNotifications API should be replaced with UserNotifications.frameworks API")
-  optional func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification)
+  @asyncHandler optional func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification)
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "All NSUserNotifications API should be replaced with UserNotifications.frameworks API")
   optional func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool
 }

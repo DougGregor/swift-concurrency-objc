@@ -11,7 +11,7 @@ class MCBrowserViewController : NSViewController, MCNearbyServiceBrowserDelegate
 }
 protocol MCBrowserViewControllerDelegate : NSObjectProtocol {
   @available(macOS 10.10, *)
-  func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController)
+  @asyncHandler func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController)
   @available(macOS 10.10, *)
   func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController)
   @available(macOS 10.10, *)

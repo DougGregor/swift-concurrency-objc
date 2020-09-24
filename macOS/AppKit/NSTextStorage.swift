@@ -27,7 +27,7 @@ protocol NSTextStorageDelegate : NSObjectProtocol {
   @available(macOS 10.11, *)
   optional func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int)
   @available(macOS 10.11, *)
-  optional func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int)
+  @asyncHandler optional func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int)
 }
 extension NSTextStorage {
   @available(macOS 10.0, *)

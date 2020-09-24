@@ -36,17 +36,17 @@ class GKMatch : NSObject {
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(macOS 10.10, *)
-  optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
+  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
   @available(macOS 10.11, *)
-  optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
+  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
   @available(macOS 10.8, *)
-  optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
+  @asyncHandler optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(macOS 10.8, *)
-  optional func match(_ match: GKMatch, didFailWithError error: Error?)
+  @asyncHandler optional func match(_ match: GKMatch, didFailWithError error: Error?)
   @available(macOS 10.10, *)
   optional func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "This is never invoked and its implementation does nothing, use match:didReceiveData:fromRemotePlayer:")
-  optional func match(_ match: GKMatch, didReceive data: Data, fromPlayer playerID: String)
+  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, fromPlayer playerID: String)
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "This is never invoked and its implementation does nothing, use shouldReinviteDisconnectedPlayer:")
   optional func match(_ match: GKMatch, shouldReinvitePlayer playerID: String) -> Bool
 }

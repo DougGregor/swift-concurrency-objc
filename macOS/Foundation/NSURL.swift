@@ -223,6 +223,8 @@ extension URLResourceKey {
   static let totalFileAllocatedSizeKey: URLResourceKey
   @available(macOS 10.6, *)
   static let isAliasFileKey: URLResourceKey
+  @available(macOS 10.11, *)
+  static let fileProtectionKey: URLResourceKey
   @available(macOS 10.6, *)
   static let volumeLocalizedFormatDescriptionKey: URLResourceKey
   @available(macOS 10.6, *)

@@ -14,7 +14,7 @@ protocol NSComboBoxDataSource : NSObjectProtocol {
 protocol NSComboBoxDelegate : NSTextFieldDelegate {
   optional func comboBoxWillPopUp(_ notification: Notification)
   optional func comboBoxWillDismiss(_ notification: Notification)
-  optional func comboBoxSelectionDidChange(_ notification: Notification)
+  @asyncHandler optional func comboBoxSelectionDidChange(_ notification: Notification)
   optional func comboBoxSelectionIsChanging(_ notification: Notification)
 }
 class NSComboBox : NSTextField {

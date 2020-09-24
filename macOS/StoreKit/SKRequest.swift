@@ -10,7 +10,7 @@ class SKRequest : NSObject {
 }
 protocol SKRequestDelegate : NSObjectProtocol {
   @available(macOS 10.7, *)
-  optional func requestDidFinish(_ request: SKRequest)
+  @asyncHandler optional func requestDidFinish(_ request: SKRequest)
   @available(macOS 10.7, *)
-  optional func request(_ request: SKRequest, didFailWithError error: Error)
+  @asyncHandler optional func request(_ request: SKRequest, didFailWithError error: Error)
 }

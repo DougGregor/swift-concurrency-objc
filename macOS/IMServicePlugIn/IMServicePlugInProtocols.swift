@@ -11,11 +11,11 @@ protocol IMServicePlugIn : NSObjectProtocol {
 }
 protocol IMServiceApplication : NSObjectProtocol {
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  func plugInDidLogIn()
+  @asyncHandler func plugInDidLogIn()
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  func plugInDidLogOutWithError(_ error: Error!, reconnect: Bool)
+  @asyncHandler func plugInDidLogOutWithError(_ error: Error!, reconnect: Bool)
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  func plugInDidFailToAuthenticate()
+  @asyncHandler func plugInDidFailToAuthenticate()
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  func plugInDidUpdateProperties(_ changes: [AnyHashable : Any]!, ofHandle handle: String!)
+  @asyncHandler func plugInDidUpdateProperties(_ changes: [AnyHashable : Any]!, ofHandle handle: String!)
 }

@@ -9,5 +9,5 @@ class NSSpeechRecognizer : NSObject {
   var blocksOtherRecognizers: Bool
 }
 protocol NSSpeechRecognizerDelegate : NSObjectProtocol {
-  optional func speechRecognizer(_ sender: NSSpeechRecognizer, didRecognizeCommand command: String)
+  @asyncHandler optional func speechRecognizer(_ sender: NSSpeechRecognizer, didRecognizeCommand command: String)
 }

@@ -49,5 +49,5 @@ let NSUserActivityTypeBrowsingWeb: String
 protocol NSUserActivityDelegate : NSObjectProtocol {
   optional func userActivityWillSave(_ userActivity: NSUserActivity)
   optional func userActivityWasContinued(_ userActivity: NSUserActivity)
-  optional func userActivity(_ userActivity: NSUserActivity, didReceive inputStream: InputStream, outputStream: OutputStream)
+  @asyncHandler optional func userActivity(_ userActivity: NSUserActivity, didReceive inputStream: InputStream, outputStream: OutputStream)
 }
