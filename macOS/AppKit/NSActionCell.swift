@@ -1,3 +1,0 @@
-
-class NSActionCell : NSCell {
-}

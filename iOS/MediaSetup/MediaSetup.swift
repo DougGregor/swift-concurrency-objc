@@ -1,2 +1,0 @@
-
-var MediaSetupVersionNumber: Double

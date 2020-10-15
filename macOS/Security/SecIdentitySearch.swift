@@ -1,3 +1,0 @@
-
-class SecIdentitySearch : _CFObject {
-}

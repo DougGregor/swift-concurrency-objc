@@ -1,2 +1,0 @@
-
-var __gss_spnego_mechanism_oid_desc: gss_OID_desc

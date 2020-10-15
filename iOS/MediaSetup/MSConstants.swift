@@ -1,6 +1,0 @@
-
-let kMediaSetupServicesChanged: String
-let kMediaSetupInterfaceEntitlementKey: String
-let kMediaSetupTestingProfileDefaultsIdentifier: String
-let kMediaSetupMachServiceName: String
-let kMediaSetupServiceEntitlement: String

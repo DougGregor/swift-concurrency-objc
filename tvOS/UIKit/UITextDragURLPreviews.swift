@@ -1,5 +1,0 @@
-
-extension UIDragPreview {
-}
-extension UITargetedDragPreview {
-}

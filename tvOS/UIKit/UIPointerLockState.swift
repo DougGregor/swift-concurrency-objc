@@ -1,5 +1,0 @@
-
-extension UIScene {
-}
-extension UIPointerLockState {
-}

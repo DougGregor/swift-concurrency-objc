@@ -1,2 +1,0 @@
-
-typealias ASPresentationAnchor = NSWindow

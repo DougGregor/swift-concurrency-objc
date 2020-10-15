@@ -1,2 +1,0 @@
-
-var IntentsVersionNumber: Double

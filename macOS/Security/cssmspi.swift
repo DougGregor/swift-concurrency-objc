@@ -1,5 +1,0 @@
-
-typealias CSSM_CONTEXT_EVENT = uint32
-var CSSM_CONTEXT_EVENT_CREATE: Int { get }
-var CSSM_CONTEXT_EVENT_DELETE: Int { get }
-var CSSM_CONTEXT_EVENT_UPDATE: Int { get }
