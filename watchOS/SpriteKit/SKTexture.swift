@@ -29,7 +29,9 @@ class SKTexture : NSObject, NSCopying, NSSecureCoding {
   @available(watchOS 2.0, *)
   func cgImage() -> CGImage
   class func preload(_ textures: [SKTexture], withCompletionHandler completionHandler: @escaping () -> Void)
+  class func preload(_ textures: [SKTexture]) async
   func preload(completionHandler: @escaping () -> Void)
+  func preload() async
 }
 
 extension SKTexture : _CustomPlaygroundQuickLookable {

@@ -3,7 +3,7 @@
 protocol UIInteraction : NSObjectProtocol {
   weak var view: @sil_weak UIView? { get }
   func willMove(to view: UIView?)
-  func didMove(to view: UIView?)
+  @asyncHandler func didMove(to view: UIView?)
 }
 extension UIView {
   @available(tvOS 13.0, *)

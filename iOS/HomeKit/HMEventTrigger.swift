@@ -23,16 +23,29 @@ class HMEventTrigger : HMTrigger {
   @available(iOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
   func addEvent(_ event: HMEvent, completionHandler completion: @escaping (Error?) -> Void)
   @available(iOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
+  func addEvent(_ event: HMEvent) async throws
+  @available(iOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
   func removeEvent(_ event: HMEvent, completionHandler completion: @escaping (Error?) -> Void)
+  @available(iOS, introduced: 9.0, deprecated: 11.0, message: "Use updateEvents:completionHandler: instead")
+  func removeEvent(_ event: HMEvent) async throws
   @available(iOS 11.0, *)
   func updateEvents(_ events: [HMEvent], completionHandler completion: @escaping (Error?) -> Void)
   @available(iOS 11.0, *)
+  func updateEvents(_ events: [HMEvent]) async throws
+  @available(iOS 11.0, *)
   func updateEndEvents(_ endEvents: [HMEvent], completionHandler completion: @escaping (Error?) -> Void)
+  @available(iOS 11.0, *)
+  func updateEndEvents(_ endEvents: [HMEvent]) async throws
   func updatePredicate(_ predicate: NSPredicate?, completionHandler completion: @escaping (Error?) -> Void)
+  func updatePredicate(_ predicate: NSPredicate?) async throws
   @available(iOS 11.0, *)
   func updateRecurrences(_ recurrences: [DateComponents]?, completionHandler completion: @escaping (Error?) -> Void)
   @available(iOS 11.0, *)
+  func updateRecurrences(_ recurrences: [DateComponents]?) async throws
+  @available(iOS 11.0, *)
   func updateExecuteOnce(_ executeOnce: Bool, completionHandler completion: @escaping (Error?) -> Void)
+  @available(iOS 11.0, *)
+  func updateExecuteOnce(_ executeOnce: Bool) async throws
 }
 extension HMEventTrigger {
   @available(iOS, introduced: 9.0, deprecated: 11.0, message: "Use predicateForEvaluatingTriggerOccurringBeforeSignificantEvent: instead")

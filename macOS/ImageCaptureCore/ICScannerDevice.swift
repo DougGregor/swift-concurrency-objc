@@ -27,17 +27,17 @@ enum ICScannerTransferMode : UInt {
 @available(macOS 10.4, *)
 protocol ICScannerDeviceDelegate : ICDeviceDelegate {
   @available(macOS 10.4, *)
-  optional func scannerDeviceDidBecomeAvailable(_ scanner: ICScannerDevice)
+  @asyncHandler optional func scannerDeviceDidBecomeAvailable(_ scanner: ICScannerDevice)
   @available(macOS 10.4, *)
-  optional func scannerDevice(_ scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: Error?)
+  @asyncHandler optional func scannerDevice(_ scanner: ICScannerDevice, didSelect functionalUnit: ICScannerFunctionalUnit, error: Error?)
   @available(macOS 10.7, *)
-  optional func scannerDevice(_ scanner: ICScannerDevice, didScanTo url: URL)
+  @asyncHandler optional func scannerDevice(_ scanner: ICScannerDevice, didScanTo url: URL)
   @available(macOS 10.7, *)
-  optional func scannerDevice(_ scanner: ICScannerDevice, didScanTo data: ICScannerBandData)
+  @asyncHandler optional func scannerDevice(_ scanner: ICScannerDevice, didScanTo data: ICScannerBandData)
   @available(macOS 10.4, *)
-  optional func scannerDevice(_ scanner: ICScannerDevice, didCompleteOverviewScanWithError error: Error?)
+  @asyncHandler optional func scannerDevice(_ scanner: ICScannerDevice, didCompleteOverviewScanWithError error: Error?)
   @available(macOS 10.4, *)
-  optional func scannerDevice(_ scanner: ICScannerDevice, didCompleteScanWithError error: Error?)
+  @asyncHandler optional func scannerDevice(_ scanner: ICScannerDevice, didCompleteScanWithError error: Error?)
 }
 @available(macOS 10.4, *)
 class ICScannerDevice : ICDevice {

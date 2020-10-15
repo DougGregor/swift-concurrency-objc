@@ -18,7 +18,7 @@ class UILargeContentViewerInteraction : NSObject, UIInteraction {
 }
 @available(iOS 13.0, *)
 protocol UILargeContentViewerInteractionDelegate : NSObjectProtocol {
-  optional func largeContentViewerInteraction(_ interaction: UILargeContentViewerInteraction, didEndOn item: UILargeContentViewerItem?, at point: CGPoint)
+  @asyncHandler optional func largeContentViewerInteraction(_ interaction: UILargeContentViewerInteraction, didEndOn item: UILargeContentViewerItem?, at point: CGPoint)
   optional func largeContentViewerInteraction(_ interaction: UILargeContentViewerInteraction, itemAt point: CGPoint) -> UILargeContentViewerItem?
   optional func viewController(for interaction: UILargeContentViewerInteraction) -> UIViewController
 }

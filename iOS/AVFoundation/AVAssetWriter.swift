@@ -35,6 +35,8 @@ class AVAssetWriter : NSObject {
   func cancelWriting()
   @available(iOS 6.0, *)
   func finishWriting(completionHandler handler: @escaping () -> Void)
+  @available(iOS 6.0, *)
+  func finishWriting() async
 }
 extension AVAssetWriter {
   var movieFragmentInterval: CMTime
@@ -74,6 +76,6 @@ extension AVAssetWriter {
 }
 @available(iOS 14.0, *)
 protocol AVAssetWriterDelegate : NSObjectProtocol {
-  optional func assetWriter(_ writer: AVAssetWriter, didOutputSegmentData segmentData: Data, segmentType: AVAssetSegmentType, segmentReport: AVAssetSegmentReport?)
-  optional func assetWriter(_ writer: AVAssetWriter, didOutputSegmentData segmentData: Data, segmentType: AVAssetSegmentType)
+  @asyncHandler optional func assetWriter(_ writer: AVAssetWriter, didOutputSegmentData segmentData: Data, segmentType: AVAssetSegmentType, segmentReport: AVAssetSegmentReport?)
+  @asyncHandler optional func assetWriter(_ writer: AVAssetWriter, didOutputSegmentData segmentData: Data, segmentType: AVAssetSegmentType)
 }

@@ -31,8 +31,8 @@ protocol SFSafariViewControllerDelegate : NSObjectProtocol {
   optional func safariViewController(_ controller: SFSafariViewController, activityItemsFor URL: URL, title: String?) -> [UIActivity]
   @available(iOS 11.0, *)
   optional func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType]
-  optional func safariViewControllerDidFinish(_ controller: SFSafariViewController)
-  optional func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool)
+  @asyncHandler optional func safariViewControllerDidFinish(_ controller: SFSafariViewController)
+  @asyncHandler optional func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool)
   @available(iOS 11.0, *)
   optional func safariViewController(_ controller: SFSafariViewController, initialLoadDidRedirectTo URL: URL)
   @available(iOS 14.0, *)

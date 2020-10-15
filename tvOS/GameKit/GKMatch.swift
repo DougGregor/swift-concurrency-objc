@@ -27,18 +27,22 @@ class GKMatch : NSObject {
   func voiceChat(withName name: String) -> GKVoiceChat?
   @available(tvOS 8.0, *)
   func chooseBestHostingPlayer(completionHandler: @escaping (GKPlayer?) -> Void)
+  @available(tvOS 8.0, *)
+  func chooseBestHostingPlayer() async -> GKPlayer?
   @available(tvOS 6.0, *)
   func rematch(completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  @available(tvOS 6.0, *)
+  func rematch() async throws -> GKMatch?
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
+  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
   @available(tvOS 9.0, *)
-  optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
+  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
   @available(tvOS 4.1, *)
-  optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
+  @asyncHandler optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(tvOS 4.1, *)
-  optional func match(_ match: GKMatch, didFailWithError error: Error?)
+  @asyncHandler optional func match(_ match: GKMatch, didFailWithError error: Error?)
   @available(tvOS 8.0, *)
   optional func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
 }

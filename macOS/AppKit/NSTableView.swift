@@ -230,9 +230,9 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   @available(macOS 10.7, *)
   optional func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView?
   @available(macOS 10.7, *)
-  optional func tableView(_ tableView: NSTableView, didAdd rowView: NSTableRowView, forRow row: Int)
+  @asyncHandler optional func tableView(_ tableView: NSTableView, didAdd rowView: NSTableRowView, forRow row: Int)
   @available(macOS 10.7, *)
-  optional func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int)
+  @asyncHandler optional func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int)
   optional func tableView(_ tableView: NSTableView, willDisplayCell cell: Any, for tableColumn: NSTableColumn?, row: Int)
   optional func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool
   optional func tableView(_ tableView: NSTableView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: NSPoint) -> String
@@ -248,8 +248,8 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   optional func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet
   optional func tableView(_ tableView: NSTableView, shouldSelect tableColumn: NSTableColumn?) -> Bool
   optional func tableView(_ tableView: NSTableView, mouseDownInHeaderOf tableColumn: NSTableColumn)
-  optional func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn)
-  optional func tableView(_ tableView: NSTableView, didDrag tableColumn: NSTableColumn)
+  @asyncHandler optional func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn)
+  @asyncHandler optional func tableView(_ tableView: NSTableView, didDrag tableColumn: NSTableColumn)
   optional func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat
   @available(macOS 10.5, *)
   optional func tableView(_ tableView: NSTableView, typeSelectStringFor tableColumn: NSTableColumn?, row: Int) -> String?
@@ -265,9 +265,9 @@ protocol NSTableViewDelegate : NSControlTextEditingDelegate {
   optional func tableView(_ tableView: NSTableView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool
   @available(macOS 10.11, *)
   optional func tableView(_ tableView: NSTableView, rowActionsForRow row: Int, edge: NSTableView.RowActionEdge) -> [NSTableViewRowAction]
-  optional func tableViewSelectionDidChange(_ notification: Notification)
-  optional func tableViewColumnDidMove(_ notification: Notification)
-  optional func tableViewColumnDidResize(_ notification: Notification)
+  @asyncHandler optional func tableViewSelectionDidChange(_ notification: Notification)
+  @asyncHandler optional func tableViewColumnDidMove(_ notification: Notification)
+  @asyncHandler optional func tableViewColumnDidResize(_ notification: Notification)
   optional func tableViewSelectionIsChanging(_ notification: Notification)
 }
 protocol NSTableViewDataSource : NSObjectProtocol {

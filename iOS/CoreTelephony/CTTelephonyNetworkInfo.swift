@@ -33,7 +33,7 @@ let CTRadioAccessTechnologyNRNSA: String
 let CTRadioAccessTechnologyNR: String
 @available(iOS 13.0, *)
 protocol CTTelephonyNetworkInfoDelegate : NSObjectProtocol {
-  optional func dataServiceIdentifierDidChange(_ identifier: String)
+  @asyncHandler optional func dataServiceIdentifierDidChange(_ identifier: String)
 }
 @available(iOS 4.0, *)
 class CTTelephonyNetworkInfo : NSObject {

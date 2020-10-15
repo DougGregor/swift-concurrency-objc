@@ -44,7 +44,9 @@ class UIDocumentBrowserViewController : UIViewController, NSCoding {
   var additionalLeadingNavigationBarButtonItems: [UIBarButtonItem]
   var additionalTrailingNavigationBarButtonItems: [UIBarButtonItem]
   func revealDocument(at url: URL, importIfNeeded: Bool, completion: ((URL?, Error?) -> Void)? = nil)
+  func revealDocument(at url: URL, importIfNeeded: Bool) async throws -> URL?
   func importDocument(at documentURL: URL, nextToDocumentAt neighbourURL: URL, mode importMode: UIDocumentBrowserViewController.ImportMode, completionHandler completion: @escaping (URL?, Error?) -> Void)
+  func importDocument(at documentURL: URL, nextToDocumentAt neighbourURL: URL, mode importMode: UIDocumentBrowserViewController.ImportMode) async throws -> URL?
   @available(iOS 12.0, *)
   func transitionController(forDocumentAt documentURL: URL) -> UIDocumentBrowserTransitionController
   @available(iOS, introduced: 11.0, deprecated: 12.0)
@@ -59,11 +61,11 @@ class UIDocumentBrowserViewController : UIViewController, NSCoding {
 @available(iOS 11.0, *)
 protocol UIDocumentBrowserViewControllerDelegate : NSObjectProtocol {
   @available(iOS, introduced: 11.0, deprecated: 12.0)
-  optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL])
+  @asyncHandler optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL])
   @available(iOS 12.0, *)
-  optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL])
-  optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void)
-  optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didImportDocumentAt sourceURL: URL, toDestinationURL destinationURL: URL)
+  @asyncHandler optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL])
+  @asyncHandler optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void)
+  @asyncHandler optional func documentBrowser(_ controller: UIDocumentBrowserViewController, didImportDocumentAt sourceURL: URL, toDestinationURL destinationURL: URL)
   optional func documentBrowser(_ controller: UIDocumentBrowserViewController, failedToImportDocumentAt documentURL: URL, error: Error?)
   optional func documentBrowser(_ controller: UIDocumentBrowserViewController, applicationActivitiesForDocumentURLs documentURLs: [URL]) -> [UIActivity]
   optional func documentBrowser(_ controller: UIDocumentBrowserViewController, willPresent activityViewController: UIActivityViewController)

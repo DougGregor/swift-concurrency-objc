@@ -270,6 +270,8 @@ extension AVCaptureDevice {
   var lensPosition: Float { get }
   @available(iOS 8.0, *)
   func setFocusModeLocked(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
+  @available(iOS 8.0, *)
+  func setFocusModeLocked(lensPosition: Float) async -> CMTime
 }
 extension AVCaptureDevice {
   func isExposureModeSupported(_ exposureMode: AVCaptureDevice.ExposureMode) -> Bool
@@ -288,6 +290,8 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   func setExposureModeCustom(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
   @available(iOS 8.0, *)
+  func setExposureModeCustom(duration: CMTime, iso ISO: Float) async -> CMTime
+  @available(iOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(iOS 8.0, *)
   var exposureTargetBias: Float { get }
@@ -297,6 +301,8 @@ extension AVCaptureDevice {
   var maxExposureTargetBias: Float { get }
   @available(iOS 8.0, *)
   func setExposureTargetBias(_ bias: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
+  @available(iOS 8.0, *)
+  func setExposureTargetBias(_ bias: Float) async -> CMTime
 }
 extension AVCaptureDevice {
   @available(iOS 13.0, *)
@@ -316,6 +322,8 @@ extension AVCaptureDevice {
   var maxWhiteBalanceGain: Float { get }
   @available(iOS 8.0, *)
   func setWhiteBalanceModeLocked(with whiteBalanceGains: AVCaptureDevice.WhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)? = nil)
+  @available(iOS 8.0, *)
+  func setWhiteBalanceModeLocked(with whiteBalanceGains: AVCaptureDevice.WhiteBalanceGains) async -> CMTime
   @available(iOS 8.0, *)
   func chromaticityValues(for whiteBalanceGains: AVCaptureDevice.WhiteBalanceGains) -> AVCaptureDevice.WhiteBalanceChromaticityValues
   @available(iOS 8.0, *)
@@ -363,6 +371,8 @@ extension AVCaptureDevice {
   class func authorizationStatus(for mediaType: AVMediaType) -> AVAuthorizationStatus
   @available(iOS 7.0, *)
   class func requestAccess(for mediaType: AVMediaType, completionHandler handler: @escaping (Bool) -> Void)
+  @available(iOS 7.0, *)
+  class func requestAccess(for mediaType: AVMediaType) async -> Bool
 }
 extension AVCaptureDevice {
 }

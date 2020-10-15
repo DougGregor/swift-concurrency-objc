@@ -9,9 +9,9 @@ extension ICAuthorizationStatus {
 }
 protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @available(macOS 10.4, *)
-  func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
+  @asyncHandler func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
   @available(macOS 10.4, *)
-  func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
+  @asyncHandler func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
   @available(macOS 10.4, *)
   optional func deviceBrowser(_ browser: ICDeviceBrowser, deviceDidChangeName device: ICDevice)
   @available(macOS, introduced: 10.4, deprecated: 10.13, message: "deviceDidChangeSharingState will no longer be called")
@@ -19,7 +19,7 @@ protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @available(macOS 10.4, *)
   optional func deviceBrowser(_ browser: ICDeviceBrowser, requestsSelect device: ICDevice)
   @available(macOS 10.4, *)
-  optional func deviceBrowserDidEnumerateLocalDevices(_ browser: ICDeviceBrowser)
+  @asyncHandler optional func deviceBrowserDidEnumerateLocalDevices(_ browser: ICDeviceBrowser)
 }
 @available(macOS 10.4, *)
 class ICDeviceBrowser : NSObject {

@@ -58,7 +58,7 @@ protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(iOS 11.0, *)
   optional func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool
   @available(iOS 13.0, *)
-  optional func paymentQueueDidChangeStorefront(_ queue: SKPaymentQueue)
+  @asyncHandler optional func paymentQueueDidChangeStorefront(_ queue: SKPaymentQueue)
   @available(iOS 14.0, *)
-  optional func paymentQueue(_ queue: SKPaymentQueue, didRevokeEntitlementsForProductIdentifiers productIdentifiers: [String])
+  @asyncHandler optional func paymentQueue(_ queue: SKPaymentQueue, didRevokeEntitlementsForProductIdentifiers productIdentifiers: [String])
 }

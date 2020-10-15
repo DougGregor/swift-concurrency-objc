@@ -1,8 +1,8 @@
 
 @available(watchOS 6.0, *)
 protocol ASAuthorizationControllerDelegate : NSObjectProtocol {
-  optional func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization)
-  optional func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error)
+  @asyncHandler optional func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization)
+  @asyncHandler optional func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error)
 }
 @available(watchOS 6.0, *)
 class ASAuthorizationController : NSObject {

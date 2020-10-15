@@ -40,5 +40,5 @@ class MFMessageComposeViewController : UINavigationController {
 }
 protocol MFMessageComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
+  @asyncHandler func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
 }

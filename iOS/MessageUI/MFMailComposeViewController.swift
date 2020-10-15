@@ -33,5 +33,5 @@ class MFMailComposeViewController : UINavigationController {
 }
 protocol MFMailComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
+  @asyncHandler optional func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
 }

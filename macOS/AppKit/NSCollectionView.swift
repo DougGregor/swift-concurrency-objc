@@ -42,7 +42,7 @@ protocol NSCollectionViewElement : NSUserInterfaceItemIdentification, NSObjectPr
   @available(macOS 10.11, *)
   optional func willTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
   @available(macOS 10.11, *)
-  optional func didTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
+  @asyncHandler optional func didTransition(from oldLayout: NSCollectionViewLayout, to newLayout: NSCollectionViewLayout)
   @available(macOS 10.11, *)
   optional func preferredLayoutAttributesFitting(_ layoutAttributes: NSCollectionViewLayoutAttributes) -> NSCollectionViewLayoutAttributes
 }
@@ -153,6 +153,8 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   @available(macOS 10.11, *)
   func performBatchUpdates(_ updates: (() -> Void)?, completionHandler: ((Bool) -> Void)? = nil)
+  @available(macOS 10.11, *)
+  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
   @available(macOS 10.12, *)
   @IBAction func toggleSectionCollapse(_ sender: Any)
   @available(macOS 10.11, *)
@@ -220,23 +222,23 @@ protocol NSCollectionViewDelegate : NSObjectProtocol {
   @available(macOS 10.11, *)
   optional func collectionView(_ collectionView: NSCollectionView, shouldChangeItemsAt indexPaths: Set<IndexPath>, to highlightState: NSCollectionViewItem.HighlightState) -> Set<IndexPath>
   @available(macOS 10.11, *)
-  optional func collectionView(_ collectionView: NSCollectionView, didChangeItemsAt indexPaths: Set<IndexPath>, to highlightState: NSCollectionViewItem.HighlightState)
+  @asyncHandler optional func collectionView(_ collectionView: NSCollectionView, didChangeItemsAt indexPaths: Set<IndexPath>, to highlightState: NSCollectionViewItem.HighlightState)
   @available(macOS 10.11, *)
   optional func collectionView(_ collectionView: NSCollectionView, shouldSelectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath>
   @available(macOS 10.11, *)
   optional func collectionView(_ collectionView: NSCollectionView, shouldDeselectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath>
   @available(macOS 10.11, *)
-  optional func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>)
+  @asyncHandler optional func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>)
   @available(macOS 10.11, *)
-  optional func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>)
+  @asyncHandler optional func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>)
   @available(macOS 10.11, *)
   optional func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath)
   @available(macOS 10.11, *)
   optional func collectionView(_ collectionView: NSCollectionView, willDisplaySupplementaryView view: NSView, forElementKind elementKind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath)
   @available(macOS 10.11, *)
-  optional func collectionView(_ collectionView: NSCollectionView, didEndDisplaying item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: NSCollectionView, didEndDisplaying item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath)
   @available(macOS 10.11, *)
-  optional func collectionView(_ collectionView: NSCollectionView, didEndDisplayingSupplementaryView view: NSView, forElementOfKind elementKind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: NSCollectionView, didEndDisplayingSupplementaryView view: NSView, forElementOfKind elementKind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath)
   @available(macOS 10.11, *)
   optional func collectionView(_ collectionView: NSCollectionView, transitionLayoutForOldLayout fromLayout: NSCollectionViewLayout, newLayout toLayout: NSCollectionViewLayout) -> NSCollectionViewTransitionLayout
 }

@@ -157,11 +157,11 @@ protocol NSLayoutManagerDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   optional func layoutManager(_ layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<CGRect>, lineFragmentUsedRect: UnsafeMutablePointer<CGRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  optional func layoutManagerDidInvalidateLayout(_ sender: NSLayoutManager)
+  @asyncHandler optional func layoutManagerDidInvalidateLayout(_ sender: NSLayoutManager)
   @available(iOS 7.0, *)
-  optional func layoutManager(_ layoutManager: NSLayoutManager, didCompleteLayoutFor textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool)
+  @asyncHandler optional func layoutManager(_ layoutManager: NSLayoutManager, didCompleteLayoutFor textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool)
   @available(iOS 7.0, *)
-  optional func layoutManager(_ layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFrom oldSize: CGSize)
+  @asyncHandler optional func layoutManager(_ layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFrom oldSize: CGSize)
 }
 @available(iOS, introduced: 7.0, deprecated: 9.0, message: "Use NSControlCharacterActionZeroAdvancement instead")
 var NSControlCharacterZeroAdvancementAction: Int { get }

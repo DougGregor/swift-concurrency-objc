@@ -75,11 +75,11 @@ protocol UISearchBarDelegate : UIBarPositioningDelegate {
   @available(tvOS 2.0, *)
   optional func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool
   @available(tvOS 2.0, *)
-  optional func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
+  @asyncHandler optional func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
   @available(tvOS 2.0, *)
   optional func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool
   @available(tvOS 2.0, *)
-  optional func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
+  @asyncHandler optional func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
   @available(tvOS 2.0, *)
   optional func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
   @available(tvOS 3.0, *)

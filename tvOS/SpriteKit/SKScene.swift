@@ -11,10 +11,10 @@ enum SKSceneScaleMode : Int {
 @available(tvOS 9.0, *)
 protocol SKSceneDelegate : NSObjectProtocol {
   optional func update(_ currentTime: TimeInterval, for scene: SKScene)
-  optional func didEvaluateActions(for scene: SKScene)
-  optional func didSimulatePhysics(for scene: SKScene)
-  optional func didApplyConstraints(for scene: SKScene)
-  optional func didFinishUpdate(for scene: SKScene)
+  @asyncHandler optional func didEvaluateActions(for scene: SKScene)
+  @asyncHandler optional func didSimulatePhysics(for scene: SKScene)
+  @asyncHandler optional func didApplyConstraints(for scene: SKScene)
+  @asyncHandler optional func didFinishUpdate(for scene: SKScene)
 }
 class SKScene : SKEffectNode {
   init(size: CGSize)

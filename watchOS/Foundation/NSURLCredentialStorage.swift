@@ -15,11 +15,15 @@ extension URLCredentialStorage {
   @available(watchOS 2.0, *)
   func getCredentials(for protectionSpace: URLProtectionSpace, task: URLSessionTask, completionHandler: @escaping ([String : URLCredential]?) -> Void)
   @available(watchOS 2.0, *)
+  func getCredentials(for protectionSpace: URLProtectionSpace, task: URLSessionTask) async -> [String : URLCredential]?
+  @available(watchOS 2.0, *)
   func set(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, task: URLSessionTask)
   @available(watchOS 2.0, *)
   func remove(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, options: [String : Any]? = nil, task: URLSessionTask)
   @available(watchOS 2.0, *)
   func getDefaultCredential(for space: URLProtectionSpace, task: URLSessionTask, completionHandler: @escaping (URLCredential?) -> Void)
+  @available(watchOS 2.0, *)
+  func getDefaultCredential(for space: URLProtectionSpace, task: URLSessionTask) async -> URLCredential?
   @available(watchOS 2.0, *)
   func setDefaultCredential(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, task: URLSessionTask)
 }

@@ -47,12 +47,21 @@ class INSetProfileInCarIntent : INIntent {
 @available(iOS 10.0, *)
 protocol INSetProfileInCarIntentHandling : NSObjectProtocol {
   func handle(intent: INSetProfileInCarIntent, completion: @escaping (INSetProfileInCarIntentResponse) -> Void)
+  func handle(intent: INSetProfileInCarIntent) async -> INSetProfileInCarIntentResponse
   optional func confirm(intent: INSetProfileInCarIntent, completion: @escaping (INSetProfileInCarIntentResponse) -> Void)
+  optional func confirm(intent: INSetProfileInCarIntent) async -> INSetProfileInCarIntentResponse
   optional func resolveProfileNumber(for intent: INSetProfileInCarIntent, with completion: @escaping (INIntegerResolutionResult) -> Void)
+  optional func resolveProfileNumber(for intent: INSetProfileInCarIntent) async -> INIntegerResolutionResult
   @available(iOS 10.2, *)
   optional func resolveProfileName(for intent: INSetProfileInCarIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  @available(iOS 10.2, *)
+  optional func resolveProfileName(for intent: INSetProfileInCarIntent) async -> INStringResolutionResult
   @available(iOS 12.0, *)
   optional func resolveCarName(for intent: INSetProfileInCarIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  @available(iOS 12.0, *)
+  optional func resolveCarName(for intent: INSetProfileInCarIntent) async -> INSpeakableStringResolutionResult
   @available(iOS, introduced: 10.0, deprecated: 11.0, message: "The property doesn't need to be resolved")
   optional func resolveDefaultProfile(forSetProfileInCar intent: INSetProfileInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  @available(iOS, introduced: 10.0, deprecated: 11.0, message: "The property doesn't need to be resolved")
+  optional func resolveDefaultProfile(forSetProfileInCar intent: INSetProfileInCarIntent) async -> INBooleanResolutionResult
 }

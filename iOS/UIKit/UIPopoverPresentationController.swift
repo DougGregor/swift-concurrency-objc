@@ -5,7 +5,7 @@ protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControl
   @available(iOS, introduced: 8.0, deprecated: 13.0)
   optional func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool
   @available(iOS, introduced: 8.0, deprecated: 13.0)
-  optional func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController)
+  @asyncHandler optional func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
   optional func popoverPresentationController(_ popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView>)
 }

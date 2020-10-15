@@ -22,7 +22,7 @@ class ARCoachingOverlayView : UIView {
 }
 @available(iOS 13.0, *)
 protocol ARCoachingOverlayViewDelegate : NSObjectProtocol {
-  optional func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView)
+  @asyncHandler optional func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView)
   optional func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView)
-  optional func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView)
+  @asyncHandler optional func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView)
 }

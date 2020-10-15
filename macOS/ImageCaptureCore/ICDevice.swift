@@ -144,9 +144,15 @@ class ICDevice : NSObject {
   @available(macOS 10.15, *)
   func requestOpenSession(options: [ICSessionOptions : Any]? = nil, completion: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func requestOpenSession(options: [ICSessionOptions : Any]? = nil) async throws
+  @available(macOS 10.15, *)
   func requestCloseSession(options: [ICSessionOptions : Any]? = nil, completion: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
+  func requestCloseSession(options: [ICSessionOptions : Any]? = nil) async throws
+  @available(macOS 10.15, *)
   func requestEject(completion: @escaping (Error?) -> Void)
+  @available(macOS 10.15, *)
+  func requestEject() async throws
   @available(macOS 10.4, *)
   var autolaunchApplicationPath: String?
   @available(macOS 10.4, *)
@@ -164,21 +170,21 @@ class ICDevice : NSObject {
 }
 protocol ICDeviceDelegate : NSObjectProtocol {
   @available(macOS 10.4, *)
-  func device(_ device: ICDevice, didCloseSessionWithError error: Error?)
+  @asyncHandler func device(_ device: ICDevice, didCloseSessionWithError error: Error?)
   @available(macOS 10.4, *)
-  func didRemove(_ device: ICDevice)
+  @asyncHandler func didRemove(_ device: ICDevice)
   @available(macOS 10.4, *)
-  func device(_ device: ICDevice, didOpenSessionWithError error: Error?)
+  @asyncHandler func device(_ device: ICDevice, didOpenSessionWithError error: Error?)
   @available(macOS 10.4, *)
-  optional func deviceDidBecomeReady(_ device: ICDevice)
+  @asyncHandler optional func deviceDidBecomeReady(_ device: ICDevice)
   @available(macOS 10.4, *)
-  optional func deviceDidChangeName(_ device: ICDevice)
+  @asyncHandler optional func deviceDidChangeName(_ device: ICDevice)
   @available(macOS 10.4, *)
-  optional func device(_ device: ICDevice, didReceiveStatusInformation status: [ICDeviceStatus : Any])
+  @asyncHandler optional func device(_ device: ICDevice, didReceiveStatusInformation status: [ICDeviceStatus : Any])
   @available(macOS 10.4, *)
-  optional func device(_ device: ICDevice, didEncounterError error: Error?)
+  @asyncHandler optional func device(_ device: ICDevice, didEncounterError error: Error?)
   @available(macOS 10.4, *)
-  optional func device(_ device: ICDevice, didEjectWithError error: Error?)
+  @asyncHandler optional func device(_ device: ICDevice, didEjectWithError error: Error?)
   @available(macOS, introduced: 10.4, deprecated: 10.15, message: "Device sharing is no longer available")
-  optional func deviceDidChangeSharingState(_ device: ICDevice)
+  @asyncHandler optional func deviceDidChangeSharingState(_ device: ICDevice)
 }

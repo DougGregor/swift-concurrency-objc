@@ -44,6 +44,8 @@ class UIApplication : UIResponder {
   func canOpenURL(_ url: URL) -> Bool
   @available(tvOS 10.0, *)
   func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
+  @available(tvOS 10.0, *)
+  func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
   func sendEvent(_ event: UIEvent)
   @available(tvOS, introduced: 2.0, deprecated: 13.0, message: "Should not be used for applications that support multiple scenes as it returns a key window across all connected scenes")
   var keyWindow: UIWindow? { get }
@@ -110,6 +112,8 @@ extension UIApplication {
   var supportsAlternateIcons: Bool { get }
   @available(tvOS 10.2, *)
   func setAlternateIconName(_ alternateIconName: String?, completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 10.2, *)
+  func setAlternateIconName(_ alternateIconName: String?) async throws
   @available(tvOS 10.2, *)
   var alternateIconName: String? { get }
 }
@@ -179,47 +183,53 @@ extension UIApplication {
 }
 protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
-  optional func applicationDidFinishLaunching(_ application: UIApplication)
+  @asyncHandler optional func applicationDidFinishLaunching(_ application: UIApplication)
   @available(tvOS 6.0, *)
   optional func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool
   @available(tvOS 3.0, *)
   optional func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool
   @available(tvOS 2.0, *)
-  optional func applicationDidBecomeActive(_ application: UIApplication)
+  @asyncHandler optional func applicationDidBecomeActive(_ application: UIApplication)
   @available(tvOS 2.0, *)
   optional func applicationWillResignActive(_ application: UIApplication)
   @available(tvOS 9.0, *)
   optional func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool
   @available(tvOS 2.0, *)
-  optional func applicationDidReceiveMemoryWarning(_ application: UIApplication)
+  @asyncHandler optional func applicationDidReceiveMemoryWarning(_ application: UIApplication)
   @available(tvOS 2.0, *)
   optional func applicationWillTerminate(_ application: UIApplication)
   @available(tvOS 2.0, *)
   optional func applicationSignificantTimeChange(_ application: UIApplication)
   @available(tvOS 3.0, *)
-  optional func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+  @asyncHandler optional func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
   @available(tvOS 3.0, *)
-  optional func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+  @asyncHandler optional func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
   @available(tvOS, introduced: 3.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:] for user visible notifications and -[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:] for silent remote notifications")
-  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any])
+  @asyncHandler optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any])
   @available(tvOS 7.0, *)
-  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+  @asyncHandler optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+  @available(tvOS 7.0, *)
+  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult
   @available(tvOS, introduced: 11.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
   optional func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+  @available(tvOS, introduced: 11.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
+  optional func application(_ application: UIApplication) async -> UIBackgroundFetchResult
   @available(tvOS 7.0, *)
   optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void)
+  @available(tvOS 7.0, *)
+  optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String) async
   @available(tvOS 8.2, *)
   optional func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void)
   @available(tvOS 9.0, *)
   optional func applicationShouldRequestHealthAuthorization(_ application: UIApplication)
   @available(tvOS 4.0, *)
-  optional func applicationDidEnterBackground(_ application: UIApplication)
+  @asyncHandler optional func applicationDidEnterBackground(_ application: UIApplication)
   @available(tvOS 4.0, *)
   optional func applicationWillEnterForeground(_ application: UIApplication)
   @available(tvOS 4.0, *)
   optional func applicationProtectedDataWillBecomeUnavailable(_ application: UIApplication)
   @available(tvOS 4.0, *)
-  optional func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication)
+  @asyncHandler optional func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication)
   @available(tvOS 5.0, *)
   optional var window: UIWindow? { get set }
   @available(tvOS 8.0, *)
@@ -233,7 +243,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 6.0, *)
   optional func application(_ application: UIApplication, willEncodeRestorableStateWith coder: NSCoder)
   @available(tvOS 6.0, *)
-  optional func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
+  @asyncHandler optional func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
   @available(tvOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldSaveSecureApplicationState: instead")
   optional func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
   @available(tvOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldRestoreSecureApplicationState: instead")
@@ -243,13 +253,13 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
   optional func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
   @available(tvOS 8.0, *)
-  optional func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
+  @asyncHandler optional func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
   @available(tvOS 8.0, *)
-  optional func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity)
+  @asyncHandler optional func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity)
   @available(tvOS 13.0, *)
   optional func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration
   @available(tvOS 13.0, *)
-  optional func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>)
+  @asyncHandler optional func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>)
 }
 
 extension UIApplicationDelegate {

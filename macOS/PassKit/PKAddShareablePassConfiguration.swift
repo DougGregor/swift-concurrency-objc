@@ -16,6 +16,7 @@ enum PKAddShareablePassConfigurationPrimaryAction : UInt {
 }
 class PKAddShareablePassConfiguration : PKAddSecureElementPassConfiguration {
   class func forPassMetaData(_ passMetadata: [PKShareablePassMetadata], provisioningPolicyIdentifier: String, action: PKAddShareablePassConfigurationPrimaryAction, completion: @escaping (PKAddShareablePassConfiguration?, Error?) -> Void)
+  class func forPassMetaData(_ passMetadata: [PKShareablePassMetadata], provisioningPolicyIdentifier: String, action: PKAddShareablePassConfigurationPrimaryAction) async throws -> PKAddShareablePassConfiguration?
   var primaryAction: PKAddShareablePassConfigurationPrimaryAction { get }
   var credentialsMetadata: [PKShareablePassMetadata] { get }
   var provisioningPolicyIdentifier: String { get }

@@ -18,9 +18,9 @@ class HMHomeManager : NSObject {
 @available(watchOS 2.0, *)
 protocol HMHomeManagerDelegate : NSObjectProtocol {
   @available(watchOS 6.0, *)
-  optional func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus)
-  optional func homeManagerDidUpdateHomes(_ manager: HMHomeManager)
-  optional func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager)
-  optional func homeManager(_ manager: HMHomeManager, didAdd home: HMHome)
-  optional func homeManager(_ manager: HMHomeManager, didRemove home: HMHome)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus)
+  @asyncHandler optional func homeManagerDidUpdateHomes(_ manager: HMHomeManager)
+  @asyncHandler optional func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didAdd home: HMHome)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didRemove home: HMHome)
 }

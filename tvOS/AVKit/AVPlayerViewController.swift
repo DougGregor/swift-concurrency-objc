@@ -51,17 +51,17 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 11.0, *)
   optional func playerViewControllerWillBeginDismissalTransition(_ playerViewController: AVPlayerViewController)
   @available(tvOS 11.0, *)
-  optional func playerViewControllerDidEndDismissalTransition(_ playerViewController: AVPlayerViewController)
+  @asyncHandler optional func playerViewControllerDidEndDismissalTransition(_ playerViewController: AVPlayerViewController)
   @available(tvOS 9.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, willPresent interstitial: AVInterstitialTimeRange)
   @available(tvOS 9.0, *)
-  optional func playerViewController(_ playerViewController: AVPlayerViewController, didPresent interstitial: AVInterstitialTimeRange)
+  @asyncHandler optional func playerViewController(_ playerViewController: AVPlayerViewController, didPresent interstitial: AVInterstitialTimeRange)
   @available(tvOS 9.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, willResumePlaybackAfterUserNavigatedFrom oldTime: CMTime, to targetTime: CMTime)
   @available(tvOS 10.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, timeToSeekAfterUserNavigatedFrom oldTime: CMTime, to targetTime: CMTime) -> CMTime
   @available(tvOS 9.0, *)
-  optional func playerViewController(_ playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
+  @asyncHandler optional func playerViewController(_ playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(tvOS 10.0, *)
   optional func skipToNextItem(for playerViewController: AVPlayerViewController)
   @available(tvOS 10.0, *)
@@ -69,7 +69,11 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 13.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, skipToNextChannel completion: @escaping (Bool) -> Void)
   @available(tvOS 13.0, *)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
+  @available(tvOS 13.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, skipToPreviousChannel completion: @escaping (Bool) -> Void)
+  @available(tvOS 13.0, *)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
   @available(tvOS 13.0, *)
   optional func nextChannelInterstitialViewController(for playerViewController: AVPlayerViewController) -> UIViewController
   @available(tvOS 13.0, *)
@@ -77,27 +81,31 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 10.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, shouldPresent proposal: AVContentProposal) -> Bool
   @available(tvOS 10.0, *)
-  optional func playerViewController(_ playerViewController: AVPlayerViewController, didAccept proposal: AVContentProposal)
+  @asyncHandler optional func playerViewController(_ playerViewController: AVPlayerViewController, didAccept proposal: AVContentProposal)
   @available(tvOS 10.0, *)
-  optional func playerViewController(_ playerViewController: AVPlayerViewController, didReject proposal: AVContentProposal)
+  @asyncHandler optional func playerViewController(_ playerViewController: AVPlayerViewController, didReject proposal: AVContentProposal)
   @available(tvOS 11.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, willTransitionToVisibilityOfTransportBar visible: Bool, with coordinator: AVPlayerViewControllerAnimationCoordinator)
   @available(tvOS 9.0, *)
   optional func playerViewControllerWillStartPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(tvOS 9.0, *)
-  optional func playerViewControllerDidStartPictureInPicture(_ playerViewController: AVPlayerViewController)
+  @asyncHandler optional func playerViewControllerDidStartPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(tvOS 9.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: Error)
   @available(tvOS 9.0, *)
   optional func playerViewControllerWillStopPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(tvOS 9.0, *)
-  optional func playerViewControllerDidStopPictureInPicture(_ playerViewController: AVPlayerViewController)
+  @asyncHandler optional func playerViewControllerDidStopPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(tvOS 9.0, *)
   optional func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(_ playerViewController: AVPlayerViewController) -> Bool
   @available(tvOS 9.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
+  @available(tvOS 9.0, *)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
 }
 protocol AVPlayerViewControllerAnimationCoordinator : NSObjectProtocol {
   @available(tvOS 11.0, *)
   func addCoordinatedAnimations(_ animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  @available(tvOS 11.0, *)
+  func addCoordinatedAnimations(_ animations: (() -> Void)?) async -> Bool
 }

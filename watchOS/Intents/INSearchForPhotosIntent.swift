@@ -15,11 +15,19 @@ class INSearchForPhotosIntent : INIntent {
 @available(watchOS 3.2, *)
 protocol INSearchForPhotosIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForPhotosIntent, completion: @escaping (INSearchForPhotosIntentResponse) -> Void)
+  func handle(intent: INSearchForPhotosIntent) async -> INSearchForPhotosIntentResponse
   optional func confirm(intent: INSearchForPhotosIntent, completion: @escaping (INSearchForPhotosIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForPhotosIntent) async -> INSearchForPhotosIntentResponse
   optional func resolveDateCreated(for intent: INSearchForPhotosIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolveDateCreated(for intent: INSearchForPhotosIntent) async -> INDateComponentsRangeResolutionResult
   optional func resolveLocationCreated(for intent: INSearchForPhotosIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void)
+  optional func resolveLocationCreated(for intent: INSearchForPhotosIntent) async -> INPlacemarkResolutionResult
   optional func resolveAlbumName(for intent: INSearchForPhotosIntent, with completion: @escaping (INStringResolutionResult) -> Void)
+  optional func resolveAlbumName(for intent: INSearchForPhotosIntent) async -> INStringResolutionResult
   @available(watchOS 4.0, *)
   optional func resolveSearchTerms(for intent: INSearchForPhotosIntent, with completion: @escaping ([INStringResolutionResult]) -> Void)
+  @available(watchOS 4.0, *)
+  optional func resolveSearchTerms(for intent: INSearchForPhotosIntent) async -> [INStringResolutionResult]
   optional func resolvePeopleInPhoto(for intent: INSearchForPhotosIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  optional func resolvePeopleInPhoto(for intent: INSearchForPhotosIntent) async -> [INPersonResolutionResult]
 }

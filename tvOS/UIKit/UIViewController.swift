@@ -28,9 +28,9 @@ protocol UIContentContainer : NSObjectProtocol {
   @available(tvOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(tvOS 8.0, *)
-  func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
+  @asyncHandler func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
-  func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
+  @asyncHandler func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
@@ -112,7 +112,11 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 5.0, *)
   func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
   @available(tvOS 5.0, *)
+  func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) async
+  @available(tvOS 5.0, *)
   func dismiss(animated flag: Bool, completion: (() -> Void)? = nil)
+  @available(tvOS 5.0, *)
+  func dismiss(animated flag: Bool) async
   @available(tvOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(tvOS 3.2, *)
@@ -156,6 +160,8 @@ extension UIViewController {
   func removeFromParent()
   @available(tvOS 5.0, *)
   func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  @available(tvOS 5.0, *)
+  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -> Void)?) async -> Bool
   @available(tvOS 5.0, *)
   func beginAppearanceTransition(_ isAppearing: Bool, animated: Bool)
   @available(tvOS 5.0, *)

@@ -82,11 +82,19 @@ class GLKTextureLoader : NSObject {
   class func cubeMap(withContentsOf url: URL, options: [String : NSNumber]? = nil) throws -> GLKTextureInfo
   init(sharegroup: EAGLSharegroup)
   func texture(withContentsOfFile path: String, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func texture(withContentsOfFile path: String, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func texture(withContentsOf url: URL, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func texture(withContentsOf url: URL, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func texture(withName name: String, scaleFactor: CGFloat, bundle: Bundle?, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func texture(withName name: String, scaleFactor: CGFloat, bundle: Bundle?, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func texture(withContentsOf data: Data, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func texture(withContentsOf data: Data, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func texture(with cgImage: CGImage, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func texture(with cgImage: CGImage, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func cubeMap(withContentsOfFiles paths: [Any], options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func cubeMap(withContentsOfFiles paths: [Any], options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func cubeMap(withContentsOfFile path: String, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func cubeMap(withContentsOfFile path: String, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
   func cubeMap(withContentsOf url: URL, options: [String : NSNumber]? = nil, queue: DispatchQueue?, completionHandler block: @escaping GLKTextureLoaderCallback)
+  func cubeMap(withContentsOf url: URL, options: [String : NSNumber]? = nil, queue: DispatchQueue?) async throws -> GLKTextureInfo?
 }

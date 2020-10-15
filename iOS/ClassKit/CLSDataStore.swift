@@ -11,12 +11,15 @@ class CLSDataStore : NSObject {
   var runningActivity: CLSActivity? { get }
   weak var delegate: @sil_weak CLSDataStoreDelegate?
   func save(completion: ((Error?) -> Void)? = nil)
+  func save() async throws
   @available(iOS 12.2, *)
   func completeAllAssignedActivities(matching contextPath: [String])
 }
 @available(iOS 11.3, *)
 extension CLSDataStore {
   func contexts(matching predicate: NSPredicate, completion: @escaping ([CLSContext], Error?) -> Void)
+  func contexts(matching predicate: NSPredicate) async throws -> [CLSContext]
   func contexts(matchingIdentifierPath identifierPath: [String], completion: @escaping ([CLSContext], Error?) -> Void)
+  func contexts(matchingIdentifierPath identifierPath: [String]) async throws -> [CLSContext]
   func remove(_ context: CLSContext)
 }

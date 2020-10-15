@@ -26,7 +26,7 @@ protocol UIFocusEnvironment : NSObjectProtocol {
   func setNeedsFocusUpdate()
   func updateFocusIfNeeded()
   func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool
-  func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  @asyncHandler func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 11.0, *)
   optional func soundIdentifierForFocusUpdate(in context: UIFocusUpdateContext) -> UIFocusSoundIdentifier?
   @available(tvOS, introduced: 9.0, deprecated: 10.0)
@@ -44,7 +44,7 @@ protocol UIFocusItem : UIFocusEnvironment {
   @available(tvOS 12.0, *)
   var frame: CGRect { get }
   @available(tvOS 12.0, *)
-  optional func didHintFocusMovement(_ hint: UIFocusMovementHint)
+  @asyncHandler optional func didHintFocusMovement(_ hint: UIFocusMovementHint)
 }
 
 @available(iOS 11.0, tvOS 11.0, *)

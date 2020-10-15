@@ -30,7 +30,11 @@ class NSSavePanel : NSPanel {
   @available(macOS 10.6, *)
   func beginSheetModal(for window: NSWindow, completionHandler handler: @escaping (NSApplication.ModalResponse) -> Void)
   @available(macOS 10.6, *)
+  func beginSheetModal(for window: NSWindow) async -> NSApplication.ModalResponse
+  @available(macOS 10.6, *)
   func begin(completionHandler handler: @escaping (NSApplication.ModalResponse) -> Void)
+  @available(macOS 10.6, *)
+  func begin() async -> NSApplication.ModalResponse
   func runModal() -> NSApplication.ModalResponse
 }
 protocol NSOpenSavePanelDelegate : NSObjectProtocol {
@@ -39,10 +43,10 @@ protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   @available(macOS 10.6, *)
   optional func panel(_ sender: Any, validate url: URL) throws
   @available(macOS 10.6, *)
-  optional func panel(_ sender: Any, didChangeToDirectoryURL url: URL?)
+  @asyncHandler optional func panel(_ sender: Any, didChangeToDirectoryURL url: URL?)
   optional func panel(_ sender: Any, userEnteredFilename filename: String, confirmed okFlag: Bool) -> String?
   optional func panel(_ sender: Any, willExpand expanding: Bool)
-  optional func panelSelectionDidChange(_ sender: Any?)
+  @asyncHandler optional func panelSelectionDidChange(_ sender: Any?)
 }
 extension NSObject {
 }

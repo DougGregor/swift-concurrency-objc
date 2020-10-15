@@ -11,6 +11,6 @@ class WKCrownSequencer : NSObject {
 }
 @available(watchOS 3.0, *)
 protocol WKCrownDelegate : NSObjectProtocol {
-  optional func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double)
-  optional func crownDidBecomeIdle(_ crownSequencer: WKCrownSequencer?)
+  @asyncHandler optional func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double)
+  @asyncHandler optional func crownDidBecomeIdle(_ crownSequencer: WKCrownSequencer?)
 }

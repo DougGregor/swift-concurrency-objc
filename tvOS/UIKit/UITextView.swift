@@ -5,15 +5,15 @@ protocol UITextViewDelegate : UIScrollViewDelegate {
   @available(tvOS 2.0, *)
   optional func textViewShouldEndEditing(_ textView: UITextView) -> Bool
   @available(tvOS 2.0, *)
-  optional func textViewDidBeginEditing(_ textView: UITextView)
+  @asyncHandler optional func textViewDidBeginEditing(_ textView: UITextView)
   @available(tvOS 2.0, *)
-  optional func textViewDidEndEditing(_ textView: UITextView)
+  @asyncHandler optional func textViewDidEndEditing(_ textView: UITextView)
   @available(tvOS 2.0, *)
   optional func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(tvOS 2.0, *)
-  optional func textViewDidChange(_ textView: UITextView)
+  @asyncHandler optional func textViewDidChange(_ textView: UITextView)
   @available(tvOS 2.0, *)
-  optional func textViewDidChangeSelection(_ textView: UITextView)
+  @asyncHandler optional func textViewDidChangeSelection(_ textView: UITextView)
   @available(tvOS 10.0, *)
   optional func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool
   @available(tvOS 10.0, *)

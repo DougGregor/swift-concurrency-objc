@@ -93,6 +93,8 @@ class UIApplication : UIResponder {
   func canOpenURL(_ url: URL) -> Bool
   @available(iOS 10.0, *)
   func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
+  @available(iOS 10.0, *)
+  func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
   func sendEvent(_ event: UIEvent)
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Should not be used for applications that support multiple scenes as it returns a key window across all connected scenes")
   var keyWindow: UIWindow? { get }
@@ -198,6 +200,8 @@ extension UIApplication {
   @available(iOS 10.3, *)
   func setAlternateIconName(_ alternateIconName: String?, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 10.3, *)
+  func setAlternateIconName(_ alternateIconName: String?) async throws
+  @available(iOS 10.3, *)
   var alternateIconName: String? { get }
 }
 extension UIApplication {
@@ -280,13 +284,13 @@ extension UIApplication {
 }
 protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func applicationDidFinishLaunching(_ application: UIApplication)
+  @asyncHandler optional func applicationDidFinishLaunching(_ application: UIApplication)
   @available(iOS 6.0, *)
   optional func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool
   @available(iOS 3.0, *)
   optional func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool
   @available(iOS 2.0, *)
-  optional func applicationDidBecomeActive(_ application: UIApplication)
+  @asyncHandler optional func applicationDidBecomeActive(_ application: UIApplication)
   @available(iOS 2.0, *)
   optional func applicationWillResignActive(_ application: UIApplication)
   @available(iOS, introduced: 2.0, deprecated: 9.0)
@@ -296,7 +300,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
   optional func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool
   @available(iOS 2.0, *)
-  optional func applicationDidReceiveMemoryWarning(_ application: UIApplication)
+  @asyncHandler optional func applicationDidReceiveMemoryWarning(_ application: UIApplication)
   @available(iOS 2.0, *)
   optional func applicationWillTerminate(_ application: UIApplication)
   @available(iOS 2.0, *)
@@ -304,49 +308,65 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Use viewWillTransitionToSize:withTransitionCoordinator: instead.")
   optional func application(_ application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: TimeInterval)
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Use viewWillTransitionToSize:withTransitionCoordinator: instead.")
-  optional func application(_ application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation)
+  @asyncHandler optional func application(_ application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation)
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Use viewWillTransitionToSize:withTransitionCoordinator: instead.")
   optional func application(_ application: UIApplication, willChangeStatusBarFrame newStatusBarFrame: CGRect)
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Use viewWillTransitionToSize:withTransitionCoordinator: instead.")
-  optional func application(_ application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect)
+  @asyncHandler optional func application(_ application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect)
   @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenter requestAuthorizationWithOptions:completionHandler:]")
-  optional func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings)
+  @asyncHandler optional func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings)
   @available(iOS 3.0, *)
-  optional func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+  @asyncHandler optional func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
   @available(iOS 3.0, *)
-  optional func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+  @asyncHandler optional func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
   @available(iOS, introduced: 3.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:] for user visible notifications and -[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:] for silent remote notifications")
-  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any])
+  @asyncHandler optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any])
   @available(iOS, introduced: 4.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
-  optional func application(_ application: UIApplication, didReceive notification: UILocalNotification)
+  @asyncHandler optional func application(_ application: UIApplication, didReceive notification: UILocalNotification)
   @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
   optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void)
+  @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification) async
   @available(iOS, introduced: 9.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
   optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void)
+  @available(iOS, introduced: 9.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], withResponseInfo responseInfo: [AnyHashable : Any]) async
   @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
   optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void)
+  @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any]) async
   @available(iOS, introduced: 9.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
   optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void)
+  @available(iOS, introduced: 9.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any]) async
   @available(iOS 7.0, *)
-  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+  @asyncHandler optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+  @available(iOS 7.0, *)
+  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult
   @available(iOS, introduced: 7.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
   optional func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+  @available(iOS, introduced: 7.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
+  optional func application(_ application: UIApplication) async -> UIBackgroundFetchResult
   @available(iOS 9.0, *)
   optional func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void)
+  @available(iOS 9.0, *)
+  optional func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem) async -> Bool
   @available(iOS 7.0, *)
   optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void)
+  @available(iOS 7.0, *)
+  optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String) async
   @available(iOS 8.2, *)
   optional func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void)
   @available(iOS 9.0, *)
   optional func applicationShouldRequestHealthAuthorization(_ application: UIApplication)
   @available(iOS 4.0, *)
-  optional func applicationDidEnterBackground(_ application: UIApplication)
+  @asyncHandler optional func applicationDidEnterBackground(_ application: UIApplication)
   @available(iOS 4.0, *)
   optional func applicationWillEnterForeground(_ application: UIApplication)
   @available(iOS 4.0, *)
   optional func applicationProtectedDataWillBecomeUnavailable(_ application: UIApplication)
   @available(iOS 4.0, *)
-  optional func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication)
+  @asyncHandler optional func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication)
   @available(iOS 5.0, *)
   optional var window: UIWindow? { get set }
   @available(iOS 6.0, *)
@@ -362,7 +382,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
   optional func application(_ application: UIApplication, willEncodeRestorableStateWith coder: NSCoder)
   @available(iOS 6.0, *)
-  optional func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
+  @asyncHandler optional func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder)
   @available(iOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldSaveSecureApplicationState: instead")
   optional func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
   @available(iOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldRestoreSecureApplicationState: instead")
@@ -372,13 +392,13 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
   @available(iOS 8.0, *)
-  optional func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
+  @asyncHandler optional func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error)
   @available(iOS 8.0, *)
-  optional func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity)
+  @asyncHandler optional func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity)
   @available(iOS 13.0, *)
   optional func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration
   @available(iOS 13.0, *)
-  optional func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>)
+  @asyncHandler optional func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>)
 }
 
 extension UIApplicationDelegate {

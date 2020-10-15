@@ -45,25 +45,25 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(tvOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
   optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
   optional func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS, introduced: 6.0, deprecated: 13.0)
   optional func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
   @available(tvOS, introduced: 6.0, deprecated: 13.0)
@@ -77,7 +77,7 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(tvOS 9.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  optional func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)
@@ -119,6 +119,8 @@ class UICollectionView : UIScrollView, UIDataSourceTranslating {
   @available(tvOS 7.0, *)
   func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
+  func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool) async -> Bool
+  @available(tvOS 7.0, *)
   func startInteractiveTransition(to layout: UICollectionViewLayout, completion: UICollectionView.LayoutInteractiveTransitionCompletion? = nil) -> UICollectionViewTransitionLayout
   @available(tvOS 7.0, *)
   func finishInteractiveTransition()
@@ -149,6 +151,7 @@ class UICollectionView : UIScrollView, UIDataSourceTranslating {
   func reloadItems(at indexPaths: [IndexPath])
   func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
   @available(tvOS 9.0, *)
   func beginInteractiveMovementForItem(at indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)

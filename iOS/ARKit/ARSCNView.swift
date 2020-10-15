@@ -23,10 +23,10 @@ extension ARSCNView {
 @available(iOS 11.0, *)
 protocol ARSCNViewDelegate : ARSessionObserver, SCNSceneRendererDelegate {
   optional func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode?
-  optional func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor)
   optional func renderer(_ renderer: SCNSceneRenderer, willUpdate node: SCNNode, for anchor: ARAnchor)
-  optional func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor)
-  optional func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor)
 }
 @available(iOS 11.0, *)
 typealias ARSCNDebugOptions = SCNDebugOptions

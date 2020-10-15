@@ -7,6 +7,6 @@ class HMCameraSnapshotControl : HMCameraControl {
 }
 @available(iOS 10.0, *)
 protocol HMCameraSnapshotControlDelegate : NSObjectProtocol {
-  optional func cameraSnapshotControl(_ cameraSnapshotControl: HMCameraSnapshotControl, didTake snapshot: HMCameraSnapshot?, error: Error?)
-  optional func cameraSnapshotControlDidUpdateMostRecentSnapshot(_ cameraSnapshotControl: HMCameraSnapshotControl)
+  @asyncHandler optional func cameraSnapshotControl(_ cameraSnapshotControl: HMCameraSnapshotControl, didTake snapshot: HMCameraSnapshot?, error: Error?)
+  @asyncHandler optional func cameraSnapshotControlDidUpdateMostRecentSnapshot(_ cameraSnapshotControl: HMCameraSnapshotControl)
 }

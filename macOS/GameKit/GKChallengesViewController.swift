@@ -5,5 +5,5 @@ class GKChallengesViewController : NSViewController, GKViewController {
 }
 protocol GKChallengesViewControllerDelegate {
   @available(macOS 10.8, *)
-  func challengesViewControllerDidFinish(_ viewController: GKChallengesViewController!)
+  @asyncHandler func challengesViewControllerDidFinish(_ viewController: GKChallengesViewController!)
 }

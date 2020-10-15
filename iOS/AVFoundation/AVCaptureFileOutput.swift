@@ -13,8 +13,8 @@ class AVCaptureFileOutput : AVCaptureOutput {
 }
 @available(iOS 4.0, *)
 protocol AVCaptureFileOutputRecordingDelegate : NSObjectProtocol {
-  optional func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection])
-  func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?)
+  @asyncHandler optional func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection])
+  @asyncHandler func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?)
 }
 @available(iOS 4.0, *)
 class AVCaptureMovieFileOutput : AVCaptureFileOutput {

@@ -26,7 +26,11 @@ class PHLivePhotoEditingContext : NSObject {
   @available(iOS 10, *)
   func prepareLivePhotoForPlayback(withTargetSize targetSize: CGSize, options: [String : Any]? = nil, completionHandler handler: @escaping (PHLivePhoto?, Error?) -> Void)
   @available(iOS 10, *)
+  func prepareLivePhotoForPlayback(withTargetSize targetSize: CGSize, options: [String : Any]? = nil) async throws -> PHLivePhoto?
+  @available(iOS 10, *)
   func saveLivePhoto(to output: PHContentEditingOutput, options: [String : Any]? = nil, completionHandler handler: @escaping (Bool, Error?) -> Void)
+  @available(iOS 10, *)
+  func saveLivePhoto(to output: PHContentEditingOutput, options: [String : Any]? = nil) async throws -> Bool
   @available(iOS 10, *)
   func cancel()
 }

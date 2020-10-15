@@ -59,11 +59,11 @@ protocol NSPopoverDelegate : NSObjectProtocol {
   @available(macOS 10.10, *)
   optional func popoverShouldDetach(_ popover: NSPopover) -> Bool
   @available(macOS 10.10, *)
-  optional func popoverDidDetach(_ popover: NSPopover)
+  @asyncHandler optional func popoverDidDetach(_ popover: NSPopover)
   @available(macOS 10.7, *)
   optional func detachableWindow(for popover: NSPopover) -> NSWindow?
   optional func popoverWillShow(_ notification: Notification)
-  optional func popoverDidShow(_ notification: Notification)
+  @asyncHandler optional func popoverDidShow(_ notification: Notification)
   optional func popoverWillClose(_ notification: Notification)
-  optional func popoverDidClose(_ notification: Notification)
+  @asyncHandler optional func popoverDidClose(_ notification: Notification)
 }

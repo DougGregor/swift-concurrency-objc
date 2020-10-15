@@ -20,10 +20,10 @@ class SFSpeechRecognitionTask : NSObject {
 }
 @available(iOS 10.0, *)
 protocol SFSpeechRecognitionTaskDelegate : NSObjectProtocol {
-  optional func speechRecognitionDidDetectSpeech(_ task: SFSpeechRecognitionTask)
-  optional func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didHypothesizeTranscription transcription: SFTranscription)
-  optional func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishRecognition recognitionResult: SFSpeechRecognitionResult)
+  @asyncHandler optional func speechRecognitionDidDetectSpeech(_ task: SFSpeechRecognitionTask)
+  @asyncHandler optional func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didHypothesizeTranscription transcription: SFTranscription)
+  @asyncHandler optional func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishRecognition recognitionResult: SFSpeechRecognitionResult)
   optional func speechRecognitionTaskFinishedReadingAudio(_ task: SFSpeechRecognitionTask)
   optional func speechRecognitionTaskWasCancelled(_ task: SFSpeechRecognitionTask)
-  optional func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool)
+  @asyncHandler optional func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool)
 }

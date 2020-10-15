@@ -71,11 +71,11 @@ protocol NFCReaderSessionProtocol : NSObjectProtocol {
 @available(iOS 11.0, *)
 protocol __NFCReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 11.0, *)
-  func readerSessionDidBecomeActive(_ session: NFCReaderSession)
+  @asyncHandler func readerSessionDidBecomeActive(_ session: NFCReaderSession)
   @available(iOS 11.0, *)
-  func readerSession(_ session: NFCReaderSession, didInvalidateWithError error: Error)
+  @asyncHandler func readerSession(_ session: NFCReaderSession, didInvalidateWithError error: Error)
   @available(iOS 11.0, *)
-  optional func readerSession(_ session: NFCReaderSession, didDetect tags: [__NFCTag])
+  @asyncHandler optional func readerSession(_ session: NFCReaderSession, didDetect tags: [__NFCTag])
 }
 @available(iOS 11.0, *)
 class NFCReaderSession : NSObject, NFCReaderSessionProtocol {
@@ -126,11 +126,11 @@ class NFCTagCommandConfiguration : NSObject, NSCopying {
 @available(iOS 13.0, *)
 protocol __NFCTagReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error)
+  @asyncHandler func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error)
   @available(iOS 13.0, *)
-  optional func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession)
+  @asyncHandler optional func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession)
   @available(iOS 13.0, *)
-  optional func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [__NFCTag])
+  @asyncHandler optional func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [__NFCTag])
 }
 @available(iOS 13.0, *)
 class NFCTagReaderSession : NFCReaderSession {
@@ -142,6 +142,8 @@ class NFCTagReaderSession : NFCReaderSession {
   func restartPolling()
   @available(iOS 13.0, *)
   func __connect(to tag: __NFCTag, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func __connect(to tag: __NFCTag) async throws
 }
 
 @available(iOS 13.0, *)
@@ -168,13 +170,13 @@ extension NFCTagReaderSession {
 @available(iOS 11.0, *)
 protocol NFCNDEFReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 11.0, *)
-  func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error)
+  @asyncHandler func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error)
   @available(iOS 11.0, *)
-  func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage])
+  @asyncHandler func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage])
   @available(iOS 13.0, *)
-  optional func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag])
+  @asyncHandler optional func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag])
   @available(iOS 13.0, *)
-  optional func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession)
+  @asyncHandler optional func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession)
 }
 @available(iOS 11.0, *)
 class NFCNDEFReaderSession : NFCReaderSession {
@@ -184,6 +186,8 @@ class NFCNDEFReaderSession : NFCReaderSession {
   func restartPolling()
   @available(iOS 13.0, *)
   func connect(to tag: NFCNDEFTag, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func connect(to tag: NFCNDEFTag) async throws
 }
 extension NSUserActivity {
   @available(iOS 12.0, *)
@@ -276,67 +280,131 @@ protocol NFCISO15693Tag : NFCNDEFTag, __NFCTag {
   @available(iOS 11.0, *)
   func sendCustomCommand(commandConfiguration: NFCISO15693CustomCommandConfiguration, completionHandler: @escaping (Data, Error?) -> Void)
   @available(iOS 11.0, *)
+  func sendCustomCommand(commandConfiguration: NFCISO15693CustomCommandConfiguration) async throws -> Data
+  @available(iOS 11.0, *)
   func readMultipleBlock(readConfiguration: NFCISO15693ReadMultipleBlocksConfiguration, completionHandler: @escaping (Data, Error?) -> Void)
+  @available(iOS 11.0, *)
+  func readMultipleBlock(readConfiguration: NFCISO15693ReadMultipleBlocksConfiguration) async throws -> Data
   @available(iOS 13.0, *)
   func stayQuiet(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func stayQuiet() async throws
+  @available(iOS 13.0, *)
   func readSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: UInt8, completionHandler: @escaping (Data, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func readSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: UInt8) async throws -> Data
   @available(iOS 13.0, *)
   func writeSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: UInt8, dataBlock: Data, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func writeSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: UInt8, dataBlock: Data) async throws
+  @available(iOS 13.0, *)
   func lockBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: UInt8, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func lockBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: UInt8) async throws
   @available(iOS 13.0, *)
   func readMultipleBlocks(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([Data], Error?) -> Void)
   @available(iOS 13.0, *)
+  func readMultipleBlocks(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange) async throws -> [Data]
+  @available(iOS 13.0, *)
   func writeMultipleBlocks(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, dataBlocks: [Data], completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func writeMultipleBlocks(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, dataBlocks: [Data]) async throws
   @available(iOS 13.0, *)
   func select(requestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func select(requestFlags flags: NFCISO15693RequestFlag) async throws
+  @available(iOS 13.0, *)
   func resetToReady(requestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func resetToReady(requestFlags flags: NFCISO15693RequestFlag) async throws
   @available(iOS 13.0, *)
   func writeAFI(requestFlags flags: NFCISO15693RequestFlag, afi: UInt8, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func writeAFI(requestFlags flags: NFCISO15693RequestFlag, afi: UInt8) async throws
+  @available(iOS 13.0, *)
   func lockAFI(requestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func lockAFI(requestFlags flags: NFCISO15693RequestFlag) async throws
+  @available(iOS 13.0, *)
   func writeDSFID(requestFlags flags: NFCISO15693RequestFlag, dsfid: UInt8, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func writeDSFID(requestFlags flags: NFCISO15693RequestFlag, dsfid: UInt8) async throws
   @available(iOS, introduced: 13.0, deprecated: 14.0)
   func lockDFSID(requestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS, introduced: 13.0, deprecated: 14.0)
+  func lockDFSID(requestFlags flags: NFCISO15693RequestFlag) async throws
   @available(iOS 14.0, *)
   func lockDSFID(requestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 14.0, *)
+  func lockDSFID(requestFlags flags: NFCISO15693RequestFlag) async throws
   @available(iOS, introduced: 13.0, deprecated: 14.0)
   func getSystemInfo(requestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (Int, Int, Int, Int, Int, Error?) -> Void)
+  @available(iOS, introduced: 13.0, deprecated: 14.0)
+  func getSystemInfo(requestFlags flags: NFCISO15693RequestFlag) async throws -> (Int, Int, Int, Int, Int)
   @available(iOS 14.0, *)
   func __getSystemInfoAndUID(with flags: NFCISO15693RequestFlag, completionHandler: @escaping (Data?, Int, Int, Int, Int, Int, Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __getSystemInfoAndUID(with flags: NFCISO15693RequestFlag) async throws -> (Data?, Int, Int, Int, Int, Int)
   @available(iOS 13.0, *)
   func getMultipleBlockSecurityStatus(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([NSNumber], Error?) -> Void)
+  @available(iOS 13.0, *)
+  func getMultipleBlockSecurityStatus(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange) async throws -> [NSNumber]
   @available(iOS 14.0, *)
   func __fastReadMultipleBlocks(with flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([Data], Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __fastReadMultipleBlocks(with flags: NFCISO15693RequestFlag, blockRange: NSRange) async throws -> [Data]
   @available(iOS 13.0, *)
   func customCommand(requestFlags flags: NFCISO15693RequestFlag, customCommandCode: Int, customRequestParameters: Data, completionHandler: @escaping (Data, Error?) -> Void)
   @available(iOS 13.0, *)
+  func customCommand(requestFlags flags: NFCISO15693RequestFlag, customCommandCode: Int, customRequestParameters: Data) async throws -> Data
+  @available(iOS 13.0, *)
   func extendedReadSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: Int, completionHandler: @escaping (Data, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func extendedReadSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: Int) async throws -> Data
   @available(iOS 13.0, *)
   func extendedWriteSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: Int, dataBlock: Data, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func extendedWriteSingleBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: Int, dataBlock: Data) async throws
+  @available(iOS 13.0, *)
   func extendedLockBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: Int, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func extendedLockBlock(requestFlags flags: NFCISO15693RequestFlag, blockNumber: Int) async throws
+  @available(iOS 13.0, *)
   func extendedReadMultipleBlocks(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([Data], Error?) -> Void)
+  @available(iOS 13.0, *)
+  func extendedReadMultipleBlocks(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange) async throws -> [Data]
   @available(iOS 14.0, *)
   func __extendedWriteMultipleBlocks(withRequestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, dataBlocks: [Data], completionHandler: @escaping (Error?) -> Void)
   @available(iOS 14.0, *)
+  func __extendedWriteMultipleBlocks(withRequestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, dataBlocks: [Data]) async throws
+  @available(iOS 14.0, *)
   func __authenticate(withRequestFlags flags: NFCISO15693RequestFlag, cryptoSuiteIdentifier: Int, message: Data, completionHandler: @escaping (NFCISO15693ResponseFlag, Data, Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __authenticate(withRequestFlags flags: NFCISO15693RequestFlag, cryptoSuiteIdentifier: Int, message: Data) async throws -> (NFCISO15693ResponseFlag, Data)
   @available(iOS 14.0, *)
   func __keyUpdate(withRequestFlags flags: NFCISO15693RequestFlag, keyIdentifier: Int, message: Data, completionHandler: @escaping (NFCISO15693ResponseFlag, Data, Error?) -> Void)
   @available(iOS 14.0, *)
+  func __keyUpdate(withRequestFlags flags: NFCISO15693RequestFlag, keyIdentifier: Int, message: Data) async throws -> (NFCISO15693ResponseFlag, Data)
+  @available(iOS 14.0, *)
   func __challenge(withRequestFlags flags: NFCISO15693RequestFlag, cryptoSuiteIdentifier: Int, message: Data, completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __challenge(withRequestFlags flags: NFCISO15693RequestFlag, cryptoSuiteIdentifier: Int, message: Data) async throws
   @available(iOS 14.0, *)
   func __readBuffer(withRequestFlags flags: NFCISO15693RequestFlag, completionHandler: @escaping (NFCISO15693ResponseFlag, Data, Error?) -> Void)
   @available(iOS 14.0, *)
+  func __readBuffer(withRequestFlags flags: NFCISO15693RequestFlag) async throws -> (NFCISO15693ResponseFlag, Data)
+  @available(iOS 14.0, *)
   func __extendedGetMultipleBlockSecurityStatus(with flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([NSNumber], Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __extendedGetMultipleBlockSecurityStatus(with flags: NFCISO15693RequestFlag, blockRange: NSRange) async throws -> [NSNumber]
   @available(iOS 14.0, *)
   func __extendedFastReadMultipleBlocks(with flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([Data], Error?) -> Void)
   @available(iOS 14.0, *)
+  func __extendedFastReadMultipleBlocks(with flags: NFCISO15693RequestFlag, blockRange: NSRange) async throws -> [Data]
+  @available(iOS 14.0, *)
   func __sendRequest(withFlag flags: Int, commandCode: Int, data: Data?, completionHandler: @escaping (NFCISO15693ResponseFlag, Data?, Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __sendRequest(withFlag flags: Int, commandCode: Int, data: Data?) async throws -> (NFCISO15693ResponseFlag, Data?)
 }
 
 @available(iOS 11.0, *)
@@ -393,11 +461,19 @@ protocol NFCNDEFTag : NSCopying, NSSecureCoding, NSObjectProtocol {
   @available(iOS 13.0, *)
   func queryNDEFStatus(completionHandler: @escaping (NFCNDEFStatus, Int, Error?) -> Void)
   @available(iOS 13.0, *)
+  func queryNDEFStatus() async throws -> (NFCNDEFStatus, Int)
+  @available(iOS 13.0, *)
   func readNDEF(completionHandler: @escaping (NFCNDEFMessage?, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func readNDEF() async throws -> NFCNDEFMessage?
   @available(iOS 13.0, *)
   func writeNDEF(_ ndefMessage: NFCNDEFMessage, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func writeNDEF(_ ndefMessage: NFCNDEFMessage) async throws
+  @available(iOS 13.0, *)
   func writeLock(completionHandler: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func writeLock() async throws
 }
 @available(iOS 14.0, *)
 enum NFCFeliCaPollingRequestCode : Int {
@@ -468,23 +544,43 @@ protocol NFCFeliCaTag : NFCNDEFTag, __NFCTag {
   @available(iOS 13.0, *)
   func polling(systemCode: Data, requestCode: NFCFeliCaPollingRequestCode, timeSlot: NFCFeliCaPollingTimeSlot, completionHandler: @escaping (Data, Data, Error?) -> Void)
   @available(iOS 13.0, *)
+  func polling(systemCode: Data, requestCode: NFCFeliCaPollingRequestCode, timeSlot: NFCFeliCaPollingTimeSlot) async throws -> (Data, Data)
+  @available(iOS 13.0, *)
   func requestService(nodeCodeList: [Data], completionHandler: @escaping ([Data], Error?) -> Void)
+  @available(iOS 13.0, *)
+  func requestService(nodeCodeList: [Data]) async throws -> [Data]
   @available(iOS 13.0, *)
   func requestResponse(completionHandler: @escaping (Int, Error?) -> Void)
   @available(iOS 13.0, *)
+  func requestResponse() async throws -> Int
+  @available(iOS 13.0, *)
   func readWithoutEncryption(serviceCodeList: [Data], blockList: [Data], completionHandler: @escaping (Int, Int, [Data], Error?) -> Void)
+  @available(iOS 13.0, *)
+  func readWithoutEncryption(serviceCodeList: [Data], blockList: [Data]) async throws -> (Int, Int, [Data])
   @available(iOS 13.0, *)
   func writeWithoutEncryption(serviceCodeList: [Data], blockList: [Data], blockData: [Data], completionHandler: @escaping (Int, Int, Error?) -> Void)
   @available(iOS 13.0, *)
+  func writeWithoutEncryption(serviceCodeList: [Data], blockList: [Data], blockData: [Data]) async throws -> (Int, Int)
+  @available(iOS 13.0, *)
   func requestSystemCode(completionHandler: @escaping ([Data], Error?) -> Void)
+  @available(iOS 13.0, *)
+  func requestSystemCode() async throws -> [Data]
   @available(iOS 13.0, *)
   func requestServiceV2(nodeCodeList: [Data], completionHandler: @escaping (Int, Int, NFCFeliCaEncryptionId, [Data], [Data], Error?) -> Void)
   @available(iOS 13.0, *)
+  func requestServiceV2(nodeCodeList: [Data]) async throws -> (Int, Int, NFCFeliCaEncryptionId, [Data], [Data])
+  @available(iOS 13.0, *)
   func requestSpecificationVersion(completionHandler: @escaping (Int, Int, Data, Data, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func requestSpecificationVersion() async throws -> (Int, Int, Data, Data)
   @available(iOS 13.0, *)
   func resetMode(completionHandler: @escaping (Int, Int, Error?) -> Void)
   @available(iOS 13.0, *)
+  func resetMode() async throws -> (Int, Int)
+  @available(iOS 13.0, *)
   func sendFeliCaCommand(commandPacket: Data, completionHandler: @escaping (Data, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func sendFeliCaCommand(commandPacket: Data) async throws -> Data
 }
 
 @available(iOS 14.0, *)
@@ -543,6 +639,8 @@ protocol NFCISO7816Tag : NFCNDEFTag, __NFCTag {
   var proprietaryApplicationDataCoding: Bool { get }
   @available(iOS 13.0, *)
   func sendCommand(apdu: NFCISO7816APDU, completionHandler: @escaping (Data, UInt8, UInt8, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func sendCommand(apdu: NFCISO7816APDU) async throws -> (Data, UInt8, UInt8)
 }
 
 @available(iOS 14.0, *)
@@ -574,7 +672,11 @@ protocol NFCMiFareTag : NFCNDEFTag, __NFCTag {
   @available(iOS 13.0, *)
   func sendMiFareCommand(commandPacket command: Data, completionHandler: @escaping (Data, Error?) -> Void)
   @available(iOS 13.0, *)
+  func sendMiFareCommand(commandPacket command: Data) async throws -> Data
+  @available(iOS 13.0, *)
   func sendMiFareISO7816Command(_ apdu: NFCISO7816APDU, completionHandler: @escaping (Data, UInt8, UInt8, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func sendMiFareISO7816Command(_ apdu: NFCISO7816APDU) async throws -> (Data, UInt8, UInt8)
 }
 
 @available(iOS 14.0, *)
@@ -728,11 +830,11 @@ class NFCVASResponse : NSObject, NSCopying {
 @available(iOS 13.0, *)
 protocol NFCVASReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  optional func readerSessionDidBecomeActive(_ session: NFCVASReaderSession)
+  @asyncHandler optional func readerSessionDidBecomeActive(_ session: NFCVASReaderSession)
   @available(iOS 13.0, *)
-  func readerSession(_ session: NFCVASReaderSession, didInvalidateWithError error: Error)
+  @asyncHandler func readerSession(_ session: NFCVASReaderSession, didInvalidateWithError error: Error)
   @available(iOS 13.0, *)
-  func readerSession(_ session: NFCVASReaderSession, didReceive responses: [NFCVASResponse])
+  @asyncHandler func readerSession(_ session: NFCVASReaderSession, didReceive responses: [NFCVASResponse])
 }
 @available(iOS 13.0, *)
 class NFCVASReaderSession : NFCReaderSession {

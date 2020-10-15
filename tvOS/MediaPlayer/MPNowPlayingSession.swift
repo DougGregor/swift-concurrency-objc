@@ -9,11 +9,12 @@ class MPNowPlayingSession : NSObject {
   var canBecomeActive: Bool { get }
   var isActive: Bool { get }
   func becomeActiveIfPossible(completion: ((Bool) -> Void)? = nil)
+  func becomeActiveIfPossible() async -> Bool
   func addPlayer(_ player: AVPlayer)
   func removePlayer(_ player: AVPlayer)
 }
 @available(tvOS 14.0, *)
 protocol MPNowPlayingSessionDelegate : NSObjectProtocol {
-  optional func nowPlayingSessionDidChangeActive(_ nowPlayingSession: MPNowPlayingSession)
-  optional func nowPlayingSessionDidChangeCanBecomeActive(_ nowPlayingSession: MPNowPlayingSession)
+  @asyncHandler optional func nowPlayingSessionDidChangeActive(_ nowPlayingSession: MPNowPlayingSession)
+  @asyncHandler optional func nowPlayingSessionDidChangeCanBecomeActive(_ nowPlayingSession: MPNowPlayingSession)
 }

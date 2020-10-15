@@ -25,14 +25,24 @@ class SKCloudServiceController : NSObject {
   class func requestAuthorization(_ handler: @escaping (SKCloudServiceAuthorizationStatus) -> Void)
   @available(tvOS 9.3, *)
   func requestCapabilities(completionHandler: @escaping (SKCloudServiceCapability, Error?) -> Void)
+  @available(tvOS 9.3, *)
+  func requestCapabilities() async throws -> SKCloudServiceCapability
   @available(tvOS 11.0, *)
   func requestStorefrontCountryCode(completionHandler: @escaping (String?, Error?) -> Void)
+  @available(tvOS 11.0, *)
+  func requestStorefrontCountryCode() async throws -> String?
   @available(tvOS 9.3, *)
   func requestStorefrontIdentifier(completionHandler: @escaping (String?, Error?) -> Void)
+  @available(tvOS 9.3, *)
+  func requestStorefrontIdentifier() async throws -> String?
   @available(tvOS 11.0, *)
   func requestUserToken(forDeveloperToken developerToken: String, completionHandler: @escaping (String?, Error?) -> Void)
+  @available(tvOS 11.0, *)
+  func requestUserToken(forDeveloperToken developerToken: String) async throws -> String?
   @available(tvOS, introduced: 10.3, deprecated: 11.0)
   func requestPersonalizationToken(forClientToken clientToken: String, withCompletionHandler completionHandler: @escaping (String?, Error?) -> Void)
+  @available(tvOS, introduced: 10.3, deprecated: 11.0)
+  func requestPersonalizationToken(forClientToken clientToken: String) async throws -> String?
 }
 extension NSNotification.Name {
   @available(tvOS 9.3, *)

@@ -1,8 +1,8 @@
 
 @available(iOS 14.0, *)
 protocol CPPointOfInterestTemplateDelegate : NSObjectProtocol {
-  func pointOfInterestTemplate(_ pointOfInterestTemplate: CPPointOfInterestTemplate, didChangeMapRegion region: MKCoordinateRegion)
-  optional func pointOfInterestTemplate(_ pointOfInterestTemplate: CPPointOfInterestTemplate, didSelectPointOfInterest pointOfInterest: CPPointOfInterest)
+  @asyncHandler func pointOfInterestTemplate(_ pointOfInterestTemplate: CPPointOfInterestTemplate, didChangeMapRegion region: MKCoordinateRegion)
+  @asyncHandler optional func pointOfInterestTemplate(_ pointOfInterestTemplate: CPPointOfInterestTemplate, didSelectPointOfInterest pointOfInterest: CPPointOfInterest)
 }
 @available(iOS 14.0, *)
 class CPPointOfInterestTemplate : CPTemplate {

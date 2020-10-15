@@ -18,11 +18,11 @@ class UISpringLoadedInteraction : NSObject, UIInteraction {
 @available(iOS 11.0, *)
 protocol UISpringLoadedInteractionBehavior : NSObjectProtocol {
   func shouldAllow(_ interaction: UISpringLoadedInteraction, with context: UISpringLoadedInteractionContext) -> Bool
-  optional func interactionDidFinish(_ interaction: UISpringLoadedInteraction)
+  @asyncHandler optional func interactionDidFinish(_ interaction: UISpringLoadedInteraction)
 }
 @available(iOS 11.0, *)
 protocol UISpringLoadedInteractionEffect : NSObjectProtocol {
-  func interaction(_ interaction: UISpringLoadedInteraction, didChangeWith context: UISpringLoadedInteractionContext)
+  @asyncHandler func interaction(_ interaction: UISpringLoadedInteraction, didChangeWith context: UISpringLoadedInteractionContext)
 }
 @available(iOS 11.0, *)
 protocol UISpringLoadedInteractionContext : NSObjectProtocol {

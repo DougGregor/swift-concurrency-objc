@@ -39,9 +39,9 @@ extension TVDocumentViewController.Event {
 @available(tvOS 13.0, *)
 protocol TVDocumentViewControllerDelegate : NSObjectProtocol {
   optional func documentViewControllerWillUpdate(_ documentViewController: TVDocumentViewController)
-  optional func documentViewControllerDidUpdate(_ documentViewController: TVDocumentViewController)
-  optional func documentViewController(_ documentViewController: TVDocumentViewController, didUpdateWithContext context: [String : Any])
-  optional func documentViewController(_ documentViewController: TVDocumentViewController, didFailUpdateWithError error: Error)
+  @asyncHandler optional func documentViewControllerDidUpdate(_ documentViewController: TVDocumentViewController)
+  @asyncHandler optional func documentViewController(_ documentViewController: TVDocumentViewController, didUpdateWithContext context: [String : Any])
+  @asyncHandler optional func documentViewController(_ documentViewController: TVDocumentViewController, didFailUpdateWithError error: Error)
   optional func documentViewController(_ documentViewController: TVDocumentViewController, handleEvent event: TVDocumentViewController.Event, with element: TVViewElement) -> Bool
 }
 @available(tvOS 13.0, *)

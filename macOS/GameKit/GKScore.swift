@@ -18,10 +18,14 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   var shouldSetDefaultLeaderboard: Bool
   @available(macOS 10.8, *)
   class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(macOS 10.8, *)
+  class func report(_ scores: [GKScore]) async throws
 }
 extension GKScore {
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use +reportScores:withCompletionhandler: instead")
   func report(completionHandler: ((Error?) -> Void)? = nil)
+  @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use +reportScores:withCompletionhandler: instead")
+  func report() async throws
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use initWithLeaderboardIdentifier: instead")
   init(category: String?)
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use leaderboardIdentifier instead")

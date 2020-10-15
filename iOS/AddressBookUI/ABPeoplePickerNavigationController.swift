@@ -59,11 +59,11 @@ let ABPersonSocialProfilesProperty: String
 let ABPersonPostalAddressesProperty: String
 protocol ABPeoplePickerNavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord)
+  @asyncHandler optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord)
   @available(iOS 8.0, *)
-  optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier)
+  @asyncHandler optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier)
   @available(iOS 2.0, *)
-  optional func peoplePickerNavigationControllerDidCancel(_ peoplePicker: ABPeoplePickerNavigationController)
+  @asyncHandler optional func peoplePickerNavigationControllerDidCancel(_ peoplePicker: ABPeoplePickerNavigationController)
   @available(iOS, introduced: 2.0, deprecated: 8.0)
   optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, shouldContinueAfterSelectingPerson person: ABRecord) -> Bool
   @available(iOS, introduced: 2.0, deprecated: 8.0)

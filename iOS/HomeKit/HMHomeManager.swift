@@ -15,17 +15,20 @@ class HMHomeManager : NSObject {
   var primaryHome: HMHome? { get }
   var homes: [HMHome] { get }
   func updatePrimaryHome(_ home: HMHome, completionHandler completion: @escaping (Error?) -> Void)
+  func updatePrimaryHome(_ home: HMHome) async throws
   func addHome(withName homeName: String, completionHandler completion: @escaping (HMHome?, Error?) -> Void)
+  func addHome(withName homeName: String) async throws -> HMHome?
   func removeHome(_ home: HMHome, completionHandler completion: @escaping (Error?) -> Void)
+  func removeHome(_ home: HMHome) async throws
 }
 @available(iOS 8.0, *)
 protocol HMHomeManagerDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  optional func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus)
-  optional func homeManagerDidUpdateHomes(_ manager: HMHomeManager)
-  optional func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager)
-  optional func homeManager(_ manager: HMHomeManager, didAdd home: HMHome)
-  optional func homeManager(_ manager: HMHomeManager, didRemove home: HMHome)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus)
+  @asyncHandler optional func homeManagerDidUpdateHomes(_ manager: HMHomeManager)
+  @asyncHandler optional func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didAdd home: HMHome)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didRemove home: HMHome)
   @available(iOS 13.0, *)
-  optional func homeManager(_ manager: HMHomeManager, didReceiveAddAccessoryRequest request: HMAddAccessoryRequest)
+  @asyncHandler optional func homeManager(_ manager: HMHomeManager, didReceiveAddAccessoryRequest request: HMAddAccessoryRequest)
 }

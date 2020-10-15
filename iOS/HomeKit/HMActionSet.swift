@@ -11,8 +11,11 @@ class HMActionSet : NSObject {
   @available(iOS 10.0, *)
   var lastExecutionDate: Date? { get }
   func updateName(_ name: String, completionHandler completion: @escaping HMErrorBlock)
+  func updateName(_ name: String) async throws
   func addAction(_ action: HMAction, completionHandler completion: @escaping HMErrorBlock)
+  func addAction(_ action: HMAction) async throws
   func removeAction(_ action: HMAction, completionHandler completion: @escaping HMErrorBlock)
+  func removeAction(_ action: HMAction) async throws
 }
 @available(iOS 9.0, *)
 let HMActionSetTypeWakeUp: String

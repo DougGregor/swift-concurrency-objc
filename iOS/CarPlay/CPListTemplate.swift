@@ -25,5 +25,7 @@ class CPListTemplate : CPTemplate, CPBarButtonProviding {
 @available(iOS, introduced: 12.0, deprecated: 14.0)
 protocol CPListTemplateDelegate : NSObjectProtocol {
   @available(iOS, introduced: 12.0, deprecated: 14.0)
-  func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem, completionHandler: @escaping () -> Void)
+  @asyncHandler func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem, completionHandler: @escaping () -> Void)
+  @available(iOS, introduced: 12.0, deprecated: 14.0)
+  func listTemplate(_ listTemplate: CPListTemplate, didSelect item: CPListItem) async
 }

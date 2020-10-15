@@ -6,7 +6,7 @@ class VNDocumentCameraViewController : UIViewController {
 }
 @available(iOS 13.0, *)
 protocol VNDocumentCameraViewControllerDelegate : NSObjectProtocol {
-  optional func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan)
-  optional func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController)
-  optional func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error)
+  @asyncHandler optional func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan)
+  @asyncHandler optional func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController)
+  @asyncHandler optional func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error)
 }

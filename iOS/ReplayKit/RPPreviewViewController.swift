@@ -3,6 +3,6 @@ class RPPreviewViewController : UIViewController {
   weak var previewControllerDelegate: @sil_weak RPPreviewViewControllerDelegate?
 }
 protocol RPPreviewViewControllerDelegate : NSObjectProtocol {
-  optional func previewControllerDidFinish(_ previewController: RPPreviewViewController)
-  optional func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>)
+  @asyncHandler optional func previewControllerDidFinish(_ previewController: RPPreviewViewController)
+  @asyncHandler optional func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>)
 }

@@ -52,11 +52,11 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(tvOS 6.0, *)
   optional func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  optional func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  optional func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(tvOS 2.0, *)
   optional func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
   @available(tvOS 2.0, *)
@@ -78,17 +78,17 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(tvOS 6.0, *)
   optional func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
   optional func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
   @available(tvOS 3.0, *)
   optional func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath?
   @available(tvOS 2.0, *)
-  optional func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
   @available(tvOS 3.0, *)
-  optional func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
   @available(tvOS 2.0, *)
   optional func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle
   @available(tvOS 2.0, *)
@@ -108,7 +108,7 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(tvOS 9.0, *)
   optional func tableView(_ tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  optional func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  @asyncHandler optional func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
 }
@@ -154,6 +154,8 @@ class UITableView : UIScrollView, NSCoding, UIDataSourceTranslating {
   func scrollToNearestSelectedRow(at scrollPosition: UITableView.ScrollPosition, animated: Bool)
   @available(tvOS 11.0, *)
   func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  @available(tvOS 11.0, *)
+  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
   func beginUpdates()
   func endUpdates()
   func insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation)

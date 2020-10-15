@@ -27,7 +27,7 @@ protocol QLPreviewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
   optional func previewControllerWillDismiss(_ controller: QLPreviewController)
   @available(iOS 4.0, *)
-  optional func previewControllerDidDismiss(_ controller: QLPreviewController)
+  @asyncHandler optional func previewControllerDidDismiss(_ controller: QLPreviewController)
   @available(iOS 4.0, *)
   optional func previewController(_ controller: QLPreviewController, shouldOpen url: URL, for item: QLPreviewItem) -> Bool
   @available(iOS 4.0, *)
@@ -39,7 +39,7 @@ protocol QLPreviewControllerDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
   optional func previewController(_ controller: QLPreviewController, editingModeFor previewItem: QLPreviewItem) -> QLPreviewItemEditingMode
   @available(iOS 13.0, *)
-  optional func previewController(_ controller: QLPreviewController, didUpdateContentsOf previewItem: QLPreviewItem)
+  @asyncHandler optional func previewController(_ controller: QLPreviewController, didUpdateContentsOf previewItem: QLPreviewItem)
   @available(iOS 13.0, *)
-  optional func previewController(_ controller: QLPreviewController, didSaveEditedCopyOf previewItem: QLPreviewItem, at modifiedContentsURL: URL)
+  @asyncHandler optional func previewController(_ controller: QLPreviewController, didSaveEditedCopyOf previewItem: QLPreviewItem, at modifiedContentsURL: URL)
 }

@@ -53,6 +53,7 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var isTemporalAntialiasingEnabled: Bool { get set }
   func prepare(_ object: Any, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   func prepare(_ objects: [Any], completionHandler: ((Bool) -> Void)? = nil)
+  func prepare(_ objects: [Any]) async -> Bool
   var showsStatistics: Bool { get set }
   @available(tvOS 9.0, *)
   var debugOptions: SCNDebugOptions { get set }
@@ -82,10 +83,10 @@ protocol SCNSceneRenderer : NSObjectProtocol {
 }
 protocol SCNSceneRendererDelegate : NSObjectProtocol {
   optional func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval)
-  optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
-  optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
   @available(tvOS 11.0, *)
-  optional func renderer(_ renderer: SCNSceneRenderer, didApplyConstraintsAtTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didApplyConstraintsAtTime time: TimeInterval)
   optional func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval)
-  optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
 }

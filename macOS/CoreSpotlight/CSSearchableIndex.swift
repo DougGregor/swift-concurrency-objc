@@ -22,21 +22,27 @@ class CSSearchableIndex : NSObject {
   init(name: String)
   init(name: String, protectionClass: FileProtectionType?)
   func indexSearchableItems(_ items: [CSSearchableItem], completionHandler: ((Error?) -> Void)? = nil)
+  func indexSearchableItems(_ items: [CSSearchableItem]) async throws
   func deleteSearchableItems(withIdentifiers identifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func deleteSearchableItems(withIdentifiers identifiers: [String]) async throws
   func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String]) async throws
   func deleteAllSearchableItems(completionHandler: ((Error?) -> Void)? = nil)
+  func deleteAllSearchableItems() async throws
 }
 extension CSSearchableIndex {
   func beginBatch()
   func endBatch(withClientState clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func endBatch(withClientState clientState: Data) async throws
   func fetchLastClientState(completionHandler: @escaping (Data?, Error?) -> Void)
+  func fetchLastClientState() async throws -> Data?
 }
 @available(macOS 10.11, *)
 protocol CSSearchableIndexDelegate : NSObjectProtocol {
   func searchableIndex(_ searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: @escaping () -> Void)
   func searchableIndex(_ searchableIndex: CSSearchableIndex, reindexSearchableItemsWithIdentifiers identifiers: [String], acknowledgementHandler: @escaping () -> Void)
-  optional func searchableIndexDidThrottle(_ searchableIndex: CSSearchableIndex)
-  optional func searchableIndexDidFinishThrottle(_ searchableIndex: CSSearchableIndex)
+  @asyncHandler optional func searchableIndexDidThrottle(_ searchableIndex: CSSearchableIndex)
+  @asyncHandler optional func searchableIndexDidFinishThrottle(_ searchableIndex: CSSearchableIndex)
   @available(macOS 10.11, *)
   optional func data(for searchableIndex: CSSearchableIndex, itemIdentifier: String, typeIdentifier: String) throws -> Data
   @available(macOS 10.11, *)

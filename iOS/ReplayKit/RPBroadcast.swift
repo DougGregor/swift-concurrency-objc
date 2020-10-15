@@ -9,7 +9,7 @@ class RPBroadcastActivityViewController : UIViewController {
 @available(iOS 10.0, *)
 protocol RPBroadcastActivityViewControllerDelegate : NSObjectProtocol {
   @available(iOS 10.0, *)
-  func broadcastActivityViewController(_ broadcastActivityViewController: RPBroadcastActivityViewController, didFinishWith broadcastController: RPBroadcastController?, error: Error?)
+  @asyncHandler func broadcastActivityViewController(_ broadcastActivityViewController: RPBroadcastActivityViewController, didFinishWith broadcastController: RPBroadcastController?, error: Error?)
 }
 @available(iOS 10.0, *)
 class RPBroadcastController : NSObject {
@@ -27,10 +27,10 @@ class RPBroadcastController : NSObject {
 }
 @available(iOS 10.0, *)
 protocol RPBroadcastControllerDelegate : NSObjectProtocol {
-  optional func broadcastController(_ broadcastController: RPBroadcastController, didFinishWithError error: Error?)
-  optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateServiceInfo serviceInfo: [String : NSCoding & NSObjectProtocol])
+  @asyncHandler optional func broadcastController(_ broadcastController: RPBroadcastController, didFinishWithError error: Error?)
+  @asyncHandler optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateServiceInfo serviceInfo: [String : NSCoding & NSObjectProtocol])
   @available(iOS 11.0, *)
-  optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateBroadcast broadcastURL: URL)
+  @asyncHandler optional func broadcastController(_ broadcastController: RPBroadcastController, didUpdateBroadcast broadcastURL: URL)
 }
 @available(iOS 12.0, *)
 class RPSystemBroadcastPickerView : UIView, NSCoding {

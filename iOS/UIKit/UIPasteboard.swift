@@ -66,11 +66,19 @@ class UIPasteboard : NSObject {
   @available(iOS 14.0, *)
   func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, completionHandler: @escaping (Set<UIPasteboard.DetectionPattern>?, Error?) -> Void)
   @available(iOS 14.0, *)
+  func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>) async throws -> Set<UIPasteboard.DetectionPattern>?
+  @available(iOS 14.0, *)
   func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?, completionHandler: @escaping ([Set<UIPasteboard.DetectionPattern>]?, Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __detectPatterns(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?) async throws -> [Set<UIPasteboard.DetectionPattern>]?
   @available(iOS 14.0, *)
   func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, completionHandler: @escaping ([UIPasteboard.DetectionPattern : Any]?, Error?) -> Void)
   @available(iOS 14.0, *)
+  func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>) async throws -> [UIPasteboard.DetectionPattern : Any]?
+  @available(iOS 14.0, *)
   func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?, completionHandler: @escaping ([[UIPasteboard.DetectionPattern : Any]]?, Error?) -> Void)
+  @available(iOS 14.0, *)
+  func __detectValues(forPatterns patterns: Set<UIPasteboard.DetectionPattern>, inItemSet itemSet: IndexSet?) async throws -> [[UIPasteboard.DetectionPattern : Any]]?
 }
 
 extension UIPasteboard {

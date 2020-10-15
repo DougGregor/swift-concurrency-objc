@@ -21,5 +21,7 @@ class PHAssetResourceManager : NSObject {
   @available(tvOS 10, *)
   func writeData(for resource: PHAssetResource, toFile fileURL: URL, options: PHAssetResourceRequestOptions?, completionHandler: @escaping (Error?) -> Void)
   @available(tvOS 10, *)
+  func writeData(for resource: PHAssetResource, toFile fileURL: URL, options: PHAssetResourceRequestOptions?) async throws
+  @available(tvOS 10, *)
   func cancelDataRequest(_ requestID: PHAssetResourceDataRequestID)
 }

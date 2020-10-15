@@ -73,16 +73,16 @@ extension AVContentKeyRequest.RetryReason {
 }
 @available(tvOS 10.2, *)
 protocol AVContentKeySessionDelegate : NSObjectProtocol {
-  func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVContentKeyRequest)
-  optional func contentKeySession(_ session: AVContentKeySession, didProvideRenewingContentKeyRequest keyRequest: AVContentKeyRequest)
-  optional func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVPersistableContentKeyRequest)
-  optional func contentKeySession(_ session: AVContentKeySession, contentKeyRequest keyRequest: AVContentKeyRequest, didFailWithError err: Error)
+  @asyncHandler func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVContentKeyRequest)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, didProvideRenewingContentKeyRequest keyRequest: AVContentKeyRequest)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, didProvide keyRequest: AVPersistableContentKeyRequest)
+  @asyncHandler optional func contentKeySession(_ session: AVContentKeySession, contentKeyRequest keyRequest: AVContentKeyRequest, didFailWithError err: Error)
   optional func contentKeySession(_ session: AVContentKeySession, shouldRetry keyRequest: AVContentKeyRequest, reason retryReason: AVContentKeyRequest.RetryReason) -> Bool
   @available(tvOS 12.0, *)
   optional func contentKeySession(_ session: AVContentKeySession, contentKeyRequestDidSucceed keyRequest: AVContentKeyRequest)
-  optional func contentKeySessionContentProtectionSessionIdentifierDidChange(_ session: AVContentKeySession)
+  @asyncHandler optional func contentKeySessionContentProtectionSessionIdentifierDidChange(_ session: AVContentKeySession)
   @available(tvOS 12.0, *)
-  optional func contentKeySessionDidGenerateExpiredSessionReport(_ session: AVContentKeySession)
+  @asyncHandler optional func contentKeySessionDidGenerateExpiredSessionReport(_ session: AVContentKeySession)
 }
 @available(tvOS 10.2, *)
 class AVContentKeyRequest : NSObject {
@@ -94,6 +94,7 @@ class AVContentKeyRequest : NSObject {
   var options: [String : Any] { get }
   var canProvidePersistableContentKey: Bool { get }
   func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil, completionHandler handler: @escaping (Data?, Error?) -> Void)
+  func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil) async throws -> Data?
   func processContentKeyResponse(_ keyResponse: AVContentKeyResponse)
   func processContentKeyResponseError(_ error: Error)
 }

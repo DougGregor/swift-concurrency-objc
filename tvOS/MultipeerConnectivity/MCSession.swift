@@ -42,20 +42,21 @@ class MCSession : NSObject {
 }
 protocol MCSessionDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
-  func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
+  @asyncHandler func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
   @available(tvOS 7.0, *)
-  func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
+  @asyncHandler func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
   @available(tvOS 7.0, *)
-  func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID)
+  @asyncHandler func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID)
   @available(tvOS 9.0, *)
-  func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress)
+  @asyncHandler func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress)
   @available(tvOS 7.0, *)
-  func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?)
+  @asyncHandler func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?)
   @available(tvOS 7.0, *)
-  optional func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void)
+  @asyncHandler optional func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void)
 }
 extension MCSession {
   func nearbyConnectionData(forPeer peerID: MCPeerID, withCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void)
+  func nearbyConnectionData(forPeer peerID: MCPeerID) async throws -> Data?
   func connectPeer(_ peerID: MCPeerID, withNearbyConnectionData data: Data)
   func cancelConnectPeer(_ peerID: MCPeerID)
 }

@@ -3,7 +3,7 @@ protocol UIDynamicAnimatorDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func dynamicAnimatorWillResume(_ animator: UIDynamicAnimator)
   @available(tvOS 7.0, *)
-  optional func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator)
+  @asyncHandler optional func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator)
 }
 @available(tvOS 7.0, *)
 class UIDynamicAnimator : NSObject {

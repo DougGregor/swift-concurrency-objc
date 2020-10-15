@@ -26,6 +26,8 @@ class EAAccessoryManager : NSObject {
   class func shared() -> EAAccessoryManager
   @available(iOS 6, *)
   func showBluetoothAccessoryPicker(withNameFilter predicate: NSPredicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
+  @available(iOS 6, *)
+  func showBluetoothAccessoryPicker(withNameFilter predicate: NSPredicate?) async throws
   @available(iOS 3.0, *)
   func registerForLocalNotifications()
   @available(iOS 3.0, *)

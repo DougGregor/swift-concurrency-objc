@@ -1,7 +1,7 @@
 
 protocol SKProductsRequestDelegate : SKRequestDelegate {
   @available(tvOS 3.0, *)
-  func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse)
+  @asyncHandler func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse)
 }
 @available(tvOS 3.0, *)
 class SKProductsRequest : SKRequest {

@@ -9,5 +9,5 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
 }
 @available(iOS 4.0, *)
 protocol AVCaptureAudioDataOutputSampleBufferDelegate : NSObjectProtocol {
-  optional func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
+  @asyncHandler optional func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
 }

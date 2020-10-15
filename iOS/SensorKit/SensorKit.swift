@@ -78,14 +78,14 @@ enum SRAuthorizationStatus : Int {
 @available(iOS 14.0, *)
 protocol SRSensorReaderDelegate : NSObjectProtocol {
   optional func sensorReader(_ reader: SRSensorReader, fetching fetchRequest: SRFetchRequest, didFetchResult result: SRFetchResult<AnyObject>) -> Bool
-  optional func sensorReader(_ reader: SRSensorReader, didCompleteFetch fetchRequest: SRFetchRequest)
+  @asyncHandler optional func sensorReader(_ reader: SRSensorReader, didCompleteFetch fetchRequest: SRFetchRequest)
   optional func sensorReader(_ reader: SRSensorReader, fetching fetchRequest: SRFetchRequest, failedWithError error: Error)
-  optional func sensorReader(_ reader: SRSensorReader, didChange authorizationStatus: SRAuthorizationStatus)
+  @asyncHandler optional func sensorReader(_ reader: SRSensorReader, didChange authorizationStatus: SRAuthorizationStatus)
   optional func sensorReaderWillStartRecording(_ reader: SRSensorReader)
   optional func sensorReader(_ reader: SRSensorReader, startRecordingFailedWithError error: Error)
-  optional func sensorReaderDidStopRecording(_ reader: SRSensorReader)
+  @asyncHandler optional func sensorReaderDidStopRecording(_ reader: SRSensorReader)
   optional func sensorReader(_ reader: SRSensorReader, stopRecordingFailedWithError error: Error)
-  optional func sensorReader(_ reader: SRSensorReader, didFetch devices: [SRDevice])
+  @asyncHandler optional func sensorReader(_ reader: SRSensorReader, didFetch devices: [SRDevice])
   optional func sensorReader(_ reader: SRSensorReader, fetchDevicesDidFailWithError error: Error)
 }
 @available(iOS 14.0, *)
@@ -99,6 +99,7 @@ class SRSensorReader : NSObject {
   var sensor: SRSensor { get }
   weak var delegate: @sil_weak SRSensorReaderDelegate?
   class func requestAuthorization(sensors: Set<SRSensor>, completion: @escaping (Error?) -> Void)
+  class func requestAuthorization(sensors: Set<SRSensor>) async throws
 }
 @available(iOS 14.0, *)
 let SRErrorDomain: String

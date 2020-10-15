@@ -99,7 +99,9 @@ class NSBundleResourceRequest : NSObject, ProgressReporting {
   var tags: Set<String> { get }
   var bundle: Bundle { get }
   func beginAccessingResources(completionHandler: @escaping (Error?) -> Void)
+  func beginAccessingResources() async throws
   func conditionallyBeginAccessingResources(completionHandler: @escaping (Bool) -> Void)
+  func conditionallyBeginAccessingResources() async -> Bool
   func endAccessingResources()
 }
 extension Bundle {

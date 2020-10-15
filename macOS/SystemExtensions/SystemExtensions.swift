@@ -69,9 +69,9 @@ protocol OSSystemExtensionRequestDelegate : NSObjectProtocol {
   @available(macOS 10.15, *)
   func requestNeedsUserApproval(_ request: OSSystemExtensionRequest)
   @available(macOS 10.15, *)
-  func request(_ request: OSSystemExtensionRequest, didFinishWithResult result: OSSystemExtensionRequest.Result)
+  @asyncHandler func request(_ request: OSSystemExtensionRequest, didFinishWithResult result: OSSystemExtensionRequest.Result)
   @available(macOS 10.15, *)
-  func request(_ request: OSSystemExtensionRequest, didFailWithError error: Error)
+  @asyncHandler func request(_ request: OSSystemExtensionRequest, didFailWithError error: Error)
 }
 @available(macOS 10.15, *)
 class OSSystemExtensionManager : NSObject {

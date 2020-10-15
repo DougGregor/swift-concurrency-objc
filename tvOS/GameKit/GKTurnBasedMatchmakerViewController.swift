@@ -11,5 +11,5 @@ protocol GKTurnBasedMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
   func turnBasedMatchmakerViewControllerWasCancelled(_ viewController: GKTurnBasedMatchmakerViewController)
   @available(tvOS 5.0, *)
-  func turnBasedMatchmakerViewController(_ viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: Error)
+  @asyncHandler func turnBasedMatchmakerViewController(_ viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: Error)
 }

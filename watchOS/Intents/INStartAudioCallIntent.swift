@@ -10,8 +10,13 @@ class INStartAudioCallIntent : INIntent {
 @available(watchOS, introduced: 3.2, deprecated: 6.0, message: "INStartAudioCallIntent is deprecated. Please adopt INStartCallIntent instead")
 protocol INStartAudioCallIntentHandling : NSObjectProtocol {
   func handle(intent: INStartAudioCallIntent, completion: @escaping (INStartAudioCallIntentResponse) -> Void)
+  func handle(intent: INStartAudioCallIntent) async -> INStartAudioCallIntentResponse
   optional func confirm(intent: INStartAudioCallIntent, completion: @escaping (INStartAudioCallIntentResponse) -> Void)
+  optional func confirm(intent: INStartAudioCallIntent) async -> INStartAudioCallIntentResponse
   @available(watchOS 4.0, *)
   optional func resolveDestinationType(for intent: INStartAudioCallIntent, with completion: @escaping (INCallDestinationTypeResolutionResult) -> Void)
+  @available(watchOS 4.0, *)
+  optional func resolveDestinationType(for intent: INStartAudioCallIntent) async -> INCallDestinationTypeResolutionResult
   optional func resolveContacts(for intent: INStartAudioCallIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void)
+  optional func resolveContacts(for intent: INStartAudioCallIntent) async -> [INPersonResolutionResult]
 }

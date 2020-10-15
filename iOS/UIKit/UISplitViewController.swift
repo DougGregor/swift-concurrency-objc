@@ -155,9 +155,9 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 14.0, *)
   optional func splitViewController(_ svc: UISplitViewController, displayModeForExpandingToProposedDisplayMode proposedDisplayMode: UISplitViewController.DisplayMode) -> UISplitViewController.DisplayMode
   @available(iOS 14.0, *)
-  optional func splitViewControllerDidCollapse(_ svc: UISplitViewController)
+  @asyncHandler optional func splitViewControllerDidCollapse(_ svc: UISplitViewController)
   @available(iOS 14.0, *)
-  optional func splitViewControllerDidExpand(_ svc: UISplitViewController)
+  @asyncHandler optional func splitViewControllerDidExpand(_ svc: UISplitViewController)
   @available(iOS 14.0, *)
   optional func splitViewController(_ svc: UISplitViewController, willShow column: UISplitViewController.Column)
   @available(iOS 14.0, *)
@@ -165,7 +165,7 @@ protocol UISplitViewControllerDelegate {
   @available(iOS 14.0, *)
   optional func splitViewControllerInteractivePresentationGestureWillBegin(_ svc: UISplitViewController)
   @available(iOS 14.0, *)
-  optional func splitViewControllerInteractivePresentationGestureDidEnd(_ svc: UISplitViewController)
+  @asyncHandler optional func splitViewControllerInteractivePresentationGestureDidEnd(_ svc: UISplitViewController)
 }
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }

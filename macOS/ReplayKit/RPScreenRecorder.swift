@@ -12,9 +12,13 @@ class RPScreenRecorder : NSObject {
   func stopRecording(handler: ((RPPreviewViewController?, Error?) -> Void)? = nil)
   @available(macOS 11.0, *)
   func stopRecording(withOutput url: URL, completionHandler: ((Error?) -> Void)? = nil)
+  @available(macOS 11.0, *)
+  func stopRecording(withOutput url: URL) async throws
   func discardRecording(handler: @escaping () -> Void)
   @available(macOS 11.0, *)
   func startCapture(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?, completionHandler: ((Error?) -> Void)? = nil)
+  @available(macOS 11.0, *)
+  func startCapture(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?) async throws
   @available(macOS 11.0, *)
   func stopCapture(handler: ((Error?) -> Void)? = nil)
   weak var delegate: @sil_weak RPScreenRecorderDelegate?
@@ -31,6 +35,6 @@ class RPScreenRecorder : NSObject {
 @available(macOS 11.0, *)
 protocol RPScreenRecorderDelegate : NSObjectProtocol {
   @available(macOS 11.0, *)
-  optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWith previewViewController: RPPreviewViewController?, error: Error?)
-  optional func screenRecorderDidChangeAvailability(_ screenRecorder: RPScreenRecorder)
+  @asyncHandler optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWith previewViewController: RPPreviewViewController?, error: Error?)
+  @asyncHandler optional func screenRecorderDidChangeAvailability(_ screenRecorder: RPScreenRecorder)
 }

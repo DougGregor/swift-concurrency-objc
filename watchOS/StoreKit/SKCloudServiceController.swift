@@ -25,12 +25,20 @@ class SKCloudServiceController : NSObject {
   class func requestAuthorization(_ handler: @escaping (SKCloudServiceAuthorizationStatus) -> Void)
   @available(watchOS 7.0, *)
   func requestCapabilities(completionHandler: @escaping (SKCloudServiceCapability, Error?) -> Void)
+  @available(watchOS 7.0, *)
+  func requestCapabilities() async throws -> SKCloudServiceCapability
   @available(watchOS 4.0, *)
   func requestStorefrontCountryCode(completionHandler: @escaping (String?, Error?) -> Void)
+  @available(watchOS 4.0, *)
+  func requestStorefrontCountryCode() async throws -> String?
   @available(watchOS 7.0, *)
   func requestStorefrontIdentifier(completionHandler: @escaping (String?, Error?) -> Void)
   @available(watchOS 7.0, *)
+  func requestStorefrontIdentifier() async throws -> String?
+  @available(watchOS 7.0, *)
   func requestUserToken(forDeveloperToken developerToken: String, completionHandler: @escaping (String?, Error?) -> Void)
+  @available(watchOS 7.0, *)
+  func requestUserToken(forDeveloperToken developerToken: String) async throws -> String?
 }
 extension NSNotification.Name {
   @available(watchOS 7.0, *)

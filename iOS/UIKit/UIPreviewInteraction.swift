@@ -9,11 +9,11 @@ class UIPreviewInteraction : NSObject {
 }
 protocol UIPreviewInteractionDelegate : NSObjectProtocol {
   @available(iOS 10.0, *)
-  func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool)
+  @asyncHandler func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool)
   @available(iOS 10.0, *)
-  func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction)
+  @asyncHandler func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction)
   @available(iOS 10.0, *)
   optional func previewInteractionShouldBegin(_ previewInteraction: UIPreviewInteraction) -> Bool
   @available(iOS 10.0, *)
-  optional func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool)
+  @asyncHandler optional func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool)
 }

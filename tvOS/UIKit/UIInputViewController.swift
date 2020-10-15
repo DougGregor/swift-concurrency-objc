@@ -28,4 +28,5 @@ class UIInputViewController : UIViewController, UITextInputDelegate {
   @available(tvOS 10.0, *)
   func handleInputModeList(from view: UIView, with event: UIEvent)
   func requestSupplementaryLexicon(completion completionHandler: @escaping (UILexicon) -> Void)
+  func requestSupplementaryLexicon() async -> UILexicon
 }

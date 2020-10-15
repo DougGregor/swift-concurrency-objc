@@ -11,7 +11,7 @@ class ABUnknownPersonViewController : UIViewController {
 }
 protocol ABUnknownPersonViewControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  func unknownPersonViewController(_ unknownCardViewController: ABUnknownPersonViewController, didResolveToPerson person: ABRecord?)
+  @asyncHandler func unknownPersonViewController(_ unknownCardViewController: ABUnknownPersonViewController, didResolveToPerson person: ABRecord?)
   @available(iOS 3.0, *)
   optional func unknownPersonViewController(_ personViewController: ABUnknownPersonViewController, shouldPerformDefaultActionForPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) -> Bool
 }

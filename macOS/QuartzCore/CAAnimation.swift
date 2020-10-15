@@ -29,9 +29,9 @@ class CAAnimation : NSObject, NSSecureCoding, NSCopying, CAMediaTiming, CAAction
 }
 protocol CAAnimationDelegate : NSObjectProtocol {
   @available(macOS 10.5, *)
-  optional func animationDidStart(_ anim: CAAnimation)
+  @asyncHandler optional func animationDidStart(_ anim: CAAnimation)
   @available(macOS 10.5, *)
-  optional func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
+  @asyncHandler optional func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
 }
 @available(macOS 10.5, *)
 class CAPropertyAnimation : CAAnimation {

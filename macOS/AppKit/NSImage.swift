@@ -93,9 +93,9 @@ extension NSImage : NSCopying, NSSecureCoding, NSPasteboardReading, NSPasteboard
 protocol NSImageDelegate : NSObjectProtocol {
   optional func imageDidNotDraw(_ sender: NSImage, in rect: NSRect) -> NSImage?
   optional func image(_ image: NSImage, willLoadRepresentation rep: NSImageRep)
-  optional func image(_ image: NSImage, didLoadRepresentationHeader rep: NSImageRep)
-  optional func image(_ image: NSImage, didLoadPartOfRepresentation rep: NSImageRep, withValidRows rows: Int)
-  optional func image(_ image: NSImage, didLoadRepresentation rep: NSImageRep, with status: NSImage.LoadStatus)
+  @asyncHandler optional func image(_ image: NSImage, didLoadRepresentationHeader rep: NSImageRep)
+  @asyncHandler optional func image(_ image: NSImage, didLoadPartOfRepresentation rep: NSImageRep, withValidRows rows: Int)
+  @asyncHandler optional func image(_ image: NSImage, didLoadRepresentation rep: NSImageRep, with status: NSImage.LoadStatus)
 }
 extension Bundle {
   @available(macOS 10.7, *)

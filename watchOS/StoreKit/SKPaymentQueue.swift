@@ -50,7 +50,7 @@ protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(watchOS 6.2, *)
   optional func paymentQueue(_ queue: SKPaymentQueue, updatedDownloads downloads: [SKDownload])
   @available(watchOS 6.2, *)
-  optional func paymentQueueDidChangeStorefront(_ queue: SKPaymentQueue)
+  @asyncHandler optional func paymentQueueDidChangeStorefront(_ queue: SKPaymentQueue)
   @available(watchOS 7.0, *)
-  optional func paymentQueue(_ queue: SKPaymentQueue, didRevokeEntitlementsForProductIdentifiers productIdentifiers: [String])
+  @asyncHandler optional func paymentQueue(_ queue: SKPaymentQueue, didRevokeEntitlementsForProductIdentifiers productIdentifiers: [String])
 }

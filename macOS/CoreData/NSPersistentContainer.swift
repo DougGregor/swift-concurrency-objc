@@ -10,6 +10,7 @@ class NSPersistentContainer : NSObject {
   convenience init(name: String)
   init(name: String, managedObjectModel model: NSManagedObjectModel)
   func loadPersistentStores(completionHandler block: @escaping (NSPersistentStoreDescription, Error?) -> Void)
+  func loadPersistentStores() async throws -> NSPersistentStoreDescription
   func newBackgroundContext() -> NSManagedObjectContext
   func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void)
 }

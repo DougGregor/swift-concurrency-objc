@@ -8,7 +8,13 @@ protocol PHProjectExtensionController : NSObjectProtocol {
   @available(macOS 10.13, *)
   func beginProject(with extensionContext: PHProjectExtensionContext, projectInfo: PHProjectInfo, completion: @escaping (Error?) -> Void)
   @available(macOS 10.13, *)
+  func beginProject(with extensionContext: PHProjectExtensionContext, projectInfo: PHProjectInfo) async throws
+  @available(macOS 10.13, *)
   func resumeProject(with extensionContext: PHProjectExtensionContext, completion: @escaping (Error?) -> Void)
   @available(macOS 10.13, *)
+  func resumeProject(with extensionContext: PHProjectExtensionContext) async throws
+  @available(macOS 10.13, *)
   func finishProject(completionHandler completion: @escaping () -> Void)
+  @available(macOS 10.13, *)
+  func finishProject() async
 }

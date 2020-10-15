@@ -45,15 +45,15 @@ class UITabBar : UIView {
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
+  @asyncHandler optional func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
   @available(iOS 2.0, *)
   optional func tabBar(_ tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  optional func tabBar(_ tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem])
+  @asyncHandler optional func tabBar(_ tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
   optional func tabBar(_ tabBar: UITabBar, willEndCustomizing items: [UITabBarItem], changed: Bool)
   @available(iOS 2.0, *)
-  optional func tabBar(_ tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool)
+  @asyncHandler optional func tabBar(_ tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool)
 }
 extension UITabBar : UISpringLoadedInteractionSupporting {
 }

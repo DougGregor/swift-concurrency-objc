@@ -17,9 +17,9 @@ extension ICAuthorizationStatus {
 }
 protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
+  @asyncHandler func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
   @available(iOS 13.0, *)
-  func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
+  @asyncHandler func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
   @available(iOS 13.0, *)
   optional func deviceBrowser(_ browser: ICDeviceBrowser, deviceDidChangeName device: ICDevice)
   @available(iOS 13.0, *)
@@ -27,11 +27,11 @@ protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @available(iOS 14.0, *)
   optional func deviceBrowserWillSuspendOperations(_ browser: ICDeviceBrowser)
   @available(iOS 14.0, *)
-  optional func deviceBrowserDidSuspendOperations(_ browser: ICDeviceBrowser)
+  @asyncHandler optional func deviceBrowserDidSuspendOperations(_ browser: ICDeviceBrowser)
   @available(iOS 14.0, *)
-  optional func deviceBrowserDidCancelSuspendOperations(_ browser: ICDeviceBrowser)
+  @asyncHandler optional func deviceBrowserDidCancelSuspendOperations(_ browser: ICDeviceBrowser)
   @available(iOS 14.0, *)
-  optional func deviceBrowserDidResumeOperations(_ browser: ICDeviceBrowser)
+  @asyncHandler optional func deviceBrowserDidResumeOperations(_ browser: ICDeviceBrowser)
 }
 @available(iOS 13.0, *)
 class ICDeviceBrowser : NSObject {
@@ -50,7 +50,11 @@ class ICDeviceBrowser : NSObject {
   @available(iOS 14.0, *)
   func requestContentsAuthorization(completion: @escaping (ICAuthorizationStatus) -> Void)
   @available(iOS 14.0, *)
+  func requestContentsAuthorization() async -> ICAuthorizationStatus
+  @available(iOS 14.0, *)
   func controlAuthorizationStatus() -> ICAuthorizationStatus
   @available(iOS 14.0, *)
   func requestControlAuthorization(completion: @escaping (ICAuthorizationStatus) -> Void)
+  @available(iOS 14.0, *)
+  func requestControlAuthorization() async -> ICAuthorizationStatus
 }

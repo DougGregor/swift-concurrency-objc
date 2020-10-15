@@ -9,7 +9,7 @@ protocol TVBrowserViewControllerDataSource : NSObjectProtocol {
 @available(tvOS 13.0, *)
 protocol TVBrowserViewControllerDelegate : NSObjectProtocol {
   optional func browserViewController(_ browserViewController: TVBrowserViewController, willCenterOn viewElement: TVViewElement)
-  optional func browserViewController(_ browserViewController: TVBrowserViewController, didCenterOn viewElement: TVViewElement)
+  @asyncHandler optional func browserViewController(_ browserViewController: TVBrowserViewController, didCenterOn viewElement: TVViewElement)
 }
 @available(tvOS 13.0, *)
 class TVBrowserViewController : UIViewController {

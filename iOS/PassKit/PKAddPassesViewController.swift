@@ -1,7 +1,7 @@
 
 protocol PKAddPassesViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
-  optional func addPassesViewControllerDidFinish(_ controller: PKAddPassesViewController)
+  @asyncHandler optional func addPassesViewControllerDidFinish(_ controller: PKAddPassesViewController)
 }
 @available(iOS 6.0, *)
 class PKAddPassesViewController : UIViewController {

@@ -1,7 +1,7 @@
 
 protocol SKProductsRequestDelegate : SKRequestDelegate {
   @available(watchOS 6.2, *)
-  func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse)
+  @asyncHandler func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse)
 }
 @available(watchOS 6.2, *)
 class SKProductsRequest : SKRequest {

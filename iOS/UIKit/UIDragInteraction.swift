@@ -3,6 +3,7 @@
 protocol UIDragAnimating : NSObjectProtocol {
   func addAnimations(_ animations: @escaping () -> Void)
   func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void)
+  func addCompletion() async -> UIViewAnimatingPosition
 }
 @available(iOS 11.0, *)
 class UIDragInteraction : NSObject, UIInteraction {
@@ -23,7 +24,7 @@ protocol UIDragInteractionDelegate : NSObjectProtocol {
   optional func dragInteraction(_ interaction: UIDragInteraction, prefersFullSizePreviewsFor session: UIDragSession) -> Bool
   optional func dragInteraction(_ interaction: UIDragInteraction, sessionDidMove session: UIDragSession)
   optional func dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, willEndWith operation: UIDropOperation)
-  optional func dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, didEndWith operation: UIDropOperation)
+  @asyncHandler optional func dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, didEndWith operation: UIDropOperation)
   optional func dragInteraction(_ interaction: UIDragInteraction, sessionDidTransferItems session: UIDragSession)
   optional func dragInteraction(_ interaction: UIDragInteraction, itemsForAddingTo session: UIDragSession, withTouchAt point: CGPoint) -> [UIDragItem]
   optional func dragInteraction(_ interaction: UIDragInteraction, sessionForAddingItems sessions: [UIDragSession], withTouchAt point: CGPoint) -> UIDragSession?

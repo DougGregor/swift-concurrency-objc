@@ -242,8 +242,8 @@ protocol NSTextViewDelegate : NSTextDelegate {
   optional func textView(_ textView: NSTextView, shouldChangeTextInRanges affectedRanges: [NSValue], replacementStrings: [String]?) -> Bool
   @available(macOS 10.0, *)
   optional func textView(_ textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : Any] = [:], toAttributes newTypingAttributes: [NSAttributedString.Key : Any] = [:]) -> [NSAttributedString.Key : Any]
-  optional func textViewDidChangeSelection(_ notification: Notification)
-  optional func textViewDidChangeTypingAttributes(_ notification: Notification)
+  @asyncHandler optional func textViewDidChangeSelection(_ notification: Notification)
+  @asyncHandler optional func textViewDidChangeTypingAttributes(_ notification: Notification)
   optional func textView(_ textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
   optional func textView(_ textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>?) -> [String]
   optional func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool

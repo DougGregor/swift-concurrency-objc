@@ -1,10 +1,10 @@
 
 @available(iOS 13.0, *)
 protocol PKCanvasViewDelegate : UIScrollViewDelegate {
-  optional func canvasViewDrawingDidChange(_ canvasView: PKCanvasView)
-  optional func canvasViewDidFinishRendering(_ canvasView: PKCanvasView)
-  optional func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView)
-  optional func canvasViewDidEndUsingTool(_ canvasView: PKCanvasView)
+  @asyncHandler optional func canvasViewDrawingDidChange(_ canvasView: PKCanvasView)
+  @asyncHandler optional func canvasViewDidFinishRendering(_ canvasView: PKCanvasView)
+  @asyncHandler optional func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView)
+  @asyncHandler optional func canvasViewDidEndUsingTool(_ canvasView: PKCanvasView)
 }
 enum PKCanvasViewDrawingPolicy : UInt {
   init?(rawValue: UInt)

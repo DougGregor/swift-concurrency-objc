@@ -24,7 +24,7 @@ extension UIAccessibility {
 @available(iOS 7.0, *)
 protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
   var guidedAccessRestrictionIdentifiers: [String]? { get }
-  func guidedAccessRestriction(withIdentifier restrictionIdentifier: String, didChange newRestrictionState: UIAccessibility.GuidedAccessRestrictionState)
+  @asyncHandler func guidedAccessRestriction(withIdentifier restrictionIdentifier: String, didChange newRestrictionState: UIAccessibility.GuidedAccessRestrictionState)
   func textForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
   optional func detailTextForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
 }

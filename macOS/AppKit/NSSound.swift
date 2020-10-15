@@ -42,7 +42,7 @@ extension NSSound {
 extension NSSound {
 }
 protocol NSSoundDelegate : NSObjectProtocol {
-  optional func sound(_ sound: NSSound, didFinishPlaying flag: Bool)
+  @asyncHandler optional func sound(_ sound: NSSound, didFinishPlaying flag: Bool)
 }
 extension Bundle {
   func path(forSoundResource name: NSSound.Name) -> String?

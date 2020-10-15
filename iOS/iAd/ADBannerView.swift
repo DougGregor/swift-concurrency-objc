@@ -41,10 +41,10 @@ class ADBannerView : UIView {
 protocol ADBannerViewDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)
   optional func bannerViewWillLoadAd(_ banner: ADBannerView)
-  optional func bannerViewDidLoadAd(_ banner: ADBannerView)
-  optional func bannerView(_ banner: ADBannerView, didFailToReceiveAdWithError error: Error)
+  @asyncHandler optional func bannerViewDidLoadAd(_ banner: ADBannerView)
+  @asyncHandler optional func bannerView(_ banner: ADBannerView, didFailToReceiveAdWithError error: Error)
   optional func bannerViewActionShouldBegin(_ banner: ADBannerView, willLeaveApplication willLeave: Bool) -> Bool
-  optional func bannerViewActionDidFinish(_ banner: ADBannerView)
+  @asyncHandler optional func bannerViewActionDidFinish(_ banner: ADBannerView)
 }
 @available(iOS, introduced: 12.0, deprecated: 13.0)
 func ADClampedBannerSize(_ size: CGSize) -> CGSize

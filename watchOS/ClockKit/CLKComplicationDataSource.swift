@@ -25,7 +25,7 @@ protocol CLKComplicationDataSource : NSObjectProtocol {
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use WKRefreshBackgroundTask instead")
   optional func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void)
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use WKRefreshBackgroundTask instead")
-  optional func requestedUpdateDidBegin()
+  @asyncHandler optional func requestedUpdateDidBegin()
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "Use WKRefreshBackgroundTask instead")
   optional func requestedUpdateBudgetExhausted()
 }

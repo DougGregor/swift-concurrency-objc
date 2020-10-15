@@ -17,7 +17,11 @@ extension INSnoozeTasksIntent {
 @available(watchOS 6.0, *)
 protocol INSnoozeTasksIntentHandling : NSObjectProtocol {
   func handle(intent: INSnoozeTasksIntent, completion: @escaping (INSnoozeTasksIntentResponse) -> Void)
+  func handle(intent: INSnoozeTasksIntent) async -> INSnoozeTasksIntentResponse
   optional func confirm(intent: INSnoozeTasksIntent, completion: @escaping (INSnoozeTasksIntentResponse) -> Void)
+  optional func confirm(intent: INSnoozeTasksIntent) async -> INSnoozeTasksIntentResponse
   optional func resolveTasks(for intent: INSnoozeTasksIntent, with completion: @escaping ([INSnoozeTasksTaskResolutionResult]) -> Void)
+  optional func resolveTasks(for intent: INSnoozeTasksIntent) async -> [INSnoozeTasksTaskResolutionResult]
   optional func resolveNextTriggerTime(for intent: INSnoozeTasksIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  optional func resolveNextTriggerTime(for intent: INSnoozeTasksIntent) async -> INDateComponentsRangeResolutionResult
 }

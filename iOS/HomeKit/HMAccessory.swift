@@ -29,20 +29,22 @@ class HMAccessory : NSObject {
   @available(iOS 11.3, *)
   var supportsIdentify: Bool { get }
   func updateName(_ name: String, completionHandler completion: @escaping (Error?) -> Void)
+  func updateName(_ name: String) async throws
   func identify(completionHandler completion: @escaping (Error?) -> Void)
+  func identify() async throws
 }
 @available(iOS 8.0, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {
-  optional func accessoryDidUpdateName(_ accessory: HMAccessory)
-  optional func accessory(_ accessory: HMAccessory, didUpdateNameFor service: HMService)
-  optional func accessory(_ accessory: HMAccessory, didUpdateAssociatedServiceTypeFor service: HMService)
-  optional func accessoryDidUpdateServices(_ accessory: HMAccessory)
+  @asyncHandler optional func accessoryDidUpdateName(_ accessory: HMAccessory)
+  @asyncHandler optional func accessory(_ accessory: HMAccessory, didUpdateNameFor service: HMService)
+  @asyncHandler optional func accessory(_ accessory: HMAccessory, didUpdateAssociatedServiceTypeFor service: HMService)
+  @asyncHandler optional func accessoryDidUpdateServices(_ accessory: HMAccessory)
   @available(iOS 11.0, *)
-  optional func accessory(_ accessory: HMAccessory, didAdd profile: HMAccessoryProfile)
+  @asyncHandler optional func accessory(_ accessory: HMAccessory, didAdd profile: HMAccessoryProfile)
   @available(iOS 11.0, *)
-  optional func accessory(_ accessory: HMAccessory, didRemove profile: HMAccessoryProfile)
-  optional func accessoryDidUpdateReachability(_ accessory: HMAccessory)
-  optional func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic)
+  @asyncHandler optional func accessory(_ accessory: HMAccessory, didRemove profile: HMAccessoryProfile)
+  @asyncHandler optional func accessoryDidUpdateReachability(_ accessory: HMAccessory)
+  @asyncHandler optional func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic)
   @available(iOS 11.0, *)
-  optional func accessory(_ accessory: HMAccessory, didUpdateFirmwareVersion firmwareVersion: String)
+  @asyncHandler optional func accessory(_ accessory: HMAccessory, didUpdateFirmwareVersion firmwareVersion: String)
 }

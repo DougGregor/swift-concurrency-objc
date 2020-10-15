@@ -15,5 +15,5 @@ protocol MCNearbyServiceBrowserDelegate : NSObjectProtocol {
   @available(macOS 10.10, *)
   func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID)
   @available(macOS 10.10, *)
-  optional func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error)
+  @asyncHandler optional func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error)
 }

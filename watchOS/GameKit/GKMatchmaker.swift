@@ -48,7 +48,7 @@ enum GKMatchType : UInt {
 }
 protocol GKInviteEventListener {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This method is obsolete.  It will never be invoked its implementation does nothing, use player:didRequestMatchWithRecipients:")
-  optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
+  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
 }
 extension GKMatchmaker {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use registerListener on GKLocalPlayer to register an object that implements the GKInviteEventListenerProtocol instead")
@@ -61,4 +61,6 @@ extension GKMatchmaker {
   func cancelInvite(toPlayer playerID: String)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use findPlayersForHostedRequest:")
   func findPlayers(forHostedMatchRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
+  @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use findPlayersForHostedRequest:")
+  func findPlayers(forHostedMatchRequest request: GKMatchRequest) async throws -> [String]?
 }

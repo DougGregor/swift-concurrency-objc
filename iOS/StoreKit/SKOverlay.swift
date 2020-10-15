@@ -1,11 +1,11 @@
 
 @available(iOS 14.0, *)
 protocol SKOverlayDelegate : NSObjectProtocol {
-  optional func storeOverlayDidFailToLoad(_ overlay: SKOverlay, error: Error)
+  @asyncHandler optional func storeOverlayDidFailToLoad(_ overlay: SKOverlay, error: Error)
   optional func storeOverlayWillStartPresentation(_ overlay: SKOverlay, transitionContext: SKOverlay.TransitionContext)
-  optional func storeOverlayDidFinishPresentation(_ overlay: SKOverlay, transitionContext: SKOverlay.TransitionContext)
+  @asyncHandler optional func storeOverlayDidFinishPresentation(_ overlay: SKOverlay, transitionContext: SKOverlay.TransitionContext)
   optional func storeOverlayWillStartDismissal(_ overlay: SKOverlay, transitionContext: SKOverlay.TransitionContext)
-  optional func storeOverlayDidFinishDismissal(_ overlay: SKOverlay, transitionContext: SKOverlay.TransitionContext)
+  @asyncHandler optional func storeOverlayDidFinishDismissal(_ overlay: SKOverlay, transitionContext: SKOverlay.TransitionContext)
 }
 @available(iOS 14.0, *)
 class SKOverlay : NSObject {

@@ -28,16 +28,27 @@ class WKWebView : UIView {
   func reloadFromOrigin() -> WKNavigation?
   func stopLoading()
   func evaluateJavaScript(_ javaScriptString: String, completionHandler: ((Any?, Error?) -> Void)? = nil)
+  func evaluateJavaScript(_ javaScriptString: String) async throws -> Any?
   @available(iOS 14.0, *)
   func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: ((Any?, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
+  func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any?
+  @available(iOS 14.0, *)
   func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: ((Any?, Error?) -> Void)? = nil)
+  @available(iOS 14.0, *)
+  func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any?
   @available(iOS 11.0, *)
   func takeSnapshot(with snapshotConfiguration: WKSnapshotConfiguration?, completionHandler: @escaping (UIImage?, Error?) -> Void)
+  @available(iOS 11.0, *)
+  func takeSnapshot(with snapshotConfiguration: WKSnapshotConfiguration?) async throws -> UIImage?
   @available(iOS 14.0, *)
   func __createPDF(with pdfConfiguration: WKPDFConfiguration?, completionHandler: @escaping (Data?, Error?) -> Void)
   @available(iOS 14.0, *)
+  func __createPDF(with pdfConfiguration: WKPDFConfiguration?) async throws -> Data?
+  @available(iOS 14.0, *)
   func __createWebArchiveData(completionHandler: @escaping (Data, Error) -> Void)
+  @available(iOS 14.0, *)
+  func __createWebArchiveData() async -> (Data, Error)
   var allowsBackForwardNavigationGestures: Bool
   @available(iOS 9.0, *)
   var customUserAgent: String?
@@ -48,6 +59,8 @@ class WKWebView : UIView {
   var pageZoom: CGFloat
   @available(iOS 14.0, *)
   func __find(_ string: String, with configuration: WKFindConfiguration?, completionHandler: @escaping (WKFindResult) -> Void)
+  @available(iOS 14.0, *)
+  func __find(_ string: String, with configuration: WKFindConfiguration?) async -> WKFindResult
   @available(iOS 11.0, *)
   class func handlesURLScheme(_ urlScheme: String) -> Bool
   @available(iOS 14.0, *)

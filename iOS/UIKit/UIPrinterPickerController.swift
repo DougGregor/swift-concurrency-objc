@@ -10,13 +10,13 @@ protocol UIPrinterPickerControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func printerPickerControllerWillPresent(_ printerPickerController: UIPrinterPickerController)
   @available(iOS 8.0, *)
-  optional func printerPickerControllerDidPresent(_ printerPickerController: UIPrinterPickerController)
+  @asyncHandler optional func printerPickerControllerDidPresent(_ printerPickerController: UIPrinterPickerController)
   @available(iOS 8.0, *)
   optional func printerPickerControllerWillDismiss(_ printerPickerController: UIPrinterPickerController)
   @available(iOS 8.0, *)
-  optional func printerPickerControllerDidDismiss(_ printerPickerController: UIPrinterPickerController)
+  @asyncHandler optional func printerPickerControllerDidDismiss(_ printerPickerController: UIPrinterPickerController)
   @available(iOS 8.0, *)
-  optional func printerPickerControllerDidSelectPrinter(_ printerPickerController: UIPrinterPickerController)
+  @asyncHandler optional func printerPickerControllerDidSelectPrinter(_ printerPickerController: UIPrinterPickerController)
 }
 @available(iOS 8.0, *)
 class UIPrinterPickerController : NSObject {

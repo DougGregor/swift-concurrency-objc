@@ -1,8 +1,8 @@
 
 @available(macOS 10.15, *)
 protocol ASWebAuthenticationSessionRequestDelegate : NSObjectProtocol {
-  optional func authenticationSessionRequest(_ authenticationSessionRequest: ASWebAuthenticationSessionRequest, didCompleteWithCallbackURL callbackURL: URL)
-  optional func authenticationSessionRequest(_ authenticationSessionRequest: ASWebAuthenticationSessionRequest, didCancelWithError error: Error)
+  @asyncHandler optional func authenticationSessionRequest(_ authenticationSessionRequest: ASWebAuthenticationSessionRequest, didCompleteWithCallbackURL callbackURL: URL)
+  @asyncHandler optional func authenticationSessionRequest(_ authenticationSessionRequest: ASWebAuthenticationSessionRequest, didCancelWithError error: Error)
 }
 @available(macOS 10.15, *)
 class ASWebAuthenticationSessionRequest : NSObject, NSSecureCoding, NSCopying {

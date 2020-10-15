@@ -50,17 +50,17 @@ protocol UITextFieldDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldDidBeginEditing(_ textField: UITextField)
+  @asyncHandler optional func textFieldDidBeginEditing(_ textField: UITextField)
   @available(iOS 2.0, *)
   optional func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldDidEndEditing(_ textField: UITextField)
+  @asyncHandler optional func textFieldDidEndEditing(_ textField: UITextField)
   @available(iOS 10.0, *)
-  optional func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason)
+  @asyncHandler optional func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason)
   @available(iOS 2.0, *)
   optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
   @available(iOS 13.0, *)
-  optional func textFieldDidChangeSelection(_ textField: UITextField)
+  @asyncHandler optional func textFieldDidChangeSelection(_ textField: UITextField)
   @available(iOS 2.0, *)
   optional func textFieldShouldClear(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)

@@ -26,6 +26,7 @@ class NSUserActivity : NSObject {
   func resignCurrent()
   func invalidate()
   func getContinuationStreams(completionHandler: @escaping (InputStream?, OutputStream?, Error?) -> Void)
+  func getContinuationStreams() async throws -> (InputStream?, OutputStream?)
   @available(tvOS 10.0, *)
   var isEligibleForHandoff: Bool
   @available(tvOS 10.0, *)
@@ -38,5 +39,5 @@ let NSUserActivityTypeBrowsingWeb: String
 protocol NSUserActivityDelegate : NSObjectProtocol {
   optional func userActivityWillSave(_ userActivity: NSUserActivity)
   optional func userActivityWasContinued(_ userActivity: NSUserActivity)
-  optional func userActivity(_ userActivity: NSUserActivity, didReceive inputStream: InputStream, outputStream: OutputStream)
+  @asyncHandler optional func userActivity(_ userActivity: NSUserActivity, didReceive inputStream: InputStream, outputStream: OutputStream)
 }

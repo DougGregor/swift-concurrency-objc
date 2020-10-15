@@ -52,7 +52,7 @@ extension AVPlayerItemLegibleOutput.TextStylingResolution {
 }
 protocol AVPlayerItemLegibleOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(iOS 7.0, *)
-  optional func legibleOutput(_ output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [NSAttributedString], nativeSampleBuffers nativeSamples: [Any], forItemTime itemTime: CMTime)
+  @asyncHandler optional func legibleOutput(_ output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [NSAttributedString], nativeSampleBuffers nativeSamples: [Any], forItemTime itemTime: CMTime)
 }
 protocol AVPlayerItemOutputPushDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
@@ -68,5 +68,5 @@ class AVPlayerItemMetadataOutput : AVPlayerItemOutput {
 }
 protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(iOS 8.0, *)
-  optional func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?)
+  @asyncHandler optional func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?)
 }

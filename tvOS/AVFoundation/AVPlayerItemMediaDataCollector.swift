@@ -11,5 +11,5 @@ class AVPlayerItemMetadataCollector : AVPlayerItemMediaDataCollector {
 }
 protocol AVPlayerItemMetadataCollectorPushDelegate : NSObjectProtocol {
   @available(tvOS 9.3, *)
-  func metadataCollector(_ metadataCollector: AVPlayerItemMetadataCollector, didCollect metadataGroups: [AVDateRangeMetadataGroup], indexesOfNewGroups: IndexSet, indexesOfModifiedGroups: IndexSet)
+  @asyncHandler func metadataCollector(_ metadataCollector: AVPlayerItemMetadataCollector, didCollect metadataGroups: [AVDateRangeMetadataGroup], indexesOfNewGroups: IndexSet, indexesOfModifiedGroups: IndexSet)
 }

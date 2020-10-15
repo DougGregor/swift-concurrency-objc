@@ -145,5 +145,7 @@ class ARGeoTrackingConfiguration : ARConfiguration {
   var maximumNumberOfTrackedImages: Int
   var detectionObjects: Set<ARReferenceObject>
   class func checkAvailability(completionHandler: @escaping (Bool, Error?) -> Void)
+  class func checkAvailability() async throws -> Bool
   class func checkAvailability(at coordinate: CLLocationCoordinate2D, completionHandler: @escaping (Bool, Error?) -> Void)
+  class func checkAvailability(at coordinate: CLLocationCoordinate2D) async throws -> Bool
 }

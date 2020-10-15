@@ -6,6 +6,6 @@ class INUIAddVoiceShortcutViewController : UIViewController {
 }
 @available(iOS 12.0, *)
 protocol INUIAddVoiceShortcutViewControllerDelegate : NSObjectProtocol {
-  func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?)
-  func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController)
+  @asyncHandler func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?)
+  @asyncHandler func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController)
 }

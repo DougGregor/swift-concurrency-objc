@@ -15,13 +15,13 @@ protocol UITabBarControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
   optional func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
   @available(iOS 2.0, *)
-  optional func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController)
+  @asyncHandler optional func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController)
   @available(iOS 3.0, *)
   optional func tabBarController(_ tabBarController: UITabBarController, willBeginCustomizing viewControllers: [UIViewController])
   @available(iOS 3.0, *)
   optional func tabBarController(_ tabBarController: UITabBarController, willEndCustomizing viewControllers: [UIViewController], changed: Bool)
   @available(iOS 2.0, *)
-  optional func tabBarController(_ tabBarController: UITabBarController, didEndCustomizing viewControllers: [UIViewController], changed: Bool)
+  @asyncHandler optional func tabBarController(_ tabBarController: UITabBarController, didEndCustomizing viewControllers: [UIViewController], changed: Bool)
   @available(iOS 7.0, *)
   optional func tabBarControllerSupportedInterfaceOrientations(_ tabBarController: UITabBarController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)

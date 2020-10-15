@@ -26,12 +26,12 @@ enum PHAccessLevel : Int {
 @available(tvOS 10, *)
 protocol PHPhotoLibraryChangeObserver : NSObjectProtocol {
   @available(tvOS 10, *)
-  func photoLibraryDidChange(_ changeInstance: PHChange)
+  @asyncHandler func photoLibraryDidChange(_ changeInstance: PHChange)
 }
 @available(tvOS 13, *)
 protocol PHPhotoLibraryAvailabilityObserver : NSObjectProtocol {
   @available(tvOS 13, *)
-  func photoLibraryDidBecomeUnavailable(_ photoLibrary: PHPhotoLibrary)
+  @asyncHandler func photoLibraryDidBecomeUnavailable(_ photoLibrary: PHPhotoLibrary)
 }
 @available(tvOS 10, *)
 class PHPhotoLibrary : NSObject {
@@ -53,6 +53,8 @@ class PHPhotoLibrary : NSObject {
   func unregisterAvailabilityObserver(_ observer: PHPhotoLibraryAvailabilityObserver)
   @available(tvOS 10, *)
   func performChanges(_ changeBlock: @escaping () -> Void, completionHandler: ((Bool, Error?) -> Void)? = nil)
+  @available(tvOS 10, *)
+  func performChanges(_ changeBlock: @escaping () -> Void) async throws -> Bool
   @available(tvOS 10, *)
   func performChangesAndWait(_ changeBlock: @escaping () -> Void) throws
   @available(tvOS 10, *)

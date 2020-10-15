@@ -64,6 +64,8 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   func prepare(_ object: Any, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   @available(macOS 10.10, *)
   func prepare(_ objects: [Any], completionHandler: ((Bool) -> Void)? = nil)
+  @available(macOS 10.10, *)
+  func prepare(_ objects: [Any]) async -> Bool
   @available(macOS 10.9, *)
   var showsStatistics: Bool { get set }
   @available(macOS 10.11, *)
@@ -98,11 +100,11 @@ protocol SCNSceneRendererDelegate : NSObjectProtocol {
   @available(macOS 10.10, *)
   optional func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval)
   @available(macOS 10.10, *)
-  optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval)
   @available(macOS 10.10, *)
-  optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: TimeInterval)
   @available(macOS 10.13, *)
-  optional func renderer(_ renderer: SCNSceneRenderer, didApplyConstraintsAtTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didApplyConstraintsAtTime time: TimeInterval)
   optional func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval)
-  optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
+  @asyncHandler optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval)
 }

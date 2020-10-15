@@ -27,5 +27,5 @@ class EAAccessory : NSObject {
 }
 protocol EAAccessoryDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func accessoryDidDisconnect(_ accessory: EAAccessory)
+  @asyncHandler optional func accessoryDidDisconnect(_ accessory: EAAccessory)
 }

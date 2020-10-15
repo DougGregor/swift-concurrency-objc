@@ -3,8 +3,10 @@ typealias SCNActionTimingFunction = (Float) -> Float
 protocol SCNActionable : NSObjectProtocol {
   func runAction(_ action: SCNAction)
   func runAction(_ action: SCNAction, completionHandler block: (() -> Void)? = nil)
+  func runAction(_ action: SCNAction) async
   func runAction(_ action: SCNAction, forKey key: String?)
   func runAction(_ action: SCNAction, forKey key: String?, completionHandler block: (() -> Void)? = nil)
+  func runAction(_ action: SCNAction, forKey key: String?) async
   var hasActions: Bool { get }
   func action(forKey key: String) -> SCNAction?
   func removeAction(forKey key: String)

@@ -52,7 +52,7 @@ protocol NSSplitViewDelegate : NSObjectProtocol {
   @available(macOS 10.5, *)
   optional func splitView(_ splitView: NSSplitView, additionalEffectiveRectOfDividerAt dividerIndex: Int) -> NSRect
   optional func splitViewWillResizeSubviews(_ notification: Notification)
-  optional func splitViewDidResizeSubviews(_ notification: Notification)
+  @asyncHandler optional func splitViewDidResizeSubviews(_ notification: Notification)
 }
 extension NSSplitView {
   class let willResizeSubviewsNotification: NSNotification.Name

@@ -9,9 +9,9 @@ class UIVideoEditorController : UINavigationController {
 }
 protocol UIVideoEditorControllerDelegate : NSObjectProtocol {
   @available(iOS 3.1, *)
-  optional func videoEditorController(_ editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
+  @asyncHandler optional func videoEditorController(_ editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
   @available(iOS 3.1, *)
-  optional func videoEditorController(_ editor: UIVideoEditorController, didFailWithError error: Error)
+  @asyncHandler optional func videoEditorController(_ editor: UIVideoEditorController, didFailWithError error: Error)
   @available(iOS 3.1, *)
-  optional func videoEditorControllerDidCancel(_ editor: UIVideoEditorController)
+  @asyncHandler optional func videoEditorControllerDidCancel(_ editor: UIVideoEditorController)
 }

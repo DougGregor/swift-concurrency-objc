@@ -12,5 +12,7 @@ protocol NSFilePromiseProviderDelegate : NSObjectProtocol {
   @available(macOS 10.12, *)
   func filePromiseProvider(_ filePromiseProvider: NSFilePromiseProvider, writePromiseTo url: URL, completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.12, *)
+  func filePromiseProvider(_ filePromiseProvider: NSFilePromiseProvider, writePromiseTo url: URL) async throws
+  @available(macOS 10.12, *)
   optional func operationQueue(for filePromiseProvider: NSFilePromiseProvider) -> OperationQueue
 }

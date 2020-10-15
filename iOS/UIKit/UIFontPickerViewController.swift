@@ -1,8 +1,8 @@
 
 @available(iOS 13.0, *)
 protocol UIFontPickerViewControllerDelegate : NSObjectProtocol {
-  optional func fontPickerViewControllerDidCancel(_ viewController: UIFontPickerViewController)
-  optional func fontPickerViewControllerDidPickFont(_ viewController: UIFontPickerViewController)
+  @asyncHandler optional func fontPickerViewControllerDidCancel(_ viewController: UIFontPickerViewController)
+  @asyncHandler optional func fontPickerViewControllerDidPickFont(_ viewController: UIFontPickerViewController)
 }
 @available(iOS 13.0, *)
 class UIFontPickerViewController : UIViewController {

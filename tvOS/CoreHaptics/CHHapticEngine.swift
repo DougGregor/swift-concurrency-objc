@@ -35,8 +35,10 @@ class CHHapticEngine : NSObject {
   var isAutoShutdownEnabled: Bool
   init() throws
   func start(completionHandler: CHHapticEngine.CompletionHandler? = nil)
+  func start() async throws
   func start() throws
   func stop(completionHandler: CHHapticEngine.CompletionHandler? = nil)
+  func stop() async throws
   func notifyWhenPlayersFinished(finishedHandler: @escaping CHHapticEngine.FinishedHandler)
   func makePlayer(with pattern: CHHapticPattern) throws -> CHHapticPatternPlayer
   func makeAdvancedPlayer(with pattern: CHHapticPattern) throws -> CHHapticAdvancedPatternPlayer

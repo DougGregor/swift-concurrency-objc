@@ -24,9 +24,13 @@ enum INInteractionDirection : Int {
 class INInteraction : NSObject, NSSecureCoding, NSCopying {
   init(intent: INIntent, response: INIntentResponse?)
   func donate(completion: ((Error?) -> Void)? = nil)
+  func donate() async throws
   class func deleteAll(completion: ((Error?) -> Void)? = nil)
+  class func deleteAll() async throws
   class func delete(with identifiers: [String], completion: ((Error?) -> Void)? = nil)
+  class func delete(with identifiers: [String]) async throws
   class func delete(with groupIdentifier: String, completion: ((Error?) -> Void)? = nil)
+  class func delete(with groupIdentifier: String) async throws
   @NSCopying var intent: INIntent { get }
   @NSCopying var intentResponse: INIntentResponse? { get }
   var intentHandlingStatus: INIntentHandlingStatus { get }

@@ -49,12 +49,13 @@ class UIPageViewController : UIViewController {
   var gestureRecognizers: [UIGestureRecognizer] { get }
   var viewControllers: [UIViewController]? { get }
   func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewController.NavigationDirection, animated: Bool, completion: ((Bool) -> Void)? = nil)
+  func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewController.NavigationDirection, animated: Bool) async -> Bool
 }
 protocol UIPageViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 6.0, *)
   optional func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController])
   @available(tvOS 5.0, *)
-  optional func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
+  @asyncHandler optional func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
 }
 protocol UIPageViewControllerDataSource : NSObjectProtocol {
   @available(tvOS 5.0, *)

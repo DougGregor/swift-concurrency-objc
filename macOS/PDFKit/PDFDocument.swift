@@ -132,14 +132,14 @@ class PDFDocument : NSObject, NSCopying {
   func selection(from startPage: PDFPage, atCharacterIndex startCharacter: Int, to endPage: PDFPage, atCharacterIndex endCharacter: Int) -> PDFSelection?
 }
 protocol PDFDocumentDelegate : NSObjectProtocol {
-  optional func documentDidUnlock(_ notification: Notification)
-  optional func documentDidBeginDocumentFind(_ notification: Notification)
-  optional func documentDidEndDocumentFind(_ notification: Notification)
-  optional func documentDidBeginPageFind(_ notification: Notification)
-  optional func documentDidEndPageFind(_ notification: Notification)
-  optional func documentDidFindMatch(_ notification: Notification)
+  @asyncHandler optional func documentDidUnlock(_ notification: Notification)
+  @asyncHandler optional func documentDidBeginDocumentFind(_ notification: Notification)
+  @asyncHandler optional func documentDidEndDocumentFind(_ notification: Notification)
+  @asyncHandler optional func documentDidBeginPageFind(_ notification: Notification)
+  @asyncHandler optional func documentDidEndPageFind(_ notification: Notification)
+  @asyncHandler optional func documentDidFindMatch(_ notification: Notification)
   @available(macOS 10.4, *)
-  optional func didMatchString(_ instance: PDFSelection)
+  @asyncHandler optional func didMatchString(_ instance: PDFSelection)
   @available(macOS 10.6, *)
   optional func classForPage() -> AnyClass
   @available(macOS 10.13, *)

@@ -1,8 +1,8 @@
 
 @available(iOS 14.0, *)
 protocol UIColorPickerViewControllerDelegate : NSObjectProtocol {
-  optional func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController)
-  optional func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController)
+  @asyncHandler optional func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController)
+  @asyncHandler optional func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController)
 }
 @available(iOS 14.0, *)
 class UIColorPickerViewController : UIViewController {

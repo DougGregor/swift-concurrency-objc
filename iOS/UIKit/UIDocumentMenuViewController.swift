@@ -8,7 +8,7 @@ enum UIDocumentMenuOrder : UInt {
 }
 @available(iOS, introduced: 8.0, deprecated: 13.0, message: "UIDocumentMenuDelegate is deprecated. Use UIDocumentPickerViewController directly.")
 protocol UIDocumentMenuDelegate : NSObjectProtocol {
-  func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController)
+  @asyncHandler func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController)
   optional func documentMenuWasCancelled(_ documentMenu: UIDocumentMenuViewController)
 }
 @available(iOS, introduced: 8.0, deprecated: 11.0, message: "UIDocumentMenuViewController is deprecated. Use UIDocumentPickerViewController directly.")

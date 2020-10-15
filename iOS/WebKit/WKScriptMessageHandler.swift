@@ -1,5 +1,5 @@
 
 protocol WKScriptMessageHandler : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage)
+  @asyncHandler func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage)
 }

@@ -22,31 +22,31 @@ class NSURLConnection : NSObject {
 }
 @available(iOS 2.0, *)
 protocol NSURLConnectionDelegate : NSObjectProtocol {
-  optional func connection(_ connection: NSURLConnection, didFailWithError error: Error)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didFailWithError error: Error)
   optional func connectionShouldUseCredentialStorage(_ connection: NSURLConnection) -> Bool
   optional func connection(_ connection: NSURLConnection, willSendRequestFor challenge: URLAuthenticationChallenge)
   @available(iOS, introduced: 3.0, deprecated: 8.0, message: "Use -connection:willSendRequestForAuthenticationChallenge: instead.")
   optional func connection(_ connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool
   @available(iOS, introduced: 2.0, deprecated: 8.0, message: "Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(_ connection: NSURLConnection, didReceive challenge: URLAuthenticationChallenge)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didReceive challenge: URLAuthenticationChallenge)
   @available(iOS, introduced: 2.0, deprecated: 8.0, message: "Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(_ connection: NSURLConnection, didCancel challenge: URLAuthenticationChallenge)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didCancel challenge: URLAuthenticationChallenge)
 }
 @available(iOS 2.0, *)
 protocol NSURLConnectionDataDelegate : NSURLConnectionDelegate {
   optional func connection(_ connection: NSURLConnection, willSend request: URLRequest, redirectResponse response: URLResponse?) -> URLRequest?
-  optional func connection(_ connection: NSURLConnection, didReceive response: URLResponse)
-  optional func connection(_ connection: NSURLConnection, didReceive data: Data)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didReceive response: URLResponse)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didReceive data: Data)
   optional func connection(_ connection: NSURLConnection, needNewBodyStream request: URLRequest) -> InputStream?
-  optional func connection(_ connection: NSURLConnection, didSendBodyData bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didSendBodyData bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
   optional func connection(_ connection: NSURLConnection, willCacheResponse cachedResponse: CachedURLResponse) -> CachedURLResponse?
-  optional func connectionDidFinishLoading(_ connection: NSURLConnection)
+  @asyncHandler optional func connectionDidFinishLoading(_ connection: NSURLConnection)
 }
 @available(iOS 2.0, *)
 protocol NSURLConnectionDownloadDelegate : NSURLConnectionDelegate {
-  optional func connection(_ connection: NSURLConnection, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, expectedTotalBytes: Int64)
-  optional func connectionDidResumeDownloading(_ connection: NSURLConnection, totalBytesWritten: Int64, expectedTotalBytes: Int64)
-  func connectionDidFinishDownloading(_ connection: NSURLConnection, destinationURL: URL)
+  @asyncHandler optional func connection(_ connection: NSURLConnection, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, expectedTotalBytes: Int64)
+  @asyncHandler optional func connectionDidResumeDownloading(_ connection: NSURLConnection, totalBytesWritten: Int64, expectedTotalBytes: Int64)
+  @asyncHandler func connectionDidFinishDownloading(_ connection: NSURLConnection, destinationURL: URL)
 }
 extension NSURLConnection {
   @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
@@ -55,4 +55,6 @@ extension NSURLConnection {
 extension NSURLConnection {
   @available(iOS, introduced: 5.0, deprecated: 9.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
   class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue, completionHandler handler: @escaping (URLResponse?, Data?, Error?) -> Void)
+  @available(iOS, introduced: 5.0, deprecated: 9.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
+  class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue) async throws -> (URLResponse?, Data?)
 }

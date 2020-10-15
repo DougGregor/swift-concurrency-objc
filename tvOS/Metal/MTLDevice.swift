@@ -141,18 +141,25 @@ protocol MTLDevice : NSObjectProtocol {
   func makeLibrary(data: __DispatchData) throws -> MTLLibrary
   func makeLibrary(source: String, options: MTLCompileOptions?) throws -> MTLLibrary
   func makeLibrary(source: String, options: MTLCompileOptions?, completionHandler: @escaping MTLNewLibraryCompletionHandler)
+  func makeLibrary(source: String, options: MTLCompileOptions?) async throws -> MTLLibrary?
   func makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
   func makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>?) throws -> MTLRenderPipelineState
   func makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor, completionHandler: @escaping MTLNewRenderPipelineStateCompletionHandler)
+  func makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor) async throws -> MTLRenderPipelineState?
   func makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, completionHandler: @escaping MTLNewRenderPipelineStateWithReflectionCompletionHandler)
+  func makeRenderPipelineState(descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption) async throws -> (MTLRenderPipelineState?, MTLRenderPipelineReflection?)
   func makeComputePipelineState(function computeFunction: MTLFunction) throws -> MTLComputePipelineState
   func makeComputePipelineState(function computeFunction: MTLFunction, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>?) throws -> MTLComputePipelineState
   func makeComputePipelineState(function computeFunction: MTLFunction, completionHandler: @escaping MTLNewComputePipelineStateCompletionHandler)
+  func makeComputePipelineState(function computeFunction: MTLFunction) async throws -> MTLComputePipelineState?
   func makeComputePipelineState(function computeFunction: MTLFunction, options: MTLPipelineOption, completionHandler: @escaping MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func makeComputePipelineState(function computeFunction: MTLFunction, options: MTLPipelineOption) async throws -> (MTLComputePipelineState?, MTLComputePipelineReflection?)
   @available(tvOS 9.0, *)
   func makeComputePipelineState(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>?) throws -> MTLComputePipelineState
   @available(tvOS 9.0, *)
   func makeComputePipelineState(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, completionHandler: @escaping MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  @available(tvOS 9.0, *)
+  func makeComputePipelineState(descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption) async throws -> (MTLComputePipelineState?, MTLComputePipelineReflection?)
   @available(tvOS 10.0, *)
   func makeFence() -> MTLFence?
   func supportsFeatureSet(_ featureSet: MTLFeatureSet) -> Bool

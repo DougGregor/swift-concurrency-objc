@@ -3,6 +3,8 @@
 class NSAnimationContext : NSObject {
   @available(macOS 10.7, *)
   class func runAnimationGroup(_ changes: (NSAnimationContext) -> Void, completionHandler: (() -> Void)? = nil)
+  @available(macOS 10.7, *)
+  class func runAnimationGroup(_ changes: (NSAnimationContext) -> Void) async
   @available(macOS 10.12, *)
   class func runAnimationGroup(_ changes: (NSAnimationContext) -> Void)
   class func beginGrouping()

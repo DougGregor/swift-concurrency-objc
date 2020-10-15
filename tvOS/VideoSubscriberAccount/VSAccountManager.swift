@@ -24,6 +24,7 @@ extension VSCheckAccessOption {
 class VSAccountManager : NSObject {
   weak var delegate: @sil_weak VSAccountManagerDelegate?
   func checkAccessStatus(options: [VSCheckAccessOption : Any] = [:], completionHandler: @escaping (VSAccountAccessStatus, Error?) -> Void)
+  func checkAccessStatus(options: [VSCheckAccessOption : Any] = [:]) async throws -> VSAccountAccessStatus
   func enqueue(_ request: VSAccountMetadataRequest, completionHandler: @escaping (VSAccountMetadata?, Error?) -> Void) -> VSAccountManagerResult
 }
 @available(tvOS 10.0, *)

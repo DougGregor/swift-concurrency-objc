@@ -9,6 +9,6 @@ class HMCameraStreamControl : HMCameraControl {
 }
 @available(watchOS 3.0, *)
 protocol HMCameraStreamControlDelegate : NSObjectProtocol {
-  optional func cameraStreamControlDidStartStream(_ cameraStreamControl: HMCameraStreamControl)
-  optional func cameraStreamControl(_ cameraStreamControl: HMCameraStreamControl, didStopStreamWithError error: Error?)
+  @asyncHandler optional func cameraStreamControlDidStartStream(_ cameraStreamControl: HMCameraStreamControl)
+  @asyncHandler optional func cameraStreamControl(_ cameraStreamControl: HMCameraStreamControl, didStopStreamWithError error: Error?)
 }

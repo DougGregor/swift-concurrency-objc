@@ -1,10 +1,10 @@
 
 @available(iOS 13.0, *)
 protocol PKToolPickerObserver : NSObjectProtocol {
-  optional func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker)
-  optional func toolPickerIsRulerActiveDidChange(_ toolPicker: PKToolPicker)
-  optional func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker)
-  optional func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker)
+  @asyncHandler optional func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker)
+  @asyncHandler optional func toolPickerIsRulerActiveDidChange(_ toolPicker: PKToolPicker)
+  @asyncHandler optional func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker)
+  @asyncHandler optional func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker)
 }
 @available(iOS 13.0, *)
 class PKToolPicker : NSObject {

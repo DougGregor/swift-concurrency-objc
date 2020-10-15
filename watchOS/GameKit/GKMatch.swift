@@ -17,6 +17,8 @@ enum GKPlayerConnectionState : Int {
 extension GKMatch {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use chooseBestHostingPlayerWithCompletionHandler:")
   func chooseBestHostPlayer(completionHandler: @escaping (String?) -> Void)
+  @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use chooseBestHostingPlayerWithCompletionHandler:")
+  func chooseBestHostPlayer() async -> String?
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use sendData:toPlayers:dataMode:error:")
   func send(_ data: Data, toPlayers playerIDs: [String], with mode: GKMatch.SendDataMode) throws
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use players instead.")

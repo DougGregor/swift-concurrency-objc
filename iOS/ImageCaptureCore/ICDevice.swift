@@ -94,23 +94,29 @@ class ICDevice : NSObject {
   @available(iOS 13.0, *)
   func requestOpenSession(options: [ICSessionOptions : Any]? = nil, completion: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func requestOpenSession(options: [ICSessionOptions : Any]? = nil) async throws
+  @available(iOS 13.0, *)
   func requestCloseSession(options: [ICSessionOptions : Any]? = nil, completion: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func requestCloseSession(options: [ICSessionOptions : Any]? = nil) async throws
+  @available(iOS 13.0, *)
   func requestEject(completion: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func requestEject() async throws
 }
 protocol ICDeviceDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  func device(_ device: ICDevice, didCloseSessionWithError error: Error?)
+  @asyncHandler func device(_ device: ICDevice, didCloseSessionWithError error: Error?)
   @available(iOS 13.0, *)
-  func didRemove(_ device: ICDevice)
+  @asyncHandler func didRemove(_ device: ICDevice)
   @available(iOS 13.0, *)
-  func device(_ device: ICDevice, didOpenSessionWithError error: Error?)
+  @asyncHandler func device(_ device: ICDevice, didOpenSessionWithError error: Error?)
   @available(iOS 13.0, *)
-  optional func deviceDidBecomeReady(_ device: ICDevice)
+  @asyncHandler optional func deviceDidBecomeReady(_ device: ICDevice)
   @available(iOS 13.0, *)
-  optional func device(_ device: ICDevice, didReceiveStatusInformation status: [ICDeviceStatus : Any])
+  @asyncHandler optional func device(_ device: ICDevice, didReceiveStatusInformation status: [ICDeviceStatus : Any])
   @available(iOS 13.0, *)
-  optional func device(_ device: ICDevice, didEncounterError error: Error?)
+  @asyncHandler optional func device(_ device: ICDevice, didEncounterError error: Error?)
   @available(iOS 13.0, *)
-  optional func device(_ device: ICDevice, didEjectWithError error: Error?)
+  @asyncHandler optional func device(_ device: ICDevice, didEjectWithError error: Error?)
 }

@@ -4,17 +4,27 @@ class HKHealthStore : NSObject {
   class func isHealthDataAvailable() -> Bool
   func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
   func requestAuthorization(toShare typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?, completion: @escaping (Bool, Error?) -> Void)
+  func requestAuthorization(toShare typesToShare: Set<HKSampleType>?, read typesToRead: Set<HKObjectType>?) async throws -> Bool
   @available(watchOS 5.0, *)
   func getRequestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>, completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void)
+  @available(watchOS 5.0, *)
+  func getRequestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>) async throws -> HKAuthorizationRequestStatus
   @available(watchOS 2.0, *)
   func earliestPermittedSampleDate() -> Date
   func save(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func save(_ object: HKObject) async throws -> Bool
   func save(_ objects: [HKObject], withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func save(_ objects: [HKObject]) async throws -> Bool
   func delete(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
+  func delete(_ object: HKObject) async throws -> Bool
   @available(watchOS 2.0, *)
   func delete(_ objects: [HKObject], withCompletion completion: @escaping (Bool, Error?) -> Void)
   @available(watchOS 2.0, *)
+  func delete(_ objects: [HKObject]) async throws -> Bool
+  @available(watchOS 2.0, *)
   func deleteObjects(of objectType: HKObjectType, predicate: NSPredicate, withCompletion completion: @escaping (Bool, Int, Error?) -> Void)
+  @available(watchOS 2.0, *)
+  func deleteObjects(of objectType: HKObjectType, predicate: NSPredicate) async throws -> (Bool, Int)
   func execute(_ query: HKQuery)
   func stop(_ query: HKQuery)
   @available(watchOS, introduced: 2.0, deprecated: 4.0, message: "No longer supported")
@@ -34,6 +44,7 @@ class HKHealthStore : NSObject {
 }
 extension HKHealthStore {
   func add(_ samples: [HKSample], to workout: HKWorkout, completion: @escaping (Bool, Error?) -> Void)
+  func add(_ samples: [HKSample], to workout: HKWorkout) async throws -> Bool
   @available(watchOS, introduced: 2.0, deprecated: 5.0, message: "Use HKWorkoutSession's start method")
   func start(_ workoutSession: HKWorkoutSession)
   @available(watchOS, introduced: 2.0, deprecated: 5.0, message: "Use HKWorkoutSession's end method")
@@ -44,6 +55,8 @@ extension HKHealthStore {
   func resumeWorkoutSession(_ workoutSession: HKWorkoutSession)
   @available(watchOS 5.0, *)
   func recoverActiveWorkoutSession(completion: @escaping (HKWorkoutSession?, Error?) -> Void)
+  @available(watchOS 5.0, *)
+  func recoverActiveWorkoutSession() async throws -> HKWorkoutSession?
 }
 extension HKHealthStore {
 }
@@ -54,4 +67,6 @@ extension NSNotification.Name {
 extension HKHealthStore {
   @available(watchOS 2.0, *)
   func preferredUnits(for quantityTypes: Set<HKQuantityType>, completion: @escaping ([HKQuantityType : HKUnit], Error?) -> Void)
+  @available(watchOS 2.0, *)
+  func preferredUnits(for quantityTypes: Set<HKQuantityType>) async throws -> [HKQuantityType : HKUnit]
 }

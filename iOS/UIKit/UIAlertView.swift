@@ -38,11 +38,11 @@ protocol UIAlertViewDelegate : NSObjectProtocol {
   @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Use UIAlertController instead.")
   optional func willPresent(_ alertView: UIAlertView)
   @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Use UIAlertController instead.")
-  optional func didPresent(_ alertView: UIAlertView)
+  @asyncHandler optional func didPresent(_ alertView: UIAlertView)
   @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Use UIAlertController instead.")
   optional func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Use UIAlertController instead.")
-  optional func alertView(_ alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+  @asyncHandler optional func alertView(_ alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Use UIAlertController instead.")
   optional func alertViewShouldEnableFirstOtherButton(_ alertView: UIAlertView) -> Bool
 }

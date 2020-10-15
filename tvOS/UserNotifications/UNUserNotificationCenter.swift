@@ -20,9 +20,13 @@ class UNUserNotificationCenter : NSObject {
   var supportsContentExtensions: Bool { get }
   class func current() -> UNUserNotificationCenter
   func requestAuthorization(options: UNAuthorizationOptions = [], completionHandler: @escaping (Bool, Error?) -> Void)
+  func requestAuthorization(options: UNAuthorizationOptions = []) async throws -> Bool
   func getNotificationSettings(completionHandler: @escaping (UNNotificationSettings) -> Void)
+  func getNotificationSettings() async -> UNNotificationSettings
   func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func add(_ request: UNNotificationRequest) async throws
   func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
+  func getPendingNotificationRequests() async -> [UNNotificationRequest]
   func removePendingNotificationRequests(withIdentifiers identifiers: [String])
   func removeAllPendingNotificationRequests()
 }
@@ -43,4 +47,6 @@ struct UNNotificationPresentationOptions : OptionSet {
 protocol UNUserNotificationCenterDelegate : NSObjectProtocol {
   @available(tvOS 10.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+  @available(tvOS 10.0, *)
+  optional func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions
 }

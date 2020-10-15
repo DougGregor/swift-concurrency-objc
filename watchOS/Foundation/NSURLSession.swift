@@ -13,10 +13,15 @@ class URLSession : NSObject {
   func finishTasksAndInvalidate()
   func invalidateAndCancel()
   func reset(completionHandler: @escaping () -> Void)
+  func reset() async
   func flush(completionHandler: @escaping () -> Void)
+  func flush() async
   func getTasksWithCompletionHandler(_ completionHandler: @escaping ([URLSessionDataTask], [URLSessionUploadTask], [URLSessionDownloadTask]) -> Void)
+  func getTasks() async -> ([URLSessionDataTask], [URLSessionUploadTask], [URLSessionDownloadTask])
   @available(watchOS 2.0, *)
   func getAllTasks(completionHandler: @escaping ([URLSessionTask]) -> Void)
+  @available(watchOS 2.0, *)
+  func getAllTasks() async -> [URLSessionTask]
   func dataTask(with request: URLRequest) -> URLSessionDataTask
   func dataTask(with url: URL) -> URLSessionDataTask
   func uploadTask(with request: URLRequest, fromFile fileURL: URL) -> URLSessionUploadTask
@@ -117,11 +122,14 @@ class URLSessionUploadTask : URLSessionDataTask {
 @available(watchOS 2.0, *)
 class URLSessionDownloadTask : URLSessionTask {
   func cancel(byProducingResumeData completionHandler: @escaping (Data?) -> Void)
+  func cancelByProducingResumeData() async -> Data?
 }
 @available(watchOS 2.0, *)
 class URLSessionStreamTask : URLSessionTask {
   func readData(ofMinLength minBytes: Int, maxLength maxBytes: Int, timeout: TimeInterval, completionHandler: @escaping (Data?, Bool, Error?) -> Void)
+  func readData(ofMinLength minBytes: Int, maxLength maxBytes: Int, timeout: TimeInterval) async throws -> (Data?, Bool)
   func write(_ data: Data, timeout: TimeInterval, completionHandler: @escaping (Error?) -> Void)
+  func write(_ data: Data, timeout: TimeInterval) async throws
   func captureStreams()
   func closeWrite()
   func closeRead()
@@ -167,7 +175,9 @@ extension URLSessionWebSocketTask {
 @available(watchOS 6.0, *)
 class URLSessionWebSocketTask : URLSessionTask {
   func __send(_ message: __NSURLSessionWebSocketMessage, completionHandler: @escaping (Error?) -> Void)
+  func __send(_ message: __NSURLSessionWebSocketMessage) async throws
   func __receiveMessage(completionHandler: @escaping (__NSURLSessionWebSocketMessage?, Error?) -> Void)
+  func __receiveMessage() async throws -> __NSURLSessionWebSocketMessage?
   func sendPing(pongReceiveHandler: @escaping (Error?) -> Void)
   func cancel(with closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?)
   var maximumMessageSize: Int
@@ -262,51 +272,59 @@ extension URLSession {
 }
 @available(watchOS 2.0, *)
 protocol URLSessionDelegate : NSObjectProtocol {
-  optional func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?)
-  optional func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  @asyncHandler optional func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?)
+  @asyncHandler optional func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  optional func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?)
   @available(watchOS 2.0, *)
-  optional func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession)
+  @asyncHandler optional func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession)
 }
 @available(watchOS 2.0, *)
 protocol URLSessionTaskDelegate : URLSessionDelegate {
   @available(watchOS 4.0, *)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, willBeginDelayedRequest request: URLRequest, completionHandler: @escaping (URLSession.DelayedRequestDisposition, URLRequest?) -> Void)
   @available(watchOS 4.0, *)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, willBeginDelayedRequest request: URLRequest) async -> (URLSession.DelayedRequestDisposition, URLRequest?)
+  @available(watchOS 4.0, *)
   optional func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void)
-  optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest) async -> URLRequest?
+  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, needNewBodyStream completionHandler: @escaping (InputStream?) -> Void)
-  optional func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask) async -> InputStream?
+  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64)
   @available(watchOS 3.0, *)
-  optional func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics)
-  optional func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?)
+  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics)
+  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?)
 }
 @available(watchOS 2.0, *)
 protocol URLSessionDataDelegate : URLSessionTaskDelegate {
-  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
-  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask)
+  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
+  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse) async -> URLSession.ResponseDisposition
+  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask)
   @available(watchOS 2.0, *)
-  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask)
-  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
+  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask)
+  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
   optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Void)
+  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse) async -> CachedURLResponse?
 }
 @available(watchOS 2.0, *)
 protocol URLSessionDownloadDelegate : URLSessionTaskDelegate {
-  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL)
-  optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
-  optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64)
+  @asyncHandler func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL)
+  @asyncHandler optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
+  @asyncHandler optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64)
 }
 @available(watchOS 2.0, *)
 protocol URLSessionStreamDelegate : URLSessionTaskDelegate {
   optional func urlSession(_ session: URLSession, readClosedFor streamTask: URLSessionStreamTask)
   optional func urlSession(_ session: URLSession, writeClosedFor streamTask: URLSessionStreamTask)
   optional func urlSession(_ session: URLSession, betterRouteDiscoveredFor streamTask: URLSessionStreamTask)
-  optional func urlSession(_ session: URLSession, streamTask: URLSessionStreamTask, didBecome inputStream: InputStream, outputStream: OutputStream)
+  @asyncHandler optional func urlSession(_ session: URLSession, streamTask: URLSessionStreamTask, didBecome inputStream: InputStream, outputStream: OutputStream)
 }
 @available(watchOS 6.0, *)
 protocol URLSessionWebSocketDelegate : URLSessionTaskDelegate {
-  optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?)
-  optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?)
+  @asyncHandler optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?)
+  @asyncHandler optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?)
 }
 @available(watchOS 2.0, *)
 let NSURLSessionDownloadTaskResumeData: String

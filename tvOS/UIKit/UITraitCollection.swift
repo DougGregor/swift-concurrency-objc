@@ -48,7 +48,7 @@ protocol UITraitEnvironment : NSObjectProtocol {
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)
-  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
+  @asyncHandler func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }
 extension UITraitCollection {
   @available(tvOS 13.0, *)

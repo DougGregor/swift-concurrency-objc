@@ -14,7 +14,7 @@ enum SCNInteractionMode : Int {
 @available(watchOS 4.0, *)
 protocol SCNCameraControllerDelegate : NSObjectProtocol {
   optional func cameraInertiaWillStart(for cameraController: SCNCameraController)
-  optional func cameraInertiaDidEnd(for cameraController: SCNCameraController)
+  @asyncHandler optional func cameraInertiaDidEnd(for cameraController: SCNCameraController)
 }
 @available(watchOS 4.0, *)
 class SCNCameraController : NSObject {

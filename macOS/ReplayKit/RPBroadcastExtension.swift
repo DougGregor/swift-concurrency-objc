@@ -3,6 +3,8 @@ extension NSExtensionContext {
   @available(macOS 11.0, *)
   func loadBroadcastingApplicationInfo(completion handler: @escaping (String, String, NSImage?) -> Void)
   @available(macOS 11.0, *)
+  func loadBroadcastingApplicationInfo() async -> (String, String, NSImage?)
+  @available(macOS 11.0, *)
   func completeRequest(withBroadcast broadcastURL: URL, setupInfo: [String : NSCoding & NSObjectProtocol]?)
 }
 @available(macOS 11.0, *)

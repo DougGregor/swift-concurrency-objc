@@ -1,8 +1,8 @@
 
 @available(tvOS 13.0, *)
 protocol ASAuthorizationControllerDelegate : NSObjectProtocol {
-  optional func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization)
-  optional func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error)
+  @asyncHandler optional func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization)
+  @asyncHandler optional func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error)
 }
 @available(tvOS 13.0, *)
 protocol ASAuthorizationControllerPresentationContextProviding : NSObjectProtocol {

@@ -80,17 +80,17 @@ extension NSKeyedUnarchiver {
 }
 protocol NSKeyedArchiverDelegate : NSObjectProtocol {
   optional func archiver(_ archiver: NSKeyedArchiver, willEncode object: Any) -> Any?
-  optional func archiver(_ archiver: NSKeyedArchiver, didEncode object: Any?)
+  @asyncHandler optional func archiver(_ archiver: NSKeyedArchiver, didEncode object: Any?)
   optional func archiver(_ archiver: NSKeyedArchiver, willReplace object: Any?, with newObject: Any?)
   optional func archiverWillFinish(_ archiver: NSKeyedArchiver)
-  optional func archiverDidFinish(_ archiver: NSKeyedArchiver)
+  @asyncHandler optional func archiverDidFinish(_ archiver: NSKeyedArchiver)
 }
 protocol NSKeyedUnarchiverDelegate : NSObjectProtocol {
   optional func unarchiver(_ unarchiver: NSKeyedUnarchiver, cannotDecodeObjectOfClassName name: String, originalClasses classNames: [String]) -> AnyClass?
   optional func unarchiver(_ unarchiver: NSKeyedUnarchiver, didDecode object: Any?) -> Any?
   optional func unarchiver(_ unarchiver: NSKeyedUnarchiver, willReplace object: Any, with newObject: Any)
   optional func unarchiverWillFinish(_ unarchiver: NSKeyedUnarchiver)
-  optional func unarchiverDidFinish(_ unarchiver: NSKeyedUnarchiver)
+  @asyncHandler optional func unarchiverDidFinish(_ unarchiver: NSKeyedUnarchiver)
 }
 extension NSObject {
   var classForKeyedArchiver: AnyClass? { get }

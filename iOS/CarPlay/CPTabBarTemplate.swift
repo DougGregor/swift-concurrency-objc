@@ -10,5 +10,5 @@ class CPTabBarTemplate : CPTemplate {
 }
 @available(iOS 14.0, *)
 protocol CPTabBarTemplateDelegate : NSObjectProtocol {
-  func tabBarTemplate(_ tabBarTemplate: CPTabBarTemplate, didSelect selectedTemplate: CPTemplate)
+  @asyncHandler func tabBarTemplate(_ tabBarTemplate: CPTabBarTemplate, didSelect selectedTemplate: CPTemplate)
 }
