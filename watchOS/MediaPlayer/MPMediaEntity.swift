@@ -1,0 +1,2 @@
+
+typealias MPMediaEntityPersistentID = UInt64

@@ -1,0 +1,23 @@
+
+var GLM_VERSION_2_0: Int32 { get }
+var GLM_OVERRIDE_MODE: Int32 { get }
+var GLM_SYSTEM_HEAP_MODE: Int32 { get }
+var GLM_APPLICATION_HEAP_MODE: Int32 { get }
+var GLM_MULTIPROCESSOR_MODE: Int32 { get }
+var GLM_PAGE_ALLOCATION_FUNC_PTR: Int32 { get }
+var GLM_PAGE_FREE_FUNC_PTR: Int32 { get }
+var GLM_ZERO_FUNC_PTR: Int32 { get }
+var GLM_COPY_FUNC_PTR: Int32 { get }
+var GLM_SET_UBYTE_FUNC_PTR: Int32 { get }
+var GLM_SET_USHORT_FUNC_PTR: Int32 { get }
+var GLM_SET_UINT_FUNC_PTR: Int32 { get }
+var GLM_SET_DOUBLE_FUNC_PTR: Int32 { get }
+var GLM_PAGE_SIZE: Int32 { get }
+var GLM_NUMBER_PAGES: Int32 { get }
+var GLM_CURRENT_MEMORY: Int32 { get }
+var GLM_MAXIMUM_MEMORY: Int32 { get }
+var GLM_NO_ERROR: Int32 { get }
+var GLM_INVALID_ENUM: Int32 { get }
+var GLM_INVALID_VALUE: Int32 { get }
+var GLM_INVALID_OPERATION: Int32 { get }
+var GLM_OUT_OF_MEMORY: Int32 { get }

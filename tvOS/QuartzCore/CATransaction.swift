@@ -1,0 +1,25 @@
+
+@available(tvOS 9.0, *)
+class CATransaction : NSObject {
+  class func begin()
+  class func commit()
+  class func flush()
+  class func lock()
+  class func unlock()
+  class func animationDuration() -> CFTimeInterval
+  class func setAnimationDuration(_ dur: CFTimeInterval)
+  class func animationTimingFunction() -> CAMediaTimingFunction?
+  class func setAnimationTimingFunction(_ function: CAMediaTimingFunction?)
+  class func disableActions() -> Bool
+  class func setDisableActions(_ flag: Bool)
+  class func completionBlock() -> (() -> Void)?
+  class func setCompletionBlock(_ block: (() -> Void)?)
+}
+@available(tvOS 9.0, *)
+let kCATransactionAnimationDuration: String
+@available(tvOS 9.0, *)
+let kCATransactionDisableActions: String
+@available(tvOS 9.0, *)
+let kCATransactionAnimationTimingFunction: String
+@available(tvOS 9.0, *)
+let kCATransactionCompletionBlock: String

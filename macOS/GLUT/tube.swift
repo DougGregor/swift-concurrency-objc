@@ -1,0 +1,27 @@
+
+var GLE_API_VERSION: Int32 { get }
+var TUBE_JN_RAW: Int32 { get }
+var TUBE_JN_ANGLE: Int32 { get }
+var TUBE_JN_CUT: Int32 { get }
+var TUBE_JN_ROUND: Int32 { get }
+var TUBE_JN_MASK: Int32 { get }
+var TUBE_JN_CAP: Int32 { get }
+var TUBE_NORM_FACET: Int32 { get }
+var TUBE_NORM_EDGE: Int32 { get }
+var TUBE_NORM_PATH_EDGE: Int32 { get }
+var TUBE_NORM_MASK: Int32 { get }
+var TUBE_CONTOUR_CLOSED: Int32 { get }
+var GLE_TEXTURE_ENABLE: Int32 { get }
+var GLE_TEXTURE_STYLE_MASK: Int32 { get }
+var GLE_TEXTURE_VERTEX_FLAT: Int32 { get }
+var GLE_TEXTURE_NORMAL_FLAT: Int32 { get }
+var GLE_TEXTURE_VERTEX_CYL: Int32 { get }
+var GLE_TEXTURE_NORMAL_CYL: Int32 { get }
+var GLE_TEXTURE_VERTEX_SPH: Int32 { get }
+var GLE_TEXTURE_NORMAL_SPH: Int32 { get }
+var GLE_TEXTURE_VERTEX_MODEL_FLAT: Int32 { get }
+var GLE_TEXTURE_NORMAL_MODEL_FLAT: Int32 { get }
+var GLE_TEXTURE_VERTEX_MODEL_CYL: Int32 { get }
+var GLE_TEXTURE_NORMAL_MODEL_CYL: Int32 { get }
+var GLE_TEXTURE_VERTEX_MODEL_SPH: Int32 { get }
+var GLE_TEXTURE_NORMAL_MODEL_SPH: Int32 { get }

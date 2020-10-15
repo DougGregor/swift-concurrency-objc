@@ -1,0 +1,25 @@
+
+@available(iOS 8.0, *)
+class WKUserContentController : NSObject, NSSecureCoding {
+  var userScripts: [WKUserScript] { get }
+  func addUserScript(_ userScript: WKUserScript)
+  func removeAllUserScripts()
+  @available(iOS 14.0, *)
+  func add(_ scriptMessageHandler: WKScriptMessageHandler, contentWorld world: WKContentWorld, name: String)
+  @available(iOS 14.0, *)
+  func addScriptMessageHandler(_ scriptMessageHandlerWithReply: WKScriptMessageHandlerWithReply, contentWorld: WKContentWorld, name: String)
+  func add(_ scriptMessageHandler: WKScriptMessageHandler, name: String)
+  @available(iOS 14.0, *)
+  func removeScriptMessageHandler(forName name: String, contentWorld: WKContentWorld)
+  func removeScriptMessageHandler(forName name: String)
+  @available(iOS 14.0, *)
+  func removeAllScriptMessageHandlers(from contentWorld: WKContentWorld)
+  @available(iOS 14.0, *)
+  func removeAllScriptMessageHandlers()
+  @available(iOS 11.0, *)
+  func add(_ contentRuleList: WKContentRuleList)
+  @available(iOS 11.0, *)
+  func remove(_ contentRuleList: WKContentRuleList)
+  @available(iOS 11.0, *)
+  func removeAllContentRuleLists()
+}

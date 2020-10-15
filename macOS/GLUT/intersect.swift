@@ -1,0 +1,3 @@
+
+var BACKWARDS_INTERSECT: Int32 { get }
+var DEGENERATE_TOLERANCE: Double { get }

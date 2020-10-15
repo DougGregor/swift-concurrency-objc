@@ -1,0 +1,25 @@
+
+var GLUT_FCB_DISPLAY: Int32 { get }
+var GLUT_FCB_RESHAPE: Int32 { get }
+var GLUT_FCB_MOUSE: Int32 { get }
+var GLUT_FCB_MOTION: Int32 { get }
+var GLUT_FCB_PASSIVE: Int32 { get }
+var GLUT_FCB_ENTRY: Int32 { get }
+var GLUT_FCB_KEYBOARD: Int32 { get }
+var GLUT_FCB_KEYBOARD_UP: Int32 { get }
+var GLUT_FCB_WINDOW_STATUS: Int32 { get }
+var GLUT_FCB_VISIBILITY: Int32 { get }
+var GLUT_FCB_SPECIAL: Int32 { get }
+var GLUT_FCB_SPECIAL_UP: Int32 { get }
+var GLUT_FCB_BUTTON_BOX: Int32 { get }
+var GLUT_FCB_DIALS: Int32 { get }
+var GLUT_FCB_SPACE_MOTION: Int32 { get }
+var GLUT_FCB_SPACE_ROTATE: Int32 { get }
+var GLUT_FCB_SPACE_BUTTON: Int32 { get }
+var GLUT_FCB_TABLET_MOTION: Int32 { get }
+var GLUT_FCB_TABLET_BUTTON: Int32 { get }
+var GLUT_FCB_JOYSTICK: Int32 { get }
+var GLUT_FCB_WMCLOSE: Int32 { get }
+var GLUT_FCB_OVERLAY_DISPLAY: Int32 { get }
+var GLUT_FCB_SELECT: Int32 { get }
+var GLUT_FCB_TIMER: Int32 { get }

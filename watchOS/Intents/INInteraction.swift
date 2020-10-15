@@ -1,0 +1,37 @@
+
+@available(watchOS 3.2, *)
+enum INIntentHandlingStatus : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case unspecified
+  case ready
+  case inProgress
+  case success
+  case failure
+  case deferredToApplication
+  @available(watchOS 5.0, *)
+  case userConfirmationRequired
+}
+@available(watchOS 3.2, *)
+enum INInteractionDirection : Int {
+  init?(rawValue: Int)
+  var rawValue: Int { get }
+  case unspecified
+  case outgoing
+  case incoming
+}
+@available(watchOS 3.2, *)
+class INInteraction : NSObject, NSSecureCoding, NSCopying {
+  init(intent: INIntent, response: INIntentResponse?)
+  func donate(completion: ((Error?) -> Void)? = nil)
+  class func deleteAll(completion: ((Error?) -> Void)? = nil)
+  class func delete(with identifiers: [String], completion: ((Error?) -> Void)? = nil)
+  class func delete(with groupIdentifier: String, completion: ((Error?) -> Void)? = nil)
+  @NSCopying var intent: INIntent { get }
+  @NSCopying var intentResponse: INIntentResponse? { get }
+  var intentHandlingStatus: INIntentHandlingStatus { get }
+  var direction: INInteractionDirection
+  var dateInterval: DateInterval?
+  var identifier: String
+  var groupIdentifier: String?
+}

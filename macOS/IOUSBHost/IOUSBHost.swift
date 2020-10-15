@@ -1,0 +1,2 @@
+
+var IOUSBHostVersionNumber: Double
