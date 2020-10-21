@@ -20,5 +20,5 @@ class BGTaskScheduler : NSObject {
   func cancel(taskRequestWithIdentifier identifier: String)
   func cancelAllTaskRequests()
   func getPendingTaskRequests(completionHandler: @escaping ([BGTaskRequest]) -> Void)
-  func getPendingTaskRequests() async -> [BGTaskRequest]
+  func pendingTaskRequests() async -> [BGTaskRequest]
 }

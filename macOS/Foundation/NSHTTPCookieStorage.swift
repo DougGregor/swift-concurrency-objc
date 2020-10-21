@@ -30,7 +30,7 @@ extension HTTPCookieStorage {
   @available(macOS 10.10, *)
   func getCookiesFor(_ task: URLSessionTask, completionHandler: @escaping ([HTTPCookie]?) -> Void)
   @available(macOS 10.10, *)
-  func getCookiesFor(_ task: URLSessionTask) async -> [HTTPCookie]?
+  func cookies(for task: URLSessionTask) async -> [HTTPCookie]?
 }
 extension NSNotification.Name {
   @available(macOS 10.2, *)

@@ -32,7 +32,7 @@ class ENManager : NSObject {
   @available(iOS 13.7, *)
   func getUserTraveled(completionHandler: @escaping ENGetUserTraveledHandler)
   @available(iOS 13.7, *)
-  func getUserTraveled() async throws -> Bool
+  func userTraveled() async throws -> Bool
   class var authorizationStatus: ENAuthorizationStatus { get }
   var exposureNotificationEnabled: Bool { get }
   func setExposureNotificationEnabled(_ enabled: Bool, completionHandler: @escaping ENErrorHandler)
@@ -45,7 +45,7 @@ class ENManager : NSObject {
   @available(iOS 13.7, *)
   func getExposureWindows(summary: ENExposureDetectionSummary, completionHandler: @escaping ENGetExposureWindowsHandler) -> Progress
   func getDiagnosisKeys(completionHandler: @escaping ENGetDiagnosisKeysHandler)
-  func getDiagnosisKeys() async throws -> [ENTemporaryExposureKey]?
+  func diagnosisKeys() async throws -> [ENTemporaryExposureKey]?
   func getTestDiagnosisKeys(completionHandler: @escaping ENGetDiagnosisKeysHandler)
-  func getTestDiagnosisKeys() async throws -> [ENTemporaryExposureKey]?
+  func testDiagnosisKeys() async throws -> [ENTemporaryExposureKey]?
 }

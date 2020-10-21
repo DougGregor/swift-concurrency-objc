@@ -13,7 +13,7 @@ class NSFileProviderManager : NSObject {
   @available(macOS 11.0, *)
   class func getIdentifierForUserVisibleFile(at url: URL, completionHandler: @escaping (NSFileProviderItemIdentifier?, NSFileProviderDomainIdentifier?, Error?) -> Void)
   @available(macOS 11.0, *)
-  class func getIdentifierForUserVisibleFile(at url: URL) async throws -> (NSFileProviderItemIdentifier?, NSFileProviderDomainIdentifier?)
+  class func identifierForUserVisibleFile(at url: URL) async throws -> (NSFileProviderItemIdentifier?, NSFileProviderDomainIdentifier?)
   func register(_ task: URLSessionTask, forItemWithIdentifier identifier: NSFileProviderItemIdentifier, completionHandler completion: @escaping (Error?) -> Void)
   func register(_ task: URLSessionTask, forItemWithIdentifier identifier: NSFileProviderItemIdentifier) async throws
   @available(macOS 11.0, *)
@@ -23,7 +23,7 @@ class NSFileProviderManager : NSObject {
   class func remove(_ domain: NSFileProviderDomain, completionHandler: @escaping (Error?) -> Void)
   class func remove(_ domain: NSFileProviderDomain) async throws
   class func getDomainsWithCompletionHandler(_ completionHandler: @escaping ([NSFileProviderDomain], Error?) -> Void)
-  class func getDomains() async throws -> [NSFileProviderDomain]
+  class func domains() async throws -> [NSFileProviderDomain]
   class func removeAllDomains(completionHandler: @escaping (Error?) -> Void)
   class func removeAllDomains() async throws
   @available(macOS 11.0, *)

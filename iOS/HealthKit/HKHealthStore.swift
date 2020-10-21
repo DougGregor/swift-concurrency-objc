@@ -10,7 +10,7 @@ class HKHealthStore : NSObject {
   @available(iOS 12.0, *)
   func getRequestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>, completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void)
   @available(iOS 12.0, *)
-  func getRequestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>) async throws -> HKAuthorizationRequestStatus
+  func requestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>) async throws -> HKAuthorizationRequestStatus
   @available(iOS 9.0, *)
   func handleAuthorizationForExtension(completion: @escaping (Bool, Error?) -> Void)
   @available(iOS 9.0, *)

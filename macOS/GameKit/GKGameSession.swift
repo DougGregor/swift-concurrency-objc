@@ -30,7 +30,7 @@ class GKGameSession : NSObject {
   class func remove(withIdentifier identifier: String, completionHandler: @escaping (Error?) -> Void)
   class func remove(withIdentifier identifier: String) async throws
   func getShareURL(completionHandler: @escaping (URL?, Error?) -> Void)
-  func getShareURL() async throws -> URL?
+  func shareURL() async throws -> URL?
   func loadData(completionHandler: @escaping (Data?, Error?) -> Void)
   func loadData() async throws -> Data?
   func save(_ data: Data, completionHandler: @escaping (Data?, Error?) -> Void)

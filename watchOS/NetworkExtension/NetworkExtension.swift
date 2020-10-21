@@ -99,7 +99,7 @@ class NEHotspotConfigurationManager : NSObject {
   @available(watchOS 7.0, *)
   func getConfiguredSSIDs(completionHandler: @escaping ([String]) -> Void)
   @available(watchOS 7.0, *)
-  func getConfiguredSSIDs() async -> [String]
+  func configuredSSIDs() async -> [String]
 }
 @available(watchOS 2.0, *)
 class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {

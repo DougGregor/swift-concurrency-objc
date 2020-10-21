@@ -17,11 +17,11 @@ class URLSession : NSObject {
   func flush(completionHandler: @escaping () -> Void)
   func flush() async
   func getTasksWithCompletionHandler(_ completionHandler: @escaping ([URLSessionDataTask], [URLSessionUploadTask], [URLSessionDownloadTask]) -> Void)
-  func getTasks() async -> ([URLSessionDataTask], [URLSessionUploadTask], [URLSessionDownloadTask])
+  func tasks() async -> ([URLSessionDataTask], [URLSessionUploadTask], [URLSessionDownloadTask])
   @available(macOS 10.11, *)
   func getAllTasks(completionHandler: @escaping ([URLSessionTask]) -> Void)
   @available(macOS 10.11, *)
-  func getAllTasks() async -> [URLSessionTask]
+  func allTasks() async -> [URLSessionTask]
   func dataTask(with request: URLRequest) -> URLSessionDataTask
   func dataTask(with url: URL) -> URLSessionDataTask
   func uploadTask(with request: URLRequest, fromFile fileURL: URL) -> URLSessionUploadTask

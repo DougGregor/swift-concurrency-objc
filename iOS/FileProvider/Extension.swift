@@ -39,7 +39,7 @@ class NSFileProviderManager : NSObject {
   class func remove(_ domain: NSFileProviderDomain, completionHandler: @escaping (Error?) -> Void)
   class func remove(_ domain: NSFileProviderDomain) async throws
   class func getDomainsWithCompletionHandler(_ completionHandler: @escaping ([NSFileProviderDomain], Error?) -> Void)
-  class func getDomains() async throws -> [NSFileProviderDomain]
+  class func domains() async throws -> [NSFileProviderDomain]
   class func removeAllDomains(completionHandler: @escaping (Error?) -> Void)
   class func removeAllDomains() async throws
 }

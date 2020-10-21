@@ -16,5 +16,5 @@ extension ASAuthorizationAppleIDProvider {
 class ASAuthorizationAppleIDProvider : NSObject, ASAuthorizationProvider {
   func createRequest() -> ASAuthorizationAppleIDRequest
   func getCredentialState(forUserID userID: String, completion: @escaping (ASAuthorizationAppleIDProvider.CredentialState, Error?) -> Void)
-  func getCredentialState(forUserID userID: String) async throws -> ASAuthorizationAppleIDProvider.CredentialState
+  func credentialState(forUserID userID: String) async throws -> ASAuthorizationAppleIDProvider.CredentialState
 }

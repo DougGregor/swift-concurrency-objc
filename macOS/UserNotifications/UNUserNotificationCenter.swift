@@ -23,17 +23,17 @@ class UNUserNotificationCenter : NSObject {
   func requestAuthorization(options: UNAuthorizationOptions = []) async throws -> Bool
   func setNotificationCategories(_ categories: Set<UNNotificationCategory>)
   func getNotificationCategories(completionHandler: @escaping (Set<UNNotificationCategory>) -> Void)
-  func getNotificationCategories() async -> Set<UNNotificationCategory>
+  func notificationCategories() async -> Set<UNNotificationCategory>
   func getNotificationSettings(completionHandler: @escaping (UNNotificationSettings) -> Void)
-  func getNotificationSettings() async -> UNNotificationSettings
+  func notificationSettings() async -> UNNotificationSettings
   func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   func add(_ request: UNNotificationRequest) async throws
   func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
-  func getPendingNotificationRequests() async -> [UNNotificationRequest]
+  func pendingNotificationRequests() async -> [UNNotificationRequest]
   func removePendingNotificationRequests(withIdentifiers identifiers: [String])
   func removeAllPendingNotificationRequests()
   func getDeliveredNotifications(completionHandler: @escaping ([UNNotification]) -> Void)
-  func getDeliveredNotifications() async -> [UNNotification]
+  func deliveredNotifications() async -> [UNNotification]
   func removeDeliveredNotifications(withIdentifiers identifiers: [String])
   func removeAllDeliveredNotifications()
 }

@@ -6,7 +6,7 @@ protocol WKHTTPCookieStoreObserver : NSObjectProtocol {
 @available(iOS 11.0, *)
 class WKHTTPCookieStore : NSObject {
   func getAllCookies(_ completionHandler: @escaping ([HTTPCookie]) -> Void)
-  func getAllCookies() async -> [HTTPCookie]
+  func allCookies() async -> [HTTPCookie]
   func setCookie(_ cookie: HTTPCookie, completionHandler: (() -> Void)? = nil)
   func setCookie(_ cookie: HTTPCookie) async
   func delete(_ cookie: HTTPCookie, completionHandler: (() -> Void)? = nil)

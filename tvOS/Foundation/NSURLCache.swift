@@ -46,7 +46,7 @@ extension URLCache {
   @available(tvOS 9.0, *)
   func getCachedResponse(for dataTask: URLSessionDataTask, completionHandler: @escaping (CachedURLResponse?) -> Void)
   @available(tvOS 9.0, *)
-  func getCachedResponse(for dataTask: URLSessionDataTask) async -> CachedURLResponse?
+  func cachedResponse(for dataTask: URLSessionDataTask) async -> CachedURLResponse?
   @available(tvOS 9.0, *)
   func removeCachedResponse(for dataTask: URLSessionDataTask)
 }

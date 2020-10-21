@@ -19,5 +19,5 @@ class SFContentBlockerManager : NSObject {
   @available(iOS 10.0, *)
   class func getStateOfContentBlocker(withIdentifier identifier: String, completionHandler: @escaping (SFContentBlockerState?, Error?) -> Void)
   @available(iOS 10.0, *)
-  class func getStateOfContentBlocker(withIdentifier identifier: String) async throws -> SFContentBlockerState?
+  class func stateOfContentBlocker(withIdentifier identifier: String) async throws -> SFContentBlockerState?
 }

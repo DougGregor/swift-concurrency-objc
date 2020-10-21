@@ -8,7 +8,7 @@ class HKHealthStore : NSObject {
   @available(watchOS 5.0, *)
   func getRequestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>, completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void)
   @available(watchOS 5.0, *)
-  func getRequestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>) async throws -> HKAuthorizationRequestStatus
+  func requestStatusForAuthorization(toShare typesToShare: Set<HKSampleType>, read typesToRead: Set<HKObjectType>) async throws -> HKAuthorizationRequestStatus
   @available(watchOS 2.0, *)
   func earliestPermittedSampleDate() -> Date
   func save(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)

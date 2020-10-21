@@ -124,7 +124,7 @@ class FileManager : NSObject {
   @available(macOS 10.13, *)
   func getFileProviderServicesForItem(at url: URL, completionHandler: @escaping ([NSFileProviderServiceName : NSFileProviderService]?, Error?) -> Void)
   @available(macOS 10.13, *)
-  func getFileProviderServicesForItem(at url: URL) async throws -> [NSFileProviderServiceName : NSFileProviderService]?
+  func fileProviderServicesForItem(at url: URL) async throws -> [NSFileProviderServiceName : NSFileProviderService]?
   @available(macOS 10.8, *)
   func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL?
 }
@@ -231,7 +231,7 @@ extension FileManager {
 @available(macOS 10.13, *)
 class NSFileProviderService : NSObject {
   func getFileProviderConnection(completionHandler: @escaping (NSXPCConnection?, Error?) -> Void)
-  func getFileProviderConnection() async throws -> NSXPCConnection?
+  func fileProviderConnection() async throws -> NSXPCConnection?
   var name: NSFileProviderServiceName { get }
 }
 extension FileAttributeKey {

@@ -344,7 +344,7 @@ protocol NFCISO15693Tag : NFCNDEFTag, __NFCTag {
   @available(iOS 14.0, *)
   func __getSystemInfoAndUID(with flags: NFCISO15693RequestFlag, completionHandler: @escaping (Data?, Int, Int, Int, Int, Int, Error?) -> Void)
   @available(iOS 14.0, *)
-  func __getSystemInfoAndUID(with flags: NFCISO15693RequestFlag) async throws -> (Data?, Int, Int, Int, Int, Int)
+  func __systemInfoAndUID(with flags: NFCISO15693RequestFlag) async throws -> (Data?, Int, Int, Int, Int, Int)
   @available(iOS 13.0, *)
   func getMultipleBlockSecurityStatus(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([NSNumber], Error?) -> Void)
   @available(iOS 13.0, *)

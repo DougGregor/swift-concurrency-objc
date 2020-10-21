@@ -929,7 +929,7 @@ class NEHotspotConfigurationManager : NSObject {
   @available(iOS 11.0, *)
   func getConfiguredSSIDs(completionHandler: @escaping ([String]) -> Void)
   @available(iOS 11.0, *)
-  func getConfiguredSSIDs() async -> [String]
+  func configuredSSIDs() async -> [String]
 }
 @available(iOS 9.0, *)
 class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {

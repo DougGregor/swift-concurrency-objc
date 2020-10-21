@@ -23,7 +23,7 @@ extension URLCredentialStorage {
   @available(macOS 10.10, *)
   func getDefaultCredential(for space: URLProtectionSpace, task: URLSessionTask, completionHandler: @escaping (URLCredential?) -> Void)
   @available(macOS 10.10, *)
-  func getDefaultCredential(for space: URLProtectionSpace, task: URLSessionTask) async -> URLCredential?
+  func defaultCredential(for space: URLProtectionSpace, task: URLSessionTask) async -> URLCredential?
   @available(macOS 10.10, *)
   func setDefaultCredential(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, task: URLSessionTask)
 }
