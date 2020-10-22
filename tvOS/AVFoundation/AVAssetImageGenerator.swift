@@ -38,7 +38,7 @@ class AVAssetImageGenerator : NSObject {
   init(asset: AVAsset)
   func copyCGImage(at requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>?) throws -> CGImage
   func generateCGImagesAsynchronously(forTimes requestedTimes: [NSValue], completionHandler handler: @escaping AVAssetImageGeneratorCompletionHandler)
-  func generateCGImagesAsynchronously(forTimes requestedTimes: [NSValue]) async throws -> (CMTime, CGImage?, CMTime, AVAssetImageGenerator.Result)
+  func generateCGImages(forTimes requestedTimes: [NSValue]) async throws -> (CMTime, CGImage?, CMTime, AVAssetImageGenerator.Result)
   func cancelAllCGImageGeneration()
 }
 typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGenerator.Result, Error?) -> Void

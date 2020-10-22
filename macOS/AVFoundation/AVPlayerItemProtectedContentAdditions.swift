@@ -20,7 +20,7 @@ extension AVPlayerItem {
   @available(macOS 10.7, *)
   func requestContentAuthorizationAsynchronously(withTimeoutInterval timeoutInterval: TimeInterval, completionHandler handler: @escaping () -> Void)
   @available(macOS 10.7, *)
-  func requestContentAuthorizationAsynchronously(withTimeoutInterval timeoutInterval: TimeInterval) async
+  func requestContentAuthorization(withTimeoutInterval timeoutInterval: TimeInterval) async
   @available(macOS 10.7, *)
   func cancelContentAuthorizationRequest()
   @available(macOS 10.7, *)

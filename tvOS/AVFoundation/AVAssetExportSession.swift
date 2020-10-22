@@ -55,7 +55,7 @@ class AVAssetExportSession : NSObject {
   var status: AVAssetExportSession.Status { get }
   var error: Error? { get }
   func exportAsynchronously(completionHandler handler: @escaping () -> Void)
-  func exportAsynchronously() async
+  func export() async
   var progress: Float { get }
   func cancelExport()
 }
