@@ -213,7 +213,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(tvOS, introduced: 11.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
   optional func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
   @available(tvOS, introduced: 11.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
-  optional func application(_ application: UIApplication) async -> UIBackgroundFetchResult
+  optional func applicationPerformFetch(_ application: UIApplication) async -> UIBackgroundFetchResult
   @available(tvOS 7.0, *)
   optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void)
   @available(tvOS 7.0, *)

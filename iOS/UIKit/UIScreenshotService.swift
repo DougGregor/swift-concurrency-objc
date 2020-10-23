@@ -12,5 +12,5 @@ protocol UIScreenshotServiceDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
   optional func screenshotService(_ screenshotService: UIScreenshotService, generatePDFRepresentationWithCompletion completionHandler: @escaping (Data?, Int, CGRect) -> Void)
   @available(iOS 13.0, *)
-  optional func screenshotService(_ screenshotService: UIScreenshotService) async -> (Data?, Int, CGRect)
+  optional func screenshotServiceGeneratePDFRepresentation(_ screenshotService: UIScreenshotService) async -> (Data?, Int, CGRect)
 }

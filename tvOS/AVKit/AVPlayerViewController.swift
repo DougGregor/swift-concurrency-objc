@@ -101,7 +101,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
   @available(tvOS 9.0, *)
-  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
+  optional func playerViewControllerRestoreUserInterfaceForPictureInPictureStop(_ playerViewController: AVPlayerViewController) async -> Bool
 }
 protocol AVPlayerViewControllerAnimationCoordinator : NSObjectProtocol {
   @available(tvOS 11.0, *)

@@ -8,7 +8,7 @@ protocol MPPlayableContentDelegate : NSObjectProtocol {
   @available(iOS, introduced: 9.0, deprecated: 9.3, message: "Use Intents framework for initiating playback queues.")
   optional func playableContentManager(_ contentManager: MPPlayableContentManager, initializePlaybackQueueWithCompletionHandler completionHandler: @escaping (Error?) -> Void)
   @available(iOS, introduced: 9.0, deprecated: 9.3, message: "Use Intents framework for initiating playback queues.")
-  optional func playableContentManager(_ contentManager: MPPlayableContentManager) async throws
+  optional func playableContentManagerInitializePlaybackQueue(_ contentManager: MPPlayableContentManager) async throws
   @available(iOS, introduced: 9.3, deprecated: 12.0, message: "Use Intents framework for initiating playback queues.")
   optional func playableContentManager(_ contentManager: MPPlayableContentManager, initializePlaybackQueueWithContentItems contentItems: [Any]?, completionHandler: @escaping (Error?) -> Void)
   @available(iOS, introduced: 9.3, deprecated: 12.0, message: "Use Intents framework for initiating playback queues.")

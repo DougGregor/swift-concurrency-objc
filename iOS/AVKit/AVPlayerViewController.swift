@@ -46,5 +46,5 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
   @available(iOS 8.0, *)
-  optional func playerViewController(_ playerViewController: AVPlayerViewController) async -> Bool
+  optional func playerViewControllerRestoreUserInterfaceForPictureInPictureStop(_ playerViewController: AVPlayerViewController) async -> Bool
 }

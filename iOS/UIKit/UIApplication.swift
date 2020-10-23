@@ -346,7 +346,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS, introduced: 7.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
   optional func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
   @available(iOS, introduced: 7.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
-  optional func application(_ application: UIApplication) async -> UIBackgroundFetchResult
+  optional func applicationPerformFetch(_ application: UIApplication) async -> UIBackgroundFetchResult
   @available(iOS 9.0, *)
   optional func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void)
   @available(iOS 9.0, *)
