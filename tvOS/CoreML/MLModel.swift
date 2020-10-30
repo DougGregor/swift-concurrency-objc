@@ -10,7 +10,7 @@ class MLModel : NSObject {
   @available(tvOS 14.0, *)
   class func __loadContents(of url: URL, configuration: MLModelConfiguration, completionHandler handler: @escaping (MLModel?, Error?) -> Void)
   @available(tvOS 14.0, *)
-  class func __loadContents(of url: URL, configuration: MLModelConfiguration) async throws -> MLModel?
+  class func __loadContents(of url: URL, configuration: MLModelConfiguration) async throws -> MLModel
   func prediction(from input: MLFeatureProvider) throws -> MLFeatureProvider
   func prediction(from input: MLFeatureProvider, options: MLPredictionOptions) throws -> MLFeatureProvider
   @available(tvOS 12.0, *)

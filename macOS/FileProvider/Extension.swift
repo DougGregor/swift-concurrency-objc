@@ -9,11 +9,11 @@ class NSFileProviderManager : NSObject {
   @available(macOS 11.0, *)
   func getUserVisibleURL(for itemIdentifier: NSFileProviderItemIdentifier, completionHandler: @escaping (URL?, Error?) -> Void)
   @available(macOS 11.0, *)
-  func getUserVisibleURL(for itemIdentifier: NSFileProviderItemIdentifier) async throws -> URL?
+  func getUserVisibleURL(for itemIdentifier: NSFileProviderItemIdentifier) async throws -> URL
   @available(macOS 11.0, *)
   class func getIdentifierForUserVisibleFile(at url: URL, completionHandler: @escaping (NSFileProviderItemIdentifier?, NSFileProviderDomainIdentifier?, Error?) -> Void)
   @available(macOS 11.0, *)
-  class func identifierForUserVisibleFile(at url: URL) async throws -> (NSFileProviderItemIdentifier?, NSFileProviderDomainIdentifier?)
+  class func identifierForUserVisibleFile(at url: URL) async throws -> (NSFileProviderItemIdentifier, NSFileProviderDomainIdentifier)
   func register(_ task: URLSessionTask, forItemWithIdentifier identifier: NSFileProviderItemIdentifier, completionHandler completion: @escaping (Error?) -> Void)
   func register(_ task: URLSessionTask, forItemWithIdentifier identifier: NSFileProviderItemIdentifier) async throws
   @available(macOS 11.0, *)

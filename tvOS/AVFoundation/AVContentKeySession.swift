@@ -94,7 +94,7 @@ class AVContentKeyRequest : NSObject {
   var options: [String : Any] { get }
   var canProvidePersistableContentKey: Bool { get }
   func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil, completionHandler handler: @escaping (Data?, Error?) -> Void)
-  func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil) async throws -> Data?
+  func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil) async throws -> Data
   func processContentKeyResponse(_ keyResponse: AVContentKeyResponse)
   func processContentKeyResponseError(_ error: Error)
 }

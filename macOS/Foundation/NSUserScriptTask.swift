@@ -23,7 +23,7 @@ extension NSUserUnixTask {
 @available(macOS 10.8, *)
 class NSUserAppleScriptTask : NSUserScriptTask {
   func execute(withAppleEvent event: NSAppleEventDescriptor?, completionHandler handler: NSUserAppleScriptTask.CompletionHandler? = nil)
-  func execute(withAppleEvent event: NSAppleEventDescriptor?) async throws -> NSAppleEventDescriptor?
+  func execute(withAppleEvent event: NSAppleEventDescriptor?) async throws -> NSAppleEventDescriptor
 }
 extension NSUserAppleScriptTask {
   typealias CompletionHandler = (NSAppleEventDescriptor?, Error?) -> Void
@@ -32,7 +32,7 @@ extension NSUserAppleScriptTask {
 class NSUserAutomatorTask : NSUserScriptTask {
   var variables: [String : Any]?
   func execute(withInput input: NSSecureCoding?, completionHandler handler: NSUserAutomatorTask.CompletionHandler? = nil)
-  func execute(withInput input: NSSecureCoding?) async throws -> Any?
+  func execute(withInput input: NSSecureCoding?) async throws -> Any
 }
 extension NSUserAutomatorTask {
   typealias CompletionHandler = (Any?, Error?) -> Void

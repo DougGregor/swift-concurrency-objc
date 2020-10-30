@@ -7,7 +7,7 @@ class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
   @available(macOS 10.10, *)
   class func loadLeaderboardSets(completionHandler: (([GKLeaderboardSet]?, Error?) -> Void)? = nil)
   @available(macOS 10.10, *)
-  class func loadLeaderboardSets() async throws -> [GKLeaderboardSet]?
+  class func loadLeaderboardSets() async throws -> [GKLeaderboardSet]
   @available(macOS 11.0, *)
   func loadLeaderboards(handler: @escaping ([GKLeaderboard]?, Error?) -> Void)
 }
@@ -15,9 +15,9 @@ extension GKLeaderboardSet {
   @available(macOS, introduced: 10.10, deprecated: 11.0, message: "Use loadLeaderboardsWithHandler: instead.")
   func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.10, deprecated: 11.0, message: "Use loadLeaderboardsWithHandler: instead.")
-  func loadLeaderboards() async throws -> [GKLeaderboard]?
+  func loadLeaderboards() async throws -> [GKLeaderboard]
 }
 extension GKLeaderboardSet {
   func loadImage(completionHandler: ((NSImage?, Error?) -> Void)? = nil)
-  func loadImage() async throws -> NSImage?
+  func loadImage() async throws -> NSImage
 }

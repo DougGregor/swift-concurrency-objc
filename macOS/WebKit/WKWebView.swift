@@ -28,23 +28,23 @@ class WKWebView : NSView {
   func reloadFromOrigin() -> WKNavigation?
   func stopLoading()
   func evaluateJavaScript(_ javaScriptString: String, completionHandler: ((Any?, Error?) -> Void)? = nil)
-  func evaluateJavaScript(_ javaScriptString: String) async throws -> Any?
+  func evaluateJavaScript(_ javaScriptString: String) async throws -> Any
   @available(macOS 11.0, *)
   func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: ((Any?, Error?) -> Void)? = nil)
   @available(macOS 11.0, *)
-  func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any?
+  func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any
   @available(macOS 11.0, *)
   func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: ((Any?, Error?) -> Void)? = nil)
   @available(macOS 11.0, *)
-  func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any?
+  func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any
   @available(macOS 10.13, *)
   func takeSnapshot(with snapshotConfiguration: WKSnapshotConfiguration?, completionHandler: @escaping (NSImage?, Error?) -> Void)
   @available(macOS 10.13, *)
-  func takeSnapshot(with snapshotConfiguration: WKSnapshotConfiguration?) async throws -> NSImage?
+  func takeSnapshot(with snapshotConfiguration: WKSnapshotConfiguration?) async throws -> NSImage
   @available(macOS 11.0, *)
   func __createPDF(with pdfConfiguration: WKPDFConfiguration?, completionHandler: @escaping (Data?, Error?) -> Void)
   @available(macOS 11.0, *)
-  func __createPDF(with pdfConfiguration: WKPDFConfiguration?) async throws -> Data?
+  func __createPDF(with pdfConfiguration: WKPDFConfiguration?) async throws -> Data
   @available(macOS 11.0, *)
   func __createWebArchiveData(completionHandler: @escaping (Data, Error) -> Void)
   @available(macOS 11.0, *)

@@ -344,7 +344,7 @@ protocol NFCISO15693Tag : NFCNDEFTag, __NFCTag {
   @available(iOS 14.0, *)
   func __getSystemInfoAndUID(with flags: NFCISO15693RequestFlag, completionHandler: @escaping (Data?, Int, Int, Int, Int, Int, Error?) -> Void)
   @available(iOS 14.0, *)
-  func __systemInfoAndUID(with flags: NFCISO15693RequestFlag) async throws -> (Data?, Int, Int, Int, Int, Int)
+  func __systemInfoAndUID(with flags: NFCISO15693RequestFlag) async throws -> (Data, Int, Int, Int, Int, Int)
   @available(iOS 13.0, *)
   func getMultipleBlockSecurityStatus(requestFlags flags: NFCISO15693RequestFlag, blockRange: NSRange, completionHandler: @escaping ([NSNumber], Error?) -> Void)
   @available(iOS 13.0, *)
@@ -404,7 +404,7 @@ protocol NFCISO15693Tag : NFCNDEFTag, __NFCTag {
   @available(iOS 14.0, *)
   func __sendRequest(withFlag flags: Int, commandCode: Int, data: Data?, completionHandler: @escaping (NFCISO15693ResponseFlag, Data?, Error?) -> Void)
   @available(iOS 14.0, *)
-  func __sendRequest(withFlag flags: Int, commandCode: Int, data: Data?) async throws -> (NFCISO15693ResponseFlag, Data?)
+  func __sendRequest(withFlag flags: Int, commandCode: Int, data: Data?) async throws -> (NFCISO15693ResponseFlag, Data)
 }
 
 @available(iOS 11.0, *)
@@ -465,7 +465,7 @@ protocol NFCNDEFTag : NSCopying, NSSecureCoding, NSObjectProtocol {
   @available(iOS 13.0, *)
   func readNDEF(completionHandler: @escaping (NFCNDEFMessage?, Error?) -> Void)
   @available(iOS 13.0, *)
-  func readNDEF() async throws -> NFCNDEFMessage?
+  func readNDEF() async throws -> NFCNDEFMessage
   @available(iOS 13.0, *)
   func writeNDEF(_ ndefMessage: NFCNDEFMessage, completionHandler: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)

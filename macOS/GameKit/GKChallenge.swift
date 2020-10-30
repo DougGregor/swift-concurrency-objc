@@ -10,7 +10,7 @@ enum GKChallengeState : Int {
 @available(macOS 10.8, *)
 class GKChallenge : NSObject, NSCoding, NSSecureCoding {
   class func loadReceivedChallenges(completionHandler: (([GKChallenge]?, Error?) -> Void)? = nil)
-  class func loadReceivedChallenges() async throws -> [GKChallenge]?
+  class func loadReceivedChallenges() async throws -> [GKChallenge]
   func decline()
   @available(macOS 10.10, *)
   @NSCopying var issuingPlayer: GKPlayer? { get }
@@ -49,7 +49,7 @@ extension GKAchievement {
   @available(macOS 10.10, *)
   func selectChallengeablePlayers(_ players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(macOS 10.10, *)
-  func selectChallengeablePlayers(_ players: [GKPlayer]) async throws -> [GKPlayer]?
+  func selectChallengeablePlayers(_ players: [GKPlayer]) async throws -> [GKPlayer]
   @available(macOS 10.10, *)
   class func report(_ achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.10, *)
@@ -65,7 +65,7 @@ extension GKAchievement {
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "This is never invoked and its implementation does nothing, pass GKPlayers to selectChallengeablePlayers:")
   func selectChallengeablePlayerIDs(_ playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "This is never invoked and its implementation does nothing, pass GKPlayers to selectChallengeablePlayers:")
-  func selectChallengeablePlayerIDs(_ playerIDs: [String]?) async throws -> [String]?
+  func selectChallengeablePlayerIDs(_ playerIDs: [String]?) async throws -> [String]
 }
 typealias GKChallengeComposeCompletionBlock = (NSViewController, Bool, [String]?) -> Void
 extension GKScore {

@@ -10,7 +10,7 @@ class MLModel : NSObject {
   @available(watchOS 7.0, *)
   class func __loadContents(of url: URL, configuration: MLModelConfiguration, completionHandler handler: @escaping (MLModel?, Error?) -> Void)
   @available(watchOS 7.0, *)
-  class func __loadContents(of url: URL, configuration: MLModelConfiguration) async throws -> MLModel?
+  class func __loadContents(of url: URL, configuration: MLModelConfiguration) async throws -> MLModel
   func prediction(from input: MLFeatureProvider) throws -> MLFeatureProvider
   func prediction(from input: MLFeatureProvider, options: MLPredictionOptions) throws -> MLFeatureProvider
   @available(watchOS 5.0, *)

@@ -56,7 +56,7 @@ protocol MCSessionDelegate : NSObjectProtocol {
 }
 extension MCSession {
   func nearbyConnectionData(forPeer peerID: MCPeerID, withCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void)
-  func nearbyConnectionData(forPeer peerID: MCPeerID) async throws -> Data?
+  func nearbyConnectionData(forPeer peerID: MCPeerID) async throws -> Data
   func connectPeer(_ peerID: MCPeerID, withNearbyConnectionData data: Data)
   func cancelConnectPeer(_ peerID: MCPeerID)
 }

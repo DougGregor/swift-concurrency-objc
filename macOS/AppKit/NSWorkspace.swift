@@ -6,15 +6,15 @@ class NSWorkspace : NSObject {
   @available(macOS 10.15, *)
   func open(_ url: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler: ((NSRunningApplication?, Error?) -> Void)? = nil)
   @available(macOS 10.15, *)
-  func open(_ url: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication?
+  func open(_ url: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
   @available(macOS 10.15, *)
   func open(_ urls: [URL], withApplicationAt applicationURL: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler: ((NSRunningApplication?, Error?) -> Void)? = nil)
   @available(macOS 10.15, *)
-  func open(_ urls: [URL], withApplicationAt applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication?
+  func open(_ urls: [URL], withApplicationAt applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
   @available(macOS 10.15, *)
   func openApplication(at applicationURL: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler: ((NSRunningApplication?, Error?) -> Void)? = nil)
   @available(macOS 10.15, *)
-  func openApplication(at applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication?
+  func openApplication(at applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
   func selectFile(_ fullPath: String?, inFileViewerRootedAtPath rootFullPath: String) -> Bool
   @available(macOS 10.6, *)
   func activateFileViewerSelecting(_ fileURLs: [URL])
@@ -193,7 +193,7 @@ extension NSWorkspace {
   @available(macOS 10.14, *)
   func requestAuthorization(to type: NSWorkspace.AuthorizationType, completionHandler: @escaping (NSWorkspace.Authorization?, Error?) -> Void)
   @available(macOS 10.14, *)
-  func requestAuthorization(to type: NSWorkspace.AuthorizationType) async throws -> NSWorkspace.Authorization?
+  func requestAuthorization(to type: NSWorkspace.AuthorizationType) async throws -> NSWorkspace.Authorization
 }
 extension FileManager {
   @available(macOS 10.14, *)

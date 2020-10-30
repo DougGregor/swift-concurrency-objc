@@ -27,11 +27,11 @@ class ARSession : NSObject {
   @available(iOS 12.0, *)
   func getCurrentWorldMap(completionHandler: @escaping (ARWorldMap?, Error?) -> Void)
   @available(iOS 12.0, *)
-  func currentWorldMap() async throws -> ARWorldMap?
+  func currentWorldMap() async throws -> ARWorldMap
   @available(iOS 12.0, *)
   func createReferenceObject(transform: simd_float4x4, center: simd_float3, extent: simd_float3, completionHandler: @escaping (ARReferenceObject?, Error?) -> Void)
   @available(iOS 12.0, *)
-  func createReferenceObject(transform: simd_float4x4, center: simd_float3, extent: simd_float3) async throws -> ARReferenceObject?
+  func createReferenceObject(transform: simd_float4x4, center: simd_float3, extent: simd_float3) async throws -> ARReferenceObject
   @available(iOS 13.0, *)
   func raycast(_ query: ARRaycastQuery) -> [ARRaycastResult]
   @available(iOS 13.0, *)

@@ -39,11 +39,11 @@ class GKLeaderboard : NSObject {
   @available(macOS 11.0, *)
   class func loadLeaderboards(IDs leaderboardIDs: [String]?, completionHandler: @escaping ([GKLeaderboard]?, Error?) -> Void)
   @available(macOS 11.0, *)
-  class func loadLeaderboards(IDs leaderboardIDs: [String]?) async throws -> [GKLeaderboard]?
+  class func loadLeaderboards(IDs leaderboardIDs: [String]?) async throws -> [GKLeaderboard]
   @available(macOS 11.0, *)
   func loadPreviousOccurrence(completionHandler: @escaping (GKLeaderboard?, Error?) -> Void)
   @available(macOS 11.0, *)
-  func loadPreviousOccurrence() async throws -> GKLeaderboard?
+  func loadPreviousOccurrence() async throws -> GKLeaderboard
   @available(macOS 11.0, *)
   class func submitScore(_ score: Int, context: Int, player: GKPlayer, leaderboardIDs: [String], completionHandler: @escaping (Error?) -> Void)
   @available(macOS 11.0, *)
@@ -55,11 +55,11 @@ class GKLeaderboard : NSObject {
   @available(macOS 11.0, *)
   func loadEntries(for playerScope: GKLeaderboard.PlayerScope, timeScope: GKLeaderboard.TimeScope, range: NSRange, completionHandler: @escaping (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?, Int, Error?) -> Void)
   @available(macOS 11.0, *)
-  func loadEntries(for playerScope: GKLeaderboard.PlayerScope, timeScope: GKLeaderboard.TimeScope, range: NSRange) async throws -> (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?, Int)
+  func loadEntries(for playerScope: GKLeaderboard.PlayerScope, timeScope: GKLeaderboard.TimeScope, range: NSRange) async throws -> (GKLeaderboard.Entry, [GKLeaderboard.Entry], Int)
   @available(macOS 11.0, *)
   func loadEntries(for players: [GKPlayer], timeScope: GKLeaderboard.TimeScope, completionHandler: @escaping (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?, Error?) -> Void)
   @available(macOS 11.0, *)
-  func loadEntries(for players: [GKPlayer], timeScope: GKLeaderboard.TimeScope) async throws -> (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?)
+  func loadEntries(for players: [GKPlayer], timeScope: GKLeaderboard.TimeScope) async throws -> (GKLeaderboard.Entry, [GKLeaderboard.Entry])
 }
 extension GKLeaderboard {
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use identifier instead")
@@ -91,15 +91,15 @@ extension GKLeaderboard {
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
   func loadScores(completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
-  func loadScores() async throws -> [GKScore]?
+  func loadScores() async throws -> [GKScore]
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
   class func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
-  class func loadLeaderboards() async throws -> [GKLeaderboard]?
+  class func loadLeaderboards() async throws -> [GKLeaderboard]
 }
 extension GKLeaderboard {
   @available(macOS 10.8, *)
   func loadImage(completionHandler: ((NSImage?, Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func loadImage() async throws -> NSImage?
+  func loadImage() async throws -> NSImage
 }

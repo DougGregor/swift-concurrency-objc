@@ -3,7 +3,7 @@ protocol NSWindowRestoration : NSObjectProtocol {
   @available(macOS 10.7, *)
   static func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void)
   @available(macOS 10.7, *)
-  static func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder) async throws -> NSWindow?
+  static func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder) async throws -> NSWindow
 }
 extension NSDocumentController : NSWindowRestoration {
 }
@@ -45,7 +45,7 @@ extension NSDocument {
   @available(macOS 10.7, *)
   func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void)
   @available(macOS 10.7, *)
-  func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder) async throws -> NSWindow?
+  func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder) async throws -> NSWindow
   @available(macOS 10.7, *)
   func encodeRestorableState(with coder: NSCoder)
   @available(macOS 10.13, *)

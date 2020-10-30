@@ -26,7 +26,7 @@ class NSUserActivity : NSObject {
   func resignCurrent()
   func invalidate()
   func getContinuationStreams(completionHandler: @escaping (InputStream?, OutputStream?, Error?) -> Void)
-  func continuationStreams() async throws -> (InputStream?, OutputStream?)
+  func continuationStreams() async throws -> (InputStream, OutputStream)
   @available(iOS 9.0, *)
   var isEligibleForHandoff: Bool
   @available(iOS 9.0, *)

@@ -195,7 +195,7 @@ class NETunnelProviderManager : NEVPNManager {
   @available(iOS 9.0, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NETunnelProviderManager]?, Error?) -> Void)
   @available(iOS 9.0, *)
-  class func loadAllFromPreferences() async throws -> [NETunnelProviderManager]?
+  class func loadAllFromPreferences() async throws -> [NETunnelProviderManager]
   @available(iOS 9.0, *)
   func copyAppRules() -> [NEAppRule]?
   @available(iOS 9.0, *)
@@ -209,7 +209,7 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
   @available(iOS 9.0, *)
   func readData(completionHandler: @escaping (Data?, Error?) -> Void)
   @available(iOS 9.0, *)
-  func readData() async throws -> Data?
+  func readData() async throws -> Data
   @available(iOS 9.0, *)
   func write(_ data: Data, withCompletionHandler completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
@@ -222,7 +222,7 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
   @available(iOS 9.0, *)
   func readDatagrams(completionHandler: @escaping ([Data]?, [NWEndpoint]?, Error?) -> Void)
   @available(iOS 9.0, *)
-  func readDatagrams() async throws -> ([Data]?, [NWEndpoint]?)
+  func readDatagrams() async throws -> ([Data], [NWEndpoint])
   @available(iOS 9.0, *)
   func writeDatagrams(_ datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint], completionHandler: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)
@@ -1329,7 +1329,7 @@ class NEAppPushManager : NSObject {
   @available(iOS 14.0, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NEAppPushManager]?, Error?) -> Void)
   @available(iOS 14.0, *)
-  class func loadAllFromPreferences() async throws -> [NEAppPushManager]?
+  class func loadAllFromPreferences() async throws -> [NEAppPushManager]
   @available(iOS 14.0, *)
   func loadFromPreferences(completionHandler: @escaping (Error?) -> Void)
   @available(iOS 14.0, *)
@@ -1452,11 +1452,11 @@ class NWTCPConnection : NSObject {
   @available(iOS 9.0, *)
   func readLength(_ length: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(iOS 9.0, *)
-  func readLength(_ length: Int) async throws -> Data?
+  func readLength(_ length: Int) async throws -> Data
   @available(iOS 9.0, *)
   func readMinimumLength(_ minimum: Int, maximumLength maximum: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(iOS 9.0, *)
-  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int) async throws -> Data?
+  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int) async throws -> Data
   @available(iOS 9.0, *)
   func write(_ data: Data, completionHandler completion: @escaping (Error?) -> Void)
   @available(iOS 9.0, *)

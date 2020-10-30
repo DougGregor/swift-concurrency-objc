@@ -45,7 +45,7 @@ class ENManager : NSObject {
   @available(iOS 13.7, *)
   func getExposureWindows(summary: ENExposureDetectionSummary, completionHandler: @escaping ENGetExposureWindowsHandler) -> Progress
   func getDiagnosisKeys(completionHandler: @escaping ENGetDiagnosisKeysHandler)
-  func diagnosisKeys() async throws -> [ENTemporaryExposureKey]?
+  func diagnosisKeys() async throws -> [ENTemporaryExposureKey]
   func getTestDiagnosisKeys(completionHandler: @escaping ENGetDiagnosisKeysHandler)
-  func testDiagnosisKeys() async throws -> [ENTemporaryExposureKey]?
+  func testDiagnosisKeys() async throws -> [ENTemporaryExposureKey]
 }

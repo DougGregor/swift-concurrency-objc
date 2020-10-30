@@ -22,19 +22,19 @@ class GKGameSession : NSObject {
   var maxNumberOfConnectedPlayers: Int { get }
   var badgedPlayers: [GKCloudPlayer] { get }
   class func createSession(inContainer containerName: String?, withTitle title: String, maxConnectedPlayers maxPlayers: Int, completionHandler: @escaping (GKGameSession?, Error?) -> Void)
-  class func createSession(inContainer containerName: String?, withTitle title: String, maxConnectedPlayers maxPlayers: Int) async throws -> GKGameSession?
+  class func createSession(inContainer containerName: String?, withTitle title: String, maxConnectedPlayers maxPlayers: Int) async throws -> GKGameSession
   class func loadSessions(inContainer containerName: String?, completionHandler: @escaping ([GKGameSession]?, Error?) -> Void)
-  class func loadSessions(inContainer containerName: String?) async throws -> [GKGameSession]?
+  class func loadSessions(inContainer containerName: String?) async throws -> [GKGameSession]
   class func load(withIdentifier identifier: String, completionHandler: @escaping (GKGameSession?, Error?) -> Void)
-  class func load(withIdentifier identifier: String) async throws -> GKGameSession?
+  class func load(withIdentifier identifier: String) async throws -> GKGameSession
   class func remove(withIdentifier identifier: String, completionHandler: @escaping (Error?) -> Void)
   class func remove(withIdentifier identifier: String) async throws
   func getShareURL(completionHandler: @escaping (URL?, Error?) -> Void)
-  func shareURL() async throws -> URL?
+  func shareURL() async throws -> URL
   func loadData(completionHandler: @escaping (Data?, Error?) -> Void)
-  func loadData() async throws -> Data?
+  func loadData() async throws -> Data
   func save(_ data: Data, completionHandler: @escaping (Data?, Error?) -> Void)
-  func save(_ data: Data) async throws -> Data?
+  func save(_ data: Data) async throws -> Data
   func setConnectionState(_ state: GKConnectionState, completionHandler: @escaping (Error?) -> Void)
   func setConnectionState(_ state: GKConnectionState) async throws
   func players(with state: GKConnectionState) -> [GKCloudPlayer]

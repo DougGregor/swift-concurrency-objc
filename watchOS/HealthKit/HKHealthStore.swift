@@ -56,7 +56,7 @@ extension HKHealthStore {
   @available(watchOS 5.0, *)
   func recoverActiveWorkoutSession(completion: @escaping (HKWorkoutSession?, Error?) -> Void)
   @available(watchOS 5.0, *)
-  func recoverActiveWorkoutSession() async throws -> HKWorkoutSession?
+  func recoverActiveWorkoutSession() async throws -> HKWorkoutSession
 }
 extension HKHealthStore {
 }

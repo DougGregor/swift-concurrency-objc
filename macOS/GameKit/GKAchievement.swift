@@ -2,7 +2,7 @@
 @available(macOS 10.8, *)
 class GKAchievement : NSObject, NSCoding, NSSecureCoding {
   class func loadAchievements(completionHandler: (([GKAchievement]?, Error?) -> Void)? = nil)
-  class func loadAchievements() async throws -> [GKAchievement]?
+  class func loadAchievements() async throws -> [GKAchievement]
   class func resetAchievements(completionHandler: ((Error?) -> Void)? = nil)
   class func resetAchievements() async throws
   init(identifier: String)

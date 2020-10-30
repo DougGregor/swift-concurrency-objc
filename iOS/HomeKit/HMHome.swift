@@ -37,7 +37,7 @@ extension HMHome {
   @available(iOS 11.3, *)
   func addAndSetupAccessories(with payload: HMAccessorySetupPayload, completionHandler completion: @escaping ([HMAccessory]?, Error?) -> Void)
   @available(iOS 11.3, *)
-  func addAndSetupAccessories(with payload: HMAccessorySetupPayload) async throws -> [HMAccessory]?
+  func addAndSetupAccessories(with payload: HMAccessorySetupPayload) async throws -> [HMAccessory]
   @available(iOS 13.2, *)
   var supportsAddingNetworkRouter: Bool { get }
 }
@@ -53,7 +53,7 @@ extension HMHome {
   @available(iOS, introduced: 8.0, deprecated: 9.0)
   func addUser(completionHandler completion: @escaping (HMUser?, Error?) -> Void)
   @available(iOS, introduced: 8.0, deprecated: 9.0)
-  func addUser() async throws -> HMUser?
+  func addUser() async throws -> HMUser
   @available(iOS, introduced: 8.0, deprecated: 9.0)
   func removeUser(_ user: HMUser, completionHandler completion: @escaping (Error?) -> Void)
   @available(iOS, introduced: 8.0, deprecated: 9.0)
@@ -64,7 +64,7 @@ extension HMHome {
 extension HMHome {
   var rooms: [HMRoom] { get }
   func addRoom(withName roomName: String, completionHandler completion: @escaping (HMRoom?, Error?) -> Void)
-  func addRoom(withName roomName: String) async throws -> HMRoom?
+  func addRoom(withName roomName: String) async throws -> HMRoom
   func removeRoom(_ room: HMRoom, completionHandler completion: @escaping (Error?) -> Void)
   func removeRoom(_ room: HMRoom) async throws
   func roomForEntireHome() -> HMRoom
@@ -72,21 +72,21 @@ extension HMHome {
 extension HMHome {
   var zones: [HMZone] { get }
   func addZone(withName zoneName: String, completionHandler completion: @escaping (HMZone?, Error?) -> Void)
-  func addZone(withName zoneName: String) async throws -> HMZone?
+  func addZone(withName zoneName: String) async throws -> HMZone
   func removeZone(_ zone: HMZone, completionHandler completion: @escaping (Error?) -> Void)
   func removeZone(_ zone: HMZone) async throws
 }
 extension HMHome {
   var serviceGroups: [HMServiceGroup] { get }
   func addServiceGroup(withName serviceGroupName: String, completionHandler completion: @escaping (HMServiceGroup?, Error?) -> Void)
-  func addServiceGroup(withName serviceGroupName: String) async throws -> HMServiceGroup?
+  func addServiceGroup(withName serviceGroupName: String) async throws -> HMServiceGroup
   func removeServiceGroup(_ group: HMServiceGroup, completionHandler completion: @escaping (Error?) -> Void)
   func removeServiceGroup(_ group: HMServiceGroup) async throws
 }
 extension HMHome {
   var actionSets: [HMActionSet] { get }
   func addActionSet(withName actionSetName: String, completionHandler completion: @escaping (HMActionSet?, Error?) -> Void)
-  func addActionSet(withName actionSetName: String) async throws -> HMActionSet?
+  func addActionSet(withName actionSetName: String) async throws -> HMActionSet
   func removeActionSet(_ actionSet: HMActionSet, completionHandler completion: @escaping (Error?) -> Void)
   func removeActionSet(_ actionSet: HMActionSet) async throws
   func executeActionSet(_ actionSet: HMActionSet, completionHandler completion: @escaping (Error?) -> Void)

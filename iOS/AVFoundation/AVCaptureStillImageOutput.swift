@@ -15,7 +15,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
   @available(iOS 5.0, *)
   var isCapturingStillImage: Bool { get }
   func captureStillImageAsynchronously(from connection: AVCaptureConnection, completionHandler handler: @escaping (CMSampleBuffer?, Error?) -> Void)
-  func captureStillImage(from connection: AVCaptureConnection) async throws -> CMSampleBuffer?
+  func captureStillImage(from connection: AVCaptureConnection) async throws -> CMSampleBuffer
   class func jpegStillImageNSDataRepresentation(_ jpegSampleBuffer: CMSampleBuffer) -> Data?
 }
 @available(iOS 8.0, *)
@@ -46,5 +46,5 @@ extension AVCaptureStillImageOutput {
   @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use AVCapturePhotoOutput capturePhotoWithSettings:delegate: instead.")
   func captureStillImageBracketAsynchronously(from connection: AVCaptureConnection, withSettingsArray settings: [AVCaptureBracketedStillImageSettings], completionHandler handler: @escaping (CMSampleBuffer?, AVCaptureBracketedStillImageSettings?, Error?) -> Void)
   @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use AVCapturePhotoOutput capturePhotoWithSettings:delegate: instead.")
-  func captureStillImageBracket(from connection: AVCaptureConnection, withSettingsArray settings: [AVCaptureBracketedStillImageSettings]) async throws -> (CMSampleBuffer?, AVCaptureBracketedStillImageSettings?)
+  func captureStillImageBracket(from connection: AVCaptureConnection, withSettingsArray settings: [AVCaptureBracketedStillImageSettings]) async throws -> (CMSampleBuffer, AVCaptureBracketedStillImageSettings)
 }

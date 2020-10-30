@@ -39,11 +39,11 @@ class GKLeaderboard : NSObject {
   @available(watchOS 7.0, *)
   class func loadLeaderboards(IDs leaderboardIDs: [String]?, completionHandler: @escaping ([GKLeaderboard]?, Error?) -> Void)
   @available(watchOS 7.0, *)
-  class func loadLeaderboards(IDs leaderboardIDs: [String]?) async throws -> [GKLeaderboard]?
+  class func loadLeaderboards(IDs leaderboardIDs: [String]?) async throws -> [GKLeaderboard]
   @available(watchOS 7.0, *)
   func loadPreviousOccurrence(completionHandler: @escaping (GKLeaderboard?, Error?) -> Void)
   @available(watchOS 7.0, *)
-  func loadPreviousOccurrence() async throws -> GKLeaderboard?
+  func loadPreviousOccurrence() async throws -> GKLeaderboard
   @available(watchOS 7.0, *)
   class func submitScore(_ score: Int, context: Int, player: GKPlayer, leaderboardIDs: [String], completionHandler: @escaping (Error?) -> Void)
   @available(watchOS 7.0, *)
@@ -55,11 +55,11 @@ class GKLeaderboard : NSObject {
   @available(watchOS 7.0, *)
   func loadEntries(for playerScope: GKLeaderboard.PlayerScope, timeScope: GKLeaderboard.TimeScope, range: NSRange, completionHandler: @escaping (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?, Int, Error?) -> Void)
   @available(watchOS 7.0, *)
-  func loadEntries(for playerScope: GKLeaderboard.PlayerScope, timeScope: GKLeaderboard.TimeScope, range: NSRange) async throws -> (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?, Int)
+  func loadEntries(for playerScope: GKLeaderboard.PlayerScope, timeScope: GKLeaderboard.TimeScope, range: NSRange) async throws -> (GKLeaderboard.Entry, [GKLeaderboard.Entry], Int)
   @available(watchOS 7.0, *)
   func loadEntries(for players: [GKPlayer], timeScope: GKLeaderboard.TimeScope, completionHandler: @escaping (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?, Error?) -> Void)
   @available(watchOS 7.0, *)
-  func loadEntries(for players: [GKPlayer], timeScope: GKLeaderboard.TimeScope) async throws -> (GKLeaderboard.Entry?, [GKLeaderboard.Entry]?)
+  func loadEntries(for players: [GKPlayer], timeScope: GKLeaderboard.TimeScope) async throws -> (GKLeaderboard.Entry, [GKLeaderboard.Entry])
 }
 extension GKLeaderboard {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use identifier instead")
@@ -69,7 +69,7 @@ extension GKLeaderboard {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use loadLeaderboardsWithIDs:completionHandler: instead")
   class func loadCategories(completionHandler: (([String]?, [String]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use loadLeaderboardsWithIDs:completionHandler: instead")
-  class func loadCategories() async throws -> ([String]?, [String]?)
+  class func loadCategories() async throws -> ([String], [String])
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
   class func setDefault(_ leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
@@ -95,9 +95,9 @@ extension GKLeaderboard {
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
   func loadScores(completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
-  func loadScores() async throws -> [GKScore]?
+  func loadScores() async throws -> [GKScore]
   @available(watchOS, introduced: 2.0, deprecated: 7.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
   class func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 7.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
-  class func loadLeaderboards() async throws -> [GKLeaderboard]?
+  class func loadLeaderboards() async throws -> [GKLeaderboard]
 }

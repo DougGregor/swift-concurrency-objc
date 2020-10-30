@@ -203,7 +203,7 @@ class NETunnelProviderManager : NEVPNManager {
   @available(macOS 10.11, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NETunnelProviderManager]?, Error?) -> Void)
   @available(macOS 10.11, *)
-  class func loadAllFromPreferences() async throws -> [NETunnelProviderManager]?
+  class func loadAllFromPreferences() async throws -> [NETunnelProviderManager]
   @available(macOS 10.15.4, *)
   class func forPerAppVPN() -> Self
   @available(macOS 10.11, *)
@@ -233,7 +233,7 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
   @available(macOS 10.11, *)
   func readData(completionHandler: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.11, *)
-  func readData() async throws -> Data?
+  func readData() async throws -> Data
   @available(macOS 10.11, *)
   func write(_ data: Data, withCompletionHandler completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
@@ -246,7 +246,7 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
   @available(macOS 10.11, *)
   func readDatagrams(completionHandler: @escaping ([Data]?, [NWEndpoint]?, Error?) -> Void)
   @available(macOS 10.11, *)
-  func readDatagrams() async throws -> ([Data]?, [NWEndpoint]?)
+  func readDatagrams() async throws -> ([Data], [NWEndpoint])
   @available(macOS 10.11, *)
   func writeDatagrams(_ datagrams: [Data], sentBy remoteEndpoints: [NWEndpoint], completionHandler: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)
@@ -980,7 +980,7 @@ class NETransparentProxyManager : NEVPNManager {
   @available(macOS 10.15, *)
   class func loadAllFromPreferences(completionHandler: @escaping ([NETransparentProxyManager]?, Error?) -> Void)
   @available(macOS 10.15, *)
-  class func loadAllFromPreferences() async throws -> [NETransparentProxyManager]?
+  class func loadAllFromPreferences() async throws -> [NETransparentProxyManager]
 }
 @available(macOS 10.15, *)
 class NETransparentProxyNetworkSettings : NETunnelNetworkSettings {
@@ -1257,11 +1257,11 @@ class NWTCPConnection : NSObject {
   @available(macOS 10.11, *)
   func readLength(_ length: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.11, *)
-  func readLength(_ length: Int) async throws -> Data?
+  func readLength(_ length: Int) async throws -> Data
   @available(macOS 10.11, *)
   func readMinimumLength(_ minimum: Int, maximumLength maximum: Int, completionHandler completion: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.11, *)
-  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int) async throws -> Data?
+  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int) async throws -> Data
   @available(macOS 10.11, *)
   func write(_ data: Data, completionHandler completion: @escaping (Error?) -> Void)
   @available(macOS 10.11, *)

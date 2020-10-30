@@ -77,49 +77,49 @@ extension CKContainer {
 }
 extension CKContainer {
   func fetchUserRecordID(completionHandler: @escaping (CKRecord.ID?, Error?) -> Void)
-  func fetchUserRecordID() async throws -> CKRecord.ID?
+  func fetchUserRecordID() async throws -> CKRecord.ID
   @available(tvOS 10.0, *)
   func discoverUserIdentity(withEmailAddress email: String, completionHandler: @escaping (CKUserIdentity?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func discoverUserIdentity(withEmailAddress email: String) async throws -> CKUserIdentity?
+  func discoverUserIdentity(withEmailAddress email: String) async throws -> CKUserIdentity
   @available(tvOS 10.0, *)
   func discoverUserIdentity(withPhoneNumber phoneNumber: String, completionHandler: @escaping (CKUserIdentity?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func discoverUserIdentity(withPhoneNumber phoneNumber: String) async throws -> CKUserIdentity?
+  func discoverUserIdentity(withPhoneNumber phoneNumber: String) async throws -> CKUserIdentity
   @available(tvOS 10.0, *)
   func discoverUserIdentity(withUserRecordID userRecordID: CKRecord.ID, completionHandler: @escaping (CKUserIdentity?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func discoverUserIdentity(withUserRecordID userRecordID: CKRecord.ID) async throws -> CKUserIdentity?
+  func discoverUserIdentity(withUserRecordID userRecordID: CKRecord.ID) async throws -> CKUserIdentity
 }
 extension CKContainer {
   @available(tvOS 10.0, *)
   func fetchShareParticipant(withEmailAddress emailAddress: String, completionHandler: @escaping (CKShare.Participant?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func fetchShareParticipant(withEmailAddress emailAddress: String) async throws -> CKShare.Participant?
+  func fetchShareParticipant(withEmailAddress emailAddress: String) async throws -> CKShare.Participant
   @available(tvOS 10.0, *)
   func fetchShareParticipant(withPhoneNumber phoneNumber: String, completionHandler: @escaping (CKShare.Participant?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func fetchShareParticipant(withPhoneNumber phoneNumber: String) async throws -> CKShare.Participant?
+  func fetchShareParticipant(withPhoneNumber phoneNumber: String) async throws -> CKShare.Participant
   @available(tvOS 10.0, *)
   func fetchShareParticipant(withUserRecordID userRecordID: CKRecord.ID, completionHandler: @escaping (CKShare.Participant?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func fetchShareParticipant(withUserRecordID userRecordID: CKRecord.ID) async throws -> CKShare.Participant?
+  func fetchShareParticipant(withUserRecordID userRecordID: CKRecord.ID) async throws -> CKShare.Participant
   @available(tvOS 10.0, *)
   func fetchShareMetadata(with url: URL, completionHandler: @escaping (CKShare.Metadata?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func fetchShareMetadata(with url: URL) async throws -> CKShare.Metadata?
+  func fetchShareMetadata(with url: URL) async throws -> CKShare.Metadata
   @available(tvOS 10.0, *)
   func accept(_ metadata: CKShare.Metadata, completionHandler: @escaping (CKShare?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func accept(_ metadata: CKShare.Metadata) async throws -> CKShare?
+  func accept(_ metadata: CKShare.Metadata) async throws -> CKShare
 }
 extension CKContainer {
   @available(tvOS 9.2, *)
   func __fetchAllLongLivedOperationIDs(completionHandler: @escaping ([String]?, Error?) -> Void)
   @available(tvOS 9.2, *)
-  func __fetchAllLongLivedOperationIDs() async throws -> [String]?
+  func __fetchAllLongLivedOperationIDs() async throws -> [String]
   @available(tvOS 9.2, *)
   func __fetchLongLivedOperation(withID operationID: String, completionHandler: @escaping (CKOperation?, Error?) -> Void)
   @available(tvOS 9.2, *)
-  func __fetchLongLivedOperation(withID operationID: String) async throws -> CKOperation?
+  func __fetchLongLivedOperation(withID operationID: String) async throws -> CKOperation
 }

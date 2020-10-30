@@ -3,7 +3,7 @@ class RPBroadcastActivityController : NSObject {
   @available(macOS 11.0, *)
   class func showBroadcastPicker(at point: CGPoint, from window: NSWindow?, preferredExtensionIdentifier preferredExtension: String?, completionHandler handler: @escaping (RPBroadcastActivityController?, Error?) -> Void)
   @available(macOS 11.0, *)
-  class func showBroadcastPicker(at point: CGPoint, from window: NSWindow?, preferredExtensionIdentifier preferredExtension: String?) async throws -> RPBroadcastActivityController?
+  class func showBroadcastPicker(at point: CGPoint, from window: NSWindow?, preferredExtensionIdentifier preferredExtension: String?) async throws -> RPBroadcastActivityController
   weak var delegate: @sil_weak RPBroadcastActivityControllerDelegate?
 }
 @available(macOS 11.0, *)

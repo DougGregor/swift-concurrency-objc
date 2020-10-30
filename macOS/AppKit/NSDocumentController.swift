@@ -25,12 +25,12 @@ class NSDocumentController : NSObject, NSCoding, NSMenuItemValidation, NSUserInt
   @available(macOS 10.7, *)
   func openDocument(withContentsOf url: URL, display displayDocument: Bool, completionHandler: @escaping (NSDocument?, Bool, Error?) -> Void)
   @available(macOS 10.7, *)
-  func openDocument(withContentsOf url: URL, display displayDocument: Bool) async throws -> (NSDocument?, Bool)
+  func openDocument(withContentsOf url: URL, display displayDocument: Bool) async throws -> (NSDocument, Bool)
   func makeDocument(withContentsOf url: URL, ofType typeName: String) throws -> NSDocument
   @available(macOS 10.7, *)
   func reopenDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool, completionHandler: @escaping (NSDocument?, Bool, Error?) -> Void)
   @available(macOS 10.7, *)
-  func reopenDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool) async throws -> (NSDocument?, Bool)
+  func reopenDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, display displayDocument: Bool) async throws -> (NSDocument, Bool)
   func makeDocument(for urlOrNil: URL?, withContentsOf contentsURL: URL, ofType typeName: String) throws -> NSDocument
   var autosavingDelay: TimeInterval
   @IBAction func saveAllDocuments(_ sender: Any?)

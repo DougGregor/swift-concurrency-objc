@@ -94,21 +94,21 @@ class GKTurnBasedMatch : NSObject {
   @available(watchOS 3.0, *)
   var exchangeMaxInitiatedExchangesPerPlayer: Int { get }
   class func find(for request: GKMatchRequest, withCompletionHandler completionHandler: @escaping (GKTurnBasedMatch?, Error?) -> Void)
-  class func find(for request: GKMatchRequest) async throws -> GKTurnBasedMatch?
+  class func find(for request: GKMatchRequest) async throws -> GKTurnBasedMatch
   class func loadMatches(completionHandler: (([GKTurnBasedMatch]?, Error?) -> Void)? = nil)
-  class func loadMatches() async throws -> [GKTurnBasedMatch]?
+  class func loadMatches() async throws -> [GKTurnBasedMatch]
   @available(watchOS 3.0, *)
   class func load(withID matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  class func load(withID matchID: String) async throws -> GKTurnBasedMatch?
+  class func load(withID matchID: String) async throws -> GKTurnBasedMatch
   @available(watchOS 3.0, *)
   func rematch(completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func rematch() async throws -> GKTurnBasedMatch?
+  func rematch() async throws -> GKTurnBasedMatch
   @available(watchOS 3.0, *)
   func acceptInvite(completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func acceptInvite() async throws -> GKTurnBasedMatch?
+  func acceptInvite() async throws -> GKTurnBasedMatch
   @available(watchOS 3.0, *)
   func declineInvite(completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
@@ -116,7 +116,7 @@ class GKTurnBasedMatch : NSObject {
   func remove(completionHandler: ((Error?) -> Void)? = nil)
   func remove() async throws
   func loadMatchData(completionHandler: ((Data?, Error?) -> Void)? = nil)
-  func loadMatchData() async throws -> Data?
+  func loadMatchData() async throws -> Data
   @available(watchOS 3.0, *)
   func endTurn(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
@@ -148,7 +148,7 @@ class GKTurnBasedMatch : NSObject {
   @available(watchOS 3.0, *)
   func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval, completionHandler: ((GKTurnBasedExchange?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval) async throws -> GKTurnBasedExchange?
+  func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval) async throws -> GKTurnBasedExchange
   @available(watchOS 3.0, *)
   func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)

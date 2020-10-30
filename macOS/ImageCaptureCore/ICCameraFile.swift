@@ -50,15 +50,15 @@ class ICCameraFile : ICCameraItem {
   @available(macOS 10.15, *)
   func requestThumbnailData(options: [ICCameraItemThumbnailOption : Any]? = nil, completion: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.15, *)
-  func requestThumbnailData(options: [ICCameraItemThumbnailOption : Any]? = nil) async throws -> Data?
+  func requestThumbnailData(options: [ICCameraItemThumbnailOption : Any]? = nil) async throws -> Data
   @available(macOS 10.15, *)
   func requestMetadataDictionary(options: [ICCameraItemMetadataOption : Any]? = nil, completion: @escaping ([AnyHashable : Any]?, Error?) -> Void)
   @available(macOS 10.15, *)
-  func requestMetadataDictionary(options: [ICCameraItemMetadataOption : Any]? = nil) async throws -> [AnyHashable : Any]?
+  func requestMetadataDictionary(options: [ICCameraItemMetadataOption : Any]? = nil) async throws -> [AnyHashable : Any]
   @available(macOS 10.15, *)
   func requestDownload(options: [ICDownloadOption : Any]? = nil, completion: @escaping (String?, Error?) -> Void) -> Progress?
   @available(macOS 10.15, *)
   func requestReadData(atOffset offset: off_t, length: off_t, completion: @escaping (Data?, Error?) -> Void)
   @available(macOS 10.15, *)
-  func requestReadData(atOffset offset: off_t, length: off_t) async throws -> Data?
+  func requestReadData(atOffset offset: off_t, length: off_t) async throws -> Data
 }

@@ -44,9 +44,9 @@ class UIDocumentBrowserViewController : UIViewController, NSCoding {
   var additionalLeadingNavigationBarButtonItems: [UIBarButtonItem]
   var additionalTrailingNavigationBarButtonItems: [UIBarButtonItem]
   func revealDocument(at url: URL, importIfNeeded: Bool, completion: ((URL?, Error?) -> Void)? = nil)
-  func revealDocument(at url: URL, importIfNeeded: Bool) async throws -> URL?
+  func revealDocument(at url: URL, importIfNeeded: Bool) async throws -> URL
   func importDocument(at documentURL: URL, nextToDocumentAt neighbourURL: URL, mode importMode: UIDocumentBrowserViewController.ImportMode, completionHandler completion: @escaping (URL?, Error?) -> Void)
-  func importDocument(at documentURL: URL, nextToDocumentAt neighbourURL: URL, mode importMode: UIDocumentBrowserViewController.ImportMode) async throws -> URL?
+  func importDocument(at documentURL: URL, nextToDocumentAt neighbourURL: URL, mode importMode: UIDocumentBrowserViewController.ImportMode) async throws -> URL
   @available(iOS 12.0, *)
   func transitionController(forDocumentAt documentURL: URL) -> UIDocumentBrowserTransitionController
   @available(iOS, introduced: 11.0, deprecated: 12.0)

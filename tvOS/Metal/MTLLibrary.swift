@@ -136,11 +136,11 @@ protocol MTLLibrary : NSObjectProtocol {
   @available(tvOS 10.0, *)
   func makeFunction(name: String, constantValues: MTLFunctionConstantValues, completionHandler: @escaping (MTLFunction?, Error?) -> Void)
   @available(tvOS 10.0, *)
-  func makeFunction(name: String, constantValues: MTLFunctionConstantValues) async throws -> MTLFunction?
+  func makeFunction(name: String, constantValues: MTLFunctionConstantValues) async throws -> MTLFunction
   @available(tvOS 14.0, *)
   func makeFunction(descriptor: MTLFunctionDescriptor, completionHandler: @escaping (MTLFunction?, Error?) -> Void)
   @available(tvOS 14.0, *)
-  func makeFunction(descriptor: MTLFunctionDescriptor) async throws -> MTLFunction?
+  func makeFunction(descriptor: MTLFunctionDescriptor) async throws -> MTLFunction
   @available(tvOS 14.0, *)
   func makeFunction(descriptor: MTLFunctionDescriptor) throws -> MTLFunction
   var functionNames: [String] { get }

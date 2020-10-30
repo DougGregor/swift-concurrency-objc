@@ -129,7 +129,7 @@ class URLSessionDownloadTask : URLSessionTask {
 @available(macOS 10.11, *)
 class URLSessionStreamTask : URLSessionTask {
   func readData(ofMinLength minBytes: Int, maxLength maxBytes: Int, timeout: TimeInterval, completionHandler: @escaping (Data?, Bool, Error?) -> Void)
-  func readData(ofMinLength minBytes: Int, maxLength maxBytes: Int, timeout: TimeInterval) async throws -> (Data?, Bool)
+  func readData(ofMinLength minBytes: Int, maxLength maxBytes: Int, timeout: TimeInterval) async throws -> (Data, Bool)
   func write(_ data: Data, timeout: TimeInterval, completionHandler: @escaping (Error?) -> Void)
   func write(_ data: Data, timeout: TimeInterval) async throws
   func captureStreams()
@@ -179,7 +179,7 @@ class URLSessionWebSocketTask : URLSessionTask {
   func __send(_ message: __NSURLSessionWebSocketMessage, completionHandler: @escaping (Error?) -> Void)
   func __send(_ message: __NSURLSessionWebSocketMessage) async throws
   func __receiveMessage(completionHandler: @escaping (__NSURLSessionWebSocketMessage?, Error?) -> Void)
-  func __receiveMessage() async throws -> __NSURLSessionWebSocketMessage?
+  func __receiveMessage() async throws -> __NSURLSessionWebSocketMessage
   func sendPing(pongReceiveHandler: @escaping (Error?) -> Void)
   func cancel(with closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?)
   var maximumMessageSize: Int

@@ -25,7 +25,7 @@ class MPMediaLibrary : NSObject, NSSecureCoding {
   @available(iOS 9.3, *)
   func getPlaylist(with uuid: UUID, creationMetadata: MPMediaPlaylistCreationMetadata?, completionHandler: @escaping (MPMediaPlaylist?, Error?) -> Void)
   @available(iOS 9.3, *)
-  func getPlaylist(with uuid: UUID, creationMetadata: MPMediaPlaylistCreationMetadata?) async throws -> MPMediaPlaylist?
+  func getPlaylist(with uuid: UUID, creationMetadata: MPMediaPlaylistCreationMetadata?) async throws -> MPMediaPlaylist
 }
 extension NSNotification.Name {
   static let MPMediaLibraryDidChange: NSNotification.Name

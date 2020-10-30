@@ -13,9 +13,9 @@ class GKLocalPlayer : GKPlayer {
   @available(macOS 10.11, *)
   func loadRecentPlayers(completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(macOS 10.11, *)
-  func loadRecentPlayers() async throws -> [GKPlayer]?
+  func loadRecentPlayers() async throws -> [GKPlayer]
   func loadChallengableFriends(completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
-  func loadChallengableFriends() async throws -> [GKPlayer]?
+  func loadChallengableFriends() async throws -> [GKPlayer]
   @available(macOS 10.10, *)
   func setDefaultLeaderboardIdentifier(_ leaderboardIdentifier: String, completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.10, *)
@@ -23,11 +23,11 @@ class GKLocalPlayer : GKPlayer {
   @available(macOS 10.10, *)
   func loadDefaultLeaderboardIdentifier(completionHandler: ((String?, Error?) -> Void)? = nil)
   @available(macOS 10.10, *)
-  func loadDefaultLeaderboardIdentifier() async throws -> String?
+  func loadDefaultLeaderboardIdentifier() async throws -> String
   @available(macOS 10.15.5, *)
   func fetchItems(forIdentityVerificationSignature completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
   @available(macOS 10.15.5, *)
-  func fetchItemsForIdentityVerificationSignature() async throws -> (URL?, Data?, Data?, UInt64)
+  func fetchItemsForIdentityVerificationSignature() async throws -> (URL, Data, Data, UInt64)
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKSavedGameListener, GKTurnBasedEventListener {
 }
@@ -51,21 +51,21 @@ extension GKLocalPlayer {
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use loadDefaultLeaderboardIdentifierWithCompletionHandler: instead")
   func loadDefaultLeaderboardCategoryID(completionHandler: ((String?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use loadDefaultLeaderboardIdentifierWithCompletionHandler: instead")
-  func loadDefaultLeaderboardCategoryID() async throws -> String?
+  func loadDefaultLeaderboardCategoryID() async throws -> String
   @available(macOS, introduced: 10.10, deprecated: 10.11)
   func loadFriendPlayers(completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.10, deprecated: 10.11)
-  func loadFriendPlayers() async throws -> [GKPlayer]?
+  func loadFriendPlayers() async throws -> [GKPlayer]
   @available(macOS, introduced: 10.10, deprecated: 10.15.5, message: "API deprecated. Use fetchItemsForIdentityVerificationSignature: and the teamPlayerID value to verify a user identity.")
   func generateIdentityVerificationSignature(completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.10, deprecated: 10.15.5, message: "API deprecated. Use fetchItemsForIdentityVerificationSignature: and the teamPlayerID value to verify a user identity.")
-  func generateIdentityVerificationSignature() async throws -> (URL?, Data?, Data?, UInt64)
+  func generateIdentityVerificationSignature() async throws -> (URL, Data, Data, UInt64)
 }
 extension GKLocalPlayer {
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "This is never invoked and its implementation does nothing, use loadRecentPlayersWithCompletionHandler: instead")
   func loadFriends(completionHandler: (([String]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "This is never invoked and its implementation does nothing, use loadRecentPlayersWithCompletionHandler: instead")
-  func loadFriends() async throws -> [String]?
+  func loadFriends() async throws -> [String]
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: " This property is obsolete, Use loadFriendPlayersWithCompletionHandler: instead")
   var friends: [String]? { get }
 }

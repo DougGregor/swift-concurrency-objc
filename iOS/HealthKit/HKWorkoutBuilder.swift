@@ -19,7 +19,7 @@ class HKWorkoutBuilder : NSObject {
   func endCollection(withEnd endDate: Date, completion: @escaping (Bool, Error?) -> Void)
   func endCollection(withEnd endDate: Date) async throws -> Bool
   func finishWorkout(completion: @escaping (HKWorkout?, Error?) -> Void)
-  func finishWorkout() async throws -> HKWorkout?
+  func finishWorkout() async throws -> HKWorkout
   func discardWorkout()
   func elapsedTime(at date: Date) -> TimeInterval
   func statistics(for quantityType: HKQuantityType) -> HKStatistics?

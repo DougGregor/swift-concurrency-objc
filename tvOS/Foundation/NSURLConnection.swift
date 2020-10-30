@@ -56,5 +56,5 @@ extension NSURLConnection {
   @available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
   class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue, completionHandler handler: @escaping (URLResponse?, Data?, Error?) -> Void)
   @available(tvOS, introduced: 9.0, deprecated: 9.0, message: "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h")
-  class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue) async throws -> (URLResponse?, Data?)
+  class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue) async throws -> (URLResponse, Data)
 }

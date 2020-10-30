@@ -33,7 +33,7 @@ class ADClient : NSObject {
   @available(iOS 9.0, *)
   func requestAttributionDetails(_ completionHandler: @escaping ([String : NSObject]?, Error?) -> Void)
   @available(iOS 9.0, *)
-  func requestAttributionDetailsWithBlock() async throws -> [String : NSObject]?
+  func requestAttributionDetailsWithBlock() async throws -> [String : NSObject]
   @available(iOS, introduced: 8.0, deprecated: 13.0)
   func add(toSegments segmentIdentifiers: [String], replaceExisting: Bool)
 }

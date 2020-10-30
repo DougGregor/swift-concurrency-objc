@@ -55,7 +55,7 @@ class PKPassLibrary : NSObject {
   func activate(_ secureElementPass: PKSecureElementPass, activationData: Data, completion: ((Bool, Error?) -> Void)? = nil)
   func activate(_ secureElementPass: PKSecureElementPass, activationData: Data) async throws -> Bool
   func sign(_ signData: Data, using secureElementPass: PKSecureElementPass, completion: @escaping (Data?, Data?, Error?) -> Void)
-  func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data?, Data?)
+  func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data, Data)
 }
 struct PKPassLibraryNotificationName : _ObjectiveCBridgeable, Hashable, Equatable, _SwiftNewtypeWrapper, RawRepresentable {
   init(_ rawValue: String)

@@ -8,5 +8,5 @@ class HKHeartbeatSeriesBuilder : HKSeriesBuilder {
   func addMetadata(_ metadata: [String : Any], completion: @escaping (Bool, Error?) -> Void)
   func addMetadata(_ metadata: [String : Any]) async throws -> Bool
   func finishSeries(completion: @escaping (HKHeartbeatSeriesSample?, Error?) -> Void)
-  func finishSeries() async throws -> HKHeartbeatSeriesSample?
+  func finishSeries() async throws -> HKHeartbeatSeriesSample
 }

@@ -30,15 +30,15 @@ class AVContentKeySession : NSObject {
   @available(iOS 11.0, *)
   func makeSecureTokenForExpirationDate(ofPersistableContentKey persistableContentKeyData: Data, completionHandler handler: @escaping (Data?, Error?) -> Void)
   @available(iOS 11.0, *)
-  func makeSecureTokenForExpirationDate(ofPersistableContentKey persistableContentKeyData: Data) async throws -> Data?
+  func makeSecureTokenForExpirationDate(ofPersistableContentKey persistableContentKeyData: Data) async throws -> Data
   @available(iOS 12.2, *)
   func invalidatePersistableContentKey(_ persistableContentKeyData: Data, options: [AVContentKeySessionServerPlaybackContextOption : Any]? = nil, completionHandler handler: @escaping (Data?, Error?) -> Void)
   @available(iOS 12.2, *)
-  func invalidatePersistableContentKey(_ persistableContentKeyData: Data, options: [AVContentKeySessionServerPlaybackContextOption : Any]? = nil) async throws -> Data?
+  func invalidatePersistableContentKey(_ persistableContentKeyData: Data, options: [AVContentKeySessionServerPlaybackContextOption : Any]? = nil) async throws -> Data
   @available(iOS 12.2, *)
   func invalidateAllPersistableContentKeys(forApp appIdentifier: Data, options: [AVContentKeySessionServerPlaybackContextOption : Any]? = nil, completionHandler handler: @escaping (Data?, Error?) -> Void)
   @available(iOS 12.2, *)
-  func invalidateAllPersistableContentKeys(forApp appIdentifier: Data, options: [AVContentKeySessionServerPlaybackContextOption : Any]? = nil) async throws -> Data?
+  func invalidateAllPersistableContentKeys(forApp appIdentifier: Data, options: [AVContentKeySessionServerPlaybackContextOption : Any]? = nil) async throws -> Data
 }
 struct AVContentKeySessionServerPlaybackContextOption : _ObjectiveCBridgeable, Hashable, Equatable, _SwiftNewtypeWrapper, RawRepresentable {
   init(rawValue: String)
@@ -112,7 +112,7 @@ class AVContentKeyRequest : NSObject {
   var options: [String : Any] { get }
   var canProvidePersistableContentKey: Bool { get }
   func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil, completionHandler handler: @escaping (Data?, Error?) -> Void)
-  func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil) async throws -> Data?
+  func makeStreamingContentKeyRequestData(forApp appIdentifier: Data, contentIdentifier: Data?, options: [String : Any]? = nil) async throws -> Data
   func processContentKeyResponse(_ keyResponse: AVContentKeyResponse)
   func processContentKeyResponseError(_ error: Error)
   @available(iOS, introduced: 10.3, deprecated: 11.2, message: "Use respondByRequestingPersistableContentKeyRequestAndReturnError: instead.")

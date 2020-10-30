@@ -30,19 +30,19 @@ class SKCloudServiceController : NSObject {
   @available(iOS 11.0, *)
   func requestStorefrontCountryCode(completionHandler: @escaping (String?, Error?) -> Void)
   @available(iOS 11.0, *)
-  func requestStorefrontCountryCode() async throws -> String?
+  func requestStorefrontCountryCode() async throws -> String
   @available(iOS 9.3, *)
   func requestStorefrontIdentifier(completionHandler: @escaping (String?, Error?) -> Void)
   @available(iOS 9.3, *)
-  func requestStorefrontIdentifier() async throws -> String?
+  func requestStorefrontIdentifier() async throws -> String
   @available(iOS 11.0, *)
   func requestUserToken(forDeveloperToken developerToken: String, completionHandler: @escaping (String?, Error?) -> Void)
   @available(iOS 11.0, *)
-  func requestUserToken(forDeveloperToken developerToken: String) async throws -> String?
+  func requestUserToken(forDeveloperToken developerToken: String) async throws -> String
   @available(iOS, introduced: 10.3, deprecated: 11.0)
   func requestPersonalizationToken(forClientToken clientToken: String, withCompletionHandler completionHandler: @escaping (String?, Error?) -> Void)
   @available(iOS, introduced: 10.3, deprecated: 11.0)
-  func requestPersonalizationToken(forClientToken clientToken: String) async throws -> String?
+  func requestPersonalizationToken(forClientToken clientToken: String) async throws -> String
 }
 extension NSNotification.Name {
   @available(iOS 9.3, *)

@@ -89,5 +89,5 @@ extension CLSContext {
   func removeFromParent()
   func addChildContext(_ child: CLSContext)
   func descendant(matchingIdentifierPath identifierPath: [String], completion: @escaping (CLSContext?, Error?) -> Void)
-  func descendant(matchingIdentifierPath identifierPath: [String]) async throws -> CLSContext?
+  func descendant(matchingIdentifierPath identifierPath: [String]) async throws -> CLSContext
 }

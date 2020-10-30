@@ -19,7 +19,7 @@ class NSFileVersion : NSObject {
   @available(tvOS 9.0, *)
   class func getNonlocalVersionsOfItem(at url: URL, completionHandler: @escaping ([NSFileVersion]?, Error?) -> Void)
   @available(tvOS 9.0, *)
-  class func nonlocalVersionsOfItem(at url: URL) async throws -> [NSFileVersion]?
+  class func nonlocalVersionsOfItem(at url: URL) async throws -> [NSFileVersion]
   class func version(itemAt url: URL, forPersistentIdentifier persistentIdentifier: Any) -> NSFileVersion?
   var url: URL { get }
   var localizedName: String? { get }

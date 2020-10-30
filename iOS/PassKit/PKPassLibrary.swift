@@ -76,7 +76,7 @@ class PKPassLibrary : NSObject {
   @available(iOS 13.4, *)
   func sign(_ signData: Data, using secureElementPass: PKSecureElementPass, completion: @escaping (Data?, Data?, Error?) -> Void)
   @available(iOS 13.4, *)
-  func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data?, Data?)
+  func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data, Data)
 }
 struct PKPassLibraryNotificationName : _ObjectiveCBridgeable, Hashable, Equatable, _SwiftNewtypeWrapper, RawRepresentable {
   init(_ rawValue: String)
