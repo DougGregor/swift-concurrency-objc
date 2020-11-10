@@ -2,9 +2,6 @@
 typealias CFErrorDomain = CFString
 class CFError : _CFObject {
 }
-
-extension CFError : Error {
-}
 @available(iOS 2.0, *)
 func CFErrorGetTypeID() -> CFTypeID
 @available(iOS 2.0, *)

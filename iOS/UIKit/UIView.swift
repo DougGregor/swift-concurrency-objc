@@ -251,7 +251,7 @@ extension UIView {
   @available(iOS 4.0, *)
   class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void) async -> Bool
+  class func animateAsync(withDuration duration: TimeInterval, animations: @escaping () -> Void) async -> Bool
   @available(iOS 4.0, *)
   class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void)
   @available(iOS 7.0, *)

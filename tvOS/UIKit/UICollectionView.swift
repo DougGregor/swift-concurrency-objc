@@ -119,7 +119,7 @@ class UICollectionView : UIScrollView, UIDataSourceTranslating {
   @available(tvOS 7.0, *)
   func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool) async -> Bool
+  func setCollectionViewLayoutAsync(_ layout: UICollectionViewLayout, animated: Bool) async -> Bool
   @available(tvOS 7.0, *)
   func startInteractiveTransition(to layout: UICollectionViewLayout, completion: UICollectionView.LayoutInteractiveTransitionCompletion? = nil) -> UICollectionViewTransitionLayout
   @available(tvOS 7.0, *)

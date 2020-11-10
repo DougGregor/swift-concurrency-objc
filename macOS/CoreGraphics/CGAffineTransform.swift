@@ -19,9 +19,6 @@ extension CGAffineTransform {
 
 extension CGAffineTransform : Codable {
 }
-
-extension CGAffineTransform : _ObjectiveCBridgeable {
-}
 extension CGAffineTransform {
   @available(macOS 10.0, *)
   /*not inherited*/ init(translationX tx: CGFloat, y ty: CGFloat)

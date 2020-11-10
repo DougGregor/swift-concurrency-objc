@@ -75,17 +75,17 @@ extension AVPlayer {
   @available(iOS 5.0, *)
   func seek(to date: Date, completionHandler: @escaping (Bool) -> Void)
   @available(iOS 5.0, *)
-  func seek(to date: Date) async -> Bool
+  func seekAsync(to date: Date) async -> Bool
   func seek(to time: CMTime)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(iOS 5.0, *)
   func seek(to time: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(iOS 5.0, *)
-  func seek(to time: CMTime) async -> Bool
+  func seekAsync(to time: CMTime) async -> Bool
   @available(iOS 5.0, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(iOS 5.0, *)
-  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
+  func seekAsync(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
 }
 extension AVPlayer {
   @available(iOS 10.0, *)

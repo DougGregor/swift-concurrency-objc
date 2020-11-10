@@ -127,7 +127,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func move(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func move() async -> Bool
+  func moveAsync() async -> Bool
   @available(macOS 10.8, *)
   func move(to url: URL, completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
@@ -139,7 +139,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func lock(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func lock() async -> Bool
+  func lockAsync() async -> Bool
   @available(macOS 10.8, *)
   func lock(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
@@ -147,7 +147,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func unlock(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func unlock() async -> Bool
+  func unlockAsync() async -> Bool
   @available(macOS 10.8, *)
   func unlock(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)

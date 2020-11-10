@@ -65,7 +65,7 @@ class SKNode : UIResponder, NSCopying, NSSecureCoding, UIFocusItem {
   func inParentHierarchy(_ parent: SKNode) -> Bool
   func run(_ action: SKAction)
   func run(_ action: SKAction, completion block: @escaping () -> Void)
-  func run(_ action: SKAction) async
+  func runActionAsync(_ action: SKAction) async
   func run(_ action: SKAction, withKey key: String)
   func hasActions() -> Bool
   func action(forKey key: String) -> SKAction?

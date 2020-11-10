@@ -8,31 +8,31 @@ class CPInterfaceController : NSObject {
   @available(iOS 14.0, *)
   func setRootTemplate(_ rootTemplate: CPTemplate, animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func setRootTemplate(_ rootTemplate: CPTemplate, animated: Bool) async throws -> Bool
+  func setRootTemplateAsync(_ rootTemplate: CPTemplate, animated: Bool) async throws -> Bool
   @available(iOS 14.0, *)
   func pushTemplate(_ templateToPush: CPTemplate, animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func pushTemplate(_ templateToPush: CPTemplate, animated: Bool) async throws -> Bool
+  func pushTemplateAsync(_ templateToPush: CPTemplate, animated: Bool) async throws -> Bool
   @available(iOS 14.0, *)
   func popTemplate(animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func popTemplate(animated: Bool) async throws -> Bool
+  func popTemplateAsync(animated: Bool) async throws -> Bool
   @available(iOS 14.0, *)
   func popToRootTemplate(animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func popToRootTemplate(animated: Bool) async throws -> Bool
+  func popToRootTemplateAsync(animated: Bool) async throws -> Bool
   @available(iOS 14.0, *)
   func pop(to targetTemplate: CPTemplate, animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func pop(to targetTemplate: CPTemplate, animated: Bool) async throws -> Bool
+  func popAsync(to targetTemplate: CPTemplate, animated: Bool) async throws -> Bool
   @available(iOS 14.0, *)
   func presentTemplate(_ templateToPresent: CPTemplate, animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func presentTemplate(_ templateToPresent: CPTemplate, animated: Bool) async throws -> Bool
+  func presentTemplateAsync(_ templateToPresent: CPTemplate, animated: Bool) async throws -> Bool
   @available(iOS 14.0, *)
   func dismissTemplate(animated: Bool, completion: ((Bool, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func dismissTemplate(animated: Bool) async throws -> Bool
+  func dismissTemplateAsync(animated: Bool) async throws -> Bool
   var presentedTemplate: CPTemplate? { get }
   var rootTemplate: CPTemplate { get }
   var topTemplate: CPTemplate? { get }

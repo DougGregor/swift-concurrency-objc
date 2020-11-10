@@ -65,17 +65,17 @@ extension AVPlayer {
   @available(watchOS 1.0, *)
   func seek(to date: Date, completionHandler: @escaping (Bool) -> Void)
   @available(watchOS 1.0, *)
-  func seek(to date: Date) async -> Bool
+  func seekAsync(to date: Date) async -> Bool
   func seek(to time: CMTime)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(watchOS 1.0, *)
   func seek(to time: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(watchOS 1.0, *)
-  func seek(to time: CMTime) async -> Bool
+  func seekAsync(to time: CMTime) async -> Bool
   @available(watchOS 1.0, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(watchOS 1.0, *)
-  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
+  func seekAsync(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
 }
 extension AVPlayer {
   @available(watchOS 3.0, *)

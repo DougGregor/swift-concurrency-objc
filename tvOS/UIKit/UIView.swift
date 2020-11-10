@@ -249,7 +249,7 @@ extension UIView {
   @available(tvOS 4.0, *)
   class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void) async -> Bool
+  class func animateAsync(withDuration duration: TimeInterval, animations: @escaping () -> Void) async -> Bool
   @available(tvOS 4.0, *)
   class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void)
   @available(tvOS 7.0, *)

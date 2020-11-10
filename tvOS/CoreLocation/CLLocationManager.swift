@@ -56,7 +56,7 @@ class CLLocationManager : NSObject {
   @available(tvOS 14.0, *)
   func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String, completion: ((Error?) -> Void)? = nil)
   @available(tvOS 14.0, *)
-  func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String) async throws
+  func requestTemporaryFullAccuracyAuthorizationAsync(withPurposeKey purposeKey: String) async throws
   @available(tvOS 14.0, *)
   func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String)
   func stopUpdatingLocation()

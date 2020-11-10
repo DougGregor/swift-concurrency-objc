@@ -71,7 +71,7 @@ protocol WKExtensionDelegate : NSObjectProtocol {
   @available(watchOS 6.0, *)
   @asyncHandler optional func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (WKBackgroundFetchResult) -> Void)
   @available(watchOS 6.0, *)
-  optional func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) async -> WKBackgroundFetchResult
+  optional func didReceiveRemoteNotificationAsync(_ userInfo: [AnyHashable : Any]) async -> WKBackgroundFetchResult
   @available(watchOS 2.0, *)
   @available(watchOS, deprecated: 3.0, message: "use UNUserNotificationCenterDelegate")
   optional func handleAction(withIdentifier identifier: String?, forRemoteNotification remoteNotification: [AnyHashable : Any])

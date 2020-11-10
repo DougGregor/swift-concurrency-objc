@@ -102,7 +102,7 @@ class ICDevice : NSObject {
   @available(iOS 13.0, *)
   func requestEject(completion: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
-  func requestEject() async throws
+  func requestEjectAsync() async throws
 }
 protocol ICDeviceDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
