@@ -7,6 +7,6 @@ class CBIdentityPicker : NSObject {
   @available(macOS, introduced: 10.5, deprecated: 10.11, message: "Use runModalForWindow:completionHandler: instead.")
   func runModal(for window: NSWindow, modalDelegate delegate: Any?, didEnd didEndSelector: Selector?, contextInfo: UnsafeMutableRawPointer?)
   func runModal(for window: NSWindow, completionHandler: ((NSApplication.ModalResponse) -> Void)? = nil)
-  func runModal(for window: NSWindow) async -> NSApplication.ModalResponse
+  func runModalAsync(for window: NSWindow) async -> NSApplication.ModalResponse
   var identities: [CBIdentity] { get }
 }

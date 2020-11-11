@@ -45,7 +45,7 @@ class UIApplication : UIResponder {
   @available(tvOS 10.0, *)
   func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
   @available(tvOS 10.0, *)
-  func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
+  func openURLAsync(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
   func sendEvent(_ event: UIEvent)
   @available(tvOS, introduced: 2.0, deprecated: 13.0, message: "Should not be used for applications that support multiple scenes as it returns a key window across all connected scenes")
   var keyWindow: UIWindow? { get }
@@ -113,7 +113,7 @@ extension UIApplication {
   @available(tvOS 10.2, *)
   func setAlternateIconName(_ alternateIconName: String?, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 10.2, *)
-  func setAlternateIconName(_ alternateIconName: String?) async throws
+  func setAlternateIconNameAsync(_ alternateIconName: String?) async throws
   @available(tvOS 10.2, *)
   var alternateIconName: String? { get }
 }

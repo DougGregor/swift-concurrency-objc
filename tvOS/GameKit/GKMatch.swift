@@ -32,7 +32,7 @@ class GKMatch : NSObject {
   @available(tvOS 6.0, *)
   func rematch(completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  func rematch() async throws -> GKMatch
+  func rematchAsync() async throws -> GKMatch
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)

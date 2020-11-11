@@ -69,11 +69,11 @@ extension GKLeaderboard {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use loadLeaderboardsWithIDs:completionHandler: instead")
   class func loadCategories(completionHandler: (([String]?, [String]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use loadLeaderboardsWithIDs:completionHandler: instead")
-  class func loadCategories() async throws -> ([String], [String])
+  class func loadCategoriesAsync() async throws -> ([String], [String])
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
   class func setDefault(_ leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
-  class func setDefault(_ leaderboardIdentifier: String?) async throws
+  class func setDefaultAsync(_ leaderboardIdentifier: String?) async throws
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler: instead.")
   var timeScope: GKLeaderboard.TimeScope
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler: instead.")
@@ -95,9 +95,9 @@ extension GKLeaderboard {
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
   func loadScores(completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
-  func loadScores() async throws -> [GKScore]
+  func loadScoresAsync() async throws -> [GKScore]
   @available(watchOS, introduced: 2.0, deprecated: 7.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
   class func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 7.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
-  class func loadLeaderboards() async throws -> [GKLeaderboard]
+  class func loadLeaderboardsAsync() async throws -> [GKLeaderboard]
 }

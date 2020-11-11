@@ -102,11 +102,11 @@ class NETunnelProvider : NEProvider {
   @available(iOS 9.0, *)
   func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)? = nil)
   @available(iOS 9.0, *)
-  func handleAppMessage(_ messageData: Data) async -> Data?
+  func handleAppMessageAsync(_ messageData: Data) async -> Data?
   @available(iOS 9.0, *)
   func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 9.0, *)
-  func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?) async throws
+  func setTunnelNetworkSettingsAsync(_ tunnelNetworkSettings: NETunnelNetworkSettings?) async throws
   @available(iOS 9.0, *)
   var protocolConfiguration: NEVPNProtocol { get }
   @available(iOS 9.0, *)
@@ -170,11 +170,11 @@ class NEVPNManager : NSObject {
   @available(iOS 8.0, *)
   func removeFromPreferences(completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func removeFromPreferences() async throws
+  func removeFromPreferencesAsync() async throws
   @available(iOS 8.0, *)
   func saveToPreferences(completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func saveToPreferences() async throws
+  func saveToPreferencesAsync() async throws
   @available(iOS 8.0, *)
   var onDemandRules: [NEOnDemandRule]?
   @available(iOS 8.0, *)
@@ -921,7 +921,7 @@ class NEHotspotConfigurationManager : NSObject {
   @available(iOS 11.0, *)
   func apply(_ configuration: NEHotspotConfiguration, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 11.0, *)
-  func apply(_ configuration: NEHotspotConfiguration) async throws
+  func applyConfigurationAsync(_ configuration: NEHotspotConfiguration) async throws
   @available(iOS 11.0, *)
   func removeConfiguration(forSSID SSID: String)
   @available(iOS 11.0, *)

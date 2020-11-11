@@ -10,7 +10,7 @@ enum GKChallengeState : Int {
 @available(iOS 6.0, *)
 class GKChallenge : NSObject, NSCoding, NSSecureCoding {
   class func loadReceivedChallenges(completionHandler: (([GKChallenge]?, Error?) -> Void)? = nil)
-  class func loadReceivedChallenges() async throws -> [GKChallenge]
+  class func loadReceivedChallengesAsync() async throws -> [GKChallenge]
   func decline()
   @available(iOS 8.0, *)
   @NSCopying var issuingPlayer: GKPlayer? { get }
@@ -39,21 +39,21 @@ extension GKScore {
   @available(iOS, introduced: 6.0, deprecated: 14.0, message: "pass GKLeaderboardScore to reportLeaderboardScores:withEligibleChallenges:withCompletionHandler instead")
   class func report(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS, introduced: 6.0, deprecated: 14.0, message: "pass GKLeaderboardScore to reportLeaderboardScores:withEligibleChallenges:withCompletionHandler instead")
-  class func report(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge]) async throws
+  class func reportScoresAsync(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge]) async throws
   @available(iOS 14.0, *)
   class func report(_ scores: [GKLeaderboardScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  class func report(_ scores: [GKLeaderboardScore], withEligibleChallenges challenges: [GKChallenge]) async throws
+  class func reportLeaderboardScoresAsync(_ scores: [GKLeaderboardScore], withEligibleChallenges challenges: [GKChallenge]) async throws
 }
 extension GKAchievement {
   @available(iOS 8.0, *)
   func selectChallengeablePlayers(_ players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func selectChallengeablePlayers(_ players: [GKPlayer]) async throws -> [GKPlayer]
+  func selectChallengeablePlayersAsync(_ players: [GKPlayer]) async throws -> [GKPlayer]
   @available(iOS 7.0, *)
   class func report(_ achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 7.0, *)
-  class func report(_ achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge]) async throws
+  class func reportAchievementsAsync(_ achievements: [GKAchievement], withEligibleChallenges challenges: [GKChallenge]) async throws
 }
 extension GKScore {
 }
@@ -61,7 +61,7 @@ extension GKAchievement {
   @available(iOS, introduced: 6.0, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, pass GKPlayers to selectChallengeablePlayers:")
   func selectChallengeablePlayerIDs(_ playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
   @available(iOS, introduced: 6.0, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, pass GKPlayers to selectChallengeablePlayers:")
-  func selectChallengeablePlayerIDs(_ playerIDs: [String]?) async throws -> [String]
+  func selectChallengeablePlayerIDsAsync(_ playerIDs: [String]?) async throws -> [String]
 }
 typealias GKChallengeComposeCompletionBlock = (UIViewController, Bool, [String]?) -> Void
 extension GKScore {

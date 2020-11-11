@@ -155,7 +155,7 @@ class UITableView : UIScrollView, NSCoding, UIDataSourceTranslating {
   @available(tvOS 11.0, *)
   func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(tvOS 11.0, *)
-  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
+  func performBatchUpdatesAsync(_ updates: (() -> Void)?) async -> Bool
   func beginUpdates()
   func endUpdates()
   func insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation)

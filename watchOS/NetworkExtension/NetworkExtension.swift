@@ -93,7 +93,7 @@ class NEHotspotConfigurationManager : NSObject {
   @available(watchOS 7.0, *)
   func apply(_ configuration: NEHotspotConfiguration, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 7.0, *)
-  func apply(_ configuration: NEHotspotConfiguration) async throws
+  func applyConfigurationAsync(_ configuration: NEHotspotConfiguration) async throws
   @available(watchOS 7.0, *)
   func removeConfiguration(forSSID SSID: String)
   @available(watchOS 7.0, *)

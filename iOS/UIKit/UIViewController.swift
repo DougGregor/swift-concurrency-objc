@@ -119,11 +119,11 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 5.0, *)
   func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 5.0, *)
-  func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) async
+  func presentAsync(_ viewControllerToPresent: UIViewController, animated flag: Bool) async
   @available(iOS 5.0, *)
   func dismiss(animated flag: Bool, completion: (() -> Void)? = nil)
   @available(iOS 5.0, *)
-  func dismiss(animated flag: Bool) async
+  func dismissAsync(animated flag: Bool) async
   @available(iOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(iOS 3.2, *)
@@ -196,7 +196,7 @@ extension UIViewController {
   @available(iOS 5.0, *)
   func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
   @available(iOS 5.0, *)
-  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -> Void)?) async -> Bool
+  func transitionAsync(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -> Void)?) async -> Bool
   @available(iOS 5.0, *)
   func beginAppearanceTransition(_ isAppearing: Bool, animated: Bool)
   @available(iOS 5.0, *)

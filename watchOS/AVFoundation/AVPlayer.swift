@@ -85,7 +85,7 @@ extension AVPlayer {
   @available(watchOS 1.0, *)
   func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(watchOS 1.0, *)
-  func preroll(atRate rate: Float) async -> Bool
+  func prerollAsync(atRate rate: Float) async -> Bool
   @available(watchOS 1.0, *)
   func cancelPendingPrerolls()
   @available(watchOS 1.0, *)

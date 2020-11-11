@@ -44,7 +44,7 @@ class GCController : NSObject, GCDevice {
   func capture() -> GCController
   class func controllers() -> [GCController]
   class func startWirelessControllerDiscovery(completionHandler: (() -> Void)? = nil)
-  class func startWirelessControllerDiscovery() async
+  class func startWirelessControllerDiscoveryAsync() async
   class func stopWirelessControllerDiscovery()
   @available(macOS 10.15, *)
   class func withMicroGamepad() -> GCController

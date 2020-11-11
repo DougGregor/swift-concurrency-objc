@@ -11,5 +11,5 @@ enum AVKeyValueStatus : Int {
 protocol AVAsynchronousKeyValueLoading {
   func statusOfValue(forKey key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   func loadValuesAsynchronously(forKeys keys: [String], completionHandler handler: (() -> Void)? = nil)
-  func loadValues(forKeys keys: [String]) async
+  func loadValuesAsync(forKeys keys: [String]) async
 }

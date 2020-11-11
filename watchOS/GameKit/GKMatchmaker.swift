@@ -62,5 +62,5 @@ extension GKMatchmaker {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use findPlayersForHostedRequest:")
   func findPlayers(forHostedMatchRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([String]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "This is never invoked and its implementation does nothing, use findPlayersForHostedRequest:")
-  func findPlayers(forHostedMatchRequest request: GKMatchRequest) async throws -> [String]
+  func findPlayersAsync(forHostedMatchRequest request: GKMatchRequest) async throws -> [String]
 }

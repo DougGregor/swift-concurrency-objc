@@ -105,7 +105,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.12, *)
   func stopBrowsingVersions(completionHandler: (() -> Void)? = nil)
   @available(macOS 10.12, *)
-  func stopBrowsingVersions() async
+  func stopBrowsingVersionsAsync() async
   @available(macOS 10.8, *)
   class var autosavesDrafts: Bool { get }
   var autosavingFileType: String? { get }
@@ -131,7 +131,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func move(to url: URL, completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func move(to url: URL) async throws
+  func moveAsync(to url: URL) async throws
   @available(macOS 10.8, *)
   @IBAction func lock(_ sender: Any?)
   @available(macOS 10.8, *)
@@ -143,7 +143,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func lock(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func lock() async throws
+  func lockAsync() async throws
   @available(macOS 10.8, *)
   func unlock(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
@@ -151,7 +151,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func unlock(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func unlock() async throws
+  func unlockAsync() async throws
   @available(macOS 10.8, *)
   var isLocked: Bool { get }
   @IBAction func runPageLayout(_ sender: Any?)
@@ -172,7 +172,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.13, *)
   func share(with sharingService: NSSharingService, completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.13, *)
-  func share(with sharingService: NSSharingService) async -> Bool
+  func shareAsync(with sharingService: NSSharingService) async -> Bool
   @available(macOS 10.13, *)
   func prepare(_ sharingServicePicker: NSSharingServicePicker)
   var isDocumentEdited: Bool { get }

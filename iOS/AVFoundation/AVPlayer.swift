@@ -95,7 +95,7 @@ extension AVPlayer {
   @available(iOS 6.0, *)
   func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(iOS 6.0, *)
-  func preroll(atRate rate: Float) async -> Bool
+  func prerollAsync(atRate rate: Float) async -> Bool
   @available(iOS 6.0, *)
   func cancelPendingPrerolls()
   @available(iOS 6.0, *)

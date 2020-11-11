@@ -95,7 +95,7 @@ extension AVPlayer {
   @available(tvOS 9.0, *)
   func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(tvOS 9.0, *)
-  func preroll(atRate rate: Float) async -> Bool
+  func prerollAsync(atRate rate: Float) async -> Bool
   @available(tvOS 9.0, *)
   func cancelPendingPrerolls()
   @available(tvOS 9.0, *)

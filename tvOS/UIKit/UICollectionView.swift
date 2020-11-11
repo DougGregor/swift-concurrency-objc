@@ -151,7 +151,7 @@ class UICollectionView : UIScrollView, UIDataSourceTranslating {
   func reloadItems(at indexPaths: [IndexPath])
   func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
-  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
+  func performBatchUpdatesAsync(_ updates: (() -> Void)?) async -> Bool
   @available(tvOS 9.0, *)
   func beginInteractiveMovementForItem(at indexPath: IndexPath) -> Bool
   @available(tvOS 9.0, *)

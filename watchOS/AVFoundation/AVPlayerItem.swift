@@ -83,11 +83,11 @@ extension AVPlayerItem {
   @available(watchOS 1.0, *)
   func seek(to time: CMTime, completionHandler: ((Bool) -> Void)? = nil)
   @available(watchOS 1.0, *)
-  func seek(to time: CMTime) async -> Bool
+  func seekAsync(to time: CMTime) async -> Bool
   @available(watchOS 1.0, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: ((Bool) -> Void)? = nil)
   @available(watchOS 1.0, *)
-  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
+  func seekAsync(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
   @available(watchOS 1.0, *)
   func cancelPendingSeeks()
   func currentDate() -> Date?

@@ -24,11 +24,11 @@ class MPMediaPlaylist : MPMediaItemCollection {
   @available(iOS 9.3, *)
   func addItem(withProductID productID: String, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 9.3, *)
-  func addItem(withProductID productID: String) async throws
+  func addItemAsync(withProductID productID: String) async throws
   @available(iOS 9.3, *)
   func add(_ mediaItems: [MPMediaItem], completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 9.3, *)
-  func add(_ mediaItems: [MPMediaItem]) async throws
+  func addMediaItemsAsync(_ mediaItems: [MPMediaItem]) async throws
 }
 let MPMediaPlaylistPropertyPersistentID: String
 @available(iOS 9.0, *)

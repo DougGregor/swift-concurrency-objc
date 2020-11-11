@@ -94,7 +94,7 @@ extension AVCaptureDevice {
   @available(watchOS 2.0, *)
   func setExposureTargetBias(_ bias: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
   @available(watchOS 2.0, *)
-  func setExposureTargetBias(_ bias: Float) async -> CMTime
+  func setExposureTargetBiasAsync(_ bias: Float) async -> CMTime
 }
 extension AVCaptureDevice {
 }

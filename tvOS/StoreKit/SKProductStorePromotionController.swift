@@ -14,7 +14,7 @@ class SKProductStorePromotionController : NSObject {
   @available(tvOS 11.0, *)
   func fetchStorePromotionVisibility(for product: SKProduct, completionHandler: ((SKProductStorePromotionVisibility, Error?) -> Void)? = nil)
   @available(tvOS 11.0, *)
-  func fetchStorePromotionVisibility(for product: SKProduct) async throws -> SKProductStorePromotionVisibility
+  func fetchStorePromotionVisibilityAsync(for product: SKProduct) async throws -> SKProductStorePromotionVisibility
   @available(tvOS 11.0, *)
   func update(storePromotionVisibility promotionVisibility: SKProductStorePromotionVisibility, for product: SKProduct, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 11.0, *)
@@ -22,7 +22,7 @@ class SKProductStorePromotionController : NSObject {
   @available(tvOS 11.0, *)
   func fetchStorePromotionOrder(completionHandler: (([SKProduct], Error?) -> Void)? = nil)
   @available(tvOS 11.0, *)
-  func fetchStorePromotionOrder() async throws -> [SKProduct]
+  func fetchStorePromotionOrderAsync() async throws -> [SKProduct]
   @available(tvOS 11.0, *)
   func update(storePromotionOrder: [SKProduct], completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 11.0, *)

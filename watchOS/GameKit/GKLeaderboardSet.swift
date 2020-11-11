@@ -7,7 +7,7 @@ class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
   @available(watchOS 2.0, *)
   class func loadLeaderboardSets(completionHandler: (([GKLeaderboardSet]?, Error?) -> Void)? = nil)
   @available(watchOS 2.0, *)
-  class func loadLeaderboardSets() async throws -> [GKLeaderboardSet]
+  class func loadLeaderboardSetsAsync() async throws -> [GKLeaderboardSet]
   @available(watchOS 7.0, *)
   func loadLeaderboards(handler: @escaping ([GKLeaderboard]?, Error?) -> Void)
 }
@@ -15,5 +15,5 @@ extension GKLeaderboardSet {
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadLeaderboardsWithHandler: instead.")
   func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(watchOS, introduced: 3.0, deprecated: 7.0, message: "Use loadLeaderboardsWithHandler: instead.")
-  func loadLeaderboards() async throws -> [GKLeaderboard]
+  func loadLeaderboardsAsync() async throws -> [GKLeaderboard]
 }

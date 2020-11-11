@@ -28,15 +28,15 @@ class WKWebView : UIView {
   func reloadFromOrigin() -> WKNavigation?
   func stopLoading()
   func evaluateJavaScript(_ javaScriptString: String, completionHandler: ((Any?, Error?) -> Void)? = nil)
-  func evaluateJavaScript(_ javaScriptString: String) async throws -> Any
+  func evaluateJavaScriptAsync(_ javaScriptString: String) async throws -> Any
   @available(iOS 14.0, *)
   func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: ((Any?, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func __evaluateJavaScript(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any
+  func __evaluateJavaScriptAsync(_ javaScriptString: String, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any
   @available(iOS 14.0, *)
   func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: ((Any?, Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func __callAsyncJavaScript(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any
+  func __callAsyncJavaScriptAsync(_ functionBody: String, arguments: [String : Any]?, inFrame frame: WKFrameInfo?, in contentWorld: WKContentWorld) async throws -> Any
   @available(iOS 11.0, *)
   func takeSnapshot(with snapshotConfiguration: WKSnapshotConfiguration?, completionHandler: @escaping (UIImage?, Error?) -> Void)
   @available(iOS 11.0, *)

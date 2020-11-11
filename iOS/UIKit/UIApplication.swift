@@ -94,7 +94,7 @@ class UIApplication : UIResponder {
   @available(iOS 10.0, *)
   func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
   @available(iOS 10.0, *)
-  func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
+  func openURLAsync(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
   func sendEvent(_ event: UIEvent)
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Should not be used for applications that support multiple scenes as it returns a key window across all connected scenes")
   var keyWindow: UIWindow? { get }
@@ -200,7 +200,7 @@ extension UIApplication {
   @available(iOS 10.3, *)
   func setAlternateIconName(_ alternateIconName: String?, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 10.3, *)
-  func setAlternateIconName(_ alternateIconName: String?) async throws
+  func setAlternateIconNameAsync(_ alternateIconName: String?) async throws
   @available(iOS 10.3, *)
   var alternateIconName: String? { get }
 }

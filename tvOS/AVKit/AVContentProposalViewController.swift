@@ -14,7 +14,7 @@ class AVContentProposalViewController : UIViewController {
   var playerLayoutGuide: UILayoutGuide { get }
   var dateOfAutomaticAcceptance: Date?
   func dismissContentProposal(for action: AVContentProposalAction, animated: Bool, completion block: (() -> Void)? = nil)
-  func dismissContentProposal(for action: AVContentProposalAction, animated: Bool) async
+  func dismissContentProposalAsync(for action: AVContentProposalAction, animated: Bool) async
 }
 extension AVPlayerViewController {
   @available(tvOS 10.0, *)

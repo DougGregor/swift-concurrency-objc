@@ -9,7 +9,7 @@ class MPNowPlayingSession : NSObject {
   var canBecomeActive: Bool { get }
   var isActive: Bool { get }
   func becomeActiveIfPossible(completion: ((Bool) -> Void)? = nil)
-  func becomeActiveIfPossible() async -> Bool
+  func becomeActiveIfPossibleAsync() async -> Bool
   func addPlayer(_ player: AVPlayer)
   func removePlayer(_ player: AVPlayer)
 }

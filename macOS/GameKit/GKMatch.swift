@@ -32,7 +32,7 @@ class GKMatch : NSObject {
   @available(macOS 10.9, *)
   func rematch(completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
   @available(macOS 10.9, *)
-  func rematch() async throws -> GKMatch
+  func rematchAsync() async throws -> GKMatch
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(macOS 10.10, *)

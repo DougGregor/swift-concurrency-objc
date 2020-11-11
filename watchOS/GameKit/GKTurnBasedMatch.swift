@@ -96,43 +96,43 @@ class GKTurnBasedMatch : NSObject {
   class func find(for request: GKMatchRequest, withCompletionHandler completionHandler: @escaping (GKTurnBasedMatch?, Error?) -> Void)
   class func find(for request: GKMatchRequest) async throws -> GKTurnBasedMatch
   class func loadMatches(completionHandler: (([GKTurnBasedMatch]?, Error?) -> Void)? = nil)
-  class func loadMatches() async throws -> [GKTurnBasedMatch]
+  class func loadMatchesAsync() async throws -> [GKTurnBasedMatch]
   @available(watchOS 3.0, *)
   class func load(withID matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  class func load(withID matchID: String) async throws -> GKTurnBasedMatch
+  class func loadAsync(withID matchID: String) async throws -> GKTurnBasedMatch
   @available(watchOS 3.0, *)
   func rematch(completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func rematch() async throws -> GKTurnBasedMatch
+  func rematchAsync() async throws -> GKTurnBasedMatch
   @available(watchOS 3.0, *)
   func acceptInvite(completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func acceptInvite() async throws -> GKTurnBasedMatch
+  func acceptInviteAsync() async throws -> GKTurnBasedMatch
   @available(watchOS 3.0, *)
   func declineInvite(completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func declineInvite() async throws
+  func declineInviteAsync() async throws
   func remove(completionHandler: ((Error?) -> Void)? = nil)
-  func remove() async throws
+  func removeAsync() async throws
   func loadMatchData(completionHandler: ((Data?, Error?) -> Void)? = nil)
-  func loadMatchData() async throws -> Data
+  func loadMatchDataAsync() async throws -> Data
   @available(watchOS 3.0, *)
   func endTurn(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func endTurn(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
+  func endTurnAsync(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
   @available(watchOS 3.0, *)
   func participantQuitInTurn(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func participantQuitInTurn(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
+  func participantQuitInTurnAsync(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
   func participantQuitOutOfTurn(with matchOutcome: GKTurnBasedMatch.Outcome, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
-  func participantQuitOutOfTurn(with matchOutcome: GKTurnBasedMatch.Outcome) async throws
+  func participantQuitOutOfTurnAsync(with matchOutcome: GKTurnBasedMatch.Outcome) async throws
   func endMatchInTurn(withMatch matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
-  func endMatchInTurn(withMatch matchData: Data) async throws
+  func endMatchInTurnAsync(withMatch matchData: Data) async throws
   @available(watchOS, introduced: 2.0, deprecated: 7.0, message: "pass GKLeaderboardScore to endMatchInTurnWithMatchData:scores:completionHandler instead")
   func endMatchInTurn(withMatch matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 7.0, message: "pass GKLeaderboardScore to endMatchInTurnWithMatchData:scores:completionHandler instead")
-  func endMatchInTurn(withMatch matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?) async throws
+  func endMatchInTurnAsync(withMatch matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?) async throws
   @available(watchOS 7.0, *)
   func endMatchInTurn(withMatch matchData: Data, leaderboardScores scores: [GKLeaderboardScore], achievements: [Any], completionHandler: @escaping (Error?) -> Void)
   @available(watchOS 7.0, *)
@@ -140,27 +140,27 @@ class GKTurnBasedMatch : NSObject {
   @available(watchOS 3.0, *)
   func saveCurrentTurn(withMatch matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func saveCurrentTurn(withMatch matchData: Data) async throws
+  func saveCurrentTurnAsync(withMatch matchData: Data) async throws
   @available(watchOS 3.0, *)
   func saveMergedMatch(_ matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func saveMergedMatch(_ matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange]) async throws
+  func saveMergedMatchDataAsync(_ matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange]) async throws
   @available(watchOS 3.0, *)
   func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval, completionHandler: ((GKTurnBasedExchange?, Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval) async throws -> GKTurnBasedExchange
+  func sendExchangeAsync(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval) async throws -> GKTurnBasedExchange
   @available(watchOS 3.0, *)
   func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String]) async throws
+  func sendReminderAsync(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String]) async throws
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use endTurnWithNextParticipants:... instead")
   func endTurn(withNextParticipant nextParticipant: GKTurnBasedParticipant, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use endTurnWithNextParticipants:... instead")
-  func endTurn(withNextParticipant nextParticipant: GKTurnBasedParticipant, match matchData: Data) async throws
+  func endTurnAsync(withNextParticipant nextParticipant: GKTurnBasedParticipant, match matchData: Data) async throws
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use participantQuitInTurnWithOutcome:nextParticipants:turnTimeout:... instead")
   func participantQuitInTurn(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipant: GKTurnBasedParticipant, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use participantQuitInTurnWithOutcome:nextParticipants:turnTimeout:... instead")
-  func participantQuitInTurn(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipant: GKTurnBasedParticipant, match matchData: Data) async throws
+  func participantQuitInTurnAsync(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipant: GKTurnBasedParticipant, match matchData: Data) async throws
 }
 @available(watchOS 3.0, *)
 enum GKTurnBasedExchangeStatus : Int8 {
@@ -191,11 +191,11 @@ class GKTurnBasedExchange : NSObject {
   @available(watchOS 3.0, *)
   func cancel(withLocalizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func cancel(withLocalizableMessageKey key: String, arguments: [String]) async throws
+  func cancelAsync(withLocalizableMessageKey key: String, arguments: [String]) async throws
   @available(watchOS 3.0, *)
   func reply(withLocalizableMessageKey key: String, arguments: [String], data: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 3.0, *)
-  func reply(withLocalizableMessageKey key: String, arguments: [String], data: Data) async throws
+  func replyAsync(withLocalizableMessageKey key: String, arguments: [String], data: Data) async throws
 }
 @available(watchOS 3.0, *)
 class GKTurnBasedExchangeReply : NSObject {

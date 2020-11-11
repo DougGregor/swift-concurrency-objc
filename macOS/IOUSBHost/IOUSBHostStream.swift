@@ -6,5 +6,5 @@ class IOUSBHostStream : IOUSBHostIOSource {
   func abort() throws
   func __sendIORequest(with data: NSMutableData?, bytesTransferred: UnsafeMutablePointer<Int>?) throws
   func enqueueIORequest(with data: NSMutableData?, completionHandler: IOUSBHostCompletionHandler? = nil) throws
-  func enqueueIORequest(with data: NSMutableData?) async throws -> (IOReturn, Int)
+  func enqueueIORequestAsync(with data: NSMutableData?) async throws -> (IOReturn, Int)
 }

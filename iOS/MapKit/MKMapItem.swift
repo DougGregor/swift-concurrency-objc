@@ -17,11 +17,11 @@ class MKMapItem : NSObject {
   @available(iOS 13.2, *)
   func openInMaps(launchOptions: [String : Any]? = nil, from scene: UIScene?, completionHandler completion: ((Bool) -> Void)? = nil)
   @available(iOS 13.2, *)
-  func openInMaps(launchOptions: [String : Any]? = nil, from scene: UIScene?) async -> Bool
+  func openInMapsAsync(launchOptions: [String : Any]? = nil, from scene: UIScene?) async -> Bool
   @available(iOS 13.2, *)
   class func openMaps(with mapItems: [MKMapItem], launchOptions: [String : Any]? = nil, from scene: UIScene?, completionHandler completion: ((Bool) -> Void)? = nil)
   @available(iOS 13.2, *)
-  class func openMaps(with mapItems: [MKMapItem], launchOptions: [String : Any]? = nil, from scene: UIScene?) async -> Bool
+  class func openMapsAsync(with mapItems: [MKMapItem], launchOptions: [String : Any]? = nil, from scene: UIScene?) async -> Bool
 }
 @available(iOS 6.0, *)
 let MKLaunchOptionsDirectionsModeKey: String

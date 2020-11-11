@@ -27,7 +27,7 @@ class EAAccessoryManager : NSObject {
   @available(tvOS 6, *)
   func showBluetoothAccessoryPicker(withNameFilter predicate: NSPredicate?, completion: EABluetoothAccessoryPickerCompletion? = nil)
   @available(tvOS 6, *)
-  func showBluetoothAccessoryPicker(withNameFilter predicate: NSPredicate?) async throws
+  func showBluetoothAccessoryPickerAsync(withNameFilter predicate: NSPredicate?) async throws
   @available(tvOS 10.0, *)
   func registerForLocalNotifications()
   @available(tvOS 10.0, *)

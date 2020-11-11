@@ -69,7 +69,7 @@ extension GKLeaderboard {
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
   class func setDefault(_ leaderboardIdentifier: String?, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 10.10, message: "Use setDefaultLeaderboardIdentifier:completionHandler: on GKLocalPlayer instead")
-  class func setDefault(_ leaderboardIdentifier: String?) async throws
+  class func setDefaultAsync(_ leaderboardIdentifier: String?) async throws
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler: instead.")
   var timeScope: GKLeaderboard.TimeScope
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler: instead.")
@@ -91,15 +91,15 @@ extension GKLeaderboard {
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
   func loadScores(completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
-  func loadScores() async throws -> [GKScore]
+  func loadScoresAsync() async throws -> [GKScore]
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
   class func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(macOS, introduced: 10.8, deprecated: 11.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
-  class func loadLeaderboards() async throws -> [GKLeaderboard]
+  class func loadLeaderboardsAsync() async throws -> [GKLeaderboard]
 }
 extension GKLeaderboard {
   @available(macOS 10.8, *)
   func loadImage(completionHandler: ((NSImage?, Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func loadImage() async throws -> NSImage
+  func loadImageAsync() async throws -> NSImage
 }

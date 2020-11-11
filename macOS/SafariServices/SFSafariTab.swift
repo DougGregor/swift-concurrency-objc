@@ -7,7 +7,7 @@ class SFSafariTab : NSObject, NSCopying, NSSecureCoding {
   func getContainingWindow(completionHandler: @escaping (SFSafariWindow?) -> Void)
   func containingWindow() async -> SFSafariWindow?
   func activate(completionHandler: (() -> Void)? = nil)
-  func activate() async
+  func activateAsync() async
   func navigate(to url: URL)
   func close()
 }

@@ -4,7 +4,7 @@ let GKPlayerIDNoLongerAvailable: String
 @available(macOS 10.8, *)
 class GKPlayer : GKBasePlayer {
   class func loadPlayers(forIdentifiers identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
-  class func loadPlayers(forIdentifiers identifiers: [String]) async throws -> [GKPlayer]
+  class func loadPlayersAsync(forIdentifiers identifiers: [String]) async throws -> [GKPlayer]
   @available(macOS 10.15, *)
   func scopedIDsArePersistent() -> Bool
   @available(macOS 10.14.6, *)
@@ -23,7 +23,7 @@ extension GKPlayer {
   @available(macOS 10.8, *)
   func loadPhoto(for size: GKPlayer.PhotoSize, withCompletionHandler completionHandler: ((NSImage?, Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func loadPhoto(for size: GKPlayer.PhotoSize) async throws -> NSImage
+  func loadPhotoAsync(for size: GKPlayer.PhotoSize) async throws -> NSImage
 }
 extension GKPlayer {
   enum PhotoSize : Int {

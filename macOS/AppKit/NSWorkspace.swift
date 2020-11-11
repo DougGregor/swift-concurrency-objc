@@ -6,15 +6,15 @@ class NSWorkspace : NSObject {
   @available(macOS 10.15, *)
   func open(_ url: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler: ((NSRunningApplication?, Error?) -> Void)? = nil)
   @available(macOS 10.15, *)
-  func open(_ url: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
+  func openURLAsync(_ url: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
   @available(macOS 10.15, *)
   func open(_ urls: [URL], withApplicationAt applicationURL: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler: ((NSRunningApplication?, Error?) -> Void)? = nil)
   @available(macOS 10.15, *)
-  func open(_ urls: [URL], withApplicationAt applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
+  func openURLsAsync(_ urls: [URL], withApplicationAt applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
   @available(macOS 10.15, *)
   func openApplication(at applicationURL: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler: ((NSRunningApplication?, Error?) -> Void)? = nil)
   @available(macOS 10.15, *)
-  func openApplication(at applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
+  func openApplicationAsync(at applicationURL: URL, configuration: NSWorkspace.OpenConfiguration) async throws -> NSRunningApplication
   func selectFile(_ fullPath: String?, inFileViewerRootedAtPath rootFullPath: String) -> Bool
   @available(macOS 10.6, *)
   func activateFileViewerSelecting(_ fileURLs: [URL])
@@ -32,11 +32,11 @@ class NSWorkspace : NSObject {
   @available(macOS 10.6, *)
   func recycle(_ URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
   @available(macOS 10.6, *)
-  func recycle(_ URLs: [URL]) async throws -> [URL : URL]
+  func recycleURLsAsync(_ URLs: [URL]) async throws -> [URL : URL]
   @available(macOS 10.6, *)
   func duplicate(_ URLs: [URL], completionHandler handler: (([URL : URL], Error?) -> Void)? = nil)
   @available(macOS 10.6, *)
-  func duplicate(_ URLs: [URL]) async throws -> [URL : URL]
+  func duplicateURLsAsync(_ URLs: [URL]) async throws -> [URL : URL]
   func getFileSystemInfo(forPath fullPath: String, isRemovable removableFlag: UnsafeMutablePointer<ObjCBool>?, isWritable writableFlag: UnsafeMutablePointer<ObjCBool>?, isUnmountable unmountableFlag: UnsafeMutablePointer<ObjCBool>?, description: AutoreleasingUnsafeMutablePointer<NSString?>?, type fileSystemType: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool
   func unmountAndEjectDevice(atPath path: String) -> Bool
   @available(macOS 10.6, *)

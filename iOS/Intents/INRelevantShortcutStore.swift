@@ -3,5 +3,5 @@
 class INRelevantShortcutStore : NSObject {
   class var `default`: INRelevantShortcutStore { get }
   func setRelevantShortcuts(_ shortcuts: [INRelevantShortcut], completionHandler: ((Error?) -> Void)? = nil)
-  func setRelevantShortcuts(_ shortcuts: [INRelevantShortcut]) async throws
+  func setRelevantShortcutsAsync(_ shortcuts: [INRelevantShortcut]) async throws
 }
