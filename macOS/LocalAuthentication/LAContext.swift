@@ -20,6 +20,8 @@ class LAContext : NSObject {
   func canEvaluatePolicy(_ policy: LAPolicy, error: NSErrorPointer) -> Bool
   @available(macOS 10.10, *)
   func evaluatePolicy(_ policy: LAPolicy, localizedReason: String, reply: @escaping (Bool, Error?) -> Void)
+  @available(macOS 10.10, *)
+  func evaluatePolicy(_ policy: LAPolicy, localizedReason: String) async throws -> Bool
   @available(macOS 10.11, *)
   func invalidate()
   @available(macOS 10.11, *)
@@ -28,6 +30,8 @@ class LAContext : NSObject {
   func isCredentialSet(_ type: LACredentialType) -> Bool
   @available(macOS 10.11, *)
   func evaluateAccessControl(_ accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: @escaping (Bool, Error?) -> Void)
+  @available(macOS 10.11, *)
+  func evaluateAccessControl(_ accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String) async throws -> Bool
   @available(macOS 10.10, *)
   var localizedFallbackTitle: String?
   @available(macOS 10.12, *)

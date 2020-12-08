@@ -54,7 +54,7 @@ class PHPhotoLibrary : NSObject {
   @available(tvOS 10, *)
   func performChanges(_ changeBlock: @escaping () -> Void, completionHandler: ((Bool, Error?) -> Void)? = nil)
   @available(tvOS 10, *)
-  func performChangesAsync(_ changeBlock: @escaping () -> Void) async throws -> Bool
+  func performChanges(_ changeBlock: @escaping () -> Void) async throws -> Bool
   @available(tvOS 10, *)
   func performChangesAndWait(_ changeBlock: @escaping () -> Void) throws
   @available(tvOS 10, *)

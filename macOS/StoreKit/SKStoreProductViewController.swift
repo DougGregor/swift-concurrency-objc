@@ -5,6 +5,8 @@ class SKStoreProductViewController : NSViewController {
   weak var delegate: @sil_weak SKStoreProductViewControllerDelegate?
   @available(macOS 11.0, *)
   func loadProduct(withParameters parameters: [String : Any], completionBlock block: ((Bool, Error?) -> Void)? = nil)
+  @available(macOS 11.0, *)
+  func loadProduct(withParameters parameters: [String : Any]) async throws -> Bool
 }
 protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
   @available(macOS 11.0, *)

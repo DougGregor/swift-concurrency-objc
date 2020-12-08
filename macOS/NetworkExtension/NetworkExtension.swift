@@ -108,11 +108,11 @@ class NETunnelProvider : NEProvider {
   @available(macOS 10.11, *)
   func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)? = nil)
   @available(macOS 10.11, *)
-  func handleAppMessageAsync(_ messageData: Data) async -> Data?
+  func handleAppMessage(_ messageData: Data) async -> Data?
   @available(macOS 10.11, *)
   func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.11, *)
-  func setTunnelNetworkSettingsAsync(_ tunnelNetworkSettings: NETunnelNetworkSettings?) async throws
+  func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?) async throws
   @available(macOS 10.11, *)
   var protocolConfiguration: NEVPNProtocol { get }
   @available(macOS 10.11, *)
@@ -176,11 +176,11 @@ class NEVPNManager : NSObject {
   @available(macOS 10.11, *)
   func removeFromPreferences(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.11, *)
-  func removeFromPreferencesAsync() async throws
+  func removeFromPreferences() async throws
   @available(macOS 10.11, *)
   func saveToPreferences(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.11, *)
-  func saveToPreferencesAsync() async throws
+  func saveToPreferences() async throws
   @available(macOS 10.11, *)
   func setAuthorization(_ authorization: AuthorizationRef)
   @available(macOS 10.11, *)

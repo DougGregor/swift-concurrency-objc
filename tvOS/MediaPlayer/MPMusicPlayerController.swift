@@ -55,7 +55,7 @@ class MPMusicPlayerController : NSObject, MPMediaPlayback {
   @available(tvOS 14.0, *)
   func prepareToPlay(completionHandler: @escaping (Error?) -> Void)
   @available(tvOS 14.0, *)
-  func prepareToPlayAsync() async throws
+  func prepareToPlay() async throws
   func skipToNextItem()
   func skipToBeginning()
   func skipToPreviousItem()

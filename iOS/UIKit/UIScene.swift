@@ -6,7 +6,7 @@ class UIScene : UIResponder {
   var delegate: UISceneDelegate?
   var activationState: UIScene.ActivationState { get }
   func open(_ url: URL, options: UIScene.OpenExternalURLOptions?, completionHandler completion: ((Bool) -> Void)? = nil)
-  func openURLAsync(_ url: URL, options: UIScene.OpenExternalURLOptions?) async -> Bool
+  func open(_ url: URL, options: UIScene.OpenExternalURLOptions?) async -> Bool
   var title: String!
   var activationConditions: UISceneActivationConditions
 }

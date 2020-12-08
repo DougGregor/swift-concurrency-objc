@@ -83,11 +83,11 @@ extension GKLeaderboard {
   @available(tvOS, introduced: 9.0, deprecated: 14.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
   func loadScores(completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
   @available(tvOS, introduced: 9.0, deprecated: 14.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
-  func loadScoresAsync() async throws -> [GKScore]
+  func loadScores() async throws -> [GKScore]
   @available(tvOS, introduced: 9.0, deprecated: 14.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
   class func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(tvOS, introduced: 9.0, deprecated: 14.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
-  class func loadLeaderboardsAsync() async throws -> [GKLeaderboard]
+  class func loadLeaderboards() async throws -> [GKLeaderboard]
 }
 extension GKLeaderboard {
 }

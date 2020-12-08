@@ -6,7 +6,7 @@ class NSExtensionContext : NSObject {
   func completeRequest(returningItems items: [Any]?) async -> Bool
   func cancelRequest(withError error: Error)
   func open(_ URL: URL, completionHandler: ((Bool) -> Void)? = nil)
-  func openURLAsync(_ URL: URL) async -> Bool
+  func open(_ URL: URL) async -> Bool
 }
 @available(macOS 10.10, *)
 let NSExtensionItemsAndErrorsKey: String

@@ -94,7 +94,7 @@ class UIApplication : UIResponder {
   @available(iOS 10.0, *)
   func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
   @available(iOS 10.0, *)
-  func openURLAsync(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
+  func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:]) async -> Bool
   func sendEvent(_ event: UIEvent)
   @available(iOS, introduced: 2.0, deprecated: 13.0, message: "Should not be used for applications that support multiple scenes as it returns a key window across all connected scenes")
   var keyWindow: UIWindow? { get }
@@ -200,7 +200,7 @@ extension UIApplication {
   @available(iOS 10.3, *)
   func setAlternateIconName(_ alternateIconName: String?, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 10.3, *)
-  func setAlternateIconNameAsync(_ alternateIconName: String?) async throws
+  func setAlternateIconName(_ alternateIconName: String?) async throws
   @available(iOS 10.3, *)
   var alternateIconName: String? { get }
 }
@@ -342,7 +342,7 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
   @asyncHandler optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
   @available(iOS 7.0, *)
-  optional func applicationAsync(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult
+  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) async -> UIBackgroundFetchResult
   @available(iOS, introduced: 7.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
   optional func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
   @available(iOS, introduced: 7.0, deprecated: 13.0, message: "Use a BGAppRefreshTask in the BackgroundTasks framework instead")
@@ -357,6 +357,8 @@ protocol UIApplicationDelegate : NSObjectProtocol {
   optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String) async
   @available(iOS 8.2, *)
   optional func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void)
+  @available(iOS 8.2, *)
+  optional func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?) async -> [AnyHashable : Any]?
   @available(iOS 9.0, *)
   optional func applicationShouldRequestHealthAuthorization(_ application: UIApplication)
   @available(iOS 4.0, *)

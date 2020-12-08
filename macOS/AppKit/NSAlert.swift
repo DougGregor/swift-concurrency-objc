@@ -36,7 +36,7 @@ class NSAlert : NSObject {
   @available(macOS 10.9, *)
   func beginSheetModal(for sheetWindow: NSWindow, completionHandler handler: ((NSApplication.ModalResponse) -> Void)? = nil)
   @available(macOS 10.9, *)
-  func beginSheetModalAsync(for sheetWindow: NSWindow) async -> NSApplication.ModalResponse
+  func beginSheetModal(for sheetWindow: NSWindow) async -> NSApplication.ModalResponse
   var window: NSWindow { get }
 }
 protocol NSAlertDelegate : NSObjectProtocol {

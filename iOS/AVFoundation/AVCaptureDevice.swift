@@ -302,7 +302,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   func setExposureTargetBias(_ bias: Float, completionHandler handler: ((CMTime) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func setExposureTargetBiasAsync(_ bias: Float) async -> CMTime
+  func setExposureTargetBias(_ bias: Float) async -> CMTime
 }
 extension AVCaptureDevice {
   @available(iOS 13.0, *)

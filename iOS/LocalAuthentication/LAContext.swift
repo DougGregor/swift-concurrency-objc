@@ -16,6 +16,8 @@ class LAContext : NSObject {
   func canEvaluatePolicy(_ policy: LAPolicy, error: NSErrorPointer) -> Bool
   @available(iOS 8.0, *)
   func evaluatePolicy(_ policy: LAPolicy, localizedReason: String, reply: @escaping (Bool, Error?) -> Void)
+  @available(iOS 8.0, *)
+  func evaluatePolicy(_ policy: LAPolicy, localizedReason: String) async throws -> Bool
   @available(iOS 9.0, *)
   func invalidate()
   @available(iOS 9.0, *)
@@ -24,6 +26,8 @@ class LAContext : NSObject {
   func isCredentialSet(_ type: LACredentialType) -> Bool
   @available(iOS 9.0, *)
   func evaluateAccessControl(_ accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: @escaping (Bool, Error?) -> Void)
+  @available(iOS 9.0, *)
+  func evaluateAccessControl(_ accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String) async throws -> Bool
   @available(iOS 8.0, *)
   var localizedFallbackTitle: String?
   @available(iOS, introduced: 8.3, deprecated: 9.0)

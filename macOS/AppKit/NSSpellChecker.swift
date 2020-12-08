@@ -69,7 +69,7 @@ class NSSpellChecker : NSObject {
   @available(macOS 10.7, *)
   func showCorrectionIndicator(of type: NSSpellChecker.CorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: NSRect, view: NSView, completionHandler completionBlock: ((String?) -> Void)? = nil)
   @available(macOS 10.7, *)
-  func showCorrectionIndicatorAsync(of type: NSSpellChecker.CorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: NSRect, view: NSView) async -> String?
+  func showCorrectionIndicator(of type: NSSpellChecker.CorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringIn rectOfTypedString: NSRect, view: NSView) async -> String?
   @available(macOS 10.7, *)
   func dismissCorrectionIndicator(for view: NSView)
   @available(macOS 10.12, *)

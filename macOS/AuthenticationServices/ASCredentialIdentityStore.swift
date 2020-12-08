@@ -16,9 +16,9 @@ class ASCredentialIdentityStore : NSObject {
   func getState(_ completion: @escaping (ASCredentialIdentityStoreState) -> Void)
   func getState() async -> ASCredentialIdentityStoreState
   func saveCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity], completion: ((Bool, Error?) -> Void)? = nil)
-  func saveCredentialIdentitiesAsync(_ credentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
+  func saveCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
   func removeCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity], completion: ((Bool, Error?) -> Void)? = nil)
-  func removeCredentialIdentitiesAsync(_ credentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
+  func removeCredentialIdentities(_ credentialIdentities: [ASPasswordCredentialIdentity]) async throws -> Bool
   func removeAllCredentialIdentities(_ completion: ((Bool, Error?) -> Void)? = nil)
   func removeAllCredentialIdentities() async throws -> Bool
   func replaceCredentialIdentities(with newCredentialIdentities: [ASPasswordCredentialIdentity], completion: ((Bool, Error?) -> Void)? = nil)

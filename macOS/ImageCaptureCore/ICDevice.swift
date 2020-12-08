@@ -152,7 +152,7 @@ class ICDevice : NSObject {
   @available(macOS 10.15, *)
   func requestEject(completion: @escaping (Error?) -> Void)
   @available(macOS 10.15, *)
-  func requestEjectAsync() async throws
+  func requestEject() async throws
   @available(macOS 10.4, *)
   var autolaunchApplicationPath: String?
   @available(macOS 10.4, *)

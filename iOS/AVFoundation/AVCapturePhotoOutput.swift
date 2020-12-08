@@ -4,7 +4,7 @@ class AVCapturePhotoOutput : AVCaptureOutput {
   func capturePhoto(with settings: AVCapturePhotoSettings, delegate: AVCapturePhotoCaptureDelegate)
   var preparedPhotoSettingsArray: [AVCapturePhotoSettings] { get }
   func setPreparedPhotoSettingsArray(_ preparedPhotoSettingsArray: [AVCapturePhotoSettings], completionHandler: ((Bool, Error?) -> Void)? = nil)
-  func setPreparedPhotoSettingsArrayAsync(_ preparedPhotoSettingsArray: [AVCapturePhotoSettings]) async throws -> Bool
+  func setPreparedPhotoSettingsArray(_ preparedPhotoSettingsArray: [AVCapturePhotoSettings]) async throws -> Bool
   var __availablePhotoPixelFormatTypes: [NSNumber] { get }
   var availablePhotoCodecTypes: [AVVideoCodecType] { get }
   var __availableRawPhotoPixelFormatTypes: [NSNumber] { get }

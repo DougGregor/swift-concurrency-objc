@@ -10,23 +10,23 @@ class GKSavedGame : NSObject, NSCopying {
   @available(iOS 8.0, *)
   func loadData(completionHandler handler: ((Data?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func loadDataAsync() async throws -> Data
+  func loadData() async throws -> Data
 }
 extension GKLocalPlayer : GKSavedGameListener {
   @available(iOS 8.0, *)
   func fetchSavedGames(completionHandler handler: (([GKSavedGame]?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func fetchSavedGamesAsync() async throws -> [GKSavedGame]
+  func fetchSavedGames() async throws -> [GKSavedGame]
   @available(iOS 8.0, *)
   func saveGameData(_ data: Data, withName name: String, completionHandler handler: ((GKSavedGame?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func saveGameDataAsync(_ data: Data, withName name: String) async throws -> GKSavedGame
+  func saveGameData(_ data: Data, withName name: String) async throws -> GKSavedGame
   @available(iOS 8.0, *)
   func deleteSavedGames(withName name: String, completionHandler handler: ((Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func deleteSavedGamesAsync(withName name: String) async throws
+  func deleteSavedGames(withName name: String) async throws
   @available(iOS 8.0, *)
   func resolveConflictingSavedGames(_ conflictingSavedGames: [GKSavedGame], with data: Data, completionHandler handler: (([GKSavedGame]?, Error?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func resolveConflictingSavedGamesAsync(_ conflictingSavedGames: [GKSavedGame], with data: Data) async throws -> [GKSavedGame]
+  func resolveConflictingSavedGames(_ conflictingSavedGames: [GKSavedGame], with data: Data) async throws -> [GKSavedGame]
 }

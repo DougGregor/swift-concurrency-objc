@@ -16,6 +16,6 @@ class SNAudioFileAnalyzer : NSObject {
   func removeAllRequests()
   func analyze()
   func analyze(completionHandler: @escaping (Bool) -> Void)
-  func analyzeAsync() async -> Bool
+  func analyze() async -> Bool
   func cancelAnalysis()
 }

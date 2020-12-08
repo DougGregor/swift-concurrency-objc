@@ -10,7 +10,7 @@ class UIPrinter : NSObject {
   var supportsColor: Bool { get }
   var supportsDuplex: Bool { get }
   func contactPrinter(_ completionHandler: ((Bool) -> Void)? = nil)
-  func contactPrinterAsync() async -> Bool
+  func contactPrinter() async -> Bool
 }
 extension UIPrinter {
   @available(iOS 8.0, *)

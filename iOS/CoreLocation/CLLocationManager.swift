@@ -92,7 +92,7 @@ class CLLocationManager : NSObject {
   @available(iOS 14.0, *)
   func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String, completion: ((Error?) -> Void)? = nil)
   @available(iOS 14.0, *)
-  func requestTemporaryFullAccuracyAuthorizationAsync(withPurposeKey purposeKey: String) async throws
+  func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String) async throws
   @available(iOS 14.0, *)
   func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String)
   func startUpdatingLocation()

@@ -4,6 +4,7 @@ class TKSmartCardSlotManager : NSObject {
   class var `default`: TKSmartCardSlotManager? { get }
   var slotNames: [String] { get }
   func getSlot(withName name: String, reply: @escaping (TKSmartCardSlot?) -> Void)
+  func getSlot(withName name: String) async -> TKSmartCardSlot?
   @available(macOS 10.13, *)
   func slotNamed(_ name: String) -> TKSmartCardSlot?
 }
@@ -91,6 +92,7 @@ class TKSmartCardUserInteraction : NSObject {
   var initialTimeout: TimeInterval
   var interactionTimeout: TimeInterval
   func run(reply: @escaping (Bool, Error?) -> Void)
+  func run() async throws -> Bool
   func cancel() -> Bool
 }
 @available(macOS 10.11, *)
@@ -126,7 +128,9 @@ class TKSmartCard : NSObject {
   var isSensitive: Bool
   var context: Any?
   func beginSession(reply: @escaping (Bool, Error?) -> Void)
+  func beginSession() async throws -> Bool
   func transmit(_ request: Data, reply: @escaping (Data?, Error?) -> Void)
+  func transmit(_ request: Data) async throws -> Data
   func endSession()
   @available(macOS 10.11, *)
   func userInteractionForSecurePINVerification(_ PINFormat: TKSmartCardPINFormat, apdu APDU: Data, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
@@ -151,6 +155,8 @@ extension TKSmartCard {
   var useCommandChaining: Bool
   @available(macOS 10.10, *)
   func __sendIns(_ ins: UInt8, p1: UInt8, p2: UInt8, data requestData: Data?, le: NSNumber?, reply: @escaping (Data?, UInt16, Error?) -> Void)
+  @available(macOS 10.10, *)
+  func __sendIns(_ ins: UInt8, p1: UInt8, p2: UInt8, data requestData: Data?, le: NSNumber?) async throws -> (Data, UInt16)
   @available(macOS 10.12, *)
   func __inSession(executeBlock block: @escaping (NSErrorPointer) -> Bool) throws
   @available(macOS 10.12, *)

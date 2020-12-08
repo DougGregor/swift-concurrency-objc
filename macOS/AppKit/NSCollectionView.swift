@@ -154,7 +154,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(macOS 10.11, *)
   func performBatchUpdates(_ updates: (() -> Void)?, completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.11, *)
-  func performBatchUpdatesAsync(_ updates: (() -> Void)?) async -> Bool
+  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
   @available(macOS 10.12, *)
   @IBAction func toggleSectionCollapse(_ sender: Any)
   @available(macOS 10.11, *)

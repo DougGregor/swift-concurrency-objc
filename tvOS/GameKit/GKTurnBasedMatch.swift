@@ -94,43 +94,43 @@ class GKTurnBasedMatch : NSObject {
   class func find(for request: GKMatchRequest, withCompletionHandler completionHandler: @escaping (GKTurnBasedMatch?, Error?) -> Void)
   class func find(for request: GKMatchRequest) async throws -> GKTurnBasedMatch
   class func loadMatches(completionHandler: (([GKTurnBasedMatch]?, Error?) -> Void)? = nil)
-  class func loadMatchesAsync() async throws -> [GKTurnBasedMatch]
+  class func loadMatches() async throws -> [GKTurnBasedMatch]
   @available(tvOS 5.0, *)
   class func load(withID matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(tvOS 5.0, *)
-  class func loadAsync(withID matchID: String) async throws -> GKTurnBasedMatch
+  class func load(withID matchID: String) async throws -> GKTurnBasedMatch
   @available(tvOS 6.0, *)
   func rematch(completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  func rematchAsync() async throws -> GKTurnBasedMatch
+  func rematch() async throws -> GKTurnBasedMatch
   @available(tvOS 5.0, *)
   func acceptInvite(completionHandler: ((GKTurnBasedMatch?, Error?) -> Void)? = nil)
   @available(tvOS 5.0, *)
-  func acceptInviteAsync() async throws -> GKTurnBasedMatch
+  func acceptInvite() async throws -> GKTurnBasedMatch
   @available(tvOS 5.0, *)
   func declineInvite(completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 5.0, *)
-  func declineInviteAsync() async throws
+  func declineInvite() async throws
   func remove(completionHandler: ((Error?) -> Void)? = nil)
-  func removeAsync() async throws
+  func remove() async throws
   func loadMatchData(completionHandler: ((Data?, Error?) -> Void)? = nil)
-  func loadMatchDataAsync() async throws -> Data
+  func loadMatchData() async throws -> Data
   @available(tvOS 6.0, *)
   func endTurn(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  func endTurnAsync(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
+  func endTurn(withNextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
   @available(tvOS 6.0, *)
   func participantQuitInTurn(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  func participantQuitInTurnAsync(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
+  func participantQuitInTurn(with matchOutcome: GKTurnBasedMatch.Outcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: TimeInterval, match matchData: Data) async throws
   func participantQuitOutOfTurn(with matchOutcome: GKTurnBasedMatch.Outcome, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
-  func participantQuitOutOfTurnAsync(with matchOutcome: GKTurnBasedMatch.Outcome) async throws
+  func participantQuitOutOfTurn(with matchOutcome: GKTurnBasedMatch.Outcome) async throws
   func endMatchInTurn(withMatch matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
-  func endMatchInTurnAsync(withMatch matchData: Data) async throws
+  func endMatchInTurn(withMatch matchData: Data) async throws
   @available(tvOS, introduced: 6.0, deprecated: 14.0, message: "pass GKLeaderboardScore to endMatchInTurnWithMatchData:scores:completionHandler instead")
   func endMatchInTurn(withMatch matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS, introduced: 6.0, deprecated: 14.0, message: "pass GKLeaderboardScore to endMatchInTurnWithMatchData:scores:completionHandler instead")
-  func endMatchInTurnAsync(withMatch matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?) async throws
+  func endMatchInTurn(withMatch matchData: Data, scores: [GKScore]?, achievements: [GKAchievement]?) async throws
   @available(tvOS 14.0, *)
   func endMatchInTurn(withMatch matchData: Data, leaderboardScores scores: [GKLeaderboardScore], achievements: [Any], completionHandler: @escaping (Error?) -> Void)
   @available(tvOS 14.0, *)
@@ -138,19 +138,19 @@ class GKTurnBasedMatch : NSObject {
   @available(tvOS 6.0, *)
   func saveCurrentTurn(withMatch matchData: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  func saveCurrentTurnAsync(withMatch matchData: Data) async throws
+  func saveCurrentTurn(withMatch matchData: Data) async throws
   @available(tvOS 7.0, *)
   func saveMergedMatch(_ matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func saveMergedMatchDataAsync(_ matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange]) async throws
+  func saveMergedMatch(_ matchData: Data, withResolvedExchanges exchanges: [GKTurnBasedExchange]) async throws
   @available(tvOS 7.0, *)
   func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval, completionHandler: ((GKTurnBasedExchange?, Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func sendExchangeAsync(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval) async throws -> GKTurnBasedExchange
+  func sendExchange(to participants: [GKTurnBasedParticipant], data: Data, localizableMessageKey key: String, arguments: [String], timeout: TimeInterval) async throws -> GKTurnBasedExchange
   @available(tvOS 7.0, *)
   func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func sendReminderAsync(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String]) async throws
+  func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String]) async throws
 }
 @available(tvOS 7.0, *)
 enum GKTurnBasedExchangeStatus : Int8 {
@@ -181,11 +181,11 @@ class GKTurnBasedExchange : NSObject {
   @available(tvOS 7.0, *)
   func cancel(withLocalizableMessageKey key: String, arguments: [String], completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func cancelAsync(withLocalizableMessageKey key: String, arguments: [String]) async throws
+  func cancel(withLocalizableMessageKey key: String, arguments: [String]) async throws
   @available(tvOS 7.0, *)
   func reply(withLocalizableMessageKey key: String, arguments: [String], data: Data, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  func replyAsync(withLocalizableMessageKey key: String, arguments: [String], data: Data) async throws
+  func reply(withLocalizableMessageKey key: String, arguments: [String], data: Data) async throws
 }
 @available(tvOS 7.0, *)
 class GKTurnBasedExchangeReply : NSObject {

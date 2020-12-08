@@ -155,7 +155,7 @@ class UICollectionView : UIScrollView, UIDataSourceTranslating {
   @available(iOS 7.0, *)
   func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
-  func setCollectionViewLayoutAsync(_ layout: UICollectionViewLayout, animated: Bool) async -> Bool
+  func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool) async -> Bool
   @available(iOS 7.0, *)
   func startInteractiveTransition(to layout: UICollectionViewLayout, completion: UICollectionView.LayoutInteractiveTransitionCompletion? = nil) -> UICollectionViewTransitionLayout
   @available(iOS 7.0, *)
@@ -187,7 +187,7 @@ class UICollectionView : UIScrollView, UIDataSourceTranslating {
   func reloadItems(at indexPaths: [IndexPath])
   func moveItem(at indexPath: IndexPath, to newIndexPath: IndexPath)
   func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
-  func performBatchUpdatesAsync(_ updates: (() -> Void)?) async -> Bool
+  func performBatchUpdates(_ updates: (() -> Void)?) async -> Bool
   @available(iOS 9.0, *)
   func beginInteractiveMovementForItem(at indexPath: IndexPath) -> Bool
   @available(iOS 9.0, *)

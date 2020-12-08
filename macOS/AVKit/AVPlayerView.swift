@@ -35,7 +35,7 @@ extension AVPlayerView {
 extension AVPlayerView {
   var canBeginTrimming: Bool { get }
   func beginTrimming(completionHandler handler: ((AVPlayerViewTrimResult) -> Void)? = nil)
-  func beginTrimmingAsync() async -> AVPlayerViewTrimResult
+  func beginTrimming() async -> AVPlayerViewTrimResult
 }
 @available(macOS 10.9, *)
 enum AVPlayerViewTrimResult : Int {

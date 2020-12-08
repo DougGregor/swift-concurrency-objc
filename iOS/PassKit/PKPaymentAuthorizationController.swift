@@ -49,7 +49,7 @@ class PKPaymentAuthorizationController : NSObject {
   weak var delegate: @sil_weak PKPaymentAuthorizationControllerDelegate?
   init(paymentRequest request: PKPaymentRequest)
   func present(completion: ((Bool) -> Void)? = nil)
-  func presentAsync() async -> Bool
+  func present() async -> Bool
   func dismiss(completion: (() -> Void)? = nil)
-  func dismissAsync() async
+  func dismiss() async
 }

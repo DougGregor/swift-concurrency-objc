@@ -105,7 +105,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.12, *)
   func stopBrowsingVersions(completionHandler: (() -> Void)? = nil)
   @available(macOS 10.12, *)
-  func stopBrowsingVersionsAsync() async
+  func stopBrowsingVersions() async
   @available(macOS 10.8, *)
   class var autosavesDrafts: Bool { get }
   var autosavingFileType: String? { get }
@@ -127,11 +127,11 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func move(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func moveAsync() async -> Bool
+  func move() async -> Bool
   @available(macOS 10.8, *)
   func move(to url: URL, completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func moveAsync(to url: URL) async throws
+  func move(to url: URL) async throws
   @available(macOS 10.8, *)
   @IBAction func lock(_ sender: Any?)
   @available(macOS 10.8, *)
@@ -139,19 +139,19 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.8, *)
   func lock(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func lockAsync() async -> Bool
+  func lock() async -> Bool
   @available(macOS 10.8, *)
   func lock(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func lockAsync() async throws
+  func lock() async throws
   @available(macOS 10.8, *)
   func unlock(completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func unlockAsync() async -> Bool
+  func unlock() async -> Bool
   @available(macOS 10.8, *)
   func unlock(completionHandler: ((Error?) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func unlockAsync() async throws
+  func unlock() async throws
   @available(macOS 10.8, *)
   var isLocked: Bool { get }
   @IBAction func runPageLayout(_ sender: Any?)
@@ -172,7 +172,7 @@ class NSDocument : NSObject, NSEditorRegistration, NSFilePresenter, NSMenuItemVa
   @available(macOS 10.13, *)
   func share(with sharingService: NSSharingService, completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.13, *)
-  func shareAsync(with sharingService: NSSharingService) async -> Bool
+  func share(with sharingService: NSSharingService) async -> Bool
   @available(macOS 10.13, *)
   func prepare(_ sharingServicePicker: NSSharingServicePicker)
   var isDocumentEdited: Bool { get }

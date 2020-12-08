@@ -70,7 +70,7 @@ class CLLocationManager : NSObject {
   @available(watchOS 7.0, *)
   func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String, completion: ((Error?) -> Void)? = nil)
   @available(watchOS 7.0, *)
-  func requestTemporaryFullAccuracyAuthorizationAsync(withPurposeKey purposeKey: String) async throws
+  func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String) async throws
   @available(watchOS 7.0, *)
   func requestTemporaryFullAccuracyAuthorization(withPurposeKey purposeKey: String)
   @available(watchOS 3.0, *)

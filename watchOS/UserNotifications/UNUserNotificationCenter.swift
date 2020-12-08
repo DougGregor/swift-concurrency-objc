@@ -29,7 +29,7 @@ class UNUserNotificationCenter : NSObject {
   func getNotificationSettings(completionHandler: @escaping (UNNotificationSettings) -> Void)
   func notificationSettings() async -> UNNotificationSettings
   func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
-  func addNotificationRequestAsync(_ request: UNNotificationRequest) async throws
+  func add(_ request: UNNotificationRequest) async throws
   func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
   func pendingNotificationRequests() async -> [UNNotificationRequest]
   func removePendingNotificationRequests(withIdentifiers identifiers: [String])

@@ -19,5 +19,5 @@ class CXCallDirectoryExtensionContext : NSExtensionContext {
   @available(iOS 11.0, *)
   func removeAllIdentificationEntries()
   func completeRequest(completionHandler completion: ((Bool) -> Void)? = nil)
-  func completeRequestAsync() async -> Bool
+  func completeRequest() async -> Bool
 }

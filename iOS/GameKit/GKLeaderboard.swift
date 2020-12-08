@@ -85,15 +85,15 @@ extension GKLeaderboard {
   @available(iOS, introduced: 4.0, deprecated: 14.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
   func loadScores(completionHandler: (([GKScore]?, Error?) -> Void)? = nil)
   @available(iOS, introduced: 4.0, deprecated: 14.0, message: "Use loadEntriesForPlayerScope:timeScope:range:completionHandler:.")
-  func loadScoresAsync() async throws -> [GKScore]
+  func loadScores() async throws -> [GKScore]
   @available(iOS, introduced: 6.0, deprecated: 14.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
   class func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
   @available(iOS, introduced: 6.0, deprecated: 14.0, message: "Use class method loadLeaderboardsWithIDs:completionHandler:")
-  class func loadLeaderboardsAsync() async throws -> [GKLeaderboard]
+  class func loadLeaderboards() async throws -> [GKLeaderboard]
 }
 extension GKLeaderboard {
   @available(iOS 7.0, *)
   func loadImage(completionHandler: ((UIImage?, Error?) -> Void)? = nil)
   @available(iOS 7.0, *)
-  func loadImageAsync() async throws -> UIImage
+  func loadImage() async throws -> UIImage
 }

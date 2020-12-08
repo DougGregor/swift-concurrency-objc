@@ -19,7 +19,7 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   @available(tvOS 6.0, *)
   class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 6.0, *)
-  class func reportScoresAsync(_ scores: [GKScore]) async throws
+  class func report(_ scores: [GKScore]) async throws
 }
 extension GKScore {
 }

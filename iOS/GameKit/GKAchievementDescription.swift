@@ -2,7 +2,7 @@
 @available(iOS 4.1, *)
 class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
   class func loadAchievementDescriptions(completionHandler: (([GKAchievementDescription]?, Error?) -> Void)? = nil)
-  class func loadAchievementDescriptionsAsync() async throws -> [GKAchievementDescription]
+  class func loadAchievementDescriptions() async throws -> [GKAchievementDescription]
   var identifier: String { get }
   @available(iOS 6.0, *)
   var groupIdentifier: String? { get }
@@ -16,7 +16,7 @@ class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
 }
 extension GKAchievementDescription {
   func loadImage(completionHandler: ((UIImage?, Error?) -> Void)? = nil)
-  func loadImageAsync() async throws -> UIImage
+  func loadImage() async throws -> UIImage
   class func incompleteAchievementImage() -> UIImage
   class func placeholderCompletedAchievementImage() -> UIImage
 }

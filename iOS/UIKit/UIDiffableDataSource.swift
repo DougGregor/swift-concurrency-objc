@@ -64,7 +64,7 @@ class UICollectionViewDiffableDataSourceReference : NSObject, UICollectionViewDa
   func snapshot() -> NSDiffableDataSourceSnapshotReference
   func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool)
   func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool, completion: (() -> Void)? = nil)
-  func applySnapshotAsync(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool) async
+  func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool) async
   func itemIdentifier(for indexPath: IndexPath) -> Any?
   func indexPath(forItemIdentifier identifier: Any) -> IndexPath?
   @available(iOS 14.0, *)
@@ -74,7 +74,7 @@ class UICollectionViewDiffableDataSourceReference : NSObject, UICollectionViewDa
   @available(iOS 14.0, *)
   func applySnapshot(_ snapshot: NSDiffableDataSourceSectionSnapshotReference, toSection sectionIdentifier: Any, animatingDifferences: Bool, completion: (() -> Void)? = nil)
   @available(iOS 14.0, *)
-  func applySnapshotAsync(_ snapshot: NSDiffableDataSourceSectionSnapshotReference, toSection sectionIdentifier: Any, animatingDifferences: Bool) async
+  func applySnapshot(_ snapshot: NSDiffableDataSourceSectionSnapshotReference, toSection sectionIdentifier: Any, animatingDifferences: Bool) async
   @available(iOS 14.0, *)
   func snapshot(forSection section: Any) -> NSDiffableDataSourceSectionSnapshotReference
   @available(iOS 14.0, *)
@@ -87,7 +87,7 @@ class UITableViewDiffableDataSourceReference : NSObject, UITableViewDataSource {
   func snapshot() -> NSDiffableDataSourceSnapshotReference
   func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool)
   func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool, completion: (() -> Void)? = nil)
-  func applySnapshotAsync(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool) async
+  func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool) async
   func itemIdentifier(for indexPath: IndexPath) -> Any?
   func indexPath(forItemIdentifier identifier: Any) -> IndexPath?
   var defaultRowAnimation: UITableView.RowAnimation

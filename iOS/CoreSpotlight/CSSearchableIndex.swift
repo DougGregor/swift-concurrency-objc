@@ -22,18 +22,18 @@ class CSSearchableIndex : NSObject {
   init(name: String)
   init(name: String, protectionClass: FileProtectionType?)
   func indexSearchableItems(_ items: [CSSearchableItem], completionHandler: ((Error?) -> Void)? = nil)
-  func indexSearchableItemsAsync(_ items: [CSSearchableItem]) async throws
+  func indexSearchableItems(_ items: [CSSearchableItem]) async throws
   func deleteSearchableItems(withIdentifiers identifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
-  func deleteSearchableItemsAsync(withIdentifiers identifiers: [String]) async throws
+  func deleteSearchableItems(withIdentifiers identifiers: [String]) async throws
   func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
-  func deleteSearchableItemsAsync(withDomainIdentifiers domainIdentifiers: [String]) async throws
+  func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String]) async throws
   func deleteAllSearchableItems(completionHandler: ((Error?) -> Void)? = nil)
-  func deleteAllSearchableItemsAsync() async throws
+  func deleteAllSearchableItems() async throws
 }
 extension CSSearchableIndex {
   func beginBatch()
   func endBatch(withClientState clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
-  func endBatchAsync(withClientState clientState: Data) async throws
+  func endBatch(withClientState clientState: Data) async throws
   func fetchLastClientState(completionHandler: @escaping (Data?, Error?) -> Void)
   func fetchLastClientState() async throws -> Data
 }

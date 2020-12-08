@@ -27,6 +27,6 @@ class TVApplicationController : NSObject {
   weak var delegate: @sil_weak TVApplicationControllerDelegate? { get }
   var navigationController: UINavigationController { get }
   func evaluate(inJavaScriptContext evaluation: @escaping (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
-  func evaluateAsync(inJavaScriptContext evaluation: @escaping (JSContext) -> Void) async -> Bool
+  func evaluate(inJavaScriptContext evaluation: @escaping (JSContext) -> Void) async -> Bool
   func stop()
 }

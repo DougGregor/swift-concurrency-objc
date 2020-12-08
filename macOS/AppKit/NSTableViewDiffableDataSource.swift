@@ -5,7 +5,7 @@ class NSTableViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifi
   func snapshot() -> NSDiffableDataSourceSnapshotReference
   func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool)
   func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool, completion: (() -> Void)? = nil)
-  func applySnapshotAsync(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool) async
+  func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshotReference, animatingDifferences: Bool) async
   func itemIdentifier(forRow row: Int) -> ItemIdentifierType?
   func row(forItemIdentifier identifier: ItemIdentifierType) -> Int
   func sectionIdentifier(forRow row: Int) -> SectionIdentifierType?

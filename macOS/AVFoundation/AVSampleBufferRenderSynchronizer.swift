@@ -15,7 +15,7 @@ extension AVSampleBufferRenderSynchronizer {
   var renderers: [AVQueuedSampleBufferRendering] { get }
   func addRenderer(_ renderer: AVQueuedSampleBufferRendering)
   func removeRenderer(_ renderer: AVQueuedSampleBufferRendering, at time: CMTime, completionHandler: ((Bool) -> Void)? = nil)
-  func removeRendererAsync(_ renderer: AVQueuedSampleBufferRendering, at time: CMTime) async -> Bool
+  func removeRenderer(_ renderer: AVQueuedSampleBufferRendering, at time: CMTime) async -> Bool
 }
 extension AVSampleBufferRenderSynchronizer {
   func addPeriodicTimeObserver(forInterval interval: CMTime, queue: DispatchQueue?, using block: @escaping (CMTime) -> Void) -> Any

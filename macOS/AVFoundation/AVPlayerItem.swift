@@ -85,11 +85,11 @@ extension AVPlayerItem {
   @available(macOS 10.7, *)
   func seek(to time: CMTime, completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.7, *)
-  func seekAsync(to time: CMTime) async -> Bool
+  func seek(to time: CMTime) async -> Bool
   @available(macOS 10.7, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.7, *)
-  func seekAsync(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
   @available(macOS 10.7, *)
   func cancelPendingSeeks()
   func currentDate() -> Date?

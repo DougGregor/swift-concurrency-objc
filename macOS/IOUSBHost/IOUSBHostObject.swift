@@ -6,7 +6,7 @@ class IOUSBHostObject : NSObject {
   var queue: DispatchQueue { get }
   func __send(_ request: IOUSBDeviceRequest, data: NSMutableData?, bytesTransferred: UnsafeMutablePointer<Int>?, completionTimeout: TimeInterval) throws
   func __enqueue(_ request: IOUSBDeviceRequest, data: NSMutableData?, completionTimeout: TimeInterval, completionHandler: IOUSBHostCompletionHandler? = nil) throws
-  func __enqueueDeviceRequestAsync(_ request: IOUSBDeviceRequest, data: NSMutableData?, completionTimeout: TimeInterval) async throws -> (IOReturn, Int)
+  func __enqueue(_ request: IOUSBDeviceRequest, data: NSMutableData?, completionTimeout: TimeInterval) async throws -> (IOReturn, Int)
   func __abortDeviceRequests(with option: IOUSBHostAbortOption) throws
   func __descriptor(with type: tIOUSBDescriptorType, length: UnsafeMutablePointer<Int>, index: Int, languageID: Int, requestType: tIOUSBDeviceRequestTypeValue, requestRecipient: tIOUSBDeviceRequestRecipientValue) throws -> UnsafePointer<IOUSBDescriptor>
   func __string(with index: Int, languageID: Int) throws -> String

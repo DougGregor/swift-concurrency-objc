@@ -11,7 +11,7 @@ class CLSDataStore : NSObject {
   var runningActivity: CLSActivity? { get }
   weak var delegate: @sil_weak CLSDataStoreDelegate?
   func save(completion: ((Error?) -> Void)? = nil)
-  func saveAsync() async throws
+  func save() async throws
   @available(iOS 12.2, *)
   func completeAllAssignedActivities(matching contextPath: [String])
 }

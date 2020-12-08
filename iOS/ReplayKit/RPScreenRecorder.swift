@@ -21,7 +21,7 @@ class RPScreenRecorder : NSObject {
   @available(iOS 11.0, *)
   func startCapture(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?, completionHandler: ((Error?) -> Void)? = nil)
   @available(iOS 11.0, *)
-  func startCaptureAsync(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?) async throws
+  func startCapture(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?) async throws
   @available(iOS 11.0, *)
   func stopCapture(handler: ((Error?) -> Void)? = nil)
   weak var delegate: @sil_weak RPScreenRecorderDelegate?

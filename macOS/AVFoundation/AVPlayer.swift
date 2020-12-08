@@ -67,17 +67,17 @@ extension AVPlayer {
   @available(macOS 10.7, *)
   func seek(to date: Date, completionHandler: @escaping (Bool) -> Void)
   @available(macOS 10.7, *)
-  func seekAsync(to date: Date) async -> Bool
+  func seek(to date: Date) async -> Bool
   func seek(to time: CMTime)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
   @available(macOS 10.7, *)
   func seek(to time: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(macOS 10.7, *)
-  func seekAsync(to time: CMTime) async -> Bool
+  func seek(to time: CMTime) async -> Bool
   @available(macOS 10.7, *)
   func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: @escaping (Bool) -> Void)
   @available(macOS 10.7, *)
-  func seekAsync(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
+  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) async -> Bool
 }
 extension AVPlayer {
   @available(macOS 10.12, *)
@@ -87,7 +87,7 @@ extension AVPlayer {
   @available(macOS 10.8, *)
   func preroll(atRate rate: Float, completionHandler: ((Bool) -> Void)? = nil)
   @available(macOS 10.8, *)
-  func prerollAsync(atRate rate: Float) async -> Bool
+  func preroll(atRate rate: Float) async -> Bool
   @available(macOS 10.8, *)
   func cancelPendingPrerolls()
   @available(macOS 10.8, *)

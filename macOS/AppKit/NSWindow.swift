@@ -413,11 +413,11 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSMenuItemValidatio
   @available(macOS 10.9, *)
   func beginSheet(_ sheetWindow: NSWindow, completionHandler handler: ((NSApplication.ModalResponse) -> Void)? = nil)
   @available(macOS 10.9, *)
-  func beginSheetAsync(_ sheetWindow: NSWindow) async -> NSApplication.ModalResponse
+  func beginSheet(_ sheetWindow: NSWindow) async -> NSApplication.ModalResponse
   @available(macOS 10.9, *)
   func beginCriticalSheet(_ sheetWindow: NSWindow, completionHandler handler: ((NSApplication.ModalResponse) -> Void)? = nil)
   @available(macOS 10.9, *)
-  func beginCriticalSheetAsync(_ sheetWindow: NSWindow) async -> NSApplication.ModalResponse
+  func beginCriticalSheet(_ sheetWindow: NSWindow) async -> NSApplication.ModalResponse
   @available(macOS 10.9, *)
   func endSheet(_ sheetWindow: NSWindow)
   @available(macOS 10.9, *)
