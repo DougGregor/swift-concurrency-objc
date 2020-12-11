@@ -16,5 +16,5 @@ protocol __UIIndirectScribbleInteractionDelegate : NSObjectProtocol {
   func indirectScribbleInteraction(_ interaction: __UIIndirectScribbleInteraction, focusElementIfNeeded elementIdentifier: __UIScribbleElementIdentifier, referencePoint focusReferencePoint: CGPoint) async -> (UIResponder & UITextInput)?
   optional func indirectScribbleInteraction(_ interaction: __UIIndirectScribbleInteraction, shouldDelayFocusForElement elementIdentifier: __UIScribbleElementIdentifier) -> Bool
   optional func indirectScribbleInteraction(_ interaction: __UIIndirectScribbleInteraction, willBeginWritingInElement elementIdentifier: __UIScribbleElementIdentifier)
-  @asyncHandler optional func indirectScribbleInteraction(_ interaction: __UIIndirectScribbleInteraction, didFinishWritingInElement elementIdentifier: __UIScribbleElementIdentifier)
+  optional func indirectScribbleInteraction(_ interaction: __UIIndirectScribbleInteraction, didFinishWritingInElement elementIdentifier: __UIScribbleElementIdentifier)
 }

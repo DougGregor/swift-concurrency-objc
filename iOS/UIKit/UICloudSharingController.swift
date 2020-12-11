@@ -20,9 +20,9 @@ protocol UICloudSharingControllerDelegate : NSObjectProtocol {
   @available(iOS 10.0, *)
   optional func itemType(for csc: UICloudSharingController) -> String?
   @available(iOS 10.0, *)
-  @asyncHandler optional func cloudSharingControllerDidSaveShare(_ csc: UICloudSharingController)
+  optional func cloudSharingControllerDidSaveShare(_ csc: UICloudSharingController)
   @available(iOS 10.0, *)
-  @asyncHandler optional func cloudSharingControllerDidStopSharing(_ csc: UICloudSharingController)
+  optional func cloudSharingControllerDidStopSharing(_ csc: UICloudSharingController)
 }
 @available(iOS 10.0, *)
 class UICloudSharingController : UIViewController {

@@ -11,5 +11,5 @@ class AVCaptureMetadataOutput : AVCaptureOutput {
 }
 @available(iOS 6.0, *)
 protocol AVCaptureMetadataOutputObjectsDelegate : NSObjectProtocol {
-  @asyncHandler optional func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection)
+  optional func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection)
 }

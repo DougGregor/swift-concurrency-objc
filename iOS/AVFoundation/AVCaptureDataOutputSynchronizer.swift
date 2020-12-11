@@ -9,7 +9,7 @@ class AVCaptureDataOutputSynchronizer : NSObject {
 }
 @available(iOS 11.0, *)
 protocol AVCaptureDataOutputSynchronizerDelegate : NSObjectProtocol {
-  @asyncHandler func dataOutputSynchronizer(_ synchronizer: AVCaptureDataOutputSynchronizer, didOutput synchronizedDataCollection: AVCaptureSynchronizedDataCollection)
+  func dataOutputSynchronizer(_ synchronizer: AVCaptureDataOutputSynchronizer, didOutput synchronizedDataCollection: AVCaptureSynchronizedDataCollection)
 }
 @available(iOS 11.0, *)
 class AVCaptureSynchronizedDataCollection : NSObject, NSFastEnumeration {

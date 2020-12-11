@@ -11,5 +11,5 @@ protocol UIScribbleInteractionDelegate : NSObjectProtocol {
   optional func scribbleInteraction(_ interaction: UIScribbleInteraction, shouldBeginAt location: CGPoint) -> Bool
   optional func scribbleInteractionShouldDelayFocus(_ interaction: UIScribbleInteraction) -> Bool
   optional func scribbleInteractionWillBeginWriting(_ interaction: UIScribbleInteraction)
-  @asyncHandler optional func scribbleInteractionDidFinishWriting(_ interaction: UIScribbleInteraction)
+  optional func scribbleInteractionDidFinishWriting(_ interaction: UIScribbleInteraction)
 }

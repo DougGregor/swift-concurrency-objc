@@ -285,11 +285,11 @@ extension URLSession {
 }
 @available(iOS 7.0, *)
 protocol URLSessionDelegate : NSObjectProtocol {
-  @asyncHandler optional func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?)
-  @asyncHandler optional func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  optional func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?)
+  optional func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
   optional func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?)
   @available(iOS 7.0, *)
-  @asyncHandler optional func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession)
+  optional func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession)
 }
 @available(iOS 7.0, *)
 protocol URLSessionTaskDelegate : URLSessionDelegate {
@@ -301,43 +301,43 @@ protocol URLSessionTaskDelegate : URLSessionDelegate {
   optional func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest) async -> URLRequest?
-  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?)
   optional func urlSession(_ session: URLSession, task: URLSessionTask, needNewBodyStream completionHandler: @escaping (InputStream?) -> Void)
   optional func urlSession(_ session: URLSession, task: URLSessionTask) async -> InputStream?
-  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64)
   @available(iOS 10.0, *)
-  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics)
-  @asyncHandler optional func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics)
+  optional func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?)
 }
 @available(iOS 7.0, *)
 protocol URLSessionDataDelegate : URLSessionTaskDelegate {
-  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
+  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
   optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse) async -> URLSession.ResponseDisposition
-  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask)
+  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask)
   @available(iOS 9.0, *)
-  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask)
-  @asyncHandler optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
+  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask)
+  optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
   optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Void)
   optional func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse) async -> CachedURLResponse?
 }
 @available(iOS 7.0, *)
 protocol URLSessionDownloadDelegate : URLSessionTaskDelegate {
-  @asyncHandler func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL)
-  @asyncHandler optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
-  @asyncHandler optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64)
+  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL)
+  optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
+  optional func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64)
 }
 @available(iOS 9.0, *)
 protocol URLSessionStreamDelegate : URLSessionTaskDelegate {
   optional func urlSession(_ session: URLSession, readClosedFor streamTask: URLSessionStreamTask)
   optional func urlSession(_ session: URLSession, writeClosedFor streamTask: URLSessionStreamTask)
   optional func urlSession(_ session: URLSession, betterRouteDiscoveredFor streamTask: URLSessionStreamTask)
-  @asyncHandler optional func urlSession(_ session: URLSession, streamTask: URLSessionStreamTask, didBecome inputStream: InputStream, outputStream: OutputStream)
+  optional func urlSession(_ session: URLSession, streamTask: URLSessionStreamTask, didBecome inputStream: InputStream, outputStream: OutputStream)
 }
 @available(iOS 13.0, *)
 protocol URLSessionWebSocketDelegate : URLSessionTaskDelegate {
-  @asyncHandler optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?)
-  @asyncHandler optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?)
+  optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?)
+  optional func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?)
 }
 @available(iOS 7.0, *)
 let NSURLSessionDownloadTaskResumeData: String

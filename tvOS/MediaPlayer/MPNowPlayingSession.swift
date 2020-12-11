@@ -15,6 +15,6 @@ class MPNowPlayingSession : NSObject {
 }
 @available(tvOS 14.0, *)
 protocol MPNowPlayingSessionDelegate : NSObjectProtocol {
-  @asyncHandler optional func nowPlayingSessionDidChangeActive(_ nowPlayingSession: MPNowPlayingSession)
-  @asyncHandler optional func nowPlayingSessionDidChangeCanBecomeActive(_ nowPlayingSession: MPNowPlayingSession)
+  optional func nowPlayingSessionDidChangeActive(_ nowPlayingSession: MPNowPlayingSession)
+  optional func nowPlayingSessionDidChangeCanBecomeActive(_ nowPlayingSession: MPNowPlayingSession)
 }

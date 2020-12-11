@@ -1,11 +1,11 @@
 
 protocol UIDocumentPickerDelegate : NSObjectProtocol {
   @available(iOS 11.0, *)
-  @asyncHandler optional func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL])
+  optional func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL])
   @available(iOS 8.0, *)
   optional func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController)
   @available(iOS, introduced: 8.0, deprecated: 11.0)
-  @asyncHandler optional func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL)
+  optional func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL)
 }
 @available(iOS, introduced: 8.0, deprecated: 14.0, message: "Use appropriate initializers instead")
 enum UIDocumentPickerMode : UInt {

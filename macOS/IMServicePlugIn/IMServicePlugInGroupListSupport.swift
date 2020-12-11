@@ -34,9 +34,9 @@ protocol IMServicePlugInGroupListHandlePictureSupport : NSObjectProtocol {
 }
 protocol IMServiceApplicationGroupListSupport : IMServiceApplication {
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  @asyncHandler func plugInDidUpdateGroupList(_ groups: [Any]!, error: Error!)
+  func plugInDidUpdateGroupList(_ groups: [Any]!, error: Error!)
 }
 protocol IMServiceApplicationGroupListAuthorizationSupport : IMServiceApplicationGroupListSupport {
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  @asyncHandler func plugInDidReceiveAuthorizationRequest(fromHandle handle: String!)
+  func plugInDidReceiveAuthorizationRequest(fromHandle handle: String!)
 }

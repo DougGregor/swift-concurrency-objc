@@ -1,7 +1,7 @@
 
 protocol SKPhysicsContactDelegate : NSObjectProtocol {
-  @asyncHandler optional func didBegin(_ contact: SKPhysicsContact)
-  @asyncHandler optional func didEnd(_ contact: SKPhysicsContact)
+  optional func didBegin(_ contact: SKPhysicsContact)
+  optional func didEnd(_ contact: SKPhysicsContact)
 }
 class SKPhysicsWorld : NSObject, NSSecureCoding {
   var gravity: CGVector

@@ -11,7 +11,7 @@ class MCNearbyServiceAdvertiser : NSObject {
 }
 protocol MCNearbyServiceAdvertiserDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
-  @asyncHandler func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void)
+  func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void)
   @available(iOS 7.0, *)
-  @asyncHandler optional func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error)
+  optional func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error)
 }

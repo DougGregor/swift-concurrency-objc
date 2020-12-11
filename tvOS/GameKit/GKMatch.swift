@@ -36,13 +36,13 @@ class GKMatch : NSObject {
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
+  optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
   @available(tvOS 9.0, *)
-  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
+  optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
   @available(tvOS 4.1, *)
-  @asyncHandler optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
+  optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(tvOS 4.1, *)
-  @asyncHandler optional func match(_ match: GKMatch, didFailWithError error: Error?)
+  optional func match(_ match: GKMatch, didFailWithError error: Error?)
   @available(tvOS 8.0, *)
   optional func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
 }

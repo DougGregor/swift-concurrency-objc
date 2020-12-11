@@ -32,5 +32,5 @@ protocol UIPickerViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
   @available(iOS 2.0, *)
-  @asyncHandler optional func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+  optional func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
 }

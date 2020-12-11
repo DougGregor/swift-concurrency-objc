@@ -16,5 +16,5 @@ extension GKFriendRequestComposeViewController {
 @available(iOS, introduced: 4.2, deprecated: 10.0)
 protocol GKFriendRequestComposeViewControllerDelegate {
   @available(iOS, introduced: 4.2, deprecated: 10.0)
-  @asyncHandler func friendRequestComposeViewControllerDidFinish(_ viewController: GKFriendRequestComposeViewController)
+  func friendRequestComposeViewControllerDidFinish(_ viewController: GKFriendRequestComposeViewController)
 }

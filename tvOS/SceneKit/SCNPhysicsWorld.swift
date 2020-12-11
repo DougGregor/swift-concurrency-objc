@@ -22,9 +22,9 @@ extension SCNPhysicsWorld.TestSearchMode {
   static let all: SCNPhysicsWorld.TestSearchMode
 }
 protocol SCNPhysicsContactDelegate : NSObjectProtocol {
-  @asyncHandler optional func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
-  @asyncHandler optional func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
-  @asyncHandler optional func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
+  optional func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
+  optional func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
+  optional func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
 }
 class SCNPhysicsWorld : NSObject, NSSecureCoding {
   var gravity: SCNVector3

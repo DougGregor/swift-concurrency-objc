@@ -32,7 +32,7 @@ protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
   optional func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
   @available(tvOS 2.0, *)
-  @asyncHandler optional func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
+  optional func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
   @available(tvOS 7.0, *)
   optional func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(tvOS 7.0, *)

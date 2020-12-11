@@ -57,14 +57,14 @@ class CPInterfaceController : NSObject {
 @available(iOS 12.0, *)
 protocol CPInterfaceControllerDelegate : NSObjectProtocol {
   optional func templateWillAppear(_ aTemplate: CPTemplate, animated: Bool)
-  @asyncHandler optional func templateDidAppear(_ aTemplate: CPTemplate, animated: Bool)
+  optional func templateDidAppear(_ aTemplate: CPTemplate, animated: Bool)
   optional func templateWillDisappear(_ aTemplate: CPTemplate, animated: Bool)
-  @asyncHandler optional func templateDidDisappear(_ aTemplate: CPTemplate, animated: Bool)
+  optional func templateDidDisappear(_ aTemplate: CPTemplate, animated: Bool)
 }
 @available(iOS, introduced: 12.0, deprecated: 13.0)
 protocol CPApplicationDelegate : UIApplicationDelegate {
-  @asyncHandler func application(_ application: UIApplication, didConnectCarInterfaceController interfaceController: CPInterfaceController, to window: CPWindow)
-  @asyncHandler func application(_ application: UIApplication, didDisconnectCarInterfaceController interfaceController: CPInterfaceController, from window: CPWindow)
-  @asyncHandler optional func application(_ application: UIApplication, didSelect navigationAlert: CPNavigationAlert)
-  @asyncHandler optional func application(_ application: UIApplication, didSelect maneuver: CPManeuver)
+  func application(_ application: UIApplication, didConnectCarInterfaceController interfaceController: CPInterfaceController, to window: CPWindow)
+  func application(_ application: UIApplication, didDisconnectCarInterfaceController interfaceController: CPInterfaceController, from window: CPWindow)
+  optional func application(_ application: UIApplication, didSelect navigationAlert: CPNavigationAlert)
+  optional func application(_ application: UIApplication, didSelect maneuver: CPManeuver)
 }

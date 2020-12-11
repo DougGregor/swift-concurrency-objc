@@ -9,6 +9,6 @@ class HMCameraStreamControl : HMCameraControl {
 }
 @available(tvOS 10.0, *)
 protocol HMCameraStreamControlDelegate : NSObjectProtocol {
-  @asyncHandler optional func cameraStreamControlDidStartStream(_ cameraStreamControl: HMCameraStreamControl)
-  @asyncHandler optional func cameraStreamControl(_ cameraStreamControl: HMCameraStreamControl, didStopStreamWithError error: Error?)
+  optional func cameraStreamControlDidStartStream(_ cameraStreamControl: HMCameraStreamControl)
+  optional func cameraStreamControl(_ cameraStreamControl: HMCameraStreamControl, didStopStreamWithError error: Error?)
 }

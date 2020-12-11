@@ -14,7 +14,7 @@ extension UIAccessibility {
 @available(tvOS 7.0, *)
 protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
   var guidedAccessRestrictionIdentifiers: [String]? { get }
-  @asyncHandler func guidedAccessRestriction(withIdentifier restrictionIdentifier: String, didChange newRestrictionState: UIAccessibility.GuidedAccessRestrictionState)
+  func guidedAccessRestriction(withIdentifier restrictionIdentifier: String, didChange newRestrictionState: UIAccessibility.GuidedAccessRestrictionState)
   func textForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
   optional func detailTextForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
 }

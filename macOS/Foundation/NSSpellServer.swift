@@ -16,8 +16,8 @@ struct __ssFlags {
 protocol NSSpellServerDelegate : NSObjectProtocol {
   optional func spellServer(_ sender: NSSpellServer, findMisspelledWordIn stringToCheck: String, language: String, wordCount: UnsafeMutablePointer<Int>, countOnly: Bool) -> NSRange
   optional func spellServer(_ sender: NSSpellServer, suggestGuessesForWord word: String, inLanguage language: String) -> [String]?
-  @asyncHandler optional func spellServer(_ sender: NSSpellServer, didLearnWord word: String, inLanguage language: String)
-  @asyncHandler optional func spellServer(_ sender: NSSpellServer, didForgetWord word: String, inLanguage language: String)
+  optional func spellServer(_ sender: NSSpellServer, didLearnWord word: String, inLanguage language: String)
+  optional func spellServer(_ sender: NSSpellServer, didForgetWord word: String, inLanguage language: String)
   optional func spellServer(_ sender: NSSpellServer, suggestCompletionsForPartialWordRange range: NSRange, in string: String, language: String) -> [String]?
   @available(macOS 10.5, *)
   optional func spellServer(_ sender: NSSpellServer, checkGrammarIn stringToCheck: String, language: String?, details: AutoreleasingUnsafeMutablePointer<NSArray?>?) -> NSRange

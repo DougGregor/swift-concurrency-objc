@@ -42,7 +42,7 @@ class __PHPickerResult : NSObject {
 @available(iOS 14, *)
 protocol __PHPickerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 14, *)
-  @asyncHandler func picker(_ picker: PHPickerViewController, didFinishPicking results: [__PHPickerResult])
+  func picker(_ picker: PHPickerViewController, didFinishPicking results: [__PHPickerResult])
 }
 @available(iOS 14, *)
 class PHPickerViewController : UIViewController {

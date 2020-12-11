@@ -11,5 +11,5 @@ class RPPreviewViewController : UIViewController {
   var mode: RPPreviewViewControllerMode
 }
 protocol RPPreviewViewControllerDelegate : NSObjectProtocol {
-  @asyncHandler optional func previewControllerDidFinish(_ previewController: RPPreviewViewController)
+  optional func previewControllerDidFinish(_ previewController: RPPreviewViewController)
 }

@@ -72,11 +72,11 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(iOS 6.0, *)
   optional func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
+  optional func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
   @available(iOS 6.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
+  optional func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
+  optional func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(iOS 2.0, *)
   optional func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
   @available(iOS 2.0, *)
@@ -98,17 +98,17 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(iOS 6.0, *)
   optional func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
   @available(iOS 6.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath)
+  optional func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath)
   @available(iOS 6.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
+  optional func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath)
   @available(iOS 2.0, *)
   optional func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
   @available(iOS 3.0, *)
   optional func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath?
   @available(iOS 2.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  optional func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
   @available(iOS 3.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+  optional func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
   @available(iOS 2.0, *)
   optional func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle
   @available(iOS 3.0, *)
@@ -124,7 +124,7 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(iOS 2.0, *)
   optional func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath)
   @available(iOS 2.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?)
+  optional func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?)
   @available(iOS 2.0, *)
   optional func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath
   @available(iOS 2.0, *)
@@ -140,7 +140,7 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(iOS 9.0, *)
   optional func tableView(_ tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  optional func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
   @available(iOS 11.0, *)
@@ -148,9 +148,9 @@ protocol UITableViewDelegate : UIScrollViewDelegate {
   @available(iOS 13.0, *)
   optional func tableView(_ tableView: UITableView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool
   @available(iOS 13.0, *)
-  @asyncHandler optional func tableView(_ tableView: UITableView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath)
+  optional func tableView(_ tableView: UITableView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath)
   @available(iOS 13.0, *)
-  @asyncHandler optional func tableViewDidEndMultipleSelectionInteraction(_ tableView: UITableView)
+  optional func tableViewDidEndMultipleSelectionInteraction(_ tableView: UITableView)
   @available(iOS 13.0, *)
   optional func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration?
   @available(iOS 13.0, *)

@@ -52,7 +52,7 @@ extension GKTurnBasedParticipant {
 }
 protocol GKTurnBasedEventListener {
   @available(watchOS 3.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
+  optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(watchOS 3.0, *)
   optional func player(_ player: GKPlayer, matchEnded match: GKTurnBasedMatch)
   @available(watchOS 3.0, *)
@@ -64,7 +64,7 @@ protocol GKTurnBasedEventListener {
   @available(watchOS 3.0, *)
   optional func player(_ player: GKPlayer, wantsToQuitMatch match: GKTurnBasedMatch)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "use didRequestMatchWithOtherPlayers")
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
+  optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
 }
 @available(watchOS 3.0, *)
 var GKTurnTimeoutDefault: TimeInterval
@@ -210,7 +210,7 @@ protocol GKTurnBasedEventHandlerDelegate {
   @available(watchOS, introduced: 2.0, deprecated: 2.0)
   func handleInvite(fromGameCenter playersToInvite: [String])
   @available(watchOS, introduced: 2.0, deprecated: 2.0)
-  @asyncHandler func handleTurnEvent(for match: GKTurnBasedMatch, didBecomeActive: Bool)
+  func handleTurnEvent(for match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(watchOS, introduced: 2.0, deprecated: 2.0)
   optional func handleTurnEvent(for match: GKTurnBasedMatch)
   @available(watchOS, introduced: 2.0, deprecated: 2.0)

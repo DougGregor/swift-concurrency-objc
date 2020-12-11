@@ -40,5 +40,5 @@ class UITabBar : UIView {
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
-  @asyncHandler optional func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
+  optional func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
 }

@@ -11,11 +11,11 @@ protocol TVApplicationControllerDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
   optional func appController(_ appController: TVApplicationController, evaluateAppJavaScriptIn jsContext: JSContext)
   @available(tvOS 9.0, *)
-  @asyncHandler optional func appController(_ appController: TVApplicationController, didFinishLaunching options: [String : Any]?)
+  optional func appController(_ appController: TVApplicationController, didFinishLaunching options: [String : Any]?)
   @available(tvOS 9.0, *)
-  @asyncHandler optional func appController(_ appController: TVApplicationController, didFail error: Error)
+  optional func appController(_ appController: TVApplicationController, didFail error: Error)
   @available(tvOS 9.0, *)
-  @asyncHandler optional func appController(_ appController: TVApplicationController, didStop options: [String : Any]?)
+  optional func appController(_ appController: TVApplicationController, didStop options: [String : Any]?)
   @available(tvOS 12.0, *)
   optional func player(for appController: TVApplicationController) -> TVPlayer?
 }

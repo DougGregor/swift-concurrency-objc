@@ -69,7 +69,7 @@ protocol NSMenuDelegate : NSObjectProtocol {
   @available(macOS 10.5, *)
   optional func menuWillOpen(_ menu: NSMenu)
   @available(macOS 10.5, *)
-  @asyncHandler optional func menuDidClose(_ menu: NSMenu)
+  optional func menuDidClose(_ menu: NSMenu)
   @available(macOS 10.5, *)
   optional func menu(_ menu: NSMenu, willHighlight item: NSMenuItem?)
   @available(macOS 10.6, *)

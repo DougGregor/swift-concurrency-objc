@@ -11,7 +11,7 @@ class MXMetricManager : NSObject {
 }
 @available(iOS 13.0, *)
 protocol MXMetricManagerSubscriber : NSObjectProtocol {
-  @asyncHandler func didReceive(_ payloads: [MXMetricPayload])
+  func didReceive(_ payloads: [MXMetricPayload])
   @available(iOS 14.0, *)
-  @asyncHandler optional func didReceive(_ payloads: [MXDiagnosticPayload])
+  optional func didReceive(_ payloads: [MXDiagnosticPayload])
 }

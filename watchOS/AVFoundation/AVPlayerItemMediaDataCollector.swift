@@ -11,5 +11,5 @@ class AVPlayerItemMetadataCollector : AVPlayerItemMediaDataCollector {
 }
 protocol AVPlayerItemMetadataCollectorPushDelegate : NSObjectProtocol {
   @available(watchOS 2.3, *)
-  @asyncHandler func metadataCollector(_ metadataCollector: AVPlayerItemMetadataCollector, didCollect metadataGroups: [AVDateRangeMetadataGroup], indexesOfNewGroups: IndexSet, indexesOfModifiedGroups: IndexSet)
+  func metadataCollector(_ metadataCollector: AVPlayerItemMetadataCollector, didCollect metadataGroups: [AVDateRangeMetadataGroup], indexesOfNewGroups: IndexSet, indexesOfModifiedGroups: IndexSet)
 }

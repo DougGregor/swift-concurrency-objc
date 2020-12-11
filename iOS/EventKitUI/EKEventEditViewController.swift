@@ -16,7 +16,7 @@ class EKEventEditViewController : UINavigationController {
 }
 protocol EKEventEditViewDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  @asyncHandler func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
+  func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
   @available(iOS 4.0, *)
   optional func eventEditViewControllerDefaultCalendar(forNewEvents controller: EKEventEditViewController) -> EKCalendar
 }

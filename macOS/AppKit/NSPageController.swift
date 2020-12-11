@@ -33,9 +33,9 @@ protocol NSPageControllerDelegate : NSObjectProtocol {
   @available(macOS 10.8, *)
   optional func pageController(_ pageController: NSPageController, prepare viewController: NSViewController, with object: Any?)
   @available(macOS 10.8, *)
-  @asyncHandler optional func pageController(_ pageController: NSPageController, didTransitionTo object: Any)
+  optional func pageController(_ pageController: NSPageController, didTransitionTo object: Any)
   @available(macOS 10.8, *)
   optional func pageControllerWillStartLiveTransition(_ pageController: NSPageController)
   @available(macOS 10.8, *)
-  @asyncHandler optional func pageControllerDidEndLiveTransition(_ pageController: NSPageController)
+  optional func pageControllerDidEndLiveTransition(_ pageController: NSPageController)
 }

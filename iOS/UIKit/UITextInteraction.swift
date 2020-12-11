@@ -11,7 +11,7 @@ protocol UITextInteractionDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
   optional func interactionWillBegin(_ interaction: UITextInteraction)
   @available(iOS 13.0, *)
-  @asyncHandler optional func interactionDidEnd(_ interaction: UITextInteraction)
+  optional func interactionDidEnd(_ interaction: UITextInteraction)
 }
 @available(iOS 13.0, *)
 class UITextInteraction : NSObject, UIInteraction {

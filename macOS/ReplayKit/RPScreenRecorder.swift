@@ -35,6 +35,6 @@ class RPScreenRecorder : NSObject {
 @available(macOS 11.0, *)
 protocol RPScreenRecorderDelegate : NSObjectProtocol {
   @available(macOS 11.0, *)
-  @asyncHandler optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWith previewViewController: RPPreviewViewController?, error: Error?)
-  @asyncHandler optional func screenRecorderDidChangeAvailability(_ screenRecorder: RPScreenRecorder)
+  optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWith previewViewController: RPPreviewViewController?, error: Error?)
+  optional func screenRecorderDidChangeAvailability(_ screenRecorder: RPScreenRecorder)
 }

@@ -45,13 +45,13 @@ struct __AMWorkflowControllerDelegateRespondTo {
 protocol AMWorkflowControllerDelegate : NSObjectProtocol {
   optional func workflowControllerWillRun(_ controller: AMWorkflowController)
   optional func workflowControllerWillStop(_ controller: AMWorkflowController)
-  @asyncHandler optional func workflowControllerDidRun(_ controller: AMWorkflowController)
-  @asyncHandler optional func workflowControllerDidStop(_ controller: AMWorkflowController)
+  optional func workflowControllerDidRun(_ controller: AMWorkflowController)
+  optional func workflowControllerDidStop(_ controller: AMWorkflowController)
   @available(macOS 10.4, *)
   optional func workflowController(_ controller: AMWorkflowController, willRun action: AMAction)
   @available(macOS 10.4, *)
-  @asyncHandler optional func workflowController(_ controller: AMWorkflowController, didRun action: AMAction)
-  @asyncHandler optional func workflowController(_ controller: AMWorkflowController, didError error: Error)
+  optional func workflowController(_ controller: AMWorkflowController, didRun action: AMAction)
+  optional func workflowController(_ controller: AMWorkflowController, didError error: Error)
 }
 extension NSObject {
   @available(macOS, introduced: 10.4, deprecated: 10.13, message: "Use AMWorkflowControllerDelegate protocol.")

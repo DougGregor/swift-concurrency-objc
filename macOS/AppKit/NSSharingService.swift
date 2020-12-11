@@ -97,9 +97,9 @@ protocol NSSharingServiceDelegate : NSObjectProtocol {
   @available(macOS 10.8, *)
   optional func sharingService(_ sharingService: NSSharingService, willShareItems items: [Any])
   @available(macOS 10.8, *)
-  @asyncHandler optional func sharingService(_ sharingService: NSSharingService, didFailToShareItems items: [Any], error: Error)
+  optional func sharingService(_ sharingService: NSSharingService, didFailToShareItems items: [Any], error: Error)
   @available(macOS 10.8, *)
-  @asyncHandler optional func sharingService(_ sharingService: NSSharingService, didShareItems items: [Any])
+  optional func sharingService(_ sharingService: NSSharingService, didShareItems items: [Any])
   @available(macOS 10.8, *)
   optional func sharingService(_ sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: Any) -> NSRect
   @available(macOS 10.8, *)
@@ -111,13 +111,13 @@ protocol NSSharingServiceDelegate : NSObjectProtocol {
 }
 protocol NSCloudSharingServiceDelegate : NSSharingServiceDelegate {
   @available(macOS 10.8, *)
-  @asyncHandler optional func sharingService(_ sharingService: NSSharingService, didCompleteForItems items: [Any], error: Error?)
+  optional func sharingService(_ sharingService: NSSharingService, didCompleteForItems items: [Any], error: Error?)
   @available(macOS 10.12, *)
   optional func options(for cloudKitSharingService: NSSharingService, share provider: NSItemProvider) -> NSSharingService.CloudKitOptions
   @available(macOS 10.12, *)
-  @asyncHandler optional func sharingService(_ sharingService: NSSharingService, didSave share: CKShare)
+  optional func sharingService(_ sharingService: NSSharingService, didSave share: CKShare)
   @available(macOS 10.12, *)
-  @asyncHandler optional func sharingService(_ sharingService: NSSharingService, didStopSharing share: CKShare)
+  optional func sharingService(_ sharingService: NSSharingService, didStopSharing share: CKShare)
 }
 extension NSItemProvider {
   @available(macOS 10.12, *)
@@ -137,5 +137,5 @@ protocol NSSharingServicePickerDelegate : NSObjectProtocol {
   @available(macOS 10.8, *)
   optional func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, delegateFor sharingService: NSSharingService) -> NSSharingServiceDelegate?
   @available(macOS 10.8, *)
-  @asyncHandler optional func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?)
+  optional func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?)
 }

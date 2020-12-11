@@ -33,8 +33,8 @@ class MKLocalSearchCompleter : NSObject {
 }
 @available(iOS 9.3, *)
 protocol MKLocalSearchCompleterDelegate : NSObjectProtocol {
-  @asyncHandler optional func completerDidUpdateResults(_ completer: MKLocalSearchCompleter)
-  @asyncHandler optional func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error)
+  optional func completerDidUpdateResults(_ completer: MKLocalSearchCompleter)
+  optional func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error)
 }
 @available(iOS 9.3, *)
 class MKLocalSearchCompletion : NSObject {

@@ -53,25 +53,25 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(iOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool
   @available(iOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
   @available(iOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
   @available(iOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool
   @available(iOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool
   @available(iOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   @available(iOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
   @available(iOS 8.0, *)
   optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(iOS 8.0, *)
   optional func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath)
   @available(iOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(iOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
   @available(iOS, introduced: 6.0, deprecated: 13.0)
   optional func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
   @available(iOS, introduced: 6.0, deprecated: 13.0)
@@ -85,7 +85,7 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(iOS 9.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  optional func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(iOS 9.0, *)
@@ -99,9 +99,9 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(iOS 13.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool
   @available(iOS 13.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath)
   @available(iOS 13.0, *)
-  @asyncHandler optional func collectionViewDidEndMultipleSelectionInteraction(_ collectionView: UICollectionView)
+  optional func collectionViewDidEndMultipleSelectionInteraction(_ collectionView: UICollectionView)
   @available(iOS 13.0, *)
   optional func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration?
   @available(iOS 13.0, *)

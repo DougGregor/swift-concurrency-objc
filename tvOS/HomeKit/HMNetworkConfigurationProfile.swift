@@ -6,5 +6,5 @@ class HMNetworkConfigurationProfile : HMAccessoryProfile {
 }
 @available(tvOS 13.0, *)
 protocol HMNetworkConfigurationProfileDelegate : NSObjectProtocol {
-  @asyncHandler optional func profileDidUpdateNetworkAccessMode(_ profile: HMNetworkConfigurationProfile)
+  optional func profileDidUpdateNetworkAccessMode(_ profile: HMNetworkConfigurationProfile)
 }

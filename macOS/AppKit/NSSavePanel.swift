@@ -43,10 +43,10 @@ protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   @available(macOS 10.6, *)
   optional func panel(_ sender: Any, validate url: URL) throws
   @available(macOS 10.6, *)
-  @asyncHandler optional func panel(_ sender: Any, didChangeToDirectoryURL url: URL?)
+  optional func panel(_ sender: Any, didChangeToDirectoryURL url: URL?)
   optional func panel(_ sender: Any, userEnteredFilename filename: String, confirmed okFlag: Bool) -> String?
   optional func panel(_ sender: Any, willExpand expanding: Bool)
-  @asyncHandler optional func panelSelectionDidChange(_ sender: Any?)
+  optional func panelSelectionDidChange(_ sender: Any?)
 }
 extension NSObject {
 }

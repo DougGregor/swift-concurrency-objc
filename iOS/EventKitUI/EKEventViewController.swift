@@ -16,5 +16,5 @@ class EKEventViewController : UIViewController {
 }
 protocol EKEventViewDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)
-  @asyncHandler func eventViewController(_ controller: EKEventViewController, didCompleteWith action: EKEventViewAction)
+  func eventViewController(_ controller: EKEventViewController, didCompleteWith action: EKEventViewAction)
 }

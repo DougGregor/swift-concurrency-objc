@@ -157,11 +157,11 @@ protocol NSLayoutManagerDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
   optional func layoutManager(_ layoutManager: NSLayoutManager, shouldSetLineFragmentRect lineFragmentRect: UnsafeMutablePointer<CGRect>, lineFragmentUsedRect: UnsafeMutablePointer<CGRect>, baselineOffset: UnsafeMutablePointer<CGFloat>, in textContainer: NSTextContainer, forGlyphRange glyphRange: NSRange) -> Bool
   @available(tvOS 7.0, *)
-  @asyncHandler optional func layoutManagerDidInvalidateLayout(_ sender: NSLayoutManager)
+  optional func layoutManagerDidInvalidateLayout(_ sender: NSLayoutManager)
   @available(tvOS 7.0, *)
-  @asyncHandler optional func layoutManager(_ layoutManager: NSLayoutManager, didCompleteLayoutFor textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool)
+  optional func layoutManager(_ layoutManager: NSLayoutManager, didCompleteLayoutFor textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool)
   @available(tvOS 7.0, *)
-  @asyncHandler optional func layoutManager(_ layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFrom oldSize: CGSize)
+  optional func layoutManager(_ layoutManager: NSLayoutManager, textContainer: NSTextContainer, didChangeGeometryFrom oldSize: CGSize)
 }
 @available(tvOS, introduced: 7.0, deprecated: 9.0, message: "Use NSControlCharacterActionZeroAdvancement instead")
 var NSControlCharacterZeroAdvancementAction: Int { get }

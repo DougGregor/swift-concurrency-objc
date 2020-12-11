@@ -10,7 +10,7 @@ class TVCollectionViewFullScreenLayoutAttributes : UICollectionViewLayoutAttribu
 @available(tvOS 13.0, *)
 protocol TVCollectionViewDelegateFullScreenLayout : UICollectionViewDelegate {
   optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, willCenterCellAt indexPath: IndexPath)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, didCenterCellAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, didCenterCellAt indexPath: IndexPath)
 }
 @available(tvOS 13.0, *)
 class TVCollectionViewFullScreenLayout : UICollectionViewLayout {

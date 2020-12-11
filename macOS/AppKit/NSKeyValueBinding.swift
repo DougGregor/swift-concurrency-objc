@@ -71,8 +71,8 @@ protocol NSEditor : NSObjectProtocol {
   func commitEditingWithoutPresentingError() throws
 }
 protocol NSEditorRegistration : NSObjectProtocol {
-  @asyncHandler optional func objectDidBeginEditing(_ editor: NSEditor)
-  @asyncHandler optional func objectDidEndEditing(_ editor: NSEditor)
+  optional func objectDidBeginEditing(_ editor: NSEditor)
+  optional func objectDidEndEditing(_ editor: NSEditor)
 }
 extension NSBindingName {
   static let alignment: NSBindingName

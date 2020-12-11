@@ -48,9 +48,9 @@ protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   @available(iOS 2.0, *)
   optional func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool
   @available(iOS 2.0, *)
-  @asyncHandler optional func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem)
+  optional func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem)
   @available(iOS 2.0, *)
   optional func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
   @available(iOS 2.0, *)
-  @asyncHandler optional func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem)
+  optional func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }

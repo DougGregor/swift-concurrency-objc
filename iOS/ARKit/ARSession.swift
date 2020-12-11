@@ -45,24 +45,24 @@ class ARSession : NSObject {
 }
 @available(iOS 11.0, *)
 protocol ARSessionObserver : NSObjectProtocol {
-  @asyncHandler optional func session(_ session: ARSession, didFailWithError error: Error)
+  optional func session(_ session: ARSession, didFailWithError error: Error)
   optional func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera)
   optional func sessionWasInterrupted(_ session: ARSession)
   optional func sessionInterruptionEnded(_ session: ARSession)
   @available(iOS 11.3, *)
   optional func sessionShouldAttemptRelocalization(_ session: ARSession) -> Bool
-  @asyncHandler optional func session(_ session: ARSession, didOutputAudioSampleBuffer audioSampleBuffer: CMSampleBuffer)
+  optional func session(_ session: ARSession, didOutputAudioSampleBuffer audioSampleBuffer: CMSampleBuffer)
   @available(iOS 13.0, *)
-  @asyncHandler optional func session(_ session: ARSession, didOutputCollaborationData data: ARSession.CollaborationData)
+  optional func session(_ session: ARSession, didOutputCollaborationData data: ARSession.CollaborationData)
   @available(iOS 14.0, *)
-  @asyncHandler optional func session(_ session: ARSession, didChange geoTrackingStatus: ARGeoTrackingStatus)
+  optional func session(_ session: ARSession, didChange geoTrackingStatus: ARGeoTrackingStatus)
 }
 @available(iOS 11.0, *)
 protocol ARSessionDelegate : ARSessionObserver {
-  @asyncHandler optional func session(_ session: ARSession, didUpdate frame: ARFrame)
-  @asyncHandler optional func session(_ session: ARSession, didAdd anchors: [ARAnchor])
-  @asyncHandler optional func session(_ session: ARSession, didUpdate anchors: [ARAnchor])
-  @asyncHandler optional func session(_ session: ARSession, didRemove anchors: [ARAnchor])
+  optional func session(_ session: ARSession, didUpdate frame: ARFrame)
+  optional func session(_ session: ARSession, didAdd anchors: [ARAnchor])
+  optional func session(_ session: ARSession, didUpdate anchors: [ARAnchor])
+  optional func session(_ session: ARSession, didRemove anchors: [ARAnchor])
 }
 protocol ARSessionProviding : NSObjectProtocol {
   @available(iOS 11.0, *)

@@ -13,5 +13,5 @@ protocol INGetRideStatusIntentHandling : NSObjectProtocol {
 }
 @available(iOS 10.0, *)
 protocol INGetRideStatusIntentResponseObserver : NSObjectProtocol {
-  @asyncHandler func didUpdate(getRideStatus response: INGetRideStatusIntentResponse)
+  func didUpdate(getRideStatus response: INGetRideStatusIntentResponse)
 }

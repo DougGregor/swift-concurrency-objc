@@ -17,5 +17,5 @@ class UIPencilInteraction : NSObject, UIInteraction {
 }
 @available(iOS 12.1, *)
 protocol UIPencilInteractionDelegate : NSObjectProtocol {
-  @asyncHandler optional func pencilInteractionDidTap(_ interaction: UIPencilInteraction)
+  optional func pencilInteractionDidTap(_ interaction: UIPencilInteraction)
 }

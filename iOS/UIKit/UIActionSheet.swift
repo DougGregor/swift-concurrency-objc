@@ -42,9 +42,9 @@ protocol UIActionSheetDelegate : NSObjectProtocol {
   @available(iOS, introduced: 2.0, deprecated: 8.3, message: "Use UIAlertController instead.")
   optional func willPresent(_ actionSheet: UIActionSheet)
   @available(iOS, introduced: 2.0, deprecated: 8.3, message: "Use UIAlertController instead.")
-  @asyncHandler optional func didPresent(_ actionSheet: UIActionSheet)
+  optional func didPresent(_ actionSheet: UIActionSheet)
   @available(iOS, introduced: 2.0, deprecated: 8.3, message: "Use UIAlertController instead.")
   optional func actionSheet(_ actionSheet: UIActionSheet, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced: 2.0, deprecated: 8.3, message: "Use UIAlertController instead.")
-  @asyncHandler optional func actionSheet(_ actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int)
+  optional func actionSheet(_ actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int)
 }

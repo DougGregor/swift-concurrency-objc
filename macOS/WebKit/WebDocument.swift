@@ -6,7 +6,7 @@ protocol WebDocumentView : NSObjectProtocol {
   func setNeedsLayout(_ flag: Bool)
   func layout()
   func viewWillMove(toHostWindow hostWindow: NSWindow!)
-  @asyncHandler func viewDidMoveToHostWindow()
+  func viewDidMoveToHostWindow()
 }
 @available(macOS, introduced: 10.3, deprecated: 10.14)
 protocol WebDocumentSearching : NSObjectProtocol {

@@ -68,9 +68,9 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   @available(macOS 10.7, *)
   optional func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: Any) -> NSTableRowView?
   @available(macOS 10.7, *)
-  @asyncHandler optional func outlineView(_ outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int)
+  optional func outlineView(_ outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int)
   @available(macOS 10.7, *)
-  @asyncHandler optional func outlineView(_ outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int)
+  optional func outlineView(_ outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int)
   optional func outlineView(_ outlineView: NSOutlineView, willDisplayCell cell: Any, for tableColumn: NSTableColumn?, item: Any)
   optional func outlineView(_ outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: Any) -> Bool
   optional func selectionShouldChange(in outlineView: NSOutlineView) -> Bool
@@ -79,8 +79,8 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   optional func outlineView(_ outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet
   optional func outlineView(_ outlineView: NSOutlineView, shouldSelect tableColumn: NSTableColumn?) -> Bool
   optional func outlineView(_ outlineView: NSOutlineView, mouseDownInHeaderOf tableColumn: NSTableColumn)
-  @asyncHandler optional func outlineView(_ outlineView: NSOutlineView, didClick tableColumn: NSTableColumn)
-  @asyncHandler optional func outlineView(_ outlineView: NSOutlineView, didDrag tableColumn: NSTableColumn)
+  optional func outlineView(_ outlineView: NSOutlineView, didClick tableColumn: NSTableColumn)
+  optional func outlineView(_ outlineView: NSOutlineView, didDrag tableColumn: NSTableColumn)
   optional func outlineView(_ outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: Any, mouseLocation: NSPoint) -> String
   optional func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat
   @available(macOS 11.0, *)
@@ -108,14 +108,14 @@ protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   optional func outlineView(_ outlineView: NSOutlineView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool
   @available(macOS 10.6, *)
   optional func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool
-  @asyncHandler optional func outlineViewSelectionDidChange(_ notification: Notification)
-  @asyncHandler optional func outlineViewColumnDidMove(_ notification: Notification)
-  @asyncHandler optional func outlineViewColumnDidResize(_ notification: Notification)
+  optional func outlineViewSelectionDidChange(_ notification: Notification)
+  optional func outlineViewColumnDidMove(_ notification: Notification)
+  optional func outlineViewColumnDidResize(_ notification: Notification)
   optional func outlineViewSelectionIsChanging(_ notification: Notification)
   optional func outlineViewItemWillExpand(_ notification: Notification)
-  @asyncHandler optional func outlineViewItemDidExpand(_ notification: Notification)
+  optional func outlineViewItemDidExpand(_ notification: Notification)
   optional func outlineViewItemWillCollapse(_ notification: Notification)
-  @asyncHandler optional func outlineViewItemDidCollapse(_ notification: Notification)
+  optional func outlineViewItemDidCollapse(_ notification: Notification)
 }
 extension NSOutlineView {
   @available(macOS 10.9, *)

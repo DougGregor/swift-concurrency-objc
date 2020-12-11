@@ -13,5 +13,5 @@ protocol MCAdvertiserAssistantDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
   optional func advertiserAssistantWillPresentInvitation(_ advertiserAssistant: MCAdvertiserAssistant)
   @available(tvOS 7.0, *)
-  @asyncHandler optional func advertiserAssistantDidDismissInvitation(_ advertiserAssistant: MCAdvertiserAssistant)
+  optional func advertiserAssistantDidDismissInvitation(_ advertiserAssistant: MCAdvertiserAssistant)
 }

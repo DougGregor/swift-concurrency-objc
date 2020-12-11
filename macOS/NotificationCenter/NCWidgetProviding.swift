@@ -18,9 +18,9 @@ protocol NCWidgetProviding : NSExtensionRequestHandling {
   @available(macOS, introduced: 10.10, deprecated: 11.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")
   optional var widgetAllowsEditing: Bool { get }
   @available(macOS, introduced: 10.10, deprecated: 11.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")
-  @asyncHandler optional func widgetDidBeginEditing()
+  optional func widgetDidBeginEditing()
   @available(macOS, introduced: 10.10, deprecated: 11.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")
-  @asyncHandler optional func widgetDidEndEditing()
+  optional func widgetDidEndEditing()
 }
 extension NSViewController {
   @available(macOS, introduced: 10.10, deprecated: 11.0, message: "Use WidgetKit instead. Today View extensions have been deprecated.")

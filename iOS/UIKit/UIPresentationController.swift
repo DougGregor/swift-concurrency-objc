@@ -13,9 +13,9 @@ protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
   optional func presentationControllerWillDismiss(_ presentationController: UIPresentationController)
   @available(iOS 13.0, *)
-  @asyncHandler optional func presentationControllerDidDismiss(_ presentationController: UIPresentationController)
+  optional func presentationControllerDidDismiss(_ presentationController: UIPresentationController)
   @available(iOS 13.0, *)
-  @asyncHandler optional func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController)
+  optional func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController)
 }
 @available(iOS 8.0, *)
 class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {

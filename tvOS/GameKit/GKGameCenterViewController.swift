@@ -29,5 +29,5 @@ extension GKGameCenterViewController {
 }
 protocol GKGameCenterControllerDelegate : NSObjectProtocol {
   @available(tvOS 6.0, *)
-  @asyncHandler func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)
+  func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)
 }

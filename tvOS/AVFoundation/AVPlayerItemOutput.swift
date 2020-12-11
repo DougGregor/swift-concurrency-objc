@@ -52,7 +52,7 @@ extension AVPlayerItemLegibleOutput.TextStylingResolution {
 }
 protocol AVPlayerItemLegibleOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(tvOS 9.0, *)
-  @asyncHandler optional func legibleOutput(_ output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [NSAttributedString], nativeSampleBuffers nativeSamples: [Any], forItemTime itemTime: CMTime)
+  optional func legibleOutput(_ output: AVPlayerItemLegibleOutput, didOutputAttributedStrings strings: [NSAttributedString], nativeSampleBuffers nativeSamples: [Any], forItemTime itemTime: CMTime)
 }
 protocol AVPlayerItemOutputPushDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
@@ -68,5 +68,5 @@ class AVPlayerItemMetadataOutput : AVPlayerItemOutput {
 }
 protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(tvOS 9.0, *)
-  @asyncHandler optional func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?)
+  optional func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?)
 }

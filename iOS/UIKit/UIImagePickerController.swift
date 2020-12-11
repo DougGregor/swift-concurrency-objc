@@ -114,9 +114,9 @@ class UIImagePickerController : UINavigationController, NSCoding {
 }
 protocol UIImagePickerControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  @asyncHandler optional func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+  optional func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
   @available(iOS 2.0, *)
-  @asyncHandler optional func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+  optional func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
 }
 func UIImageWriteToSavedPhotosAlbum(_ image: UIImage, _ completionTarget: Any?, _ completionSelector: Selector?, _ contextInfo: UnsafeMutableRawPointer?)
 @available(iOS 3.1, *)

@@ -84,7 +84,7 @@ class SCNSliderConstraint : SCNConstraint {
 @available(macOS 10.13, *)
 protocol SCNAvoidOccluderConstraintDelegate : NSObjectProtocol {
   optional func avoidOccluderConstraint(_ constraint: SCNAvoidOccluderConstraint, shouldAvoidOccluder occluder: SCNNode, for node: SCNNode) -> Bool
-  @asyncHandler optional func avoidOccluderConstraint(_ constraint: SCNAvoidOccluderConstraint, didAvoidOccluder occluder: SCNNode, for node: SCNNode)
+  optional func avoidOccluderConstraint(_ constraint: SCNAvoidOccluderConstraint, didAvoidOccluder occluder: SCNNode, for node: SCNNode)
 }
 @available(macOS 10.13, *)
 class SCNAvoidOccluderConstraint : SCNConstraint {

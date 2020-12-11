@@ -71,11 +71,11 @@ protocol NFCReaderSessionProtocol : NSObjectProtocol {
 @available(iOS 11.0, *)
 protocol __NFCReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 11.0, *)
-  @asyncHandler func readerSessionDidBecomeActive(_ session: NFCReaderSession)
+  func readerSessionDidBecomeActive(_ session: NFCReaderSession)
   @available(iOS 11.0, *)
-  @asyncHandler func readerSession(_ session: NFCReaderSession, didInvalidateWithError error: Error)
+  func readerSession(_ session: NFCReaderSession, didInvalidateWithError error: Error)
   @available(iOS 11.0, *)
-  @asyncHandler optional func readerSession(_ session: NFCReaderSession, didDetect tags: [__NFCTag])
+  optional func readerSession(_ session: NFCReaderSession, didDetect tags: [__NFCTag])
 }
 @available(iOS 11.0, *)
 class NFCReaderSession : NSObject, NFCReaderSessionProtocol {
@@ -126,11 +126,11 @@ class NFCTagCommandConfiguration : NSObject, NSCopying {
 @available(iOS 13.0, *)
 protocol __NFCTagReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  @asyncHandler func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error)
+  func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error)
   @available(iOS 13.0, *)
-  @asyncHandler optional func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession)
+  optional func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession)
   @available(iOS 13.0, *)
-  @asyncHandler optional func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [__NFCTag])
+  optional func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [__NFCTag])
 }
 @available(iOS 13.0, *)
 class NFCTagReaderSession : NFCReaderSession {
@@ -170,13 +170,13 @@ extension NFCTagReaderSession {
 @available(iOS 11.0, *)
 protocol NFCNDEFReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 11.0, *)
-  @asyncHandler func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error)
+  func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error)
   @available(iOS 11.0, *)
-  @asyncHandler func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage])
+  func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage])
   @available(iOS 13.0, *)
-  @asyncHandler optional func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag])
+  optional func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag])
   @available(iOS 13.0, *)
-  @asyncHandler optional func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession)
+  optional func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession)
 }
 @available(iOS 11.0, *)
 class NFCNDEFReaderSession : NFCReaderSession {
@@ -830,11 +830,11 @@ class NFCVASResponse : NSObject, NSCopying {
 @available(iOS 13.0, *)
 protocol NFCVASReaderSessionDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  @asyncHandler optional func readerSessionDidBecomeActive(_ session: NFCVASReaderSession)
+  optional func readerSessionDidBecomeActive(_ session: NFCVASReaderSession)
   @available(iOS 13.0, *)
-  @asyncHandler func readerSession(_ session: NFCVASReaderSession, didInvalidateWithError error: Error)
+  func readerSession(_ session: NFCVASReaderSession, didInvalidateWithError error: Error)
   @available(iOS 13.0, *)
-  @asyncHandler func readerSession(_ session: NFCVASReaderSession, didReceive responses: [NFCVASResponse])
+  func readerSession(_ session: NFCVASReaderSession, didReceive responses: [NFCVASResponse])
 }
 @available(iOS 13.0, *)
 class NFCVASReaderSession : NFCReaderSession {

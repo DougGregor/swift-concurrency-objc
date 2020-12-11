@@ -45,7 +45,7 @@ protocol NSRuleEditorDelegate : NSObjectProtocol {
   func ruleEditor(_ editor: NSRuleEditor, child index: Int, forCriterion criterion: Any?, with rowType: NSRuleEditor.RowType) -> Any
   func ruleEditor(_ editor: NSRuleEditor, displayValueForCriterion criterion: Any, inRow row: Int) -> Any
   optional func ruleEditor(_ editor: NSRuleEditor, predicatePartsForCriterion criterion: Any, withDisplayValue value: Any, inRow row: Int) -> [NSRuleEditor.PredicatePartKey : Any]?
-  @asyncHandler optional func ruleEditorRowsDidChange(_ notification: Notification)
+  optional func ruleEditorRowsDidChange(_ notification: Notification)
 }
 extension NSRuleEditor {
   class let rowsDidChangeNotification: NSNotification.Name

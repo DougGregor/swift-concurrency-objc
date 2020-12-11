@@ -72,7 +72,7 @@ protocol NSStackViewDelegate : NSObjectProtocol {
   @available(macOS 10.9, *)
   optional func stackView(_ stackView: NSStackView, willDetach views: [NSView])
   @available(macOS 10.9, *)
-  @asyncHandler optional func stackView(_ stackView: NSStackView, didReattach views: [NSView])
+  optional func stackView(_ stackView: NSStackView, didReattach views: [NSView])
 }
 extension NSStackView {
   func addView(_ view: NSView, in gravity: NSStackView.Gravity)

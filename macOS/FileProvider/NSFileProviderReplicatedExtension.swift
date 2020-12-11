@@ -45,9 +45,9 @@ protocol NSFileProviderReplicatedExtension : NSFileProviderEnumerating {
   func createItem(basedOn itemTemplate: NSFileProviderItem, fields: NSFileProviderItemFields, contents url: URL?, options: NSFileProviderCreateItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress
   func modifyItem(_ item: NSFileProviderItem, baseVersion version: NSFileProviderItemVersion, changedFields: NSFileProviderItemFields, contents newContents: URL?, options: NSFileProviderModifyItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress
   func deleteItem(identifier: NSFileProviderItemIdentifier, baseVersion version: NSFileProviderItemVersion, options: NSFileProviderDeleteItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (Error?) -> Void) -> Progress
-  @asyncHandler optional func importDidFinish(completionHandler: @escaping () -> Void)
+  optional func importDidFinish(completionHandler: @escaping () -> Void)
   optional func importDidFinish() async
-  @asyncHandler optional func materializedItemsDidChange(completionHandler: @escaping () -> Void)
+  optional func materializedItemsDidChange(completionHandler: @escaping () -> Void)
   optional func materializedItemsDidChange() async
 }
 @available(macOS 11.0, *)

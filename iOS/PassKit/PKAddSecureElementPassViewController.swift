@@ -2,8 +2,8 @@
 @available(iOS 13.4, *)
 protocol PKAddSecureElementPassViewControllerDelegate : NSObjectProtocol {
   @available(iOS, introduced: 13.4, deprecated: 14.0, message: "Use addSecureElementPassViewController:didFinishAddingSecureElementPasses:error: instead")
-  @asyncHandler func addSecureElementPassViewController(_ controller: PKAddSecureElementPassViewController, didFinishAdding pass: PKSecureElementPass?, error: Error?)
-  @asyncHandler func addSecureElementPassViewController(_ controller: PKAddSecureElementPassViewController, didFinishAddingSecureElementPasses passes: [PKSecureElementPass]?, error: Error?)
+  func addSecureElementPassViewController(_ controller: PKAddSecureElementPassViewController, didFinishAdding pass: PKSecureElementPass?, error: Error?)
+  func addSecureElementPassViewController(_ controller: PKAddSecureElementPassViewController, didFinishAddingSecureElementPasses passes: [PKSecureElementPass]?, error: Error?)
 }
 @available(iOS 13.4, *)
 class PKAddSecureElementPassViewController : UIViewController {

@@ -13,7 +13,7 @@ protocol UITabBarControllerDelegate : NSObjectProtocol {
   @available(tvOS 3.0, *)
   optional func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
   @available(tvOS 2.0, *)
-  @asyncHandler optional func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController)
+  optional func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController)
   @available(tvOS 7.0, *)
   optional func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(tvOS 7.0, *)

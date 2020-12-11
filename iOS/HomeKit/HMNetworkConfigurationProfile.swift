@@ -6,5 +6,5 @@ class HMNetworkConfigurationProfile : HMAccessoryProfile {
 }
 @available(iOS 13.0, *)
 protocol HMNetworkConfigurationProfileDelegate : NSObjectProtocol {
-  @asyncHandler optional func profileDidUpdateNetworkAccessMode(_ profile: HMNetworkConfigurationProfile)
+  optional func profileDidUpdateNetworkAccessMode(_ profile: HMNetworkConfigurationProfile)
 }

@@ -120,7 +120,7 @@ protocol UITextInput : UIKeyInput {
   optional var selectionAffinity: UITextStorageDirection { get set }
   @available(iOS 5.1, *)
   optional func insertDictationResult(_ dictationResult: [UIDictationPhrase])
-  @asyncHandler optional func dictationRecordingDidEnd()
+  optional func dictationRecordingDidEnd()
   optional func dictationRecognitionFailed()
   optional var insertDictationResultPlaceholder: Any { get }
   optional func frame(forDictationResultPlaceholder placeholder: Any) -> CGRect
@@ -164,9 +164,9 @@ class UITextSelectionRect : NSObject {
 }
 protocol UITextInputDelegate : NSObjectProtocol {
   func selectionWillChange(_ textInput: UITextInput?)
-  @asyncHandler func selectionDidChange(_ textInput: UITextInput?)
+  func selectionDidChange(_ textInput: UITextInput?)
   func textWillChange(_ textInput: UITextInput?)
-  @asyncHandler func textDidChange(_ textInput: UITextInput?)
+  func textDidChange(_ textInput: UITextInput?)
 }
 protocol UITextInputTokenizer : NSObjectProtocol {
   @available(iOS 3.2, *)

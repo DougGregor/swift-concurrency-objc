@@ -52,9 +52,9 @@ extension GKTurnBasedParticipant {
 }
 protocol GKTurnBasedEventListener {
   @available(iOS 8.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
   @available(iOS 7.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
+  optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(iOS 5.0, *)
   optional func player(_ player: GKPlayer, matchEnded match: GKTurnBasedMatch)
   @available(iOS 7.0, *)
@@ -66,7 +66,7 @@ protocol GKTurnBasedEventListener {
   @available(iOS 9.0, *)
   optional func player(_ player: GKPlayer, wantsToQuitMatch match: GKTurnBasedMatch)
   @available(iOS, introduced: 7.0, deprecated: 8.0, message: "use didRequestMatchWithOtherPlayers")
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
+  optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
 }
 @available(iOS 6.0, *)
 var GKTurnTimeoutDefault: TimeInterval

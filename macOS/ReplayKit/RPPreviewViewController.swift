@@ -5,7 +5,7 @@ class RPPreviewViewController : NSViewController {
 }
 protocol RPPreviewViewControllerDelegate : NSObjectProtocol {
   @available(macOS 11.0, *)
-  @asyncHandler optional func previewControllerDidFinish(_ previewController: RPPreviewViewController)
+  optional func previewControllerDidFinish(_ previewController: RPPreviewViewController)
   @available(macOS 11.0, *)
-  @asyncHandler optional func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>)
+  optional func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>)
 }

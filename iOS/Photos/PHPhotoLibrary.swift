@@ -26,12 +26,12 @@ enum PHAccessLevel : Int {
 @available(iOS 8, *)
 protocol PHPhotoLibraryChangeObserver : NSObjectProtocol {
   @available(iOS 8, *)
-  @asyncHandler func photoLibraryDidChange(_ changeInstance: PHChange)
+  func photoLibraryDidChange(_ changeInstance: PHChange)
 }
 @available(iOS 13, *)
 protocol PHPhotoLibraryAvailabilityObserver : NSObjectProtocol {
   @available(iOS 13, *)
-  @asyncHandler func photoLibraryDidBecomeUnavailable(_ photoLibrary: PHPhotoLibrary)
+  func photoLibraryDidBecomeUnavailable(_ photoLibrary: PHPhotoLibrary)
 }
 @available(iOS 8, *)
 class PHPhotoLibrary : NSObject {

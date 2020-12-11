@@ -41,5 +41,5 @@ class AVPlayerItemMetadataOutput : AVPlayerItemOutput {
 }
 protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(watchOS 1.0, *)
-  @asyncHandler optional func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?)
+  optional func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?)
 }

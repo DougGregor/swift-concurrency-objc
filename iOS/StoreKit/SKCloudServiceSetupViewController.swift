@@ -25,7 +25,7 @@ class SKCloudServiceSetupViewController : UIViewController {
 }
 protocol SKCloudServiceSetupViewControllerDelegate : NSObjectProtocol {
   @available(iOS 10.1, *)
-  @asyncHandler optional func cloudServiceSetupViewControllerDidDismiss(_ cloudServiceSetupViewController: SKCloudServiceSetupViewController)
+  optional func cloudServiceSetupViewControllerDidDismiss(_ cloudServiceSetupViewController: SKCloudServiceSetupViewController)
 }
 extension SKCloudServiceSetupOptionsKey {
   @available(iOS 10.1, *)

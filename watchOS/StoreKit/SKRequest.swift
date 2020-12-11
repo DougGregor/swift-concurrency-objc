@@ -10,7 +10,7 @@ class SKRequest : NSObject {
 }
 protocol SKRequestDelegate : NSObjectProtocol {
   @available(watchOS 6.2, *)
-  @asyncHandler optional func requestDidFinish(_ request: SKRequest)
+  optional func requestDidFinish(_ request: SKRequest)
   @available(watchOS 6.2, *)
-  @asyncHandler optional func request(_ request: SKRequest, didFailWithError error: Error)
+  optional func request(_ request: SKRequest, didFailWithError error: Error)
 }

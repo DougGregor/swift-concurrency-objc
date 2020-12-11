@@ -11,11 +11,11 @@ protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
   optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForRenewalOfRequestedResource renewalRequest: AVAssetResourceRenewalRequest) -> Bool
   @available(tvOS 9.0, *)
-  @asyncHandler optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
   @available(tvOS 9.0, *)
   optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: URLAuthenticationChallenge) -> Bool
   @available(tvOS 9.0, *)
-  @asyncHandler optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: URLAuthenticationChallenge)
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: URLAuthenticationChallenge)
 }
 @available(tvOS 12.0, *)
 class AVAssetResourceLoadingRequestor : NSObject {

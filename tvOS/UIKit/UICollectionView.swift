@@ -45,25 +45,25 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(tvOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool
   @available(tvOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
   optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 8.0, *)
   optional func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
   @available(tvOS 6.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
+  optional func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
   @available(tvOS, introduced: 6.0, deprecated: 13.0)
   optional func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
   @available(tvOS, introduced: 6.0, deprecated: 13.0)
@@ -77,7 +77,7 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
   @available(tvOS 9.0, *)
   optional func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  @asyncHandler optional func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  optional func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath?
   @available(tvOS 9.0, *)

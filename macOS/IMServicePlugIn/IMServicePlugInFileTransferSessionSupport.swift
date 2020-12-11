@@ -9,9 +9,9 @@ protocol IMServicePlugInFileTransferSessionSupport {
 }
 protocol IMServiceApplicationFileTransferSessionSupport : IMServiceApplication {
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  @asyncHandler func plugInDidReceive(_ session: IMServicePlugInIncomingFileTransferSession!, fromHandle handle: String!)
+  func plugInDidReceive(_ session: IMServicePlugInIncomingFileTransferSession!, fromHandle handle: String!)
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  @asyncHandler func plugInDidAccept(_ session: IMServicePlugInOutgoingFileTransferSession!)
+  func plugInDidAccept(_ session: IMServicePlugInOutgoingFileTransferSession!)
   @available(macOS, introduced: 10.7, deprecated: 10.13)
-  @asyncHandler func plugInDidFinish(_ session: IMServicePlugInFileTransferSession!, error: Error!)
+  func plugInDidFinish(_ session: IMServicePlugInFileTransferSession!, error: Error!)
 }

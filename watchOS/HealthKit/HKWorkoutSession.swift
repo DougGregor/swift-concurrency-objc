@@ -48,8 +48,8 @@ class HKWorkoutSession : NSObject, NSSecureCoding {
 }
 @available(watchOS 2.0, *)
 protocol HKWorkoutSessionDelegate : NSObjectProtocol {
-  @asyncHandler func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date)
-  @asyncHandler func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error)
+  func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date)
+  func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error)
   @available(watchOS 3.0, *)
-  @asyncHandler optional func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent)
+  optional func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent)
 }

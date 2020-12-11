@@ -35,9 +35,9 @@ protocol UIContentContainer : NSObjectProtocol {
   @available(iOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(iOS 8.0, *)
-  @asyncHandler func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
+  func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
-  @asyncHandler func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
+  func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(iOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)

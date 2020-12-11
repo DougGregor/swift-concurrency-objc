@@ -13,7 +13,7 @@ class MPMediaPickerController : UIViewController {
 }
 protocol MPMediaPickerControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  @asyncHandler optional func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection)
+  optional func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection)
   @available(iOS 3.0, *)
-  @asyncHandler optional func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController)
+  optional func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController)
 }

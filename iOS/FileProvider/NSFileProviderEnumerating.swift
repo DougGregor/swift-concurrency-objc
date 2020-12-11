@@ -18,13 +18,13 @@ extension NSFileProviderPage {
   static let initialPageSortedByName: NSData
 }
 protocol NSFileProviderEnumerationObserver : NSObjectProtocol {
-  @asyncHandler func didEnumerate(_ updatedItems: [NSFileProviderItemProtocol])
+  func didEnumerate(_ updatedItems: [NSFileProviderItemProtocol])
   func finishEnumerating(upTo nextPage: NSFileProviderPage?)
   func finishEnumeratingWithError(_ error: Error)
 }
 protocol NSFileProviderChangeObserver : NSObjectProtocol {
-  @asyncHandler func didUpdate(_ updatedItems: [NSFileProviderItemProtocol])
-  @asyncHandler func didDeleteItems(withIdentifiers deletedItemIdentifiers: [NSFileProviderItemIdentifier])
+  func didUpdate(_ updatedItems: [NSFileProviderItemProtocol])
+  func didDeleteItems(withIdentifiers deletedItemIdentifiers: [NSFileProviderItemIdentifier])
   func finishEnumeratingChanges(upTo anchor: NSFileProviderSyncAnchor, moreComing: Bool)
   func finishEnumeratingWithError(_ error: Error)
 }

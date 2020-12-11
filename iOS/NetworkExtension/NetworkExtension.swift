@@ -1352,7 +1352,7 @@ class NEAppPushManager : NSObject {
 @available(iOS 14.0, *)
 protocol NEAppPushDelegate : NSObjectProtocol {
   @available(iOS 14.0, *)
-  @asyncHandler func appPushManager(_ manager: NEAppPushManager, didReceiveIncomingCallWithUserInfo userInfo: [AnyHashable : Any] = [:])
+  func appPushManager(_ manager: NEAppPushManager, didReceiveIncomingCallWithUserInfo userInfo: [AnyHashable : Any] = [:])
 }
 @available(iOS 14.0, *)
 class NEAppPushProvider : NEProvider {

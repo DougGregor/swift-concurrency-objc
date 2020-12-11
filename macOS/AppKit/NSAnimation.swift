@@ -42,10 +42,10 @@ class NSAnimation : NSObject, NSCopying, NSCoding {
 }
 protocol NSAnimationDelegate : NSObjectProtocol {
   optional func animationShouldStart(_ animation: NSAnimation) -> Bool
-  @asyncHandler optional func animationDidStop(_ animation: NSAnimation)
-  @asyncHandler optional func animationDidEnd(_ animation: NSAnimation)
+  optional func animationDidStop(_ animation: NSAnimation)
+  optional func animationDidEnd(_ animation: NSAnimation)
   optional func animation(_ animation: NSAnimation, valueForProgress progress: NSAnimation.Progress) -> Float
-  @asyncHandler optional func animation(_ animation: NSAnimation, didReachProgressMark progress: NSAnimation.Progress)
+  optional func animation(_ animation: NSAnimation, didReachProgressMark progress: NSAnimation.Progress)
 }
 extension NSViewAnimation {
   struct Key : _ObjectiveCBridgeable, Hashable, Equatable, _SwiftNewtypeWrapper, RawRepresentable {

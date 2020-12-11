@@ -3,7 +3,7 @@ protocol WKUIDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView?
   @available(iOS 9.0, *)
-  @asyncHandler optional func webViewDidClose(_ webView: WKWebView)
+  optional func webViewDidClose(_ webView: WKWebView)
   @available(iOS 8.0, *)
   optional func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void)
   @available(iOS 8.0, *)

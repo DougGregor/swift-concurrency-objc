@@ -7,17 +7,17 @@ protocol NSScrubberDataSource : NSObjectProtocol {
 }
 protocol NSScrubberDelegate : NSObjectProtocol {
   @available(macOS 10.12.2, *)
-  @asyncHandler optional func scrubber(_ scrubber: NSScrubber, didSelectItemAt selectedIndex: Int)
+  optional func scrubber(_ scrubber: NSScrubber, didSelectItemAt selectedIndex: Int)
   @available(macOS 10.12.2, *)
-  @asyncHandler optional func scrubber(_ scrubber: NSScrubber, didHighlightItemAt highlightedIndex: Int)
+  optional func scrubber(_ scrubber: NSScrubber, didHighlightItemAt highlightedIndex: Int)
   @available(macOS 10.12.2, *)
-  @asyncHandler optional func scrubber(_ scrubber: NSScrubber, didChangeVisibleRange visibleRange: NSRange)
+  optional func scrubber(_ scrubber: NSScrubber, didChangeVisibleRange visibleRange: NSRange)
   @available(macOS 10.12.2, *)
-  @asyncHandler optional func didBeginInteracting(with scrubber: NSScrubber)
+  optional func didBeginInteracting(with scrubber: NSScrubber)
   @available(macOS 10.12.2, *)
-  @asyncHandler optional func didFinishInteracting(with scrubber: NSScrubber)
+  optional func didFinishInteracting(with scrubber: NSScrubber)
   @available(macOS 10.12.2, *)
-  @asyncHandler optional func didCancelInteracting(with scrubber: NSScrubber)
+  optional func didCancelInteracting(with scrubber: NSScrubber)
 }
 extension NSScrubber {
   @available(macOS 10.12.2, *)

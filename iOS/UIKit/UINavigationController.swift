@@ -52,7 +52,7 @@ protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
   optional func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
   @available(iOS 2.0, *)
-  @asyncHandler optional func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
+  optional func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
   @available(iOS 7.0, *)
   optional func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)

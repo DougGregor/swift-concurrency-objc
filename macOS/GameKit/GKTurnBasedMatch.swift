@@ -52,9 +52,9 @@ extension GKTurnBasedParticipant {
 }
 protocol GKTurnBasedEventListener {
   @available(macOS 10.10, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
   @available(macOS 10.10, *)
-  @asyncHandler optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
+  optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(macOS 10.8, *)
   optional func player(_ player: GKPlayer, matchEnded match: GKTurnBasedMatch)
   @available(macOS 10.10, *)
@@ -202,7 +202,7 @@ protocol GKTurnBasedEventHandlerDelegate {
   @available(macOS, introduced: 10.8, deprecated: 10.10)
   func handleInvite(fromGameCenter playersToInvite: [String])
   @available(macOS, introduced: 10.9, deprecated: 10.10)
-  @asyncHandler func handleTurnEvent(for match: GKTurnBasedMatch, didBecomeActive: Bool)
+  func handleTurnEvent(for match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(macOS, introduced: 10.8, deprecated: 10.10)
   optional func handleMatchEnded(_ match: GKTurnBasedMatch)
 }

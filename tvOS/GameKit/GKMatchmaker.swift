@@ -54,9 +54,9 @@ class GKInvite : NSObject {
 }
 protocol GKInviteEventListener {
   @available(tvOS 7.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
+  optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
   @available(tvOS 8.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
 }
 @available(tvOS 4.1, *)
 class GKMatchmaker : NSObject {

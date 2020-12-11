@@ -45,5 +45,5 @@ protocol PHLivePhotoViewDelegate : NSObjectProtocol {
   @available(macOS 10.12, *)
   optional func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
   @available(macOS 10.12, *)
-  @asyncHandler optional func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
+  optional func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle)
 }

@@ -6,5 +6,5 @@ class HMNetworkConfigurationProfile : HMAccessoryProfile {
 }
 @available(watchOS 6.0, *)
 protocol HMNetworkConfigurationProfileDelegate : NSObjectProtocol {
-  @asyncHandler optional func profileDidUpdateNetworkAccessMode(_ profile: HMNetworkConfigurationProfile)
+  optional func profileDidUpdateNetworkAccessMode(_ profile: HMNetworkConfigurationProfile)
 }

@@ -4,9 +4,9 @@ extension NSSearchField {
 }
 protocol NSSearchFieldDelegate : NSTextFieldDelegate {
   @available(macOS 10.11, *)
-  @asyncHandler optional func searchFieldDidStartSearching(_ sender: NSSearchField)
+  optional func searchFieldDidStartSearching(_ sender: NSSearchField)
   @available(macOS 10.11, *)
-  @asyncHandler optional func searchFieldDidEndSearching(_ sender: NSSearchField)
+  optional func searchFieldDidEndSearching(_ sender: NSSearchField)
 }
 class NSSearchField : NSTextField {
   @available(macOS 11.0, *)

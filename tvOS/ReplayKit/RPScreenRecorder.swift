@@ -24,8 +24,8 @@ class RPScreenRecorder : NSObject {
 @available(tvOS 10.0, *)
 protocol RPScreenRecorderDelegate : NSObjectProtocol {
   @available(tvOS, introduced: 10.0, deprecated: 10.0, message: "No longer supported")
-  @asyncHandler optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWithError error: Error, previewViewController: RPPreviewViewController?)
+  optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWithError error: Error, previewViewController: RPPreviewViewController?)
   @available(tvOS 11.0, *)
-  @asyncHandler optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWith previewViewController: RPPreviewViewController?, error: Error?)
-  @asyncHandler optional func screenRecorderDidChangeAvailability(_ screenRecorder: RPScreenRecorder)
+  optional func screenRecorder(_ screenRecorder: RPScreenRecorder, didStopRecordingWith previewViewController: RPPreviewViewController?, error: Error?)
+  optional func screenRecorderDidChangeAvailability(_ screenRecorder: RPScreenRecorder)
 }

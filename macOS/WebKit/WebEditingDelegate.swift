@@ -18,10 +18,10 @@ protocol WebEditingDelegate : NSObjectProtocol {
   optional func webView(_ webView: WebView!, shouldApplyStyle style: DOMCSSStyleDeclaration!, toElementsIn range: DOMRange!) -> Bool
   optional func webView(_ webView: WebView!, shouldChangeTypingStyle currentStyle: DOMCSSStyleDeclaration!, toStyle proposedStyle: DOMCSSStyleDeclaration!) -> Bool
   optional func webView(_ webView: WebView!, doCommandBy selector: Selector!) -> Bool
-  @asyncHandler optional func webViewDidBeginEditing(_ notification: Notification!)
-  @asyncHandler optional func webViewDidChange(_ notification: Notification!)
-  @asyncHandler optional func webViewDidEndEditing(_ notification: Notification!)
-  @asyncHandler optional func webViewDidChangeTypingStyle(_ notification: Notification!)
-  @asyncHandler optional func webViewDidChangeSelection(_ notification: Notification!)
+  optional func webViewDidBeginEditing(_ notification: Notification!)
+  optional func webViewDidChange(_ notification: Notification!)
+  optional func webViewDidEndEditing(_ notification: Notification!)
+  optional func webViewDidChangeTypingStyle(_ notification: Notification!)
+  optional func webViewDidChangeSelection(_ notification: Notification!)
   optional func undoManager(for webView: WebView!) -> UndoManager!
 }

@@ -64,21 +64,21 @@ protocol CPMapTemplateDelegate : NSObjectProtocol {
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, shouldShowNotificationFor maneuver: CPManeuver) -> Bool
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, shouldUpdateNotificationFor maneuver: CPManeuver, with travelEstimates: CPTravelEstimates) -> Bool
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, shouldShowNotificationFor navigationAlert: CPNavigationAlert) -> Bool
-  @asyncHandler optional func mapTemplateDidShowPanningInterface(_ mapTemplate: CPMapTemplate)
+  optional func mapTemplateDidShowPanningInterface(_ mapTemplate: CPMapTemplate)
   optional func mapTemplateWillDismissPanningInterface(_ mapTemplate: CPMapTemplate)
-  @asyncHandler optional func mapTemplateDidDismissPanningInterface(_ mapTemplate: CPMapTemplate)
+  optional func mapTemplateDidDismissPanningInterface(_ mapTemplate: CPMapTemplate)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, panBeganWith direction: CPMapTemplate.PanDirection)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, panEndedWith direction: CPMapTemplate.PanDirection)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, panWith direction: CPMapTemplate.PanDirection)
-  @asyncHandler optional func mapTemplateDidBeginPanGesture(_ mapTemplate: CPMapTemplate)
-  @asyncHandler optional func mapTemplate(_ mapTemplate: CPMapTemplate, didUpdatePanGestureWithTranslation translation: CGPoint, velocity: CGPoint)
-  @asyncHandler optional func mapTemplate(_ mapTemplate: CPMapTemplate, didEndPanGestureWithVelocity velocity: CGPoint)
+  optional func mapTemplateDidBeginPanGesture(_ mapTemplate: CPMapTemplate)
+  optional func mapTemplate(_ mapTemplate: CPMapTemplate, didUpdatePanGestureWithTranslation translation: CGPoint, velocity: CGPoint)
+  optional func mapTemplate(_ mapTemplate: CPMapTemplate, didEndPanGestureWithVelocity velocity: CGPoint)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, willShow navigationAlert: CPNavigationAlert)
-  @asyncHandler optional func mapTemplate(_ mapTemplate: CPMapTemplate, didShow navigationAlert: CPNavigationAlert)
+  optional func mapTemplate(_ mapTemplate: CPMapTemplate, didShow navigationAlert: CPNavigationAlert)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, willDismiss navigationAlert: CPNavigationAlert, dismissalContext: CPNavigationAlert.DismissalContext)
-  @asyncHandler optional func mapTemplate(_ mapTemplate: CPMapTemplate, didDismiss navigationAlert: CPNavigationAlert, dismissalContext: CPNavigationAlert.DismissalContext)
+  optional func mapTemplate(_ mapTemplate: CPMapTemplate, didDismiss navigationAlert: CPNavigationAlert, dismissalContext: CPNavigationAlert.DismissalContext)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, selectedPreviewFor trip: CPTrip, using routeChoice: CPRouteChoice)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, startedTrip trip: CPTrip, using routeChoice: CPRouteChoice)
-  @asyncHandler optional func mapTemplateDidCancelNavigation(_ mapTemplate: CPMapTemplate)
+  optional func mapTemplateDidCancelNavigation(_ mapTemplate: CPMapTemplate)
   optional func mapTemplate(_ mapTemplate: CPMapTemplate, displayStyleFor maneuver: CPManeuver) -> CPManeuverDisplayStyle
 }

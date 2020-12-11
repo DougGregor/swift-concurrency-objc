@@ -1,9 +1,9 @@
 
 protocol PKDisbursementAuthorizationControllerDelegate : NSObjectProtocol {
   @available(iOS 12.2, *)
-  @asyncHandler func disbursementAuthorizationController(_ controller: PKDisbursementAuthorizationController, didAuthorizeWith disbursementVoucher: PKDisbursementVoucher)
+  func disbursementAuthorizationController(_ controller: PKDisbursementAuthorizationController, didAuthorizeWith disbursementVoucher: PKDisbursementVoucher)
   @available(iOS 12.2, *)
-  @asyncHandler func disbursementAuthorizationControllerDidFinish(_ controller: PKDisbursementAuthorizationController)
+  func disbursementAuthorizationControllerDidFinish(_ controller: PKDisbursementAuthorizationController)
 }
 class PKDisbursementAuthorizationController : NSObject {
   @available(iOS 12.2, *)

@@ -14,7 +14,7 @@ enum SCNInteractionMode : Int {
 @available(macOS 10.13, *)
 protocol SCNCameraControllerDelegate : NSObjectProtocol {
   optional func cameraInertiaWillStart(for cameraController: SCNCameraController)
-  @asyncHandler optional func cameraInertiaDidEnd(for cameraController: SCNCameraController)
+  optional func cameraInertiaDidEnd(for cameraController: SCNCameraController)
 }
 @available(macOS 10.13, *)
 class SCNCameraController : NSObject {

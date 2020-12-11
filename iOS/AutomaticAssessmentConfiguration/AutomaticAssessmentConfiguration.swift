@@ -39,10 +39,10 @@ class AEAssessmentSession : NSObject {
 }
 @available(iOS 13.4, *)
 protocol AEAssessmentSessionDelegate : NSObjectProtocol {
-  @asyncHandler optional func assessmentSessionDidBegin(_ session: AEAssessmentSession)
+  optional func assessmentSessionDidBegin(_ session: AEAssessmentSession)
   optional func assessmentSession(_ session: AEAssessmentSession, failedToBeginWithError error: Error)
   optional func assessmentSession(_ session: AEAssessmentSession, wasInterruptedWithError error: Error)
-  @asyncHandler optional func assessmentSessionDidEnd(_ session: AEAssessmentSession)
+  optional func assessmentSessionDidEnd(_ session: AEAssessmentSession)
 }
 @available(iOS 13.4, *)
 let AEAssessmentErrorDomain: String

@@ -42,17 +42,17 @@ class MCSession : NSObject {
 }
 protocol MCSessionDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
-  @asyncHandler func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
+  func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
   @available(iOS 7.0, *)
-  @asyncHandler func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
+  func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
   @available(iOS 7.0, *)
-  @asyncHandler func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID)
+  func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID)
   @available(iOS 7.0, *)
-  @asyncHandler func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress)
+  func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress)
   @available(iOS 7.0, *)
-  @asyncHandler func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?)
+  func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?)
   @available(iOS 7.0, *)
-  @asyncHandler optional func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void)
+  optional func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void)
 }
 extension MCSession {
   func nearbyConnectionData(forPeer peerID: MCPeerID, withCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void)

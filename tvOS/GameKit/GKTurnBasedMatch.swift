@@ -50,9 +50,9 @@ extension GKTurnBasedParticipant {
 }
 protocol GKTurnBasedEventListener {
   @available(tvOS 8.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
   @available(tvOS 7.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
+  optional func player(_ player: GKPlayer, receivedTurnEventFor match: GKTurnBasedMatch, didBecomeActive: Bool)
   @available(tvOS 5.0, *)
   optional func player(_ player: GKPlayer, matchEnded match: GKTurnBasedMatch)
   @available(tvOS 7.0, *)

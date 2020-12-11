@@ -2,10 +2,10 @@
 @available(iOS 11.0, *)
 protocol ARSKViewDelegate : ARSessionObserver, SKViewDelegate {
   optional func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode?
-  @asyncHandler optional func view(_ view: ARSKView, didAdd node: SKNode, for anchor: ARAnchor)
+  optional func view(_ view: ARSKView, didAdd node: SKNode, for anchor: ARAnchor)
   optional func view(_ view: ARSKView, willUpdate node: SKNode, for anchor: ARAnchor)
-  @asyncHandler optional func view(_ view: ARSKView, didUpdate node: SKNode, for anchor: ARAnchor)
-  @asyncHandler optional func view(_ view: ARSKView, didRemove node: SKNode, for anchor: ARAnchor)
+  optional func view(_ view: ARSKView, didUpdate node: SKNode, for anchor: ARAnchor)
+  optional func view(_ view: ARSKView, didRemove node: SKNode, for anchor: ARAnchor)
 }
 @available(iOS 11.0, *)
 class ARSKView : SKView, ARSessionProviding {

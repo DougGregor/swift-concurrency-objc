@@ -21,7 +21,7 @@ class EKCalendarChooser : UIViewController {
   var selectedCalendars: Set<EKCalendar>
 }
 protocol EKCalendarChooserDelegate : NSObjectProtocol {
-  @asyncHandler optional func calendarChooserSelectionDidChange(_ calendarChooser: EKCalendarChooser)
-  @asyncHandler optional func calendarChooserDidFinish(_ calendarChooser: EKCalendarChooser)
-  @asyncHandler optional func calendarChooserDidCancel(_ calendarChooser: EKCalendarChooser)
+  optional func calendarChooserSelectionDidChange(_ calendarChooser: EKCalendarChooser)
+  optional func calendarChooserDidFinish(_ calendarChooser: EKCalendarChooser)
+  optional func calendarChooserDidCancel(_ calendarChooser: EKCalendarChooser)
 }

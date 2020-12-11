@@ -59,7 +59,7 @@ protocol UNUserNotificationCenterDelegate : NSObjectProtocol {
   @available(watchOS 3.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions
   @available(watchOS 3.0, *)
-  @asyncHandler optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
+  optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
   @available(watchOS 3.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async
 }

@@ -1,8 +1,8 @@
 
 @available(macOS 10.15, *)
 protocol ASAuthorizationControllerDelegate : NSObjectProtocol {
-  @asyncHandler optional func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization)
-  @asyncHandler optional func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error)
+  optional func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization)
+  optional func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error)
 }
 @available(macOS 10.15, *)
 protocol ASAuthorizationControllerPresentationContextProviding : NSObjectProtocol {

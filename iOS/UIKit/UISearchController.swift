@@ -3,11 +3,11 @@ protocol UISearchControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func willPresentSearchController(_ searchController: UISearchController)
   @available(iOS 8.0, *)
-  @asyncHandler optional func didPresentSearchController(_ searchController: UISearchController)
+  optional func didPresentSearchController(_ searchController: UISearchController)
   @available(iOS 8.0, *)
   optional func willDismissSearchController(_ searchController: UISearchController)
   @available(iOS 8.0, *)
-  @asyncHandler optional func didDismissSearchController(_ searchController: UISearchController)
+  optional func didDismissSearchController(_ searchController: UISearchController)
   @available(iOS 8.0, *)
   optional func presentSearchController(_ searchController: UISearchController)
 }

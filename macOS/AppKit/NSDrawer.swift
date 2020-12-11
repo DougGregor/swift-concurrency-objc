@@ -34,11 +34,11 @@ protocol NSDrawerDelegate : NSObjectProtocol {
   @available(macOS, introduced: 10.0, deprecated: 10.13, message: "Drawers are deprecated; consider using NSSplitViewController")
   optional func drawerWillOpen(_ notification: Notification)
   @available(macOS, introduced: 10.0, deprecated: 10.13, message: "Drawers are deprecated; consider using NSSplitViewController")
-  @asyncHandler optional func drawerDidOpen(_ notification: Notification)
+  optional func drawerDidOpen(_ notification: Notification)
   @available(macOS, introduced: 10.0, deprecated: 10.13, message: "Drawers are deprecated; consider using NSSplitViewController")
   optional func drawerWillClose(_ notification: Notification)
   @available(macOS, introduced: 10.0, deprecated: 10.13, message: "Drawers are deprecated; consider using NSSplitViewController")
-  @asyncHandler optional func drawerDidClose(_ notification: Notification)
+  optional func drawerDidClose(_ notification: Notification)
 }
 extension NSDrawer {
   @available(macOS, introduced: 10.0, deprecated: 10.13, message: "Drawers are deprecated; consider using NSSplitViewController")

@@ -17,9 +17,9 @@ extension ICAuthorizationStatus {
 }
 protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)
-  @asyncHandler func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
+  func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
   @available(iOS 13.0, *)
-  @asyncHandler func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
+  func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
   @available(iOS 13.0, *)
   optional func deviceBrowser(_ browser: ICDeviceBrowser, deviceDidChangeName device: ICDevice)
   @available(iOS 13.0, *)
@@ -27,11 +27,11 @@ protocol ICDeviceBrowserDelegate : NSObjectProtocol {
   @available(iOS 14.0, *)
   optional func deviceBrowserWillSuspendOperations(_ browser: ICDeviceBrowser)
   @available(iOS 14.0, *)
-  @asyncHandler optional func deviceBrowserDidSuspendOperations(_ browser: ICDeviceBrowser)
+  optional func deviceBrowserDidSuspendOperations(_ browser: ICDeviceBrowser)
   @available(iOS 14.0, *)
-  @asyncHandler optional func deviceBrowserDidCancelSuspendOperations(_ browser: ICDeviceBrowser)
+  optional func deviceBrowserDidCancelSuspendOperations(_ browser: ICDeviceBrowser)
   @available(iOS 14.0, *)
-  @asyncHandler optional func deviceBrowserDidResumeOperations(_ browser: ICDeviceBrowser)
+  optional func deviceBrowserDidResumeOperations(_ browser: ICDeviceBrowser)
 }
 @available(iOS 13.0, *)
 class ICDeviceBrowser : NSObject {

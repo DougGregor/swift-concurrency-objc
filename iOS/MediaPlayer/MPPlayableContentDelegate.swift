@@ -14,5 +14,5 @@ protocol MPPlayableContentDelegate : NSObjectProtocol {
   @available(iOS, introduced: 9.3, deprecated: 12.0, message: "Use Intents framework for initiating playback queues.")
   optional func playableContentManager(_ contentManager: MPPlayableContentManager, initializePlaybackQueueWithContentItems contentItems: [Any]?) async throws
   @available(iOS, introduced: 8.4, deprecated: 14.0, message: "Use CarPlay framework")
-  @asyncHandler optional func playableContentManager(_ contentManager: MPPlayableContentManager, didUpdate context: MPPlayableContentManagerContext)
+  optional func playableContentManager(_ contentManager: MPPlayableContentManager, didUpdate context: MPPlayableContentManagerContext)
 }

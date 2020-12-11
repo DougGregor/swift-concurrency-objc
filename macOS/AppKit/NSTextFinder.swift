@@ -67,7 +67,7 @@ protocol NSTextFinderClient : NSObjectProtocol {
   optional func scrollRangeToVisible(_ range: NSRange)
   optional func shouldReplaceCharacters(inRanges ranges: [NSValue], with strings: [String]) -> Bool
   optional func replaceCharacters(in range: NSRange, with string: String)
-  @asyncHandler optional func didReplaceCharacters()
+  optional func didReplaceCharacters()
   optional func contentView(at index: Int, effectiveCharacterRange outRange: NSRangePointer) -> NSView
   optional func rects(forCharacterRange range: NSRange) -> [NSValue]?
   optional var visibleCharacterRanges: [NSValue] { get }
@@ -76,6 +76,6 @@ protocol NSTextFinderClient : NSObjectProtocol {
 protocol NSTextFinderBarContainer : NSObjectProtocol {
   var findBarView: NSView? { get set }
   var isFindBarVisible: Bool { get set }
-  @asyncHandler func findBarViewDidChangeHeight()
+  func findBarViewDidChangeHeight()
   optional func contentView() -> NSView?
 }

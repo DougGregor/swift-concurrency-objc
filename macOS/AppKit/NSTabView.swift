@@ -69,6 +69,6 @@ class NSTabView : NSView {
 protocol NSTabViewDelegate : NSObjectProtocol {
   optional func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
   optional func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
-  @asyncHandler optional func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
-  @asyncHandler optional func tabViewDidChangeNumberOfTabViewItems(_ tabView: NSTabView)
+  optional func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
+  optional func tabViewDidChangeNumberOfTabViewItems(_ tabView: NSTabView)
 }

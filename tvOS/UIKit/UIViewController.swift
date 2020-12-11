@@ -28,9 +28,9 @@ protocol UIContentContainer : NSObjectProtocol {
   @available(tvOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(tvOS 8.0, *)
-  @asyncHandler func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
+  func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
-  @asyncHandler func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
+  func systemLayoutFittingSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
   func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)

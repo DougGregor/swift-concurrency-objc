@@ -8,5 +8,5 @@ class ABNewPersonViewController : UIViewController {
 }
 protocol ABNewPersonViewControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  @asyncHandler func newPersonViewController(_ newPersonView: ABNewPersonViewController, didCompleteWithNewPerson person: ABRecord?)
+  func newPersonViewController(_ newPersonView: ABNewPersonViewController, didCompleteWithNewPerson person: ABRecord?)
 }

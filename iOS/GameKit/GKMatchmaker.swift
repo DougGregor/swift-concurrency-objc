@@ -60,11 +60,11 @@ class GKInvite : NSObject {
 }
 protocol GKInviteEventListener {
   @available(iOS 7.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
+  optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
   @available(iOS 8.0, *)
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
   @available(iOS, introduced: 7.0, deprecated: 8.0, message: "This method is obsolete.  It will never be invoked its implementation does nothing, use player:didRequestMatchWithRecipients:")
-  @asyncHandler optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
+  optional func player(_ player: GKPlayer, didRequestMatchWithPlayers playerIDsToInvite: [String])
 }
 @available(iOS 4.1, *)
 class GKMatchmaker : NSObject {

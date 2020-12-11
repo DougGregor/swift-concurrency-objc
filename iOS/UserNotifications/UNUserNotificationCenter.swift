@@ -59,7 +59,7 @@ protocol UNUserNotificationCenterDelegate : NSObjectProtocol {
   @available(iOS 10.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions
   @available(iOS 10.0, *)
-  @asyncHandler optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
+  optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
   @available(iOS 10.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async
   @available(iOS 12.0, *)

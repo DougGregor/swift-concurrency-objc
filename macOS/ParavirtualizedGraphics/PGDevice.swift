@@ -63,7 +63,7 @@ protocol PGDevice : NSObjectProtocol {
   @available(macOS 11.0, *)
   func willResume(withSuspendState suspendState: Data, error: NSErrorPointer) -> Bool
   @available(macOS 11.0, *)
-  @asyncHandler func didResume()
+  func didResume()
 }
 @available(macOS 11.0, *)
 func PGNewDeviceWithDescriptor(_ descriptor: PGDeviceDescriptor) -> PGDevice?

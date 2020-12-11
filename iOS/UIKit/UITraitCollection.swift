@@ -52,7 +52,7 @@ protocol UITraitEnvironment : NSObjectProtocol {
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  @asyncHandler func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }
 extension UITraitCollection {
   @available(iOS 13.0, *)

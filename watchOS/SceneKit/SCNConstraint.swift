@@ -78,7 +78,7 @@ class SCNSliderConstraint : SCNConstraint {
 @available(watchOS 4.0, *)
 protocol SCNAvoidOccluderConstraintDelegate : NSObjectProtocol {
   optional func avoidOccluderConstraint(_ constraint: SCNAvoidOccluderConstraint, shouldAvoidOccluder occluder: SCNNode, for node: SCNNode) -> Bool
-  @asyncHandler optional func avoidOccluderConstraint(_ constraint: SCNAvoidOccluderConstraint, didAvoidOccluder occluder: SCNNode, for node: SCNNode)
+  optional func avoidOccluderConstraint(_ constraint: SCNAvoidOccluderConstraint, didAvoidOccluder occluder: SCNNode, for node: SCNNode)
 }
 @available(watchOS 4.0, *)
 class SCNAvoidOccluderConstraint : SCNConstraint {

@@ -58,7 +58,7 @@ protocol NSToolbarDelegate : NSObjectProtocol {
   optional func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier]
   optional func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier]
   optional func toolbarWillAddItem(_ notification: Notification)
-  @asyncHandler optional func toolbarDidRemoveItem(_ notification: Notification)
+  optional func toolbarDidRemoveItem(_ notification: Notification)
 }
 extension NSToolbar {
   @available(macOS, introduced: 10.7, deprecated: 10.13, message: "Use NSTitlebarAccessoryViewController with NSWindow instead")

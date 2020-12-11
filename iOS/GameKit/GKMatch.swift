@@ -36,19 +36,19 @@ class GKMatch : NSObject {
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
+  optional func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer)
   @available(iOS 9.0, *)
-  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
+  optional func match(_ match: GKMatch, didReceive data: Data, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
   @available(iOS 4.1, *)
-  @asyncHandler optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
+  optional func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState)
   @available(iOS 4.1, *)
-  @asyncHandler optional func match(_ match: GKMatch, didFailWithError error: Error?)
+  optional func match(_ match: GKMatch, didFailWithError error: Error?)
   @available(iOS 8.0, *)
   optional func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
   @available(iOS, introduced: 4.1, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use match:didReceiveData:fromRemotePlayer:")
-  @asyncHandler optional func match(_ match: GKMatch, didReceive data: Data, fromPlayer playerID: String)
+  optional func match(_ match: GKMatch, didReceive data: Data, fromPlayer playerID: String)
   @available(iOS, introduced: 4.1, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use match:player:didChangeConnectionState:")
-  @asyncHandler optional func match(_ match: GKMatch, player playerID: String, didChange state: GKPlayerConnectionState)
+  optional func match(_ match: GKMatch, player playerID: String, didChange state: GKPlayerConnectionState)
   @available(iOS, introduced: 5.0, deprecated: 8.0, message: "This is never invoked and its implementation does nothing, use shouldReinviteDisconnectedPlayer:")
   optional func match(_ match: GKMatch, shouldReinvitePlayer playerID: String) -> Bool
 }

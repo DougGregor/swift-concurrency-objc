@@ -19,5 +19,5 @@ protocol INGetCarPowerLevelStatusIntentHandling : NSObjectProtocol {
 }
 @available(iOS 14.0, *)
 protocol INGetCarPowerLevelStatusIntentResponseObserver : NSObjectProtocol {
-  @asyncHandler func didUpdate(getCarPowerLevelStatus response: INGetCarPowerLevelStatusIntentResponse)
+  func didUpdate(getCarPowerLevelStatus response: INGetCarPowerLevelStatusIntentResponse)
 }

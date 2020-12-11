@@ -13,5 +13,5 @@ protocol INGetRideStatusIntentHandling : NSObjectProtocol {
 }
 @available(watchOS 3.2, *)
 protocol INGetRideStatusIntentResponseObserver : NSObjectProtocol {
-  @asyncHandler func didUpdate(getRideStatus response: INGetRideStatusIntentResponse)
+  func didUpdate(getRideStatus response: INGetRideStatusIntentResponse)
 }

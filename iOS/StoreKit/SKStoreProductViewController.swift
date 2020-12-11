@@ -10,7 +10,7 @@ class SKStoreProductViewController : UIViewController {
 }
 protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
-  @asyncHandler optional func productViewControllerDidFinish(_ viewController: SKStoreProductViewController)
+  optional func productViewControllerDidFinish(_ viewController: SKStoreProductViewController)
 }
 @available(iOS 6.0, *)
 let SKStoreProductParameterITunesItemIdentifier: String

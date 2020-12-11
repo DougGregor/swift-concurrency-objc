@@ -41,8 +41,8 @@ extension CSSearchableIndex {
 protocol CSSearchableIndexDelegate : NSObjectProtocol {
   func searchableIndex(_ searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: @escaping () -> Void)
   func searchableIndex(_ searchableIndex: CSSearchableIndex, reindexSearchableItemsWithIdentifiers identifiers: [String], acknowledgementHandler: @escaping () -> Void)
-  @asyncHandler optional func searchableIndexDidThrottle(_ searchableIndex: CSSearchableIndex)
-  @asyncHandler optional func searchableIndexDidFinishThrottle(_ searchableIndex: CSSearchableIndex)
+  optional func searchableIndexDidThrottle(_ searchableIndex: CSSearchableIndex)
+  optional func searchableIndexDidFinishThrottle(_ searchableIndex: CSSearchableIndex)
   @available(iOS 11.0, *)
   optional func data(for searchableIndex: CSSearchableIndex, itemIdentifier: String, typeIdentifier: String) throws -> Data
   @available(iOS 11.0, *)

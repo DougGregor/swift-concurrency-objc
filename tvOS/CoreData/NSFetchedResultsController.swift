@@ -34,15 +34,15 @@ enum NSFetchedResultsChangeType : UInt {
 }
 protocol NSFetchedResultsControllerDelegate : NSObjectProtocol {
   @available(tvOS 13.0, *)
-  @asyncHandler optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith diff: CollectionDifference<NSManagedObjectID>)
+  optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith diff: CollectionDifference<NSManagedObjectID>)
   @available(tvOS 3.0, *)
-  @asyncHandler optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+  optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
   @available(tvOS 3.0, *)
-  @asyncHandler optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType)
+  optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType)
   @available(tvOS 3.0, *)
   optional func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
   @available(tvOS 3.0, *)
-  @asyncHandler optional func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
+  optional func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
   @available(tvOS 4.0, *)
   optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String?
 }

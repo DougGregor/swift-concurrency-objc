@@ -37,15 +37,15 @@ class CBCentralManager : CBManager {
 }
 protocol CBCentralManagerDelegate : NSObjectProtocol {
   @available(macOS 10.7, *)
-  @asyncHandler func centralManagerDidUpdateState(_ central: CBCentralManager)
+  func centralManagerDidUpdateState(_ central: CBCentralManager)
   @available(macOS 10.7, *)
   optional func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any])
   @available(macOS 10.7, *)
-  @asyncHandler optional func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber)
+  optional func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber)
   @available(macOS 10.7, *)
-  @asyncHandler optional func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
+  optional func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
   @available(macOS 10.7, *)
-  @asyncHandler optional func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?)
+  optional func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?)
   @available(macOS 10.7, *)
-  @asyncHandler optional func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
+  optional func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
 }

@@ -75,9 +75,9 @@ protocol UIWebViewDelegate : NSObjectProtocol {
   @available(iOS, introduced: 2.0, deprecated: 12.0, message: "No longer supported.")
   optional func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool
   @available(iOS, introduced: 2.0, deprecated: 12.0, message: "No longer supported.")
-  @asyncHandler optional func webViewDidStartLoad(_ webView: UIWebView)
+  optional func webViewDidStartLoad(_ webView: UIWebView)
   @available(iOS, introduced: 2.0, deprecated: 12.0, message: "No longer supported.")
-  @asyncHandler optional func webViewDidFinishLoad(_ webView: UIWebView)
+  optional func webViewDidFinishLoad(_ webView: UIWebView)
   @available(iOS, introduced: 2.0, deprecated: 12.0, message: "No longer supported.")
-  @asyncHandler optional func webView(_ webView: UIWebView, didFailLoadWithError error: Error)
+  optional func webView(_ webView: UIWebView, didFailLoadWithError error: Error)
 }

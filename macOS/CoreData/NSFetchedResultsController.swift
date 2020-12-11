@@ -34,15 +34,15 @@ enum NSFetchedResultsChangeType : UInt {
 }
 protocol NSFetchedResultsControllerDelegate : NSObjectProtocol {
   @available(macOS 10.15, *)
-  @asyncHandler optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith diff: CollectionDifference<NSManagedObjectID>)
+  optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith diff: CollectionDifference<NSManagedObjectID>)
   @available(macOS 10.12, *)
-  @asyncHandler optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+  optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
   @available(macOS 10.12, *)
-  @asyncHandler optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType)
+  optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType)
   @available(macOS 10.12, *)
   optional func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
   @available(macOS 10.12, *)
-  @asyncHandler optional func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
+  optional func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
   @available(macOS 10.12, *)
   optional func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String?
 }

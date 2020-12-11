@@ -23,11 +23,11 @@ protocol UIDocumentInteractionControllerDelegate : NSObjectProtocol {
   optional func documentInteractionControllerRectForPreview(_ controller: UIDocumentInteractionController) -> CGRect
   optional func documentInteractionControllerViewForPreview(_ controller: UIDocumentInteractionController) -> UIView?
   optional func documentInteractionControllerWillBeginPreview(_ controller: UIDocumentInteractionController)
-  @asyncHandler optional func documentInteractionControllerDidEndPreview(_ controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerDidEndPreview(_ controller: UIDocumentInteractionController)
   optional func documentInteractionControllerWillPresentOptionsMenu(_ controller: UIDocumentInteractionController)
-  @asyncHandler optional func documentInteractionControllerDidDismissOptionsMenu(_ controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerDidDismissOptionsMenu(_ controller: UIDocumentInteractionController)
   optional func documentInteractionControllerWillPresentOpenInMenu(_ controller: UIDocumentInteractionController)
-  @asyncHandler optional func documentInteractionControllerDidDismissOpenInMenu(_ controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerDidDismissOpenInMenu(_ controller: UIDocumentInteractionController)
   optional func documentInteractionController(_ controller: UIDocumentInteractionController, willBeginSendingToApplication application: String?)
-  @asyncHandler optional func documentInteractionController(_ controller: UIDocumentInteractionController, didEndSendingToApplication application: String?)
+  optional func documentInteractionController(_ controller: UIDocumentInteractionController, didEndSendingToApplication application: String?)
 }

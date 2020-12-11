@@ -57,13 +57,13 @@ extension NSControl {
   func endEditing(_ textObj: NSText)
 }
 protocol NSControlTextEditingDelegate : NSObjectProtocol {
-  @asyncHandler optional func controlTextDidBeginEditing(_ obj: Notification)
-  @asyncHandler optional func controlTextDidEndEditing(_ obj: Notification)
-  @asyncHandler optional func controlTextDidChange(_ obj: Notification)
+  optional func controlTextDidBeginEditing(_ obj: Notification)
+  optional func controlTextDidEndEditing(_ obj: Notification)
+  optional func controlTextDidChange(_ obj: Notification)
   optional func control(_ control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool
   optional func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool
   optional func control(_ control: NSControl, didFailToFormatString string: String, errorDescription error: String?) -> Bool
-  @asyncHandler optional func control(_ control: NSControl, didFailToValidatePartialString string: String, errorDescription error: String?)
+  optional func control(_ control: NSControl, didFailToValidatePartialString string: String, errorDescription error: String?)
   optional func control(_ control: NSControl, isValidObject obj: Any?) -> Bool
   optional func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool
   optional func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]

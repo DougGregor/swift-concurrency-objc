@@ -112,9 +112,9 @@ var NSOtherTextMovement: Int { get }
 protocol NSTextDelegate : NSObjectProtocol {
   optional func textShouldBeginEditing(_ textObject: NSText) -> Bool
   optional func textShouldEndEditing(_ textObject: NSText) -> Bool
-  @asyncHandler optional func textDidBeginEditing(_ notification: Notification)
-  @asyncHandler optional func textDidEndEditing(_ notification: Notification)
-  @asyncHandler optional func textDidChange(_ notification: Notification)
+  optional func textDidBeginEditing(_ notification: Notification)
+  optional func textDidEndEditing(_ notification: Notification)
+  optional func textDidChange(_ notification: Notification)
 }
 @available(macOS, introduced: 10.0, deprecated: 10.11, message: "Use NSWritingDirectionEmbedding instead")
 var NSTextWritingDirectionEmbedding: Int { get }

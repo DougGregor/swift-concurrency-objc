@@ -3,12 +3,12 @@
 protocol URLProtocolClient : NSObjectProtocol {
   func urlProtocol(_ protocol: URLProtocol, wasRedirectedTo request: URLRequest, redirectResponse: URLResponse)
   func urlProtocol(_ protocol: URLProtocol, cachedResponseIsValid cachedResponse: CachedURLResponse)
-  @asyncHandler func urlProtocol(_ protocol: URLProtocol, didReceive response: URLResponse, cacheStoragePolicy policy: URLCache.StoragePolicy)
-  @asyncHandler func urlProtocol(_ protocol: URLProtocol, didLoad data: Data)
-  @asyncHandler func urlProtocolDidFinishLoading(_ protocol: URLProtocol)
-  @asyncHandler func urlProtocol(_ protocol: URLProtocol, didFailWithError error: Error)
-  @asyncHandler func urlProtocol(_ protocol: URLProtocol, didReceive challenge: URLAuthenticationChallenge)
-  @asyncHandler func urlProtocol(_ protocol: URLProtocol, didCancel challenge: URLAuthenticationChallenge)
+  func urlProtocol(_ protocol: URLProtocol, didReceive response: URLResponse, cacheStoragePolicy policy: URLCache.StoragePolicy)
+  func urlProtocol(_ protocol: URLProtocol, didLoad data: Data)
+  func urlProtocolDidFinishLoading(_ protocol: URLProtocol)
+  func urlProtocol(_ protocol: URLProtocol, didFailWithError error: Error)
+  func urlProtocol(_ protocol: URLProtocol, didReceive challenge: URLAuthenticationChallenge)
+  func urlProtocol(_ protocol: URLProtocol, didCancel challenge: URLAuthenticationChallenge)
 }
 @available(watchOS 2.0, *)
 class URLProtocol : NSObject {

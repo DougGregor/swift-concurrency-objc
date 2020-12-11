@@ -15,7 +15,7 @@ protocol NCWidgetListViewDelegate : NSObjectProtocol {
   func widgetList(_ list: NCWidgetListViewController, viewControllerForRow row: Int) -> NSViewController
   optional func widgetListPerformAddAction(_ list: NCWidgetListViewController)
   optional func widgetList(_ list: NCWidgetListViewController, shouldReorderRow row: Int) -> Bool
-  @asyncHandler optional func widgetList(_ list: NCWidgetListViewController, didReorderRow row: Int, toRow newIndex: Int)
+  optional func widgetList(_ list: NCWidgetListViewController, didReorderRow row: Int, toRow newIndex: Int)
   optional func widgetList(_ list: NCWidgetListViewController, shouldRemoveRow row: Int) -> Bool
-  @asyncHandler optional func widgetList(_ list: NCWidgetListViewController, didRemoveRow row: Int)
+  optional func widgetList(_ list: NCWidgetListViewController, didRemoveRow row: Int)
 }

@@ -21,9 +21,9 @@ extension NINearbyObject {
 }
 @available(iOS 14.0, *)
 protocol NISessionDelegate : NSObjectProtocol {
-  @asyncHandler optional func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject])
-  @asyncHandler optional func session(_ session: NISession, didRemove nearbyObjects: [NINearbyObject], reason: NINearbyObject.RemovalReason)
+  optional func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject])
+  optional func session(_ session: NISession, didRemove nearbyObjects: [NINearbyObject], reason: NINearbyObject.RemovalReason)
   optional func sessionWasSuspended(_ session: NISession)
   optional func sessionSuspensionEnded(_ session: NISession)
-  @asyncHandler optional func session(_ session: NISession, didInvalidateWith error: Error)
+  optional func session(_ session: NISession, didInvalidateWith error: Error)
 }

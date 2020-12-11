@@ -21,5 +21,5 @@ class CNContactViewController : UIViewController {
 @available(iOS 9.0, *)
 protocol CNContactViewControllerDelegate : NSObjectProtocol {
   optional func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool
-  @asyncHandler optional func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?)
+  optional func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?)
 }
