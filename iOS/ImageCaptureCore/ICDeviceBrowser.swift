@@ -50,7 +50,11 @@ class ICDeviceBrowser : NSObject {
   @available(iOS 14.0, *)
   func requestContentsAuthorization(completion: @escaping (ICAuthorizationStatus) -> Void)
   @available(iOS 14.0, *)
+  func requestContentsAuthorization() async -> ICAuthorizationStatus
+  @available(iOS 14.0, *)
   func controlAuthorizationStatus() -> ICAuthorizationStatus
   @available(iOS 14.0, *)
   func requestControlAuthorization(completion: @escaping (ICAuthorizationStatus) -> Void)
+  @available(iOS 14.0, *)
+  func requestControlAuthorization() async -> ICAuthorizationStatus
 }

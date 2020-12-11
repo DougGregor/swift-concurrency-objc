@@ -3,6 +3,7 @@ class TKSmartCardSlotManager : NSObject {
   class var `default`: TKSmartCardSlotManager? { get }
   var slotNames: [String] { get }
   func getSlot(withName name: String, reply: @escaping (TKSmartCardSlot?) -> Void)
+  func getSlot(withName name: String) async -> TKSmartCardSlot?
   func slotNamed(_ name: String) -> TKSmartCardSlot?
 }
 extension TKSmartCardSlot {
@@ -80,6 +81,7 @@ class TKSmartCardUserInteraction : NSObject {
   var initialTimeout: TimeInterval
   var interactionTimeout: TimeInterval
   func run(reply: @escaping (Bool, Error?) -> Void)
+  func run() async throws -> Bool
   func cancel() -> Bool
 }
 class TKSmartCardUserInteractionForPINOperation : TKSmartCardUserInteraction {
@@ -110,7 +112,9 @@ class TKSmartCard : NSObject {
   var isSensitive: Bool
   var context: Any?
   func beginSession(reply: @escaping (Bool, Error?) -> Void)
+  func beginSession() async throws -> Bool
   func transmit(_ request: Data, reply: @escaping (Data?, Error?) -> Void)
+  func transmit(_ request: Data) async throws -> Data
   func endSession()
   @available(iOS 9.0, *)
   func userInteractionForSecurePINVerification(_ PINFormat: TKSmartCardPINFormat, apdu APDU: Data, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
@@ -131,6 +135,7 @@ extension TKSmartCard {
   var useExtendedLength: Bool
   var useCommandChaining: Bool
   func __sendIns(_ ins: UInt8, p1: UInt8, p2: UInt8, data requestData: Data?, le: NSNumber?, reply: @escaping (Data?, UInt16, Error?) -> Void)
+  func __sendIns(_ ins: UInt8, p1: UInt8, p2: UInt8, data requestData: Data?, le: NSNumber?) async throws -> (Data, UInt16)
   func __inSession(executeBlock block: @escaping (NSErrorPointer) -> Bool) throws
   func __sendIns(_ ins: UInt8, p1: UInt8, p2: UInt8, data requestData: Data?, le: NSNumber?, sw: UnsafeMutablePointer<UInt16>) throws -> Data
 }

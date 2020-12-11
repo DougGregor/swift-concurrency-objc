@@ -1,6 +1,6 @@
 
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-@_functionBuilder struct LibraryContentBuilder {
+@resultBuilder struct LibraryContentBuilder {
   static func buildBlock(_ segments: [LibraryItem]...) -> [LibraryItem]
   static func buildExpression(_ item: LibraryItem) -> [LibraryItem]
   static func buildExpression(_ items: [LibraryItem]) -> [LibraryItem]

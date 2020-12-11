@@ -40,6 +40,8 @@ class PKPassLibrary : NSObject {
   @available(macOS 10.12, *)
   func addPasses(_ passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(macOS 10.12, *)
+  func addPasses(_ passes: [PKPass]) async -> PKPassLibraryAddPassesStatus
+  @available(macOS 10.12, *)
   func openPaymentSetup()
   func present(_ pass: PKPaymentPass)
   func present(_ pass: PKSecureElementPass)
@@ -47,9 +49,13 @@ class PKPassLibrary : NSObject {
   func canAddSecureElementPass(primaryAccountIdentifier: String) -> Bool
   func canAddFelicaPass() -> Bool
   func activate(_ paymentPass: PKPaymentPass, withActivationData activationData: Data, completion: ((Bool, Error) -> Void)? = nil)
+  func activate(_ paymentPass: PKPaymentPass, withActivationData activationData: Data) async -> (Bool, Error)
   func activate(_ paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, Error) -> Void)? = nil)
+  func activate(_ paymentPass: PKPaymentPass, withActivationCode activationCode: String) async -> (Bool, Error)
   func activate(_ secureElementPass: PKSecureElementPass, activationData: Data, completion: ((Bool, Error?) -> Void)? = nil)
+  func activate(_ secureElementPass: PKSecureElementPass, activationData: Data) async throws -> Bool
   func sign(_ signData: Data, using secureElementPass: PKSecureElementPass, completion: @escaping (Data?, Data?, Error?) -> Void)
+  func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data, Data)
 }
 struct PKPassLibraryNotificationName : _ObjectiveCBridgeable, Hashable, Equatable, _SwiftNewtypeWrapper, RawRepresentable {
   init(_ rawValue: String)

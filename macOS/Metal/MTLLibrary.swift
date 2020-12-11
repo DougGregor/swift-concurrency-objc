@@ -137,12 +137,18 @@ protocol MTLLibrary : NSObjectProtocol {
   func makeFunction(name: String, constantValues: MTLFunctionConstantValues) throws -> MTLFunction
   @available(macOS 10.12, *)
   func makeFunction(name: String, constantValues: MTLFunctionConstantValues, completionHandler: @escaping (MTLFunction?, Error?) -> Void)
+  @available(macOS 10.12, *)
+  func makeFunction(name: String, constantValues: MTLFunctionConstantValues) async throws -> MTLFunction
   @available(macOS 11.0, *)
   func makeFunction(descriptor: MTLFunctionDescriptor, completionHandler: @escaping (MTLFunction?, Error?) -> Void)
+  @available(macOS 11.0, *)
+  func makeFunction(descriptor: MTLFunctionDescriptor) async throws -> MTLFunction
   @available(macOS 11.0, *)
   func makeFunction(descriptor: MTLFunctionDescriptor) throws -> MTLFunction
   @available(macOS 11.0, *)
   func makeIntersectionFunction(descriptor: MTLIntersectionFunctionDescriptor, completionHandler: @escaping (MTLFunction?, Error?) -> Void)
+  @available(macOS 11.0, *)
+  func makeIntersectionFunction(descriptor: MTLIntersectionFunctionDescriptor) async throws -> MTLFunction
   @available(macOS 11.0, *)
   func makeIntersectionFunction(descriptor: MTLIntersectionFunctionDescriptor) throws -> MTLFunction
   var functionNames: [String] { get }

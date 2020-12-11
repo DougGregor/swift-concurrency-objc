@@ -31,6 +31,8 @@ class PKPassLibrary : NSObject {
   func replacePass(with pass: PKPass) -> Bool
   @available(watchOS 3.0, *)
   func addPasses(_ passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
+  @available(watchOS 3.0, *)
+  func addPasses(_ passes: [PKPass]) async -> PKPassLibraryAddPassesStatus
   @available(watchOS, introduced: 2.0, deprecated: 99993, message: "Use -[PKPassLibrary canAddSecureElementPassWithPrimaryAccountIdentifier] instead")
   func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   @available(watchOS 6.4, *)
@@ -39,8 +41,12 @@ class PKPassLibrary : NSObject {
   func canAddFelicaPass() -> Bool
   @available(watchOS, introduced: 2.0, deprecated: 99993, message: "Use activateSecureElementPass:withActivationData:completion: instead")
   func activate(_ paymentPass: PKPaymentPass, withActivationData activationData: Data, completion: ((Bool, Error) -> Void)? = nil)
+  @available(watchOS, introduced: 2.0, deprecated: 99993, message: "Use activateSecureElementPass:withActivationData:completion: instead")
+  func activate(_ paymentPass: PKPaymentPass, withActivationData activationData: Data) async -> (Bool, Error)
   @available(watchOS 6.2, *)
   func sign(_ signData: Data, using secureElementPass: PKSecureElementPass, completion: @escaping (Data?, Data?, Error?) -> Void)
+  @available(watchOS 6.2, *)
+  func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data, Data)
 }
 struct PKPassLibraryNotificationName : _ObjectiveCBridgeable, Hashable, Equatable, _SwiftNewtypeWrapper, RawRepresentable {
   init(_ rawValue: String)

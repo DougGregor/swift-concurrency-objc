@@ -15,4 +15,5 @@ extension CLKWatchFaceLibrary {
 @available(watchOS 7.0, *)
 class CLKWatchFaceLibrary : NSObject {
   func addWatchFace(at fileURL: URL, completionHandler handler: @escaping (Error?) -> Void)
+  func addWatchFace(at fileURL: URL) async throws
 }

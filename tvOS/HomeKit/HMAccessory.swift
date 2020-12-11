@@ -25,6 +25,7 @@ class HMAccessory : NSObject {
   @available(tvOS 11.3, *)
   var supportsIdentify: Bool { get }
   func identify(completionHandler completion: @escaping (Error?) -> Void)
+  func identify() async throws
 }
 @available(tvOS 10.0, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {

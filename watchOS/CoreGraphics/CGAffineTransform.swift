@@ -19,9 +19,6 @@ extension CGAffineTransform {
 
 extension CGAffineTransform : Codable {
 }
-
-extension CGAffineTransform : _ObjectiveCBridgeable {
-}
 extension CGAffineTransform {
   @available(watchOS 2.0, *)
   /*not inherited*/ init(translationX tx: CGFloat, y ty: CGFloat)

@@ -94,9 +94,15 @@ class ICDevice : NSObject {
   @available(iOS 13.0, *)
   func requestOpenSession(options: [ICSessionOptions : Any]? = nil, completion: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func requestOpenSession(options: [ICSessionOptions : Any]? = nil) async throws
+  @available(iOS 13.0, *)
   func requestCloseSession(options: [ICSessionOptions : Any]? = nil, completion: @escaping (Error?) -> Void)
   @available(iOS 13.0, *)
+  func requestCloseSession(options: [ICSessionOptions : Any]? = nil) async throws
+  @available(iOS 13.0, *)
   func requestEject(completion: @escaping (Error?) -> Void)
+  @available(iOS 13.0, *)
+  func requestEject() async throws
 }
 protocol ICDeviceDelegate : NSObjectProtocol {
   @available(iOS 13.0, *)

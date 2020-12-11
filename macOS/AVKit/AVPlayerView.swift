@@ -35,6 +35,7 @@ extension AVPlayerView {
 extension AVPlayerView {
   var canBeginTrimming: Bool { get }
   func beginTrimming(completionHandler handler: ((AVPlayerViewTrimResult) -> Void)? = nil)
+  func beginTrimming() async -> AVPlayerViewTrimResult
 }
 @available(macOS 10.9, *)
 enum AVPlayerViewTrimResult : Int {
@@ -60,5 +61,6 @@ protocol AVPlayerViewPictureInPictureDelegate : NSObjectProtocol {
   optional func playerViewWillStopPicture(inPicture playerView: AVPlayerView)
   optional func playerViewDidStopPicture(inPicture playerView: AVPlayerView)
   optional func playerView(_ playerView: AVPlayerView, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void)
+  optional func playerViewRestoreUserInterfaceForPictureInPictureStop(_ playerView: AVPlayerView) async -> Bool
   optional func playerViewShouldAutomaticallyDismissAtPicture(inPictureStart playerView: AVPlayerView) -> Bool
 }

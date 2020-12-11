@@ -29,17 +29,31 @@ extension INPlayMediaIntent {
 @available(tvOS 14.0, *)
 protocol INPlayMediaIntentHandling : NSObjectProtocol {
   func handle(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  func handle(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   optional func confirm(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  optional func confirm(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   @available(tvOS 13.0, *)
   optional func resolveMediaItems(for intent: INPlayMediaIntent, with completion: @escaping ([INPlayMediaMediaItemResolutionResult]) -> Void)
   @available(tvOS 13.0, *)
+  optional func resolveMediaItems(for intent: INPlayMediaIntent) async -> [INPlayMediaMediaItemResolutionResult]
+  @available(tvOS 13.0, *)
   optional func resolvePlayShuffled(for intent: INPlayMediaIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  @available(tvOS 13.0, *)
+  optional func resolvePlayShuffled(for intent: INPlayMediaIntent) async -> INBooleanResolutionResult
   @available(tvOS 13.0, *)
   optional func resolvePlaybackRepeatMode(for intent: INPlayMediaIntent, with completion: @escaping (INPlaybackRepeatModeResolutionResult) -> Void)
   @available(tvOS 13.0, *)
+  optional func resolvePlaybackRepeatMode(for intent: INPlayMediaIntent) async -> INPlaybackRepeatModeResolutionResult
+  @available(tvOS 13.0, *)
   optional func resolveResumePlayback(for intent: INPlayMediaIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  @available(tvOS 13.0, *)
+  optional func resolveResumePlayback(for intent: INPlayMediaIntent) async -> INBooleanResolutionResult
   @available(tvOS 13.0, *)
   optional func resolvePlaybackQueueLocation(for intent: INPlayMediaIntent, with completion: @escaping (INPlaybackQueueLocationResolutionResult) -> Void)
   @available(tvOS 13.0, *)
+  optional func resolvePlaybackQueueLocation(for intent: INPlayMediaIntent) async -> INPlaybackQueueLocationResolutionResult
+  @available(tvOS 13.0, *)
   optional func resolvePlaybackSpeed(for intent: INPlayMediaIntent, with completion: @escaping (INPlayMediaPlaybackSpeedResolutionResult) -> Void)
+  @available(tvOS 13.0, *)
+  optional func resolvePlaybackSpeed(for intent: INPlayMediaIntent) async -> INPlayMediaPlaybackSpeedResolutionResult
 }

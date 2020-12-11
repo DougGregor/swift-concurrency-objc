@@ -18,10 +18,14 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   var shouldSetDefaultLeaderboard: Bool
   @available(watchOS 3.0, *)
   class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  @available(watchOS 3.0, *)
+  class func report(_ scores: [GKScore]) async throws
 }
 extension GKScore {
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use +reportScores:withCompletionhandler: instead")
   func report(completionHandler: ((Error?) -> Void)? = nil)
+  @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use +reportScores:withCompletionhandler: instead")
+  func report() async throws
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use initWithLeaderboardIdentifier: instead")
   init(category: String?)
   @available(watchOS, introduced: 2.0, deprecated: 2.0, message: "Use leaderboardIdentifier instead")

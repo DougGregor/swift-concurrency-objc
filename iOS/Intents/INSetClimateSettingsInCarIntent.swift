@@ -36,18 +36,33 @@ extension INSetClimateSettingsInCarIntent {
 @available(iOS 10.0, *)
 protocol INSetClimateSettingsInCarIntentHandling : NSObjectProtocol {
   func handle(intent: INSetClimateSettingsInCarIntent, completion: @escaping (INSetClimateSettingsInCarIntentResponse) -> Void)
+  func handle(intent: INSetClimateSettingsInCarIntent) async -> INSetClimateSettingsInCarIntentResponse
   optional func confirm(intent: INSetClimateSettingsInCarIntent, completion: @escaping (INSetClimateSettingsInCarIntentResponse) -> Void)
+  optional func confirm(intent: INSetClimateSettingsInCarIntent) async -> INSetClimateSettingsInCarIntentResponse
   optional func resolveEnableFan(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableFan(for intent: INSetClimateSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveEnableAirConditioner(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableAirConditioner(for intent: INSetClimateSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveEnableClimateControl(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableClimateControl(for intent: INSetClimateSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveEnableAutoMode(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveEnableAutoMode(for intent: INSetClimateSettingsInCarIntent) async -> INBooleanResolutionResult
   optional func resolveAirCirculationMode(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INCarAirCirculationModeResolutionResult) -> Void)
+  optional func resolveAirCirculationMode(for intent: INSetClimateSettingsInCarIntent) async -> INCarAirCirculationModeResolutionResult
   optional func resolveFanSpeedIndex(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INIntegerResolutionResult) -> Void)
+  optional func resolveFanSpeedIndex(for intent: INSetClimateSettingsInCarIntent) async -> INIntegerResolutionResult
   optional func resolveFanSpeedPercentage(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INDoubleResolutionResult) -> Void)
+  optional func resolveFanSpeedPercentage(for intent: INSetClimateSettingsInCarIntent) async -> INDoubleResolutionResult
   optional func resolveRelativeFanSpeedSetting(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INRelativeSettingResolutionResult) -> Void)
+  optional func resolveRelativeFanSpeedSetting(for intent: INSetClimateSettingsInCarIntent) async -> INRelativeSettingResolutionResult
   optional func resolveTemperature(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INTemperatureResolutionResult) -> Void)
+  optional func resolveTemperature(for intent: INSetClimateSettingsInCarIntent) async -> INTemperatureResolutionResult
   optional func resolveRelativeTemperatureSetting(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INRelativeSettingResolutionResult) -> Void)
+  optional func resolveRelativeTemperatureSetting(for intent: INSetClimateSettingsInCarIntent) async -> INRelativeSettingResolutionResult
   optional func resolveClimateZone(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INCarSeatResolutionResult) -> Void)
+  optional func resolveClimateZone(for intent: INSetClimateSettingsInCarIntent) async -> INCarSeatResolutionResult
   @available(iOS 12.0, *)
   optional func resolveCarName(for intent: INSetClimateSettingsInCarIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  @available(iOS 12.0, *)
+  optional func resolveCarName(for intent: INSetClimateSettingsInCarIntent) async -> INSpeakableStringResolutionResult
 }

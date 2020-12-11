@@ -9,6 +9,8 @@ class HKQuantitySeriesSampleBuilder : NSObject {
   func insert(_ quantity: HKQuantity, for dateInterval: DateInterval) throws
   func insert(_ quantity: HKQuantity, at date: Date) throws
   func finishSeries(metadata: [String : Any]?, endDate: Date?, completion: @escaping ([HKQuantitySample]?, Error?) -> Void)
+  func finishSeries(metadata: [String : Any]?, endDate: Date?) async throws -> [HKQuantitySample]
   func finishSeries(metadata: [String : Any]?, completion: @escaping ([HKQuantitySample]?, Error?) -> Void)
+  func finishSeries(metadata: [String : Any]?) async throws -> [HKQuantitySample]
   func discard()
 }

@@ -27,8 +27,12 @@ class GKMatch : NSObject {
   func voiceChat(withName name: String) -> GKVoiceChat?
   @available(tvOS 8.0, *)
   func chooseBestHostingPlayer(completionHandler: @escaping (GKPlayer?) -> Void)
+  @available(tvOS 8.0, *)
+  func chooseBestHostingPlayer() async -> GKPlayer?
   @available(tvOS 6.0, *)
   func rematch(completionHandler: ((GKMatch?, Error?) -> Void)? = nil)
+  @available(tvOS 6.0, *)
+  func rematch() async throws -> GKMatch
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)

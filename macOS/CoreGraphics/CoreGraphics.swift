@@ -39,13 +39,6 @@ extension CGFloat : _CVarArgPassedAsDouble, _CVarArgAligned {
 extension CGFloat : Codable {
 }
 
-extension CGFloat : _ObjectiveCBridgeable {
-  @available(swift, deprecated: 4, renamed: "init(truncating:)")
-  init(_ number: __shared NSNumber)
-  init(truncating number: __shared NSNumber)
-  init?(exactly number: __shared NSNumber)
-}
-
 func CGGetLastMouseDelta() -> (x: Int32, y: Int32)
 
 enum CGPathFillRule : Int {

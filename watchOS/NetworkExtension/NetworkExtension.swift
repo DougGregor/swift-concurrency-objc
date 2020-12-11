@@ -36,6 +36,8 @@ class NEHotspotNetwork : NSObject {
   var bssid: String { get }
   @available(watchOS 7.0, *)
   class func fetchCurrent(completionHandler: @escaping (NEHotspotNetwork?) -> Void)
+  @available(watchOS 7.0, *)
+  class func fetchCurrent() async -> NEHotspotNetwork?
 }
 extension NSMutableURLRequest {
 }
@@ -91,9 +93,13 @@ class NEHotspotConfigurationManager : NSObject {
   @available(watchOS 7.0, *)
   func apply(_ configuration: NEHotspotConfiguration, completionHandler: ((Error?) -> Void)? = nil)
   @available(watchOS 7.0, *)
+  func apply(_ configuration: NEHotspotConfiguration) async throws
+  @available(watchOS 7.0, *)
   func removeConfiguration(forSSID SSID: String)
   @available(watchOS 7.0, *)
   func getConfiguredSSIDs(completionHandler: @escaping ([String]) -> Void)
+  @available(watchOS 7.0, *)
+  func configuredSSIDs() async -> [String]
 }
 @available(watchOS 2.0, *)
 class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {

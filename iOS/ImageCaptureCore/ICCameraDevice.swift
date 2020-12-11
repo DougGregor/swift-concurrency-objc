@@ -94,6 +94,8 @@ class ICCameraDevice : ICDevice {
   var ptpEventHandler: (Data) -> Void
   @available(iOS 13.0, *)
   func requestSendPTPCommand(_ ptpCommand: Data, outData ptpData: Data?, completion: @escaping (Data, Data, Error?) -> Void)
+  @available(iOS 13.0, *)
+  func requestSendPTPCommand(_ ptpCommand: Data, outData ptpData: Data?) async throws -> (Data, Data)
 }
 protocol ICCameraDeviceDelegate : ICDeviceDelegate {
   @available(iOS 13.0, *)

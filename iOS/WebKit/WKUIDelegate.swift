@@ -7,9 +7,15 @@ protocol WKUIDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void)
   @available(iOS 8.0, *)
+  optional func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo) async
+  @available(iOS 8.0, *)
   optional func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void)
   @available(iOS 8.0, *)
+  optional func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo) async -> Bool
+  @available(iOS 8.0, *)
   optional func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void)
+  @available(iOS 8.0, *)
+  optional func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo) async -> String?
   @available(iOS, introduced: 10.0, deprecated: 13.0)
   optional func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool
   @available(iOS, introduced: 10.0, deprecated: 13.0)
@@ -18,6 +24,8 @@ protocol WKUIDelegate : NSObjectProtocol {
   optional func webView(_ webView: WKWebView, commitPreviewingViewController previewingViewController: UIViewController)
   @available(iOS 13.0, *)
   optional func webView(_ webView: WKWebView, contextMenuConfigurationForElement elementInfo: WKContextMenuElementInfo, completionHandler: @escaping (UIContextMenuConfiguration?) -> Void)
+  @available(iOS 13.0, *)
+  optional func webView(_ webView: WKWebView, contextMenuConfigurationForElement elementInfo: WKContextMenuElementInfo) async -> UIContextMenuConfiguration?
   @available(iOS 13.0, *)
   optional func webView(_ webView: WKWebView, contextMenuWillPresentForElement elementInfo: WKContextMenuElementInfo)
   @available(iOS 13.0, *)

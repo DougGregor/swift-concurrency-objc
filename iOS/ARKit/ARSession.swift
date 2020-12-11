@@ -27,7 +27,11 @@ class ARSession : NSObject {
   @available(iOS 12.0, *)
   func getCurrentWorldMap(completionHandler: @escaping (ARWorldMap?, Error?) -> Void)
   @available(iOS 12.0, *)
+  func currentWorldMap() async throws -> ARWorldMap
+  @available(iOS 12.0, *)
   func createReferenceObject(transform: simd_float4x4, center: simd_float3, extent: simd_float3, completionHandler: @escaping (ARReferenceObject?, Error?) -> Void)
+  @available(iOS 12.0, *)
+  func createReferenceObject(transform: simd_float4x4, center: simd_float3, extent: simd_float3) async throws -> ARReferenceObject
   @available(iOS 13.0, *)
   func raycast(_ query: ARRaycastQuery) -> [ARRaycastResult]
   @available(iOS 13.0, *)
@@ -36,6 +40,8 @@ class ARSession : NSObject {
   func update(with collaborationData: ARSession.CollaborationData)
   @available(iOS 14.0, *)
   func getGeoLocation(forPoint position: simd_float3, completionHandler: @escaping (CLLocationCoordinate2D, CLLocationDistance, Error?) -> Void)
+  @available(iOS 14.0, *)
+  func geoLocation(forPoint position: simd_float3) async throws -> (CLLocationCoordinate2D, CLLocationDistance)
 }
 @available(iOS 11.0, *)
 protocol ARSessionObserver : NSObjectProtocol {

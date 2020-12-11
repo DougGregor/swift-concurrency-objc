@@ -73,12 +73,20 @@ class ALAssetsLibrary : NSObject {
   func addAssetsGroupAlbum(withName name: String!, resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced: 4, deprecated: 9, message: "Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeImage(toSavedPhotosAlbum imageRef: CGImage!, orientation: ALAssetOrientation, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  @available(iOS, introduced: 4, deprecated: 9, message: "Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
+  func writeImage(toSavedPhotosAlbum imageRef: CGImage!, orientation: ALAssetOrientation) async throws -> URL?
   @available(iOS, introduced: 4.1, deprecated: 9, message: "Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeImage(toSavedPhotosAlbum imageRef: CGImage!, metadata: [AnyHashable : Any]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  @available(iOS, introduced: 4.1, deprecated: 9, message: "Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
+  func writeImage(toSavedPhotosAlbum imageRef: CGImage!, metadata: [AnyHashable : Any]!) async throws -> URL?
   @available(iOS, introduced: 4.1, deprecated: 9, message: "Use creationRequestForAssetFromImageData: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeImageData(toSavedPhotosAlbum imageData: Data!, metadata: [AnyHashable : Any]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  @available(iOS, introduced: 4.1, deprecated: 9, message: "Use creationRequestForAssetFromImageData: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
+  func writeImageData(toSavedPhotosAlbum imageData: Data!, metadata: [AnyHashable : Any]!) async throws -> URL?
   @available(iOS, introduced: 4, deprecated: 9, message: "Use creationRequestForAssetFromVideoAtFilePath: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeVideoAtPath(toSavedPhotosAlbum videoPathURL: URL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
+  @available(iOS, introduced: 4, deprecated: 9, message: "Use creationRequestForAssetFromVideoAtFilePath: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
+  func writeVideoAtPath(toSavedPhotosAlbum videoPathURL: URL!) async throws -> URL?
   @available(iOS, introduced: 5, deprecated: 9, message: "Use isCompatibleWithSavedPhotosAlbum on AVAsset instead")
   func videoAtPathIs(compatibleWithSavedPhotosAlbum videoPathURL: URL!) -> Bool
   @available(iOS, introduced: 6, deprecated: 9, message: "Use authorizationStatus on the shared PHPhotoLibrary from the Photos framework instead")

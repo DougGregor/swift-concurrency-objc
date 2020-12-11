@@ -20,10 +20,17 @@ extension INStartWorkoutIntent {
 @available(iOS 10.0, *)
 protocol INStartWorkoutIntentHandling : NSObjectProtocol {
   func handle(intent: INStartWorkoutIntent, completion: @escaping (INStartWorkoutIntentResponse) -> Void)
+  func handle(intent: INStartWorkoutIntent) async -> INStartWorkoutIntentResponse
   optional func confirm(intent: INStartWorkoutIntent, completion: @escaping (INStartWorkoutIntentResponse) -> Void)
+  optional func confirm(intent: INStartWorkoutIntent) async -> INStartWorkoutIntentResponse
   optional func resolveWorkoutName(for intent: INStartWorkoutIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveWorkoutName(for intent: INStartWorkoutIntent) async -> INSpeakableStringResolutionResult
   optional func resolveGoalValue(for intent: INStartWorkoutIntent, with completion: @escaping (INDoubleResolutionResult) -> Void)
+  optional func resolveGoalValue(for intent: INStartWorkoutIntent) async -> INDoubleResolutionResult
   optional func resolveWorkoutGoalUnitType(for intent: INStartWorkoutIntent, with completion: @escaping (INWorkoutGoalUnitTypeResolutionResult) -> Void)
+  optional func resolveWorkoutGoalUnitType(for intent: INStartWorkoutIntent) async -> INWorkoutGoalUnitTypeResolutionResult
   optional func resolveWorkoutLocationType(for intent: INStartWorkoutIntent, with completion: @escaping (INWorkoutLocationTypeResolutionResult) -> Void)
+  optional func resolveWorkoutLocationType(for intent: INStartWorkoutIntent) async -> INWorkoutLocationTypeResolutionResult
   optional func resolveIsOpenEnded(for intent: INStartWorkoutIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  optional func resolveIsOpenEnded(for intent: INStartWorkoutIntent) async -> INBooleanResolutionResult
 }

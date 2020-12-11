@@ -79,6 +79,8 @@ class NSPersistentStoreCoordinator : NSObject {
   func addPersistentStore(ofType storeType: String, configurationName configuration: String?, at storeURL: URL?, options: [AnyHashable : Any]? = nil) throws -> NSPersistentStore
   @available(tvOS 10.0, *)
   func addPersistentStore(with storeDescription: NSPersistentStoreDescription, completionHandler block: @escaping (NSPersistentStoreDescription, Error?) -> Void)
+  @available(tvOS 10.0, *)
+  func addPersistentStore(with storeDescription: NSPersistentStoreDescription) async throws -> NSPersistentStoreDescription
   func remove(_ store: NSPersistentStore) throws
   func setMetadata(_ metadata: [String : Any]?, for store: NSPersistentStore)
   func metadata(for store: NSPersistentStore) -> [String : Any]

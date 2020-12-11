@@ -22,11 +22,19 @@ extension INRequestRideIntent {
 @available(watchOS 3.2, *)
 protocol INRequestRideIntentHandling : NSObjectProtocol {
   func handle(intent: INRequestRideIntent, completion: @escaping (INRequestRideIntentResponse) -> Void)
+  func handle(intent: INRequestRideIntent) async -> INRequestRideIntentResponse
   optional func confirm(intent: INRequestRideIntent, completion: @escaping (INRequestRideIntentResponse) -> Void)
+  optional func confirm(intent: INRequestRideIntent) async -> INRequestRideIntentResponse
   optional func resolvePickupLocation(for intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void)
+  optional func resolvePickupLocation(for intent: INRequestRideIntent) async -> INPlacemarkResolutionResult
   optional func resolveDropOffLocation(for intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void)
+  optional func resolveDropOffLocation(for intent: INRequestRideIntent) async -> INPlacemarkResolutionResult
   optional func resolveRideOptionName(for intent: INRequestRideIntent, with completion: @escaping (INSpeakableStringResolutionResult) -> Void)
+  optional func resolveRideOptionName(for intent: INRequestRideIntent) async -> INSpeakableStringResolutionResult
   optional func resolvePartySize(for intent: INRequestRideIntent, with completion: @escaping (INIntegerResolutionResult) -> Void)
+  optional func resolvePartySize(for intent: INRequestRideIntent) async -> INIntegerResolutionResult
   @available(watchOS 3.3, *)
   optional func resolveScheduledPickupTime(for intent: INRequestRideIntent, with completion: @escaping (INDateComponentsRangeResolutionResult) -> Void)
+  @available(watchOS 3.3, *)
+  optional func resolveScheduledPickupTime(for intent: INRequestRideIntent) async -> INDateComponentsRangeResolutionResult
 }

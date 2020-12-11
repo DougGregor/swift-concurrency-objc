@@ -22,4 +22,5 @@ class UIPointerRegionRequest : NSObject {
 protocol UIPointerInteractionAnimating : NSObjectProtocol {
   func addAnimations(_ animations: @escaping () -> Void)
   func addCompletion(_ completion: @escaping (Bool) -> Void)
+  func addCompletion() async -> Bool
 }

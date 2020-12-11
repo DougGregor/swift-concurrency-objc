@@ -8,7 +8,13 @@ protocol PKPaymentInformationRequestHandling {
   @available(watchOS 7.0, *)
   func handleInformationRequest(_ infoRequest: PKBarcodeEventMetadataRequest, completion: @escaping PKInformationRequestCompletionBlock)
   @available(watchOS 7.0, *)
+  func handleInformationRequest(_ infoRequest: PKBarcodeEventMetadataRequest) async -> PKBarcodeEventMetadataResponse
+  @available(watchOS 7.0, *)
   func handle(_ signatureRequest: PKBarcodeEventSignatureRequest, completion: @escaping PKSignatureRequestCompletionBlock)
   @available(watchOS 7.0, *)
+  func handle(_ signatureRequest: PKBarcodeEventSignatureRequest) async -> PKBarcodeEventSignatureResponse
+  @available(watchOS 7.0, *)
   func handle(_ configurationRequest: PKBarcodeEventConfigurationRequest, completion: @escaping () -> Void)
+  @available(watchOS 7.0, *)
+  func handle(_ configurationRequest: PKBarcodeEventConfigurationRequest) async
 }

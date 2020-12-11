@@ -6,6 +6,7 @@ class MLModelCollection : NSObject {
   var deploymentID: String { get }
   class func __beginAccessingModelCollection(withIdentifier identifier: String, completionHandler: @escaping (MLModelCollection?, Error?) -> Void) -> Progress
   class func __endAccessingModelCollection(withIdentifier identifier: String, completionHandler: @escaping (Bool, Error?) -> Void)
+  class func __endAccessingModelCollection(withIdentifier identifier: String) async throws -> Bool
 }
 
 @available(macOS 11.0, iOS 14.0, *)

@@ -5,4 +5,5 @@ class HMCharacteristicWriteAction<TargetValueType> : HMAction where TargetValueT
   var characteristic: HMCharacteristic { get }
   @NSCopying var targetValue: TargetValueType { get }
   func updateTargetValue(_ targetValue: TargetValueType, completionHandler completion: @escaping (Error?) -> Void)
+  func updateTargetValue(_ targetValue: TargetValueType) async throws
 }

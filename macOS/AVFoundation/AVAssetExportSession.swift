@@ -73,6 +73,7 @@ class AVAssetExportSession : NSObject {
   var status: AVAssetExportSession.Status { get }
   var error: Error? { get }
   func exportAsynchronously(completionHandler handler: @escaping () -> Void)
+  func export() async
   var progress: Float { get }
   func cancelExport()
 }
@@ -81,11 +82,15 @@ extension AVAssetExportSession {
   class func exportPresets(compatibleWith asset: AVAsset) -> [String]
   @available(macOS 10.9, *)
   class func determineCompatibility(ofExportPreset presetName: String, with asset: AVAsset, outputFileType: AVFileType?, completionHandler handler: @escaping (Bool) -> Void)
+  @available(macOS 10.9, *)
+  class func determineCompatibility(ofExportPreset presetName: String, with asset: AVAsset, outputFileType: AVFileType?) async -> Bool
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [AVFileType] { get }
   @available(macOS 10.9, *)
   func determineCompatibleFileTypes(completionHandler handler: @escaping ([AVFileType]) -> Void)
+  @available(macOS 10.9, *)
+  func determineCompatibleFileTypes() async -> [AVFileType]
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange
@@ -98,7 +103,11 @@ extension AVAssetExportSession {
   @available(macOS 10.15, *)
   func estimateMaximumDuration(completionHandler handler: @escaping (CMTime, Error?) -> Void)
   @available(macOS 10.15, *)
+  func estimateMaximumDuration() async throws -> CMTime
+  @available(macOS 10.15, *)
   func estimateOutputFileLength(completionHandler handler: @escaping (Int64, Error?) -> Void)
+  @available(macOS 10.15, *)
+  func estimateOutputFileLength() async throws -> Int64
 }
 extension AVAssetExportSession {
   var metadata: [AVMetadataItem]?

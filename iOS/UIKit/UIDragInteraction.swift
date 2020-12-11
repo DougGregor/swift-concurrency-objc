@@ -3,6 +3,7 @@
 protocol UIDragAnimating : NSObjectProtocol {
   func addAnimations(_ animations: @escaping () -> Void)
   func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void)
+  func addCompletion() async -> UIViewAnimatingPosition
 }
 @available(iOS 11.0, *)
 class UIDragInteraction : NSObject, UIInteraction {

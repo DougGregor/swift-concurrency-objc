@@ -206,6 +206,8 @@ extension AVCaptureDevice {
   class func authorizationStatus(for mediaType: AVMediaType) -> AVAuthorizationStatus
   @available(macOS 10.14, *)
   class func requestAccess(for mediaType: AVMediaType, completionHandler handler: @escaping (Bool) -> Void)
+  @available(macOS 10.14, *)
+  class func requestAccess(for mediaType: AVMediaType) async -> Bool
 }
 extension AVCaptureDevice {
   var transportControlsSupported: Bool { get }

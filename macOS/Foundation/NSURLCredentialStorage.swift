@@ -15,11 +15,15 @@ extension URLCredentialStorage {
   @available(macOS 10.10, *)
   func getCredentials(for protectionSpace: URLProtectionSpace, task: URLSessionTask, completionHandler: @escaping ([String : URLCredential]?) -> Void)
   @available(macOS 10.10, *)
+  func getCredentials(for protectionSpace: URLProtectionSpace, task: URLSessionTask) async -> [String : URLCredential]?
+  @available(macOS 10.10, *)
   func set(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, task: URLSessionTask)
   @available(macOS 10.10, *)
   func remove(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, options: [String : Any]? = nil, task: URLSessionTask)
   @available(macOS 10.10, *)
   func getDefaultCredential(for space: URLProtectionSpace, task: URLSessionTask, completionHandler: @escaping (URLCredential?) -> Void)
+  @available(macOS 10.10, *)
+  func defaultCredential(for space: URLProtectionSpace, task: URLSessionTask) async -> URLCredential?
   @available(macOS 10.10, *)
   func setDefaultCredential(_ credential: URLCredential, for protectionSpace: URLProtectionSpace, task: URLSessionTask)
 }

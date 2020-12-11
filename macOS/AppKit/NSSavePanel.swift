@@ -30,7 +30,11 @@ class NSSavePanel : NSPanel {
   @available(macOS 10.6, *)
   func beginSheetModal(for window: NSWindow, completionHandler handler: @escaping (NSApplication.ModalResponse) -> Void)
   @available(macOS 10.6, *)
+  func beginSheetModal(for window: NSWindow) async -> NSApplication.ModalResponse
+  @available(macOS 10.6, *)
   func begin(completionHandler handler: @escaping (NSApplication.ModalResponse) -> Void)
+  @available(macOS 10.6, *)
+  func begin() async -> NSApplication.ModalResponse
   func runModal() -> NSApplication.ModalResponse
 }
 protocol NSOpenSavePanelDelegate : NSObjectProtocol {

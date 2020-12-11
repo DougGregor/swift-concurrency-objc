@@ -116,6 +116,8 @@ class ICCameraDevice : ICDevice {
   func requestSendPTPCommand(_ command: Data, outData data: Data?, sendCommandDelegate: Any, didSendCommand selector: Selector, contextInfo: UnsafeMutableRawPointer?)
   @available(macOS 10.15, *)
   func requestSendPTPCommand(_ ptpCommand: Data, outData ptpData: Data?, completion: @escaping (Data, Data, Error?) -> Void)
+  @available(macOS 10.15, *)
+  func requestSendPTPCommand(_ ptpCommand: Data, outData ptpData: Data?) async throws -> (Data, Data)
 }
 protocol ICCameraDeviceDelegate : ICDeviceDelegate {
   @available(macOS 10.4, *)

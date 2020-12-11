@@ -12,13 +12,22 @@ class GKLocalPlayer : GKPlayer {
   var isPersonalizedCommunicationRestricted: Bool { get }
   @available(tvOS 10.0, *)
   func loadRecentPlayers(completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  @available(tvOS 10.0, *)
+  func loadRecentPlayers() async throws -> [GKPlayer]
   func loadChallengableFriends(completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  func loadChallengableFriends() async throws -> [GKPlayer]
   @available(tvOS 7.0, *)
   func setDefaultLeaderboardIdentifier(_ leaderboardIdentifier: String, completionHandler: ((Error?) -> Void)? = nil)
   @available(tvOS 7.0, *)
+  func setDefaultLeaderboardIdentifier(_ leaderboardIdentifier: String) async throws
+  @available(tvOS 7.0, *)
   func loadDefaultLeaderboardIdentifier(completionHandler: ((String?, Error?) -> Void)? = nil)
+  @available(tvOS 7.0, *)
+  func loadDefaultLeaderboardIdentifier() async throws -> String
   @available(tvOS 13.5, *)
   func fetchItems(forIdentityVerificationSignature completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
+  @available(tvOS 13.5, *)
+  func fetchItemsForIdentityVerificationSignature() async throws -> (URL, Data, Data, UInt64)
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKTurnBasedEventListener {
 }
@@ -37,8 +46,12 @@ extension NSNotification.Name {
 extension GKLocalPlayer {
   @available(tvOS, introduced: 8.0, deprecated: 10.0)
   func loadFriendPlayers(completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  @available(tvOS, introduced: 8.0, deprecated: 10.0)
+  func loadFriendPlayers() async throws -> [GKPlayer]
   @available(tvOS, introduced: 9.0, deprecated: 13.5, message: "API deprecated. Use fetchItemsForIdentityVerificationSignature: and the teamPlayerID value to verify a user identity.")
   func generateIdentityVerificationSignature(completionHandler: ((URL?, Data?, Data?, UInt64, Error?) -> Void)? = nil)
+  @available(tvOS, introduced: 9.0, deprecated: 13.5, message: "API deprecated. Use fetchItemsForIdentityVerificationSignature: and the teamPlayerID value to verify a user identity.")
+  func generateIdentityVerificationSignature() async throws -> (URL, Data, Data, UInt64)
 }
 extension GKLocalPlayer {
 }

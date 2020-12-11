@@ -99,6 +99,7 @@ class SRSensorReader : NSObject {
   var sensor: SRSensor { get }
   weak var delegate: @sil_weak SRSensorReaderDelegate?
   class func requestAuthorization(sensors: Set<SRSensor>, completion: @escaping (Error?) -> Void)
+  class func requestAuthorization(sensors: Set<SRSensor>) async throws
 }
 @available(iOS 14.0, *)
 let SRErrorDomain: String

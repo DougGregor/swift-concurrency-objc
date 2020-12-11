@@ -34,6 +34,8 @@ protocol WKNavigationDelegate : NSObjectProtocol {
   optional func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
   @available(macOS 10.10, *)
   optional func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+  @available(macOS 10.10, *)
+  optional func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?)
   @available(macOS 10.11, *)
   optional func webViewWebContentProcessDidTerminate(_ webView: WKWebView)
   @available(macOS 11.0, *)

@@ -22,14 +22,20 @@ class CSSearchableIndex : NSObject {
   init(name: String)
   init(name: String, protectionClass: FileProtectionType?)
   func indexSearchableItems(_ items: [CSSearchableItem], completionHandler: ((Error?) -> Void)? = nil)
+  func indexSearchableItems(_ items: [CSSearchableItem]) async throws
   func deleteSearchableItems(withIdentifiers identifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func deleteSearchableItems(withIdentifiers identifiers: [String]) async throws
   func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String], completionHandler: ((Error?) -> Void)? = nil)
+  func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String]) async throws
   func deleteAllSearchableItems(completionHandler: ((Error?) -> Void)? = nil)
+  func deleteAllSearchableItems() async throws
 }
 extension CSSearchableIndex {
   func beginBatch()
   func endBatch(withClientState clientState: Data, completionHandler: ((Error?) -> Void)? = nil)
+  func endBatch(withClientState clientState: Data) async throws
   func fetchLastClientState(completionHandler: @escaping (Data?, Error?) -> Void)
+  func fetchLastClientState() async throws -> Data
 }
 @available(iOS 9.0, *)
 protocol CSSearchableIndexDelegate : NSObjectProtocol {

@@ -118,14 +118,20 @@ class WKInterfaceController : NSObject {
   func presentController(withNames names: [String], contexts: [Any]?)
   func dismiss()
   func presentTextInputController(withSuggestions suggestions: [String]?, allowedInputMode inputMode: WKTextInputMode, completion: @escaping ([Any]?) -> Void)
+  func presentTextInputController(withSuggestions suggestions: [String]?, allowedInputMode inputMode: WKTextInputMode) async -> [Any]?
   func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [Any]?)?, allowedInputMode inputMode: WKTextInputMode, completion: @escaping ([Any]?) -> Void)
+  func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [Any]?)?, allowedInputMode inputMode: WKTextInputMode) async -> [Any]?
   func dismissTextInputController()
   @available(watchOS 2.0, *)
   func presentMediaPlayerController(with URL: URL, options: [AnyHashable : Any]? = nil, completion: @escaping (Bool, TimeInterval, Error?) -> Void)
   @available(watchOS 2.0, *)
+  func presentMediaPlayerController(with URL: URL, options: [AnyHashable : Any]? = nil) async throws -> (Bool, TimeInterval)
+  @available(watchOS 2.0, *)
   func dismissMediaPlayerController()
   @available(watchOS 2.0, *)
   func presentAudioRecorderController(withOutputURL URL: URL, preset: WKAudioRecorderPreset, options: [AnyHashable : Any]? = nil, completion: @escaping (Bool, Error?) -> Void)
+  @available(watchOS 2.0, *)
+  func presentAudioRecorderController(withOutputURL URL: URL, preset: WKAudioRecorderPreset, options: [AnyHashable : Any]? = nil) async throws -> Bool
   @available(watchOS 2.0, *)
   func dismissAudioRecorderController()
   func contextForSegue(withIdentifier segueIdentifier: String) -> Any?

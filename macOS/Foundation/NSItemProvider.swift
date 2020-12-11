@@ -77,6 +77,7 @@ class NSItemProvider : NSObject, NSCopying {
   convenience init?(contentsOf fileURL: URL!)
   func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: @escaping NSItemProvider.LoadHandler)
   func loadItem(forTypeIdentifier typeIdentifier: String, options: [AnyHashable : Any]? = nil, completionHandler: NSItemProvider.CompletionHandler? = nil)
+  func loadItem(forTypeIdentifier typeIdentifier: String, options: [AnyHashable : Any]? = nil) async throws -> NSSecureCoding
 }
 
 @available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
@@ -95,6 +96,8 @@ extension NSItemProvider {
   var previewImageHandler: NSItemProvider.LoadHandler?
   @available(macOS 10.10, *)
   func loadPreviewImage(options: [AnyHashable : Any]! = [:], completionHandler: NSItemProvider.CompletionHandler!)
+  @available(macOS 10.10, *)
+  func loadPreviewImage(options: [AnyHashable : Any]! = [:]) async throws -> NSSecureCoding
 }
 @available(macOS 10.10, *)
 let NSExtensionJavaScriptPreprocessingResultsKey: String

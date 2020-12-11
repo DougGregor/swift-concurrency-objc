@@ -8,6 +8,8 @@ protocol PHContentEditingController : NSObjectProtocol {
   @available(iOS 8, *)
   func finishContentEditing(completionHandler: @escaping (PHContentEditingOutput?) -> Void)
   @available(iOS 8, *)
+  func finishContentEditing() async -> PHContentEditingOutput?
+  @available(iOS 8, *)
   func cancelContentEditing()
   @available(iOS 8, *)
   var shouldShowCancelConfirmation: Bool { get }

@@ -8,9 +8,13 @@ class RPScreenRecorder : NSObject {
   func stopRecording(handler: ((RPPreviewViewController?, Error?) -> Void)? = nil)
   @available(tvOS 14.0, *)
   func stopRecording(withOutput url: URL, completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 14.0, *)
+  func stopRecording(withOutput url: URL) async throws
   func discardRecording(handler: @escaping () -> Void)
   @available(tvOS 11.0, *)
   func startCapture(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?, completionHandler: ((Error?) -> Void)? = nil)
+  @available(tvOS 11.0, *)
+  func startCapture(handler captureHandler: ((CMSampleBuffer, RPSampleBufferType, Error?) -> Void)?) async throws
   @available(tvOS 11.0, *)
   func stopCapture(handler: ((Error?) -> Void)? = nil)
   weak var delegate: @sil_weak RPScreenRecorderDelegate?

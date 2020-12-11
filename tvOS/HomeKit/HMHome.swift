@@ -42,6 +42,7 @@ extension HMHome {
 extension HMHome {
   var actionSets: [HMActionSet] { get }
   func executeActionSet(_ actionSet: HMActionSet, completionHandler completion: @escaping (Error?) -> Void)
+  func executeActionSet(_ actionSet: HMActionSet) async throws
   @available(tvOS 9.0, *)
   func builtinActionSet(ofType actionSetType: String) -> HMActionSet?
 }

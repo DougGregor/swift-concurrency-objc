@@ -14,6 +14,8 @@ class EKEventStore : NSObject {
   init(sources: [EKSource])
   @available(macOS 10.9, *)
   func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler)
+  @available(macOS 10.9, *)
+  func requestAccess(to entityType: EKEntityType) async throws -> Bool
   var eventStoreIdentifier: String { get }
   @available(macOS 10.11, *)
   var delegateSources: [EKSource] { get }

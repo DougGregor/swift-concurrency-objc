@@ -37,6 +37,8 @@ class NLTagger : NSObject {
   func gazetteers(for tagScheme: NLTagScheme) -> [NLGazetteer]
   @available(macOS 10.15, *)
   class func requestAssets(for language: NLLanguage, tagScheme: NLTagScheme, completionHandler: @escaping (NLTagger.AssetsResult, Error?) -> Void)
+  @available(macOS 10.15, *)
+  class func requestAssets(for language: NLLanguage, tagScheme: NLTagScheme) async throws -> NLTagger.AssetsResult
 }
 
 @available(macOS 10.14, iOS 12.0, watchOS 5.0, tvOS 12.0, *)

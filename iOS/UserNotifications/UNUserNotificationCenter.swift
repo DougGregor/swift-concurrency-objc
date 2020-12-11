@@ -22,14 +22,20 @@ class UNUserNotificationCenter : NSObject {
   var supportsContentExtensions: Bool { get }
   class func current() -> UNUserNotificationCenter
   func requestAuthorization(options: UNAuthorizationOptions = [], completionHandler: @escaping (Bool, Error?) -> Void)
+  func requestAuthorization(options: UNAuthorizationOptions = []) async throws -> Bool
   func setNotificationCategories(_ categories: Set<UNNotificationCategory>)
   func getNotificationCategories(completionHandler: @escaping (Set<UNNotificationCategory>) -> Void)
+  func notificationCategories() async -> Set<UNNotificationCategory>
   func getNotificationSettings(completionHandler: @escaping (UNNotificationSettings) -> Void)
+  func notificationSettings() async -> UNNotificationSettings
   func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)? = nil)
+  func add(_ request: UNNotificationRequest) async throws
   func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
+  func pendingNotificationRequests() async -> [UNNotificationRequest]
   func removePendingNotificationRequests(withIdentifiers identifiers: [String])
   func removeAllPendingNotificationRequests()
   func getDeliveredNotifications(completionHandler: @escaping ([UNNotification]) -> Void)
+  func deliveredNotifications() async -> [UNNotification]
   func removeDeliveredNotifications(withIdentifiers identifiers: [String])
   func removeAllDeliveredNotifications()
 }
@@ -51,7 +57,11 @@ protocol UNUserNotificationCenterDelegate : NSObjectProtocol {
   @available(iOS 10.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
   @available(iOS 10.0, *)
+  optional func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions
+  @available(iOS 10.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
+  @available(iOS 10.0, *)
+  optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async
   @available(iOS 12.0, *)
   optional func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?)
 }

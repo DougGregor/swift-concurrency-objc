@@ -866,7 +866,7 @@ extension Commands {
 @available(iOS 14.0, macOS 11.0, *)
 @available(tvOS, unavailable)
 @available(watchOS, unavailable)
-@_functionBuilder struct CommandsBuilder {
+@resultBuilder struct CommandsBuilder {
   @_alwaysEmitIntoClient static func buildBlock() -> EmptyCommands
   @_alwaysEmitIntoClient static func buildBlock<Content>(_ content: Content) -> Content where Content : Commands
 }
@@ -3779,7 +3779,7 @@ extension Scene {
 }
 
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-@_functionBuilder struct SceneBuilder {
+@resultBuilder struct SceneBuilder {
   static func buildBlock<Content>(_ content: Content) -> Content where Content : Scene
 }
 
@@ -4494,7 +4494,7 @@ extension ToolbarContent {
 }
 
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-@_functionBuilder struct ToolbarContentBuilder {
+@resultBuilder struct ToolbarContentBuilder {
   static func buildBlock<Content>(_ content: Content) -> some ToolbarContent where Content : ToolbarContent
   
   static func buildBlock<Content>(_ content: Content) -> some CustomizableToolbarContent where Content : CustomizableToolbarContent
@@ -6202,7 +6202,7 @@ extension View {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@_functionBuilder struct ViewBuilder {
+@resultBuilder struct ViewBuilder {
   @_alwaysEmitIntoClient static func buildBlock() -> EmptyView
   @_alwaysEmitIntoClient static func buildBlock<Content>(_ content: Content) -> Content where Content : View
 }
@@ -6361,7 +6361,7 @@ protocol WidgetBundle {
 @available(iOS 14.0, macOS 11.0, *)
 @available(tvOS, unavailable)
 @available(watchOS, unavailable)
-@_functionBuilder struct WidgetBundleBuilder {
+@resultBuilder struct WidgetBundleBuilder {
   static func buildBlock() -> some Widget
   
   static func buildBlock<Content>(_ content: Content) -> some Widget where Content : Widget

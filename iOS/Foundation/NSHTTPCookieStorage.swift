@@ -29,6 +29,8 @@ extension HTTPCookieStorage {
   func storeCookies(_ cookies: [HTTPCookie], for task: URLSessionTask)
   @available(iOS 8.0, *)
   func getCookiesFor(_ task: URLSessionTask, completionHandler: @escaping ([HTTPCookie]?) -> Void)
+  @available(iOS 8.0, *)
+  func cookies(for task: URLSessionTask) async -> [HTTPCookie]?
 }
 extension NSNotification.Name {
   @available(iOS 2.0, *)

@@ -16,5 +16,7 @@ protocol PKPushRegistryDelegate : NSObjectProtocol {
   @available(macOS 10.15, *)
   optional func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void)
   @available(macOS 10.15, *)
+  optional func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType) async
+  @available(macOS 10.15, *)
   optional func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType)
 }

@@ -26,6 +26,7 @@ class NSUserActivity : NSObject {
   func resignCurrent()
   func invalidate()
   func getContinuationStreams(completionHandler: @escaping (InputStream?, OutputStream?, Error?) -> Void)
+  func continuationStreams() async throws -> (InputStream, OutputStream)
   @available(watchOS 3.0, *)
   var isEligibleForHandoff: Bool
   @available(watchOS 3.0, *)
@@ -39,7 +40,11 @@ class NSUserActivity : NSObject {
   @available(watchOS 5.0, *)
   class func deleteSavedUserActivities(withPersistentIdentifiers persistentIdentifiers: [NSUserActivityPersistentIdentifier], completionHandler handler: @escaping () -> Void)
   @available(watchOS 5.0, *)
+  class func deleteSavedUserActivities(withPersistentIdentifiers persistentIdentifiers: [NSUserActivityPersistentIdentifier]) async
+  @available(watchOS 5.0, *)
   class func deleteAllSavedUserActivities(completionHandler handler: @escaping () -> Void)
+  @available(watchOS 5.0, *)
+  class func deleteAllSavedUserActivities() async
 }
 let NSUserActivityTypeBrowsingWeb: String
 @available(watchOS 3.0, *)

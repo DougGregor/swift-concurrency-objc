@@ -25,11 +25,18 @@ class SKCloudServiceController : NSObject {
   class func requestAuthorization(_ handler: @escaping (SKCloudServiceAuthorizationStatus) -> Void)
   @available(macOS 11.0, *)
   func requestCapabilities(completionHandler: @escaping (SKCloudServiceCapability, Error?) -> Void)
+  @available(macOS 11.0, *)
+  func requestCapabilities() async throws -> SKCloudServiceCapability
   func requestStorefrontCountryCode(completionHandler: @escaping (String?, Error?) -> Void)
+  func requestStorefrontCountryCode() async throws -> String
   @available(macOS 11.0, *)
   func requestStorefrontIdentifier(completionHandler: @escaping (String?, Error?) -> Void)
   @available(macOS 11.0, *)
+  func requestStorefrontIdentifier() async throws -> String
+  @available(macOS 11.0, *)
   func requestUserToken(forDeveloperToken developerToken: String, completionHandler: @escaping (String?, Error?) -> Void)
+  @available(macOS 11.0, *)
+  func requestUserToken(forDeveloperToken developerToken: String) async throws -> String
 }
 extension NSNotification.Name {
   @available(macOS 11.0, *)

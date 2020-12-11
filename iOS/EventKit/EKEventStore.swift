@@ -12,6 +12,8 @@ class EKEventStore : NSObject {
   class func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus
   @available(iOS 6.0, *)
   func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler)
+  @available(iOS 6.0, *)
+  func requestAccess(to entityType: EKEntityType) async throws -> Bool
   var eventStoreIdentifier: String { get }
   @available(iOS 12.0, *)
   var delegateSources: [EKSource] { get }

@@ -8,6 +8,9 @@ class INSearchForMediaIntent : INIntent {
 @available(tvOS 14.0, *)
 protocol INSearchForMediaIntentHandling : NSObjectProtocol {
   func handle(intent: INSearchForMediaIntent, completion: @escaping (INSearchForMediaIntentResponse) -> Void)
+  func handle(intent: INSearchForMediaIntent) async -> INSearchForMediaIntentResponse
   optional func confirm(intent: INSearchForMediaIntent, completion: @escaping (INSearchForMediaIntentResponse) -> Void)
+  optional func confirm(intent: INSearchForMediaIntent) async -> INSearchForMediaIntentResponse
   optional func resolveMediaItems(for intent: INSearchForMediaIntent, with completion: @escaping ([INSearchForMediaMediaItemResolutionResult]) -> Void)
+  optional func resolveMediaItems(for intent: INSearchForMediaIntent) async -> [INSearchForMediaMediaItemResolutionResult]
 }

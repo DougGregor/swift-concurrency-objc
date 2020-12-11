@@ -46,5 +46,7 @@ extension URLCache {
   @available(macOS 10.10, *)
   func getCachedResponse(for dataTask: URLSessionDataTask, completionHandler: @escaping (CachedURLResponse?) -> Void)
   @available(macOS 10.10, *)
+  func cachedResponse(for dataTask: URLSessionDataTask) async -> CachedURLResponse?
+  @available(macOS 10.10, *)
   func removeCachedResponse(for dataTask: URLSessionDataTask)
 }

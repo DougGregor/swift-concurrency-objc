@@ -27,8 +27,11 @@ class VZVirtualMachine : NSObject {
   var memoryBalloonDevices: [VZMemoryBalloonDevice] { get }
   var socketDevices: [VZSocketDevice] { get }
   func __start(completionHandler: @escaping (Error?) -> Void)
+  func __start() async throws
   func __pause(completionHandler: @escaping (Error?) -> Void)
+  func __pause() async throws
   func __resume(completionHandler: @escaping (Error?) -> Void)
+  func __resume() async throws
   func requestStop() throws
 }
 

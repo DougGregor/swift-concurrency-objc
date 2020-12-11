@@ -11,6 +11,7 @@ extension AVSampleBufferAudioRenderer {
 }
 extension AVSampleBufferAudioRenderer {
   func flush(fromSourceTime time: CMTime, completionHandler: @escaping (Bool) -> Void)
+  func flush(fromSourceTime time: CMTime) async -> Bool
 }
 extension NSNotification.Name {
   @available(watchOS 4.0, *)

@@ -28,6 +28,7 @@ class CXProvider : NSObject {
   init(configuration: CXProviderConfiguration)
   func setDelegate(_ delegate: CXProviderDelegate?, queue: DispatchQueue?)
   func reportNewIncomingCall(with UUID: UUID, update: CXCallUpdate, completion: @escaping (Error?) -> Void)
+  func reportNewIncomingCall(with UUID: UUID, update: CXCallUpdate) async throws
   func reportCall(with UUID: UUID, updated update: CXCallUpdate)
   func reportCall(with UUID: UUID, endedAt dateEnded: Date?, reason endedReason: CXCallEndedReason)
   func reportOutgoingCall(with UUID: UUID, startedConnectingAt dateStartedConnecting: Date?)

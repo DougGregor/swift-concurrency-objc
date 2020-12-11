@@ -2,6 +2,7 @@
 @available(watchOS 3.0, *)
 class GKPlayer : GKBasePlayer {
   class func loadPlayers(forIdentifiers identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, Error?) -> Void)? = nil)
+  class func loadPlayers(forIdentifiers identifiers: [String]) async throws -> [GKPlayer]
   var alias: String { get }
 }
 extension NSNotification.Name {

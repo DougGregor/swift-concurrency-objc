@@ -105,6 +105,8 @@ class NSPersistentStoreCoordinator : NSObject, NSLocking {
   func addPersistentStore(ofType storeType: String, configurationName configuration: String?, at storeURL: URL?, options: [AnyHashable : Any]? = nil) throws -> NSPersistentStore
   @available(macOS 10.12, *)
   func addPersistentStore(with storeDescription: NSPersistentStoreDescription, completionHandler block: @escaping (NSPersistentStoreDescription, Error?) -> Void)
+  @available(macOS 10.12, *)
+  func addPersistentStore(with storeDescription: NSPersistentStoreDescription) async throws -> NSPersistentStoreDescription
   func remove(_ store: NSPersistentStore) throws
   func setMetadata(_ metadata: [String : Any]?, for store: NSPersistentStore)
   func metadata(for store: NSPersistentStore) -> [String : Any]

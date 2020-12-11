@@ -43,5 +43,7 @@ class TVViewElement : NSObject, NSCopying {
   @available(tvOS 9.0, *)
   func resetProperty(_ resettableProperty: TVElementResettableProperty)
   func dispatchEvent(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : Any]?, completion: ((Bool, Bool) -> Void)? = nil)
+  func dispatchEvent(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : Any]?) async -> (Bool, Bool)
   func dispatchEvent(name eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : Any]?, completion: ((Bool, Bool) -> Void)? = nil)
+  func dispatchEvent(name eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : Any]?) async -> (Bool, Bool)
 }

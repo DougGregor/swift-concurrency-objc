@@ -12,6 +12,9 @@ class HMCharacteristic : NSObject {
   @available(tvOS 9.0, *)
   var uniqueIdentifier: UUID { get }
   func writeValue(_ value: Any?, completionHandler completion: @escaping (Error?) -> Void)
+  func writeValue(_ value: Any?) async throws
   func readValue(completionHandler completion: @escaping (Error?) -> Void)
+  func readValue() async throws
   func enableNotification(_ enable: Bool, completionHandler completion: @escaping (Error?) -> Void)
+  func enableNotification(_ enable: Bool) async throws
 }

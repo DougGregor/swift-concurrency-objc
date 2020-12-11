@@ -6,13 +6,18 @@ class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
   var identifier: String?
   @available(iOS 7.0, *)
   class func loadLeaderboardSets(completionHandler: (([GKLeaderboardSet]?, Error?) -> Void)? = nil)
+  @available(iOS 7.0, *)
+  class func loadLeaderboardSets() async throws -> [GKLeaderboardSet]
   @available(iOS 14.0, *)
   func loadLeaderboards(handler: @escaping ([GKLeaderboard]?, Error?) -> Void)
 }
 extension GKLeaderboardSet {
   @available(iOS, introduced: 7.0, deprecated: 14.0, message: "Use loadLeaderboardsWithHandler: instead.")
   func loadLeaderboards(completionHandler: (([GKLeaderboard]?, Error?) -> Void)? = nil)
+  @available(iOS, introduced: 7.0, deprecated: 14.0, message: "Use loadLeaderboardsWithHandler: instead.")
+  func loadLeaderboards() async throws -> [GKLeaderboard]
 }
 extension GKLeaderboardSet {
   func loadImage(completionHandler: ((UIImage?, Error?) -> Void)? = nil)
+  func loadImage() async throws -> UIImage
 }

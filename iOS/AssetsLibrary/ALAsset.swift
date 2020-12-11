@@ -37,8 +37,12 @@ class ALAsset : NSObject {
   func aspectRatioThumbnail() -> Unmanaged<CGImage>!
   @available(iOS, introduced: 5, deprecated: 9, message: "Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeModifiedImageData(toSavedPhotosAlbum imageData: Data!, metadata: [AnyHashable : Any]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  @available(iOS, introduced: 5, deprecated: 9, message: "Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
+  func writeModifiedImageData(toSavedPhotosAlbum imageData: Data!, metadata: [AnyHashable : Any]!) async throws -> URL?
   @available(iOS, introduced: 5, deprecated: 9, message: "Use creationRequestForAssetFromVideoAtFileURL: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
   func writeModifiedVideoAtPath(toSavedPhotosAlbum videoPathURL: URL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
+  @available(iOS, introduced: 5, deprecated: 9, message: "Use creationRequestForAssetFromVideoAtFileURL: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
+  func writeModifiedVideoAtPath(toSavedPhotosAlbum videoPathURL: URL!) async throws -> URL?
   @available(iOS, introduced: 5, deprecated: 9, message: "Use the PHImageRequestOptionsVersionOriginal or PHImageRequestOptionsVersionUnadjusted option in PHImageRequestOptions with the PHImageManager from the Photos framework instead")
   var original: ALAsset! { get }
   @available(iOS, introduced: 5, deprecated: 9, message: "Use canPerformEditOperation: on a PHAsset from the Photos framework instead")
@@ -46,5 +50,9 @@ class ALAsset : NSObject {
   @available(iOS, introduced: 5, deprecated: 9, message: "Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
   func setImageData(_ imageData: Data!, metadata: [AnyHashable : Any]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
   @available(iOS, introduced: 5, deprecated: 9, message: "Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
+  func setImageData(_ imageData: Data!, metadata: [AnyHashable : Any]!) async throws -> URL?
+  @available(iOS, introduced: 5, deprecated: 9, message: "Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
   func setVideoAtPath(_ videoPathURL: URL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
+  @available(iOS, introduced: 5, deprecated: 9, message: "Use contentEditingOutput on a PHAssetChangeRequest from the Photos framework instead")
+  func setVideoAtPath(_ videoPathURL: URL!) async throws -> URL?
 }

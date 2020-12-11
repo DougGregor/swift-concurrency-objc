@@ -34,6 +34,8 @@ class FileManager : NSObject {
   func mountedVolumeURLs(includingResourceValuesForKeys propertyKeys: [URLResourceKey]?, options: FileManager.VolumeEnumerationOptions = []) -> [URL]?
   @available(macOS 10.11, *)
   func unmountVolume(at url: URL, options mask: FileManager.UnmountOptions = [], completionHandler: @escaping (Error?) -> Void)
+  @available(macOS 10.11, *)
+  func unmountVolume(at url: URL, options mask: FileManager.UnmountOptions = []) async throws
   @available(macOS 10.6, *)
   func contentsOfDirectory(at url: URL, includingPropertiesForKeys keys: [URLResourceKey]?, options mask: FileManager.DirectoryEnumerationOptions = []) throws -> [URL]
   @available(macOS 10.6, *)
@@ -121,6 +123,8 @@ class FileManager : NSObject {
   @NSCopying var ubiquityIdentityToken: (NSCoding & NSCopying & NSObjectProtocol)? { get }
   @available(macOS 10.13, *)
   func getFileProviderServicesForItem(at url: URL, completionHandler: @escaping ([NSFileProviderServiceName : NSFileProviderService]?, Error?) -> Void)
+  @available(macOS 10.13, *)
+  func fileProviderServicesForItem(at url: URL) async throws -> [NSFileProviderServiceName : NSFileProviderService]
   @available(macOS 10.8, *)
   func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL?
 }
@@ -227,6 +231,7 @@ extension FileManager {
 @available(macOS 10.13, *)
 class NSFileProviderService : NSObject {
   func getFileProviderConnection(completionHandler: @escaping (NSXPCConnection?, Error?) -> Void)
+  func fileProviderConnection() async throws -> NSXPCConnection
   var name: NSFileProviderServiceName { get }
 }
 extension FileAttributeKey {

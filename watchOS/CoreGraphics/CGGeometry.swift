@@ -27,9 +27,6 @@ extension CGPoint : Equatable {
 
 extension CGPoint : Codable {
 }
-
-extension CGPoint : _ObjectiveCBridgeable {
-}
 struct CGSize {
   var width: CGFloat
   var height: CGFloat
@@ -58,9 +55,6 @@ extension CGSize : Equatable {
 
 extension CGSize : Codable {
 }
-
-extension CGSize : _ObjectiveCBridgeable {
-}
 struct CGVector {
   var dx: CGFloat
   var dy: CGFloat
@@ -81,9 +75,6 @@ extension CGVector : CustomDebugStringConvertible {
 }
 
 extension CGVector : Codable {
-}
-
-extension CGVector : _ObjectiveCBridgeable {
 }
 struct CGRect {
   var origin: CGPoint
@@ -114,9 +105,6 @@ extension CGRect : Equatable {
 }
 
 extension CGRect : Codable {
-}
-
-extension CGRect : _ObjectiveCBridgeable {
 }
 @frozen enum CGRectEdge : UInt32 {
   init?(rawValue: UInt32)

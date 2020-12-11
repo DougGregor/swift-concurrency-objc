@@ -25,6 +25,7 @@ class HMAccessory : NSObject {
   @available(watchOS 4.3, *)
   var supportsIdentify: Bool { get }
   func identify(completionHandler completion: @escaping (Error?) -> Void)
+  func identify() async throws
 }
 @available(watchOS 2.0, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {

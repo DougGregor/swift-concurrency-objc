@@ -10,6 +10,7 @@ protocol SFSafariExtensionHandling : NSObjectProtocol {
   optional func popoverDidClose(in window: SFSafariWindow)
   optional func popoverViewController() -> SFSafariExtensionViewController
   optional func additionalRequestHeaders(for url: URL, completionHandler: @escaping ([String : String]?) -> Void)
+  optional func additionalRequestHeaders(for url: URL) async -> [String : String]?
   optional func contentBlocker(withIdentifier contentBlockerIdentifier: String, blockedResourcesWith urls: [URL], on page: SFSafariPage)
   optional func page(_ page: SFSafariPage, willNavigateTo url: URL?)
 }

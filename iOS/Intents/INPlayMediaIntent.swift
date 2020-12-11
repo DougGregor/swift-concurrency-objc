@@ -33,17 +33,31 @@ extension INPlayMediaIntent {
 @available(iOS 12.0, *)
 protocol INPlayMediaIntentHandling : NSObjectProtocol {
   func handle(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  func handle(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   optional func confirm(intent: INPlayMediaIntent, completion: @escaping (INPlayMediaIntentResponse) -> Void)
+  optional func confirm(intent: INPlayMediaIntent) async -> INPlayMediaIntentResponse
   @available(iOS 13.0, *)
   optional func resolveMediaItems(for intent: INPlayMediaIntent, with completion: @escaping ([INPlayMediaMediaItemResolutionResult]) -> Void)
   @available(iOS 13.0, *)
+  optional func resolveMediaItems(for intent: INPlayMediaIntent) async -> [INPlayMediaMediaItemResolutionResult]
+  @available(iOS 13.0, *)
   optional func resolvePlayShuffled(for intent: INPlayMediaIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  @available(iOS 13.0, *)
+  optional func resolvePlayShuffled(for intent: INPlayMediaIntent) async -> INBooleanResolutionResult
   @available(iOS 13.0, *)
   optional func resolvePlaybackRepeatMode(for intent: INPlayMediaIntent, with completion: @escaping (INPlaybackRepeatModeResolutionResult) -> Void)
   @available(iOS 13.0, *)
+  optional func resolvePlaybackRepeatMode(for intent: INPlayMediaIntent) async -> INPlaybackRepeatModeResolutionResult
+  @available(iOS 13.0, *)
   optional func resolveResumePlayback(for intent: INPlayMediaIntent, with completion: @escaping (INBooleanResolutionResult) -> Void)
+  @available(iOS 13.0, *)
+  optional func resolveResumePlayback(for intent: INPlayMediaIntent) async -> INBooleanResolutionResult
   @available(iOS 13.0, *)
   optional func resolvePlaybackQueueLocation(for intent: INPlayMediaIntent, with completion: @escaping (INPlaybackQueueLocationResolutionResult) -> Void)
   @available(iOS 13.0, *)
+  optional func resolvePlaybackQueueLocation(for intent: INPlayMediaIntent) async -> INPlaybackQueueLocationResolutionResult
+  @available(iOS 13.0, *)
   optional func resolvePlaybackSpeed(for intent: INPlayMediaIntent, with completion: @escaping (INPlayMediaPlaybackSpeedResolutionResult) -> Void)
+  @available(iOS 13.0, *)
+  optional func resolvePlaybackSpeed(for intent: INPlayMediaIntent) async -> INPlayMediaPlaybackSpeedResolutionResult
 }

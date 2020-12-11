@@ -134,6 +134,7 @@ class TVPlayer : NSObject {
   var nextMediaItem: TVMediaItem? { get }
   var previousMediaItem: TVMediaItem? { get }
   func dispatch(event: TVPlaybackEvent, userInfo: TVPlaybackEventMarshaling?, completion: ((Bool) -> Void)? = nil)
+  func dispatch(event: TVPlaybackEvent, userInfo: TVPlaybackEventMarshaling?) async -> Bool
   func pause()
   func next()
   func previous()

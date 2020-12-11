@@ -37,6 +37,7 @@ protocol NSFileProviderEnumerator : NSObjectProtocol {
   func enumerateItems(for observer: NSFileProviderEnumerationObserver, startingAt page: NSFileProviderPage)
   optional func enumerateChanges(for observer: NSFileProviderChangeObserver, from syncAnchor: NSFileProviderSyncAnchor)
   optional func currentSyncAnchor(completionHandler: @escaping (NSFileProviderSyncAnchor?) -> Void)
+  optional func currentSyncAnchor() async -> NSFileProviderSyncAnchor?
 }
 extension NSFileProviderExtension {
   func enumerator(for containerItemIdentifier: NSFileProviderItemIdentifier) throws -> NSFileProviderEnumerator

@@ -65,6 +65,8 @@ extension NSViewController {
   func present(_ viewController: NSViewController, asPopoverRelativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge, behavior: NSPopover.Behavior)
   @available(macOS 10.10, *)
   func transition(from fromViewController: NSViewController, to toViewController: NSViewController, options: NSViewController.TransitionOptions = [], completionHandler completion: (() -> Void)? = nil)
+  @available(macOS 10.10, *)
+  func transition(from fromViewController: NSViewController, to toViewController: NSViewController, options: NSViewController.TransitionOptions = []) async
 }
 extension NSViewController {
   @available(macOS 10.10, *)

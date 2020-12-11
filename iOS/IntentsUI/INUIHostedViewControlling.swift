@@ -18,8 +18,11 @@ enum INUIInteractiveBehavior : UInt {
 @available(iOS 10.0, *)
 protocol INUIHostedViewControlling : NSObjectProtocol {
   optional func configure(with interaction: INInteraction, context: INUIHostedViewContext, completion: @escaping (CGSize) -> Void)
+  optional func configure(with interaction: INInteraction, context: INUIHostedViewContext) async -> CGSize
   @available(iOS 11.0, *)
   optional func configureView(for parameters: Set<INParameter>, of interaction: INInteraction, interactiveBehavior: INUIInteractiveBehavior, context: INUIHostedViewContext, completion: @escaping (Bool, Set<INParameter>, CGSize) -> Void)
+  @available(iOS 11.0, *)
+  optional func configureView(for parameters: Set<INParameter>, of interaction: INInteraction, interactiveBehavior: INUIInteractiveBehavior, context: INUIHostedViewContext) async -> (Bool, Set<INParameter>, CGSize)
 }
 extension NSExtensionContext {
   @available(iOS 10.0, *)
